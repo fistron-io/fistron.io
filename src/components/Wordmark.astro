@@ -1,0 +1,43 @@
+---
+/** The Fistron wordmark: the name with a small filled checkbox where a ® would sit. */
+interface Props {
+  tone?: "light" | "dark";
+  size?: number;
+}
+const { tone = "light", size = 26 } = Astro.props;
+---
+
+<span class:list={["wordmark", tone]} style={`font-size: ${size}px`}>
+  Fistron<svg viewBox="0 0 12 12" aria-hidden="true">
+    <rect x="0.5" y="0.5" width="11" height="11" rx="2.6" fill="var(--color-leaf)"></rect>
+    <path
+      d="M3.2 6.2 L5.2 8.2 L8.9 4.1"
+      fill="none"
+      stroke="#ffffff"
+      stroke-width="1.9"
+      stroke-linecap="round"
+      stroke-linejoin="round"></path>
+  </svg>
+</span>
+
+<style>
+  .wordmark {
+    display: inline-flex;
+    align-items: flex-start;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    line-height: 1;
+  }
+  .light {
+    color: var(--color-indigo);
+  }
+  .dark {
+    color: var(--color-white);
+  }
+  svg {
+    width: 0.34em;
+    height: 0.34em;
+    margin-left: 0.08em;
+    margin-top: 0.04em;
+  }
+</style>

@@ -1,0 +1,75 @@
+---
+import { section, list } from "../lib/content";
+import Section from "../components/Section.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+
+const copy = await section("how");
+const steps = await list("steps");
+---
+
+<Section id="how" tone="mist" contours={{ cx: 240 }} labelledby="how-title">
+  <SectionHeading id="how-title" title={copy.title} intro={copy.intro} />
+  <ol class="steps">
+    {
+      steps.map((step, i) => (
+        <li class:list={{ last: i === steps.length - 1 }}>
+          <span class="num">Step {i + 1}</span>
+          <h3>{step.title}</h3>
+          <p>{step.text}</p>
+        </li>
+      ))
+    }
+  </ol>
+  {copy.note && <p class="note">{copy.note}</p>}
+</Section>
+
+<style>
+  .steps {
+    list-style: none;
+    padding: 0;
+    margin-top: 56px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 16px;
+  }
+  li {
+    background: var(--color-white);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-card);
+    padding: 24px;
+  }
+  .num {
+    font-size: 0.875rem;
+    color: var(--color-muted);
+  }
+  h3 {
+    margin-top: 6px;
+    font-size: 1.1875rem;
+    font-weight: 500;
+    color: var(--color-indigo);
+  }
+  p {
+    margin-top: 8px;
+    font-size: 0.9375rem;
+    color: var(--color-muted);
+  }
+  .last {
+    background: var(--color-indigo);
+    border-color: var(--color-indigo);
+  }
+  .last .num {
+    color: #c3cae0;
+  }
+  .last h3 {
+    color: var(--color-white);
+  }
+  .last p {
+    color: var(--color-on-dark);
+  }
+  .note {
+    margin-top: 28px;
+    font-size: 0.9375rem;
+    color: var(--color-muted);
+    max-width: 46em;
+  }
+</style>

@@ -1,0 +1,52 @@
+---
+/** Section title (h2) with an optional lead paragraph and a slot on the right (e.g. a status badge). */
+interface Props {
+  id: string;
+  title: string;
+  intro?: string;
+  tone?: "light" | "dark";
+}
+const { id, title, intro, tone = "light" } = Astro.props;
+const hasAside = Astro.slots.has("default");
+---
+
+<div class:list={["heading", tone]}>
+  <div class="row">
+    <h2 id={id}>{title}</h2>
+    {
+      hasAside && (
+        <div class="aside">
+          <slot />
+        </div>
+      )
+    }
+  </div>
+  {intro && <p class="lead">{intro}</p>}
+</div>
+
+<style>
+  .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 16px 24px;
+    flex-wrap: wrap;
+  }
+  h2 {
+    font-size: var(--text-h2);
+    line-height: 1.15;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--color-indigo);
+    max-width: 20em;
+  }
+  .dark h2 {
+    color: var(--color-white);
+  }
+  .lead {
+    margin-top: 20px;
+  }
+  .dark .lead {
+    color: var(--color-on-dark);
+  }
+</style>

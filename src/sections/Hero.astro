@@ -1,0 +1,178 @@
+---
+import { getEntry } from "astro:content";
+import { section } from "../lib/content";
+import Section from "../components/Section.astro";
+import CheckIcon from "../components/CheckIcon.astro";
+
+const copy = await section("hero");
+const panel = (await getEntry("objective", "hero"))!.data;
+---
+
+<Section id="top" tone="mist" contours={{ cx: 410, cy: 250 }} labelledby="hero-title">
+  <div class="hero">
+    <div class="text">
+      <h1 id="hero-title">{copy.title}</h1>
+      <p class="intro">{copy.intro}</p>
+      <div class="ctas">
+        <a href="#demo" class="btn btn-primary">{copy.primaryCta}</a>
+        <a href="#how" class="btn btn-secondary">{copy.secondaryCta}</a>
+      </div>
+    </div>
+
+    <figure class="example">
+      <div class="panel">
+        <div class="objective">
+          <p class="context">{panel.context}</p>
+          <p class="goal">{panel.objective}</p>
+        </div>
+        <ul class="requirements">
+          {
+            panel.requirements.map((req) => (
+              <li>
+                <CheckIcon filled={req.supported} size={20} class="state" />
+                <div class="req">
+                  <p class="req-title">{req.title}</p>
+                  <p class="req-detail">{req.detail}</p>
+                </div>
+                <span class="tool">{req.tool}</span>
+              </li>
+            ))
+          }
+        </ul>
+        <div class="summary">
+          <span>{panel.summary}</span>
+          <span class="state-pill">{panel.state}</span>
+        </div>
+      </div>
+      <figcaption>
+        <CheckIcon filled={false} size={14} />
+        {copy.caption}
+      </figcaption>
+    </figure>
+  </div>
+</Section>
+
+<style>
+  .hero {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 56px;
+    align-items: center;
+    padding-bottom: 8px;
+  }
+  .text {
+    flex: 1 1 480px;
+    min-width: 0;
+  }
+  h1 {
+    font-size: var(--text-h1);
+    line-height: 1.04;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    color: var(--color-indigo);
+  }
+  .intro {
+    margin-top: 28px;
+    font-size: 1.3125rem;
+    line-height: 1.55;
+    color: var(--color-ink-2);
+    max-width: 34em;
+  }
+  .ctas {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+  }
+  .example {
+    flex: 1 1 460px;
+    min-width: 0;
+    margin: 0;
+  }
+  .panel {
+    background: var(--color-white);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-panel);
+    overflow: hidden;
+  }
+  .objective {
+    padding: 22px 26px 18px;
+    border-bottom: 1px solid var(--color-line-soft);
+  }
+  .context {
+    font-size: 0.8125rem;
+    color: var(--color-muted);
+  }
+  .goal {
+    margin-top: 6px;
+    font-size: 1.1875rem;
+    font-weight: 500;
+    line-height: 1.4;
+  }
+  .requirements {
+    list-style: none;
+    padding: 8px 26px;
+  }
+  .requirements li {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--color-line-faint);
+  }
+  .requirements li:last-child {
+    border-bottom: 0;
+  }
+  .requirements :global(.state) {
+    flex: none;
+    margin-top: 2px;
+  }
+  .req {
+    flex: 1;
+    min-width: 0;
+  }
+  .req-title {
+    font-size: 0.9375rem;
+    font-weight: 500;
+  }
+  .req-detail {
+    font-size: 0.875rem;
+    color: var(--color-muted);
+  }
+  .tool {
+    flex: none;
+    font-size: 0.75rem;
+    color: var(--color-ink-2);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-sm);
+    padding: 2px 8px;
+  }
+  .summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    padding: 16px 26px;
+    background: var(--color-paper);
+    border-top: 1px solid var(--color-line-soft);
+    font-size: 0.875rem;
+    color: var(--color-ink-2);
+  }
+  .state-pill {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--color-indigo);
+    background: var(--color-indigo-tint);
+    border-radius: var(--radius-sm);
+    padding: 3px 10px;
+  }
+  figcaption {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 12px;
+    font-size: 0.8125rem;
+    color: var(--color-muted);
+  }
+</style>

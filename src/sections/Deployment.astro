@@ -1,0 +1,65 @@
+---
+import { section, list } from "../lib/content";
+import Section from "../components/Section.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import CheckIcon from "../components/CheckIcon.astro";
+
+const copy = await section("deployment");
+const options = await list("deployment");
+---
+
+<Section id="deployment" tone="mist" contours={{ cx: 240 }} labelledby="deployment-title">
+  <SectionHeading id="deployment-title" title={copy.title} intro={copy.intro} />
+  <div class="grid">
+    {
+      options.map((o) => (
+        <div class="card">
+          <h3>{o.title}</h3>
+          <p>{o.text}</p>
+        </div>
+      ))
+    }
+  </div>
+  <p class="status">
+    <span><CheckIcon size={14} />{copy.note}</span>
+    <span><CheckIcon filled={false} size={14} />{copy.caption}</span>
+  </p>
+</Section>
+
+<style>
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 16px;
+    margin-top: 48px;
+  }
+  .card {
+    background: var(--color-white);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-card);
+    padding: 26px;
+  }
+  h3 {
+    font-size: 1.1875rem;
+    font-weight: 500;
+    color: var(--color-indigo);
+  }
+  .card p {
+    margin-top: 8px;
+    font-size: 0.9375rem;
+    color: var(--color-muted);
+  }
+  .status {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 24px;
+    margin-top: 20px;
+    font-size: 0.875rem;
+    color: var(--color-muted);
+  }
+  .status span {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+</style>

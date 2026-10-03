@@ -1,0 +1,21 @@
+$ fistron analyze ci-failure/ --acquire
+
+Evidence
+  [ci_log] last command before failure:
+           curl -sf "https://portal.staging.example.test/health"
+  [command_output] SSL certificate problem: certificate has expired
+      <- collected 2026-09-29T10:15Z from engineer workstation
+
+Assessment
+  Status:          concluded
+  Classification:  infrastructure
+  Confidence:      70%
+  Supporting:      certificate expired 2026-09-28T23:59Z, before
+                   the failed run started
+                   [http-probe#1-1.0, console.log#1]
+  Missing:         application logs, metrics, traces
+  Recommended:     inspect the infrastructure behind the failing
+                   command before investigating the code
+
+Reconciliation
+  round 1: output of the failing command  acquired

@@ -1,0 +1,111 @@
+---
+import { section, list } from "../lib/content";
+import Section from "../components/Section.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import StatusBadge from "../components/StatusBadge.astro";
+
+const copy = await section("questions");
+const questions = await list("questions");
+const audiences = await list("audiences");
+---
+
+<Section id="use-cases" labelledby="use-cases-title">
+  <SectionHeading id="use-cases-title" title={copy.title}>
+    <div class="legend">
+      <StatusBadge status="available" />
+      <StatusBadge status="in-development" />
+    </div>
+  </SectionHeading>
+
+  <ul class="questions">
+    {
+      questions.map((q) => (
+        <li>
+          <h3>{q.question}</h3>
+          <p>{q.answer}</p>
+          <div class="status">
+            <StatusBadge status={q.status} />
+          </div>
+        </li>
+      ))
+    }
+  </ul>
+
+  <div class="audiences">
+    {
+      audiences.map((a) => (
+        <div class="audience">
+          <h3>{a.title}</h3>
+          <p class="text">{a.text}</p>
+          <p class="example">{a.example}</p>
+        </div>
+      ))
+    }
+  </div>
+</Section>
+
+<style>
+  .legend {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .questions {
+    list-style: none;
+    padding: 0;
+    margin-top: 48px;
+    border-top: 1px solid var(--color-line);
+  }
+  .questions li {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 32px;
+    padding: 22px 0;
+    border-bottom: 1px solid var(--color-line);
+  }
+  .questions h3 {
+    flex: 1 1 340px;
+    font-size: 1.1875rem;
+    font-weight: 500;
+  }
+  .questions p {
+    flex: 2 1 420px;
+    color: var(--color-muted);
+  }
+  .status {
+    flex: 0 0 150px;
+  }
+  .audiences {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+    margin-top: 72px;
+  }
+  .audience {
+    background: var(--color-paper);
+    border-radius: var(--radius-panel);
+    padding: 36px;
+  }
+  .audience h3 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--color-indigo);
+  }
+  .audience .text {
+    margin-top: 12px;
+    color: var(--color-ink-2);
+  }
+  .audience .example {
+    margin-top: 20px;
+    font-size: 0.9375rem;
+    color: var(--color-muted);
+  }
+  @media (max-width: 640px) {
+    .audiences {
+      grid-template-columns: 1fr;
+    }
+    .audience {
+      padding: 28px 24px;
+    }
+  }
+</style>

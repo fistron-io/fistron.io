@@ -1,0 +1,12 @@
+- id: provenance
+  title: "Evidence with provenance"
+  text: "Each item records its source, location, collection time and vantage point. Claims without cited evidence are rejected."
+- id: abstain
+  title: "Insufficient evidence is an answer"
+  text: "When the facts don't support a conclusion, Fistron abstains and names what's missing instead of guessing."
+- id: read-only
+  title: "Read-only by default"
+  text: "Acquisition goes through an allowlisted gateway with narrow capabilities. Nothing runs that you didn't permit."
+- id: models
+  title: "Your model, or none"
+  text: "Use any OpenAI-compatible endpoint or a local model, combine several for consensus, or run deterministic rules only."

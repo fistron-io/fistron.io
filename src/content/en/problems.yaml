@@ -1,0 +1,9 @@
+- id: passed-not-proven
+  title: "Passed is not proven"
+  text: "A green pipeline doesn't tell you whether the tests check the behaviour that changed."
+- id: scattered
+  title: "Evidence is scattered"
+  text: "Results, logs, tickets and telemetry live in different systems owned by different teams."
+- id: manual
+  title: "Coordination is manual"
+  text: "Someone decides what to run, chases the missing checks and explains the decision. Every time."

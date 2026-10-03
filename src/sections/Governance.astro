@@ -1,0 +1,47 @@
+---
+import { section, list } from "../lib/content";
+import Section from "../components/Section.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import StatusBadge from "../components/StatusBadge.astro";
+
+const copy = await section("governance");
+const items = await list("governance");
+---
+
+<Section labelledby="governance-title">
+  <SectionHeading id="governance-title" title={copy.title}>
+    <StatusBadge status="in-development" />
+  </SectionHeading>
+  <div class="grid">
+    {
+      items.map((i) => (
+        <div class="item">
+          <h3>{i.title}</h3>
+          <p>{i.text}</p>
+        </div>
+      ))
+    }
+  </div>
+</Section>
+
+<style>
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 40px;
+    margin-top: 48px;
+  }
+  .item {
+    border-top: 2px solid var(--color-leaf);
+    padding-top: 20px;
+  }
+  h3 {
+    font-size: 1.1875rem;
+    font-weight: 500;
+  }
+  p {
+    margin-top: 8px;
+    font-size: 1rem;
+    color: var(--color-muted);
+  }
+</style>
