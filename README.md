@@ -106,14 +106,24 @@ example a Cloudflare Worker or a form service) and a privacy notice.
 
 ## Hosting
 
-Planned: Cloudflare, serving the static `dist/` folder, with Cloudflare Access
-in front while the site is private. Build command `npm run build`, output
-directory `dist`, Node.js 22. Deployment configuration is added once the
-Cloudflare account and the fistron.io zone exist.
+Cloudflare Workers with static assets, configured in `wrangler.jsonc`: the
+Worker `fistron-io` serves `dist/` on the custom domain fistron.io, with
+`404.html` for unknown paths. It has no `*.workers.dev` address and no
+preview URLs, so the only way in is fistron.io, protected by Cloudflare
+Access while the site is private.
+
+Deployment runs on Cloudflare (Workers Builds) on every push to `main`:
+
+- Build command: `npm run build`
+- Deploy command: `npx wrangler deploy`
+
+Manual deployment from a workstation: `npx wrangler login`, then
+`npm run deploy`. `npx wrangler deploy --dry-run` validates the
+configuration without deploying.
 
 ## Going public
 
-1. Remove Cloudflare Access from the site.
+1. Remove the Cloudflare Access application for fistron.io.
 2. Build with `PUBLIC_INDEXABLE=true` (removes the `noindex` meta tag).
 3. Replace `public/robots.txt` with one that allows crawling and points to a
    sitemap.
