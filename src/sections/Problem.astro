@@ -1,0 +1,43 @@
+---
+import { section, list } from "../lib/content";
+import Section from "../components/Section.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+
+const copy = await section("problem");
+const problems = await list("problems");
+---
+
+<Section labelledby="problem-title">
+  <SectionHeading id="problem-title" title={copy.title} intro={copy.intro} />
+  <div class="grid">
+    {
+      problems.map((p) => (
+        <div class="item">
+          <h3>{p.title}</h3>
+          <p>{p.text}</p>
+        </div>
+      ))
+    }
+  </div>
+</Section>
+
+<style>
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 40px;
+    margin-top: 56px;
+  }
+  .item {
+    border-top: 2px solid var(--color-indigo);
+    padding-top: 20px;
+  }
+  h3 {
+    font-size: 1.25rem;
+    font-weight: 500;
+  }
+  p {
+    margin-top: 8px;
+    color: var(--color-muted);
+  }
+</style>

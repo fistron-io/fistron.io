@@ -1,0 +1,120 @@
+---
+import { site } from "../config/site";
+import Wordmark from "./Wordmark.astro";
+---
+
+<header class="header">
+  <div class="wrap bar">
+    <a href="/" class="home" aria-label="Fistron home"><Wordmark /></a>
+
+    <nav aria-label="Main" class="nav">
+      {site.nav.map((item) => <a href={item.href}>{item.label}</a>)}
+    </nav>
+
+    <div class="actions">
+      <a href={site.links.app} class="signin">Sign in</a>
+      <a href="/#demo" class="btn btn-primary cta">Request a demo</a>
+    </div>
+
+    <details class="menu">
+      <summary>Menu</summary>
+      <nav aria-label="Main, small screens">
+        {site.nav.map((item) => <a href={item.href}>{item.label}</a>)}
+        <a href={site.links.app}>Sign in</a>
+      </nav>
+    </details>
+  </div>
+</header>
+
+<style>
+  .header {
+    background: var(--color-white);
+    border-bottom: 1px solid var(--color-line-soft);
+  }
+  .bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding-top: 18px;
+    padding-bottom: 18px;
+  }
+  .home {
+    text-decoration: none;
+  }
+  .nav {
+    display: flex;
+    gap: 28px;
+    font-size: 0.9375rem;
+  }
+  .nav a,
+  .signin {
+    text-decoration: none;
+    color: var(--color-ink-2);
+  }
+  .nav a:hover,
+  .signin:hover {
+    color: var(--color-indigo);
+  }
+  .actions {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    font-size: 0.9375rem;
+  }
+  .cta {
+    padding: 11px 18px;
+  }
+  .menu {
+    display: none;
+    position: relative;
+  }
+  .menu summary {
+    cursor: pointer;
+    list-style: none;
+    padding: 10px 14px;
+    border: 1px solid var(--color-control);
+    border-radius: var(--radius);
+    font-weight: 500;
+    color: var(--color-indigo);
+  }
+  .menu summary::-webkit-details-marker {
+    display: none;
+  }
+  .menu nav {
+    position: absolute;
+    right: 0;
+    top: calc(100% + 8px);
+    z-index: 5;
+    display: grid;
+    min-width: 220px;
+    padding: 8px;
+    background: var(--color-white);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-card);
+  }
+  .menu nav a {
+    padding: 10px 12px;
+    text-decoration: none;
+    color: var(--color-ink);
+    border-radius: var(--radius-sm);
+  }
+  .menu nav a:hover {
+    background: var(--color-paper);
+  }
+
+  @media (max-width: 1040px) {
+    .nav,
+    .signin {
+      display: none;
+    }
+    .menu {
+      display: block;
+    }
+  }
+  @media (max-width: 520px) {
+    .cta {
+      display: none;
+    }
+  }
+</style>

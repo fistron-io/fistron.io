@@ -1,0 +1,8 @@
+- id: build-software
+  title: "For teams that build software"
+  text: "Product engineering, QA and platform teams get evidence for features, fixes and releases: which tests matter, whether they check the change, and what is still missing."
+  example: "Example: prove that retries never create duplicate orders, from existing tests to the missing concurrency check."
+- id: run-it
+  title: "For teams that run IT"
+  text: "IT operations, SRE and shared-service teams get evidence for upgrades, migrations and service objectives, including software they don't develop themselves."
+  example: "Example: a successful backup job is one observation. A verified restore within the agreed time is the evidence."

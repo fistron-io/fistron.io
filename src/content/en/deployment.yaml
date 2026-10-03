@@ -1,0 +1,12 @@
+- id: cloud
+  title: "Fistron Cloud"
+  text: "Managed control plane, with the agent next to your tools."
+- id: your-cloud
+  title: "Your cloud"
+  text: "The whole stack in your AWS, Azure or Google Cloud account."
+- id: on-premises
+  title: "On-premises"
+  text: "In your data centre, under your operations and security controls."
+- id: air-gapped
+  title: "Air-gapped"
+  text: "No internet, no calls home, with your own local model."

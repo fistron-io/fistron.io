@@ -1,0 +1,16 @@
+# status: available | in-development
+- { id: gitlab, name: "GitLab, read-only", status: available }
+- { id: kubernetes, name: "Kubernetes via MCP", status: available }
+- { id: http-tls, name: "HTTP and TLS probe", status: available }
+- { id: junit, name: "JUnit XML", status: available }
+- { id: ci-logs, name: "CI logs and diffs", status: available }
+- { id: llm, name: "OpenAI-compatible LLMs", status: available }
+- { id: jenkins, name: "Jenkins", status: in-development }
+- { id: testkube, name: "Testkube", status: in-development }
+- { id: openqa, name: "openQA", status: in-development }
+- { id: prometheus, name: "Prometheus", status: in-development }
+- { id: opentelemetry, name: "OpenTelemetry", status: in-development }
+- { id: jira, name: "Jira", status: in-development }
+- { id: tcms, name: "Test management systems", status: in-development }
+- { id: holmesgpt, name: "HolmesGPT", status: in-development }
+- { id: opa, name: "OPA policies", status: in-development }

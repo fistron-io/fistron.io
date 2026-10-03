@@ -1,0 +1,16 @@
+# The reconciliation loop, in order. The last step is highlighted.
+- id: desired-quality
+  title: "Desired quality"
+  text: "Read the change, its intent, acceptance criteria and your quality policies."
+- id: required-evidence
+  title: "Required evidence"
+  text: "Derive which behaviours and properties must be demonstrated, and where."
+- id: available-evidence
+  title: "Available evidence"
+  text: "Find existing tests, results and observations, and check whether they apply."
+- id: evidence-gap
+  title: "Evidence gap"
+  text: "Name exactly what is missing, and why it matters for this objective."
+- id: reconciliation
+  title: "Reconciliation"
+  text: "Coordinate your tools to close the gap, then reassess as results arrive."

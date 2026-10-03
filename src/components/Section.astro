@@ -1,0 +1,53 @@
+---
+import Contours from "./Contours.astro";
+
+/**
+ * A full-width homepage band. Tone sets the background: white, mist (light
+ * grey, with borders), night (dark) or indigo (brand). Light-grey and dark
+ * bands carry contour lines when `contours` is given.
+ */
+interface Props {
+  id?: string;
+  tone?: "white" | "mist" | "night" | "indigo";
+  contours?: { cx: number; cy?: number; ring?: boolean };
+  labelledby?: string;
+  /** Drop the top padding, e.g. when following a band of the same tone. */
+  flushTop?: boolean;
+}
+const { id, tone = "white", contours, labelledby, flushTop = false } = Astro.props;
+const dark = tone === "night" || tone === "indigo";
+---
+
+<section id={id} class:list={["band", tone, { flushTop }]} aria-labelledby={labelledby}>
+  {contours && <Contours {...contours} tone={dark ? "dark" : "light"} />}
+  <div class="wrap inner">
+    <slot />
+  </div>
+</section>
+
+<style>
+  .band {
+    position: relative;
+    overflow: hidden;
+    padding: var(--section-pad) 0 calc(var(--section-pad) - 8px);
+  }
+  .flushTop {
+    padding-top: 0;
+  }
+  .inner {
+    position: relative;
+  }
+  .mist {
+    background: var(--color-paper);
+    border-top: 1px solid var(--color-line-soft);
+    border-bottom: 1px solid var(--color-line-soft);
+  }
+  .night {
+    background: var(--color-night);
+    color: var(--color-white);
+  }
+  .indigo {
+    background: var(--color-indigo);
+    color: var(--color-white);
+  }
+</style>

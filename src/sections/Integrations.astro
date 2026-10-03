@@ -1,0 +1,56 @@
+---
+import { section, list } from "../lib/content";
+import Section from "../components/Section.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import StatusBadge from "../components/StatusBadge.astro";
+
+const copy = await section("integrations");
+const all = await list("integrations");
+const groups = [
+  { status: "available" as const, items: all.filter((i) => i.status === "available") },
+  { status: "in-development" as const, items: all.filter((i) => i.status === "in-development") },
+].filter((g) => g.items.length > 0);
+---
+
+<Section tone="mist" contours={{ cx: 1200 }} labelledby="integrations-title">
+  <SectionHeading id="integrations-title" title={copy.title} intro={copy.intro} />
+  {
+    groups.map((group) => (
+      <div class="group">
+        <StatusBadge status={group.status} />
+        <ul class:list={["chips", group.status]}>
+          {group.items.map((i) => (
+            <li>{i.name}</li>
+          ))}
+        </ul>
+      </div>
+    ))
+  }
+</Section>
+
+<style>
+  .group {
+    margin-top: 40px;
+  }
+  .chips {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 14px;
+  }
+  li {
+    border-radius: var(--radius);
+    padding: 9px 16px;
+    font-size: 0.9375rem;
+  }
+  .available li {
+    background: var(--color-white);
+    border: 1px solid var(--color-control);
+  }
+  .in-development li {
+    border: 1px dashed #b4bacb;
+    color: var(--color-ink-2);
+  }
+</style>

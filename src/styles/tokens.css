@@ -1,0 +1,49 @@
+/* Fistron brand tokens. Change brand values here only. */
+:root {
+  /* Brand */
+  --color-indigo: #24305e; /* primary: wordmark, headings, buttons */
+  --color-night: #1a2347; /* dark sections, footer */
+  --color-night-deep: #10162e; /* terminal on dark */
+  --color-night-line: #323c66;
+  --color-leaf: #3fa66b; /* accent: checkbox, success */
+  --color-leaf-text: #2b7a4b; /* leaf as text on light backgrounds (contrast) */
+  --color-leaf-light: #6ccb8f; /* leaf on dark backgrounds */
+  --color-paper: #f5f6f9; /* light section background */
+  --color-white: #ffffff;
+
+  /* Text and lines */
+  --color-ink: #1b2033;
+  --color-ink-2: #3a415a;
+  --color-muted: #545b73;
+  --color-pending: #8a90a6; /* empty checkbox, "In development" */
+  --color-on-dark: #d7dceb;
+  --color-on-dark-muted: #a9b1cc;
+  --color-line: #dde1ea;
+  --color-line-soft: #e4e7ee;
+  --color-line-faint: #eef0f4;
+  --color-control: #c9cedb;
+  --color-indigo-tint: #e6e9f2;
+
+  /* Type */
+  --font-sans: "IBM Plex Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", Menlo, Consolas, monospace;
+  --text-h1: clamp(2.5rem, 5vw, 4.125rem);
+  --text-h2: clamp(1.875rem, 3.4vw, 2.625rem);
+  --text-lead: 1.1875rem;
+
+  /* Shape and layout */
+  --radius-sm: 6px;
+  --radius: 8px;
+  --radius-card: 12px;
+  --radius-panel: 14px;
+  --container: 1200px;
+  --gutter: 32px;
+  --section-pad: 104px;
+}
+
+@media (max-width: 640px) {
+  :root {
+    --gutter: 20px;
+    --section-pad: 72px;
+  }
+}

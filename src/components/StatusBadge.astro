@@ -1,0 +1,39 @@
+---
+import CheckIcon from "./CheckIcon.astro";
+
+/** "Available now" (filled checkbox) or "In development" (empty checkbox). */
+interface Props {
+  status: "available" | "in-development";
+  tone?: "light" | "dark";
+}
+const { status, tone = "light" } = Astro.props;
+const available = status === "available";
+---
+
+<span class:list={["badge", tone, available ? "available" : "pending"]}>
+  <CheckIcon filled={available} size={14} />
+  {available ? "Available now" : "In development"}
+</span>
+
+<style>
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  .light.available {
+    color: var(--color-leaf-text);
+  }
+  .light.pending {
+    color: var(--color-muted);
+  }
+  .dark.available {
+    color: var(--color-leaf-light);
+  }
+  .dark.pending {
+    color: var(--color-on-dark-muted);
+  }
+</style>

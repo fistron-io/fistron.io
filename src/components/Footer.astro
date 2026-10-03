@@ -1,0 +1,95 @@
+---
+import { site } from "../config/site";
+import Wordmark from "./Wordmark.astro";
+
+const columns = [
+  { label: "Product", href: "/#how" },
+  { label: "Documentation", href: site.links.docs },
+  { label: "Open source", href: site.links.openSource },
+  { label: "Use cases", href: "/#use-cases" },
+  { label: "Support", href: site.links.support },
+  { label: "Sign in", href: site.links.app },
+  { label: "Deployment", href: "/#deployment" },
+  { label: "Contact", href: "/#demo" },
+];
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <svg class="contours" viewBox="0 0 1440 720" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <g fill="none" stroke="#ffffff" stroke-opacity="0.05" stroke-width="1.2">
+      {[150, 270, 400, 540, 690, 850, 1020].map((r) => <ellipse cx="260" cy="360" rx={r} ry={Math.round(r * 0.7)} />)}
+    </g>
+  </svg>
+  <div class="wrap inner">
+    <div class="top">
+      <div class="brand">
+        <Wordmark tone="dark" />
+        <p>{site.slogan}</p>
+      </div>
+      <nav aria-label="Footer" class="links">
+        {columns.map((link) => <a href={link.href}>{link.label}</a>)}
+      </nav>
+    </div>
+    <p class="legal">© {year} Fistron</p>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    position: relative;
+    overflow: hidden;
+    background: var(--color-night);
+    color: var(--color-on-dark);
+    padding: 64px 0 40px;
+    font-size: 0.9375rem;
+  }
+  .contours {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .inner {
+    position: relative;
+  }
+  .top {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 48px;
+    justify-content: space-between;
+  }
+  .brand {
+    display: grid;
+    gap: 14px;
+    justify-items: start;
+  }
+  .brand p {
+    max-width: 16em;
+    line-height: 1.5;
+  }
+  .links {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(120px, auto));
+    gap: 10px 48px;
+  }
+  .links a {
+    color: var(--color-white);
+    text-decoration: none;
+  }
+  .links a:hover {
+    text-decoration: underline;
+  }
+  .legal {
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid var(--color-night-line);
+    font-size: 0.875rem;
+    color: var(--color-on-dark-muted);
+  }
+  @media (max-width: 640px) {
+    .links {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+</style>

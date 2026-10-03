@@ -1,0 +1,84 @@
+---
+import { section, list } from "../lib/content";
+import Section from "../components/Section.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import item from "../content/en/evidence-item.txt?raw";
+
+const copy = await section("trust");
+const points = await list("trust");
+const [itemId, ...itemRest] = item.trimEnd().split("\n");
+---
+
+<Section id="trust" labelledby="trust-title">
+  <SectionHeading id="trust-title" title={copy.title} intro={copy.intro} />
+  <div class="layout">
+    <div class="points">
+      {
+        points.map((p) => (
+          <div>
+            <h3>{p.title}</h3>
+            <p>{p.text}</p>
+          </div>
+        ))
+      }
+    </div>
+    <figure class="evidence">
+      <figcaption>{copy.caption}</figcaption>
+      <div class="scroll">
+        <pre><span class="id">{itemId}</span>{"\n" + itemRest.join("\n")}</pre>
+      </div>
+    </figure>
+  </div>
+</Section>
+
+<style>
+  .layout {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 48px;
+    margin-top: 56px;
+    align-items: flex-start;
+  }
+  .points {
+    flex: 1.4 1 480px;
+    min-width: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 36px 40px;
+  }
+  h3 {
+    font-size: 1.1875rem;
+    font-weight: 500;
+  }
+  .points p {
+    margin-top: 8px;
+    font-size: 1rem;
+    color: var(--color-muted);
+  }
+  .evidence {
+    flex: 1 1 360px;
+    min-width: 0;
+    margin: 0;
+    background: var(--color-paper);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-card);
+    padding: 24px;
+  }
+  figcaption {
+    font-size: 0.8125rem;
+    color: var(--color-muted);
+  }
+  .scroll {
+    overflow-x: auto;
+  }
+  pre {
+    margin: 12px 0 0;
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    line-height: 1.75;
+    color: var(--color-ink);
+  }
+  .id {
+    color: var(--color-leaf-text);
+  }
+</style>

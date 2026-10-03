@@ -1,0 +1,64 @@
+# Headings and short copy for each homepage section, keyed by section.
+# Lists (questions, integrations, ...) are in their own files next to this one.
+
+hero:
+  title: "Don't replace anything. Orchestrate everything."
+  intro: "Fistron helps you achieve the quality your software and IT services require, and prove it, by orchestrating the tools you already own."
+  primaryCta: "Request a demo"
+  secondaryCta: "See how it works"
+  caption: "Target workflow with example data. In development."
+
+problem:
+  title: "Your tools each answer their own question. Nobody answers yours."
+  intro: "CI knows whether a job passed. The test manager knows which tests exist. Observability knows what happened in production. Whether a change, a release or a service actually meets its quality objective is still assembled by hand, across tools and teams."
+
+how:
+  title: "From desired quality to verified evidence"
+  intro: "Kubernetes orchestrates compute. Fistron orchestrates quality: it compares the quality you need with the evidence you have, and closes the gap through the tools you already run."
+  note: "The loop runs within your budget and permissions. It ends when the objective is supported, or with an explicit list of what remains open and why."
+
+questions:
+  title: "Questions Fistron is built to answer"
+
+ci:
+  title: "Start where it hurts: CI failed. Tell me why."
+  paragraphs:
+    - "The first Fistron workflow explains failed pipelines from evidence, not guesses. When the cause isn't in the log, Fistron names the missing evidence and acquires it read-only from GitLab, Kubernetes or the failing endpoint."
+    - "If the evidence isn't enough, it says so, and tells you what to collect next."
+  caption: "Shortened output from a synthetic example case."
+
+trust:
+  title: "Conclusions you can check"
+  intro: "Fistron uses AI where it helps, never as the source of truth. Every claim points back to evidence you can open."
+  caption: "An evidence item"
+
+integrations:
+  title: "Works with the tools you already run"
+  intro: "Integrations are capabilities: each one declares what it can observe, execute or author. You decide which are switched on."
+
+governance:
+  title: "Quality you can demonstrate, not just claim"
+
+deployment:
+  title: "Runs where your evidence lives"
+  intro: "A light agent works inside your environment. Source code, logs and test data don't have to leave it."
+  note: "Today: a CLI inside your environment, offline-capable."
+  caption: "Control plane options are in development."
+
+roadmap:
+  title: "Where Fistron is heading"
+
+openCore:
+  title: "Open at the core"
+  intro: "The agent, the Evidence Model and the integration contract are planned as open source, so you can inspect how every conclusion is reached and plug in your own tools."
+  linkLabel: "Visit fistron.org"
+
+about:
+  title: "Why Fistron"
+  intro: "Fištrón (Czech, say fish-trone) is the knack of knowing how to get things done: wit applied to a real problem. Fistron doesn't run everything. It works out what your quality objective actually needs, and gets it done with the tools you already have."
+
+demo:
+  title: "See Fistron on your toolchain"
+  intro: "Tell us about a quality decision that takes too much manual work today. We'll show you what Fistron finds, and what it would need."
+  primaryCta: "Request a demo"
+  note: "Demo requests aren't connected yet. This form doesn't send anything."

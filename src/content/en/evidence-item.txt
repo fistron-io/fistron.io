@@ -1,0 +1,9 @@
+http-probe#1-1.0
+SSL certificate problem:
+certificate has expired
+
+source     portal.staging.example.test
+collected  2026-09-29T10:15:05Z
+vantage    engineer workstation
+describes  current state, not the
+           time of the failure

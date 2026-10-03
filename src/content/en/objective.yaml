@@ -1,0 +1,25 @@
+# Example shown in the hero: a quality objective and its required evidence.
+# Example data for the target workflow (in development).
+
+hero:
+  context: "Quality objective for a bug fix in orders-service"
+  objective: "Retrying a request with the same idempotency key creates exactly one order."
+  requirements:
+    - title: "A regression test asserts the number of orders"
+      detail: "Existing test found, assertion checked"
+      tool: "pytest"
+      supported: true
+    - title: "It fails on the buggy revision and passes on the fix"
+      detail: "Both runs executed through your pipeline"
+      tool: "GitLab CI"
+      supported: true
+    - title: "Concurrent retries under load"
+      detail: "Gap: no existing check. Planned run with your load-test tool"
+      tool: "Testkube"
+      supported: false
+    - title: "No duplicate inserts after the deploy"
+      detail: "Gap: requesting service logs, read-only"
+      tool: "Kubernetes"
+      supported: false
+  summary: "2 of 4 requirements supported. Closing 2 gaps with your tools."
+  state: "Reconciling"

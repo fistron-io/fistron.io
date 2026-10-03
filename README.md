@@ -1,0 +1,120 @@
+# fistron.io
+
+Company website for Fistron: the homepage at https://fistron.io.
+
+Related hosts are separate projects and servers: https://fistron.org (open
+source), https://app.fistron.io (cloud services), https://docs.fistron.io and
+https://support.fistron.io.
+
+**Status: private.** The site is not public yet. Every page carries
+`noindex, nofollow` and `public/robots.txt` disallows crawling until launch
+(see [Going public](#going-public)).
+
+## Stack
+
+- [Astro](https://astro.build) 7, static output: plain HTML and CSS, a few
+  lines of JavaScript (only for the demo form).
+- IBM Plex Sans and IBM Plex Mono, self-hosted through Fontsource: the site
+  makes no requests to Google or other third parties.
+- No CSS framework. Brand tokens are CSS custom properties.
+
+Requires Node.js 22.12 or newer and npm.
+
+```bash
+npm ci            # install exactly what package-lock.json pins
+npm run dev       # dev server on http://localhost:4321
+npm run check     # type and template checks (astro check)
+npm run build     # static site into dist/
+npm run preview   # serve dist/ locally
+```
+
+Run `npm run check && npm run build` before every commit. CI runs the same
+(`.github/workflows/build.yml`).
+
+## Editing content
+
+All homepage copy is in `src/content/en/` and can be changed without
+touching layout:
+
+| File | Content |
+|---|---|
+| `sections.yaml` | Headings and short copy for every section, keyed by section |
+| `objective.yaml` | The example quality objective in the hero |
+| `problems.yaml`, `steps.yaml`, `trust.yaml`, `governance.yaml`, `deployment.yaml`, `audiences.yaml`, `roadmap.yaml` | Section lists, shown in file order |
+| `questions.yaml`, `integrations.yaml` | Lists with a `status` per item |
+| `ci-output.txt`, `evidence-item.txt` | Example CLI output and evidence item (shortened from a synthetic example case) |
+
+The schemas in `src/content.config.ts` validate every file at build time: a
+missing field or a typo in a status fails the build with a message.
+
+### Status: available or in development
+
+Every capability the site shows is either `available` (filled green checkbox,
+"Available now") or `in-development` (empty checkbox, "In development"). Mark
+something `available` only when it works in the Fistron repository today.
+When a capability ships, change its `status` in `questions.yaml` or
+`integrations.yaml`. Sections that are in development as a whole (governance,
+control-plane deployment options) say so in their component or copy.
+
+### Sections and layout
+
+`src/pages/index.astro` lists the homepage sections in order; each is a
+component in `src/sections/`. Shared building blocks are in
+`src/components/` (`Section` for a full-width band with its tone and contour
+lines, `SectionHeading`, `StatusBadge`, `CheckIcon`, `Wordmark`, `Contours`).
+Names, URLs and navigation are in `src/config/site.ts`.
+
+### Languages
+
+English only. `astro.config.mjs` has i18n configured with `en` as the default
+locale and content lives under `src/content/en/`, so a translation adds a
+locale there and a sibling content folder.
+
+## Brand
+
+| Token | Value | Use |
+|---|---|---|
+| Indigo | `#24305E` | Primary: wordmark, headings, buttons |
+| Night | `#1A2347` | Dark sections, footer |
+| Leaf | `#3FA66B` | Accent: the checkbox, success, "Available now" |
+| Leaf text | `#2B7A4B` | Leaf as text on light backgrounds (contrast) |
+| Leaf light | `#6CCB8F` | Leaf on dark backgrounds |
+| Paper | `#F5F6F9` | Light-grey sections |
+
+All tokens are in `src/styles/tokens.css`; components use only those.
+
+- **Wordmark:** "Fistron" with a small filled checkbox at the top right. Used
+  in the header and footer (`Wordmark.astro`). In running text, write the
+  name as plain "Fistron".
+- **Logo mark:** an F with a filled green checkbox beside it. Used where space
+  is small or the mark stands alone: favicon, app icon, avatars. Files in
+  `public/brand/` (`logo-mark.svg`, `logo-mark-on-dark.svg`,
+  `app-icon-512.png`) and `public/favicon.svg`. Don't place the mark and the
+  wordmark side by side.
+- **Contour lines:** concentric ellipses on dark bands and light-grey bands
+  only, never on white ones. The green signal ring appears only on the dark
+  CI band and the demo band.
+- **Name:** from the Czech *fištrón*, the knack of knowing how to get things
+  done.
+
+## Demo form
+
+The "Request a demo" form is not connected to anything yet. While
+`site.demoFormAction` in `src/config/site.ts` is unset, submitting the form
+shows a note instead of sending data. Connecting it needs an endpoint (for
+example a Cloudflare Worker or a form service) and a privacy notice.
+
+## Hosting
+
+Planned: Cloudflare, serving the static `dist/` folder, with Cloudflare Access
+in front while the site is private. Build command `npm run build`, output
+directory `dist`, Node.js 22. Deployment configuration is added once the
+Cloudflare account and the fistron.io zone exist.
+
+## Going public
+
+1. Remove Cloudflare Access from the site.
+2. Build with `PUBLIC_INDEXABLE=true` (removes the `noindex` meta tag).
+3. Replace `public/robots.txt` with one that allows crawling and points to a
+   sitemap.
+4. Connect the demo form and publish a privacy notice.

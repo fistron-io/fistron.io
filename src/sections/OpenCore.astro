@@ -1,0 +1,61 @@
+---
+import { section } from "../lib/content";
+import { site } from "../config/site";
+import Section from "../components/Section.astro";
+
+const open = await section("openCore");
+const about = await section("about");
+---
+
+<Section flushTop labelledby="open-core-title">
+  <div class="grid">
+    <div class="card">
+      <h2 id="open-core-title">{open.title}</h2>
+      <p>{open.intro}</p>
+      <a href={site.links.openSource}>{open.linkLabel}</a>
+    </div>
+    <div class="card about">
+      <h2>{about.title}</h2>
+      <p>{about.intro}</p>
+    </div>
+  </div>
+</Section>
+
+<style>
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+  }
+  .card {
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-panel);
+    padding: 40px;
+  }
+  .about {
+    background: var(--color-paper);
+  }
+  h2 {
+    font-size: 1.625rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--color-indigo);
+  }
+  p {
+    margin-top: 14px;
+    color: var(--color-ink-2);
+  }
+  a {
+    display: inline-block;
+    margin-top: 20px;
+    font-weight: 500;
+  }
+  @media (max-width: 640px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+    .card {
+      padding: 28px 24px;
+    }
+  }
+</style>

@@ -1,0 +1,47 @@
+---
+/**
+ * Contour-line background: concentric ellipses around one centre, optionally
+ * with a single green "signal" ring. Used on dark sections and light-grey ones.
+ * Coordinates are in a 1440 x 720 box that covers the section.
+ */
+interface Props {
+  cx: number;
+  cy?: number;
+  tone: "light" | "dark";
+  ring?: boolean;
+}
+const { cx, cy = 360, tone, ring = false } = Astro.props;
+const radii = [150, 270, 400, 540, 690, 850, 1020];
+const stroke = tone === "dark" ? "#ffffff" : "var(--color-indigo)";
+const opacity = tone === "dark" ? 0.06 : 0.07;
+---
+
+<svg class="contours" viewBox="0 0 1440 720" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+  <g fill="none" stroke={stroke} stroke-opacity={opacity} stroke-width="1.2">
+    {radii.map((r) => <ellipse cx={cx} cy={cy} rx={r} ry={Math.round(r * 0.7)} />)}
+  </g>
+  {
+    ring && (
+      <ellipse
+        cx={cx}
+        cy={cy}
+        rx="400"
+        ry="280"
+        fill="none"
+        stroke="var(--color-leaf)"
+        stroke-opacity="0.35"
+        stroke-width="1.5"
+      />
+    )
+  }
+</svg>
+
+<style>
+  .contours {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+</style>

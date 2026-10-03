@@ -1,0 +1,55 @@
+---
+import { section, list } from "../lib/content";
+import Section from "../components/Section.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+
+const copy = await section("roadmap");
+const stages = await list("roadmap");
+---
+
+<Section labelledby="roadmap-title">
+  <SectionHeading id="roadmap-title" title={copy.title} />
+  <ol class="stages">
+    {
+      stages.map((s) => (
+        <li class:list={{ current: s.current }} aria-current={s.current ? "step" : undefined}>
+          <span class="stage">{s.current ? `${s.stage}, in progress` : s.stage}</span>
+          <span class="title">{s.title}</span>
+        </li>
+      ))
+    }
+  </ol>
+</Section>
+
+<style>
+  .stages {
+    list-style: none;
+    padding: 0;
+    margin-top: 48px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    border-top: 1px solid var(--color-line);
+  }
+  li {
+    display: grid;
+    gap: 6px;
+    align-content: start;
+    padding: 20px 20px 0 0;
+  }
+  .current {
+    border-top: 3px solid var(--color-leaf);
+    margin-top: -2px;
+  }
+  .stage {
+    font-size: 0.875rem;
+    color: var(--color-muted);
+  }
+  .current .stage {
+    font-weight: 500;
+    color: var(--color-leaf-text);
+  }
+  .title {
+    font-size: 1.0625rem;
+    font-weight: 500;
+  }
+</style>

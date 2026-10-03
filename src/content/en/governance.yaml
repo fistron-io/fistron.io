@@ -1,0 +1,13 @@
+# Shown as "In development" as a whole section.
+- id: audits
+  title: "Automated quality audits"
+  text: "Check continuously whether requirements, tests, results and policies still support your quality claims."
+- id: policies
+  title: "Quality-based policies"
+  text: "Versioned policies with owners, exceptions and expiry, applied to the right scope."
+- id: review
+  title: "Review and certification"
+  text: "Record an accountable acceptance for a defined scope and evidence snapshot, and reassess it when things change."
+- id: reports
+  title: "Reports others can verify"
+  text: "Scoped reports with versioned metrics and traceable evidence, including failures, gaps and accepted risk."
