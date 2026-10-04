@@ -67,7 +67,7 @@ demo:
   primaryCta: "Request a demo"
   note: "Demo requests aren't connected yet. This form doesn't send anything."
   faxLabel: "Fax number"
-  faxJoke: "Just kidding."
+  faxJoke: "Just kidding :-)"
   successLabel: "Request received"
   successTitle: "Evidence: 1. Confidence: high."
   successText: "Thanks, we'll get back to you soon. Fištrónek is already reading it."

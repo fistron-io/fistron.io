@@ -26,10 +26,10 @@ const action = site.demoFormAction;
       <label>Company<input type="text" name="company" autocomplete="organization" placeholder="Company name" /></label>
       {
         copy.faxLabel && (
-          <div class="fax" aria-hidden="true">
-            <span class="fax-label">{copy.faxLabel}</span>
-            <span class="fax-field">{copy.faxJoke}</span>
-          </div>
+          <label>
+            {copy.faxLabel}
+            <input class="fax-field" type="text" value={copy.faxJoke} disabled />
+          </label>
         )
       }
       <label
@@ -129,26 +129,11 @@ const action = site.demoFormAction;
   textarea {
     resize: vertical;
   }
-  /* A joke, not a field: no input, hidden from assistive technology. */
-  .fax {
-    display: grid;
-    gap: 6px;
-    font-size: 0.875rem;
-    font-weight: 500;
-    user-select: none;
-  }
-  .fax-label {
-    color: var(--color-pending);
-    text-decoration: line-through;
-  }
-  .fax-field {
-    font-weight: 400;
-    font-size: 1rem;
-    font-style: italic;
-    padding: 11px 12px;
-    border: 1px dashed var(--color-control);
-    border-radius: var(--radius);
+  .fax-field:disabled {
+    background: var(--color-paper);
     color: var(--color-muted);
+    cursor: not-allowed;
+    opacity: 1;
   }
   button {
     justify-self: start;
