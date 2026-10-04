@@ -97,12 +97,36 @@ All tokens are in `src/styles/tokens.css`; components use only those.
 - **Name:** from the Czech *fištrón*, the knack of knowing how to get things
   done.
 
+### Mascot and humour
+
+**Fištrónek** is the Fistron crow: crows are clever and use the tools around
+them, as Fistron does. **Flaky** is his opponent, the half-red, half-green
+gremlin of flaky tests. Both are inline SVG in `src/components/Fistronek.astro`
+with four poses: `main` (checkbox in the beak), `investigating` (magnifier),
+`skeptical` (with Flaky) and `chase` (chasing Flaky).
+
+The tone is serious where it carries the message (hero, how it works, CI
+failure analysis, deployment) and playful around it:
+
+- illustrations in the problem, trust and "Why Fistron" sections and on the
+  404 page
+- dry self-irony from the QE world in short lines (`note`, `caption` in
+  `sections.yaml`), never in claims about what Fistron does
+- easter eggs: the sent demo form, a note in the browser console
+  (`site.consoleMessage`), the footer note (`site.footerNote`) and the
+  wordmark checkbox in the header, which Fištrónek ticks back when clicked
+
+The drawings are sketches for the private phase; an illustrator should refine
+the characters before launch.
+
 ## Demo form
 
 The "Request a demo" form is not connected to anything yet. While
 `site.demoFormAction` in `src/config/site.ts` is unset, submitting the form
-shows a note instead of sending data. Connecting it needs an endpoint (for
-example a Cloudflare Worker or a form service) and a privacy notice.
+shows a note instead of sending data. Once it is set, the form posts in the
+background and shows the success panel ("Evidence: 1. Confidence: high.") or
+an error. Connecting it needs an endpoint (for example a Cloudflare Worker or
+a form service) and a privacy notice.
 
 ## Hosting
 
@@ -128,3 +152,4 @@ configuration without deploying.
 3. Replace `public/robots.txt` with one that allows crawling and points to a
    sitemap.
 4. Connect the demo form and publish a privacy notice.
+5. Have the mascot illustrations refined.

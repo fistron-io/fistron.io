@@ -11,6 +11,8 @@ hero:
 problem:
   title: "Your tools each answer their own question. Nobody answers yours."
   intro: "CI knows whether a job passed. The test manager knows which tests exist. Observability knows what happened in production. Whether a change, a release or a service actually meets its quality objective is still assembled by hand, across tools and teams."
+  note: "Your pipeline is green. Your release manager is not."
+  caption: "Passed on retry. Again. Fištrónek has questions."
 
 how:
   title: "From desired quality to verified evidence"
@@ -56,9 +58,20 @@ openCore:
 about:
   title: "Why Fistron"
   intro: "Fištrón (Czech, say fish-trone) is the knack of knowing how to get things done: wit applied to a real problem. Fistron doesn't run everything. It works out what your quality objective actually needs, and gets it done with the tools you already have."
+  paragraphs:
+    - "Meet Fištrónek, our crow. Crows are among the cleverest animals: they use whatever tools are around them. He hands over the checkbox only once the evidence is in."
 
 demo:
   title: "See Fistron on your toolchain"
   intro: "Tell us about a quality decision that takes too much manual work today. We'll show you what Fistron finds, and what it would need."
   primaryCta: "Request a demo"
   note: "Demo requests aren't connected yet. This form doesn't send anything."
+  successLabel: "Request received"
+  successTitle: "Evidence: 1. Confidence: high."
+  successText: "Thanks, we'll get back to you soon. Fištrónek is already reading it."
+  errorText: "That didn't go through. Please try again in a moment."
+
+notFound:
+  title: "This page went flaky."
+  intro: "It was here on the last run. Fištrónek is chasing it down. In the meantime, the homepage passes every time."
+  primaryCta: "Back to the homepage"

@@ -1,11 +1,15 @@
 ---
 import { site } from "../config/site";
 import Wordmark from "./Wordmark.astro";
+import Fistronek from "./Fistronek.astro";
 ---
 
 <header class="header">
   <div class="wrap bar">
-    <a href="/" class="home" aria-label="Fistron home"><Wordmark /></a>
+    <div class="brand">
+      <a href="/" class="home" aria-label="Fistron home"><Wordmark egg /></a>
+      <div class="egg" aria-hidden="true"><Fistronek pose="main" /></div>
+    </div>
 
     <nav aria-label="Main" class="nav">
       {site.nav.map((item) => <a href={item.href}>{item.label}</a>)}
@@ -26,6 +30,27 @@ import Wordmark from "./Wordmark.astro";
   </div>
 </header>
 
+<script>
+  // Easter egg: clicking the checkbox in the wordmark unticks it; Fištrónek
+  // flies in, checks the evidence and ticks it back.
+  const brand = document.querySelector<HTMLElement>(".brand");
+  const box = brand?.querySelector<SVGElement>("[data-wordmark-box]");
+  let running = false;
+  box?.addEventListener("click", (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    if (!brand || running) return;
+    running = true;
+    brand.classList.add("unticked");
+    setTimeout(() => brand.classList.add("egg-on"), 250);
+    setTimeout(() => brand.classList.remove("unticked"), 1300);
+    setTimeout(() => {
+      brand.classList.remove("egg-on");
+      running = false;
+    }, 2200);
+  });
+</script>
+
 <style>
   .header {
     background: var(--color-white);
@@ -41,6 +66,46 @@ import Wordmark from "./Wordmark.astro";
   }
   .home {
     text-decoration: none;
+  }
+  .brand {
+    position: relative;
+  }
+  .brand :global([data-wordmark-box]) {
+    cursor: pointer;
+  }
+  .egg {
+    position: absolute;
+    left: calc(100% + 4px);
+    top: -14px;
+    width: 52px;
+    opacity: 0;
+    transform: translateX(80px);
+    pointer-events: none;
+  }
+  .egg-on .egg {
+    animation: fly-in 1.95s ease-in-out;
+  }
+  @keyframes fly-in {
+    0% {
+      opacity: 0;
+      transform: translateX(80px) translateY(-10px);
+    }
+    25%,
+    75% {
+      opacity: 1;
+      transform: translateX(0) translateY(0);
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(80px) translateY(-14px);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .egg-on .egg {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
   }
   .nav {
     display: flex;
