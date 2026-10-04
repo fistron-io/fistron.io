@@ -2,6 +2,7 @@
 import { section } from "../lib/content";
 import { site } from "../config/site";
 import Section from "../components/Section.astro";
+import Fistronek from "../components/Fistronek.astro";
 
 const open = await section("openCore");
 const about = await section("about");
@@ -15,8 +16,14 @@ const about = await section("about");
       <a href={site.links.openSource}>{open.linkLabel}</a>
     </div>
     <div class="card about">
-      <h2>{about.title}</h2>
-      <p>{about.intro}</p>
+      <div class="about-text">
+        <h2>{about.title}</h2>
+        <p>{about.intro}</p>
+        {about.paragraphs?.map((p) => <p>{p}</p>)}
+      </div>
+      <figure class="crow">
+        <Fistronek pose="main" label="Fištrónek the crow holding a ticked checkbox" />
+      </figure>
     </div>
   </div>
 </Section>
@@ -34,6 +41,18 @@ const about = await section("about");
   }
   .about {
     background: var(--color-paper);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 28px;
+    align-items: center;
+  }
+  .about-text {
+    flex: 1 1 260px;
+    min-width: 0;
+  }
+  .crow {
+    flex: 0 0 150px;
+    margin: 0 auto;
   }
   h2 {
     font-size: 1.625rem;
