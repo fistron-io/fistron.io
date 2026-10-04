@@ -2,6 +2,7 @@
 import { section, list } from "../lib/content";
 import Section from "../components/Section.astro";
 import SectionHeading from "../components/SectionHeading.astro";
+import Fistronek from "../components/Fistronek.astro";
 import item from "../content/en/evidence-item.txt?raw";
 
 const copy = await section("trust");
@@ -22,12 +23,15 @@ const [itemId, ...itemRest] = item.trimEnd().split("\n");
         ))
       }
     </div>
+    <div class="side">
+    <div class="crow"><Fistronek pose="investigating" /></div>
     <figure class="evidence">
       <figcaption>{copy.caption}</figcaption>
       <div class="scroll">
         <pre><span class="id">{itemId}</span>{"\n" + itemRest.join("\n")}</pre>
       </div>
     </figure>
+    </div>
   </div>
 </Section>
 
@@ -55,8 +59,17 @@ const [itemId, ...itemRest] = item.trimEnd().split("\n");
     font-size: 1rem;
     color: var(--color-muted);
   }
-  .evidence {
+  .side {
     flex: 1 1 360px;
+    min-width: 0;
+    display: grid;
+    gap: 4px;
+  }
+  .crow {
+    justify-self: end;
+    width: 180px;
+  }
+  .evidence {
     min-width: 0;
     margin: 0;
     background: var(--color-paper);
