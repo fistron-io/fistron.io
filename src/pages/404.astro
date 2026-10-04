@@ -1,24 +1,46 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Section from "../components/Section.astro";
+import Fistronek from "../components/Fistronek.astro";
+import { section } from "../lib/content";
+
+const copy = await section("notFound");
 ---
 
 <BaseLayout title="Page not found">
   <Section tone="mist" contours={{ cx: 1060 }} labelledby="not-found-title">
     <div class="not-found">
-      <h1 id="not-found-title">This page doesn't exist.</h1>
-      <p class="lead">The address may be mistyped, or the page has moved.</p>
-      <a href="/" class="btn btn-primary">Go to the homepage</a>
+      <figure class="art">
+        <Fistronek pose="chase" label="Fištrónek flying after Flaky, who runs away" />
+      </figure>
+      <div class="text">
+        <h1 id="not-found-title">{copy.title}</h1>
+        <p class="lead">{copy.intro}</p>
+        <a href="/" class="btn btn-primary">{copy.primaryCta}</a>
+      </div>
     </div>
   </Section>
 </BaseLayout>
 
 <style>
   .not-found {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px 56px;
+    align-items: center;
+    padding: 24px 0 48px;
+  }
+  .art {
+    flex: 0 1 340px;
+    margin: 0 auto;
+    max-width: 340px;
+  }
+  .text {
+    flex: 1 1 360px;
+    min-width: 0;
     display: grid;
-    gap: 24px;
+    gap: 20px;
     justify-items: start;
-    padding: 48px 0 64px;
   }
   h1 {
     font-size: var(--text-h2);

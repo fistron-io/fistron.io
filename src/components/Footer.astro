@@ -31,7 +31,7 @@ const year = new Date().getFullYear();
         {columns.map((link) => <a href={link.href}>{link.label}</a>)}
       </nav>
     </div>
-    <p class="legal">© {year} Fistron</p>
+    <p class="legal"><span>© {year} Fistron</span><span>{site.footerNote}</span></p>
   </div>
 </footer>
 
@@ -81,6 +81,10 @@ const year = new Date().getFullYear();
     text-decoration: underline;
   }
   .legal {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 8px 24px;
     margin-top: 48px;
     padding-top: 24px;
     border-top: 1px solid var(--color-night-line);

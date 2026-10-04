@@ -6,6 +6,15 @@ export const site = {
     "Fistron helps you achieve the quality your software and IT services require, and prove it, by orchestrating the tools you already own.",
   slogan: "Don't replace anything. Orchestrate everything.",
 
+  /** Small jokes outside the main story. */
+  footerNote: "No flaky tests were harmed in the making of this website. A few were caught.",
+  consoleMessage: [
+    "Hi, developer. Fištrónek checked this console.",
+    "0 errors, 0 warnings, 0 flaky tests.",
+    "Your own pipeline? We'd need evidence for that.",
+    "How it works: https://docs.fistron.io",
+  ],
+
   /** Separate services on their own hosts. */
   links: {
     app: "https://app.fistron.io",

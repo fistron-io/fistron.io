@@ -2,13 +2,23 @@
 import { section, list } from "../lib/content";
 import Section from "../components/Section.astro";
 import SectionHeading from "../components/SectionHeading.astro";
+import Fistronek from "../components/Fistronek.astro";
 
 const copy = await section("problem");
 const problems = await list("problems");
 ---
 
 <Section labelledby="problem-title">
-  <SectionHeading id="problem-title" title={copy.title} intro={copy.intro} />
+  <div class="top">
+    <div class="text">
+      <SectionHeading id="problem-title" title={copy.title} intro={copy.intro} />
+      {copy.note && <p class="kicker">{copy.note}</p>}
+    </div>
+    <figure class="art">
+      <Fistronek pose="skeptical" label="Fištrónek pointing skeptically at Flaky, the flaky-test gremlin" />
+      {copy.caption && <figcaption>{copy.caption}</figcaption>}
+    </figure>
+  </div>
   <div class="grid">
     {
       problems.map((p) => (
@@ -22,6 +32,34 @@ const problems = await list("problems");
 </Section>
 
 <style>
+  .top {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px 48px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .text {
+    flex: 1 1 520px;
+    min-width: 0;
+  }
+  .kicker {
+    margin-top: 18px;
+    font-size: var(--text-lead);
+    font-weight: 500;
+    color: var(--color-indigo);
+  }
+  .art {
+    flex: 0 1 280px;
+    margin: 0 auto;
+    max-width: 280px;
+  }
+  figcaption {
+    margin-top: 6px;
+    font-size: 0.875rem;
+    color: var(--color-muted);
+    text-align: center;
+  }
   .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -36,7 +74,7 @@ const problems = await list("problems");
     font-size: 1.25rem;
     font-weight: 500;
   }
-  p {
+  .item p {
     margin-top: 8px;
     color: var(--color-muted);
   }

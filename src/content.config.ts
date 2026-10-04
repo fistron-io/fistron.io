@@ -34,6 +34,10 @@ const sections = defineCollection({
     primaryCta: z.string().optional(),
     secondaryCta: z.string().optional(),
     linkLabel: z.string().optional(),
+    successLabel: z.string().optional(),
+    successTitle: z.string().optional(),
+    successText: z.string().optional(),
+    errorText: z.string().optional(),
   }),
 });
 

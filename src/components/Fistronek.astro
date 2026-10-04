@@ -1,0 +1,121 @@
+---
+/**
+ * Fištrónek, the Fistron crow, in one of four poses. The "skeptical" and
+ * "chase" poses include Flaky, the flaky-test gremlin.
+ *
+ * Plain inline SVG in brand colours: no requests, scales with its container.
+ * Give `label` for meaningful illustrations; leave it empty for decorative ones.
+ */
+interface Props {
+  pose: "main" | "investigating" | "skeptical" | "chase";
+  /** Accessible description. Empty means decorative (hidden from screen readers). */
+  label?: string;
+  class?: string;
+}
+const { pose, label = "", class: className } = Astro.props;
+
+const IND = "#24305e";
+const NIGHT = "#1a2347";
+const BELLY = "#2e3b70";
+const BEAK = "#4a5170";
+const LEAF = "#3fa66b";
+const RED = "#d64545";
+const LEG = "#3a415a";
+const INK = "#1b2033";
+
+// clipPath ids must be unique per page.
+const uid = `flaky-${Math.random().toString(36).slice(2, 8)}`;
+
+type Eye = { big?: boolean; px?: number; py?: number; squint?: boolean; brow: string };
+
+function eye({ big = false, px = 0, py = 0, squint = false, brow }: Eye) {
+  let s = `<ellipse cx="122" cy="72" rx="${big ? 12 : 10}" ry="${big ? 13 : 11}" fill="#fff"/>`;
+  s += `<circle cx="${125 + px}" cy="${74 + py}" r="${big ? 6 : 5}" fill="${INK}"/>`;
+  s += `<circle cx="${123 + px}" cy="${71 + py}" r="1.8" fill="#fff"/>`;
+  if (squint) s += `<path d="M110 71 Q122 58 134 71 L134 64 L110 64 Z" fill="${IND}"/>`;
+  return s + `<path d="${brow}" stroke="${NIGHT}" stroke-width="4.5" stroke-linecap="round" fill="none"/>`;
+}
+
+function crow(e: Eye, opts: { wing?: string; item?: string; back?: string; fly?: boolean } = {}) {
+  const { wing = "", item = "", back = "", fly = false } = opts;
+  let s = `<path d="M62 120 L22 136 L34 127 L18 122 L56 108 Z" fill="${NIGHT}"/>`;
+  s += fly
+    ? `<path d="M78 106 Q52 58 20 64 Q44 80 56 116 Z" fill="${NIGHT}"/>`
+    : `<path d="M84 150 L82 170 M100 150 L102 170 M74 170 H90 M96 170 H111" stroke="${LEG}" stroke-width="5" stroke-linecap="round" fill="none"/>`;
+  s += `<ellipse cx="90" cy="120" rx="42" ry="35" fill="${IND}"/><ellipse cx="102" cy="128" rx="23" ry="21" fill="${BELLY}"/>`;
+  s += back;
+  s += `<circle cx="114" cy="78" r="30" fill="${IND}"/><path d="M103 53 Q101 36 112 46 Q116 31 125 51 Z" fill="${IND}"/>`;
+  s += `<path d="M138 70 Q170 80 140 93 Q132 82 138 70 Z" fill="${BEAK}"/><path d="M141 82 Q153 83 162 81" stroke="${NIGHT}" stroke-width="2" fill="none"/>`;
+  return s + eye(e) + wing + item;
+}
+
+function flaky(run = false, lookBack = false) {
+  const spikes = "M-25 -12 L-20 -32 L-10 -20 L0 -37 L10 -20 L20 -32 L25 -12 Z";
+  return (
+    `<defs><clipPath id="${uid}"><rect x="-40" y="-60" width="40" height="120"/></clipPath></defs>` +
+    `<path d="M-10 22 L-18 ${run ? 36 : 40} M10 22 L${run ? 20 : 12} ${run ? 32 : 40}" stroke="${IND}" stroke-width="4" stroke-linecap="round"/>` +
+    `<path d="${spikes}" fill="${LEAF}"/><circle cx="0" cy="0" r="26" fill="${LEAF}"/>` +
+    `<g clip-path="url(#${uid})"><path d="${spikes}" fill="${RED}"/><circle cx="0" cy="0" r="26" fill="${RED}"/></g>` +
+    `<circle cx="-9" cy="-4" r="7" fill="#fff"/><circle cx="${lookBack ? -12 : -7}" cy="-4" r="3.3" fill="${INK}"/>` +
+    `<circle cx="10" cy="-2" r="4.5" fill="#fff"/><circle cx="${lookBack ? 8 : 11}" cy="-2" r="2.1" fill="${INK}"/>` +
+    `<path d="M-12 9 L-7 5 L-2 10 L3 5 L8 10 L12 6" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>`
+  );
+}
+
+const shadow = (w = 46) => `<ellipse cx="96" cy="174" rx="${w}" ry="5" fill="${IND}" opacity="0.12"/>`;
+const checkbox = `<rect x="156" y="70" width="20" height="20" rx="4.5" fill="${LEAF}"/><path d="M160.5 80 L164.5 84 L171.5 76" stroke="#fff" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>`;
+
+const art: Record<Props["pose"], () => string> = {
+  main: () =>
+    shadow() +
+    crow(
+      { squint: true, px: 1, brow: "M108 56 Q122 50 134 58" },
+      { wing: `<path d="M64 106 Q56 130 76 140 Q94 132 96 112 Q80 102 64 106 Z" fill="${NIGHT}"/>`, item: checkbox },
+    ),
+  investigating: () =>
+    shadow() +
+    crow(
+      { big: true, px: 3, py: -1, brow: "M108 50 Q120 40 134 50" },
+      {
+        wing: `<path d="M80 108 Q118 92 150 100 L152 110 Q120 116 90 128 Z" fill="${NIGHT}"/>`,
+        item: `<path d="M150 104 L160 94" stroke="${LEG}" stroke-width="5" stroke-linecap="round"/><circle cx="172" cy="80" r="17" fill="#ffffff" fill-opacity="0.55" stroke="${IND}" stroke-width="4.5"/><circle cx="176" cy="78" r="4" fill="${INK}" opacity="0.6"/>`,
+      },
+    ),
+  skeptical: () =>
+    shadow(40) +
+    `<g transform="translate(-14 0)">` +
+    crow(
+      { px: 4, py: 3, brow: "M110 50 Q120 42 132 56" },
+      { wing: `<path d="M84 110 Q122 100 150 112 L170 118 L150 120 Q122 126 92 126 Z" fill="${NIGHT}"/>` },
+    ) +
+    `<path d="M114 52 L106 56" stroke="${NIGHT}" stroke-width="4.5" stroke-linecap="round"/></g>` +
+    `<g transform="translate(178 150) scale(0.62)">${flaky()}</g>`,
+  chase: () =>
+    `<ellipse cx="150" cy="174" rx="26" ry="4" fill="${IND}" opacity="0.12"/>` +
+    `<g transform="translate(-8 6) scale(0.82) rotate(-8 100 110)">` +
+    crow(
+      { big: true, px: 4, brow: "M110 58 Q122 52 134 60" },
+      { fly: true, back: `<path d="M92 104 Q96 30 140 22 Q118 52 116 100 Z" fill="${NIGHT}"/>` },
+    ) +
+    `</g>` +
+    `<path d="M8 70 H40 M4 92 H32 M12 114 H40 M126 132 H138 M122 144 H134" stroke="${IND}" stroke-opacity="0.25" stroke-width="3" stroke-linecap="round"/>` +
+    `<g transform="translate(160 136) scale(0.72)">${flaky(true, true)}</g>`,
+};
+---
+
+<svg
+  viewBox="0 0 200 185"
+  class:list={["fistronek", className]}
+  role={label ? "img" : undefined}
+  aria-label={label || undefined}
+  aria-hidden={label ? undefined : "true"}
+  set:html={art[pose]()}
+/>
+
+<style>
+  .fistronek {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+</style>

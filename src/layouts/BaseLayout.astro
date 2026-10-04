@@ -43,5 +43,9 @@ const canonical = new URL(Astro.url.pathname, site.url).toString();
       <slot />
     </main>
     <Footer />
+    <script define:vars={{ lines: site.consoleMessage }}>
+      console.log("%c" + lines[0], "color:#3fa66b;font-weight:600");
+      console.log(lines.slice(1).join("\n"));
+    </script>
   </body>
 </html>
