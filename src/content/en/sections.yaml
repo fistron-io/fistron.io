@@ -66,6 +66,8 @@ demo:
   intro: "Tell us about a quality decision that takes too much manual work today. We'll show you what Fistron finds, and what it would need."
   primaryCta: "Request a demo"
   note: "Demo requests aren't connected yet. This form doesn't send anything."
+  faxLabel: "Fax number"
+  faxJoke: "Just kidding."
   successLabel: "Request received"
   successTitle: "Evidence: 1. Confidence: high."
   successText: "Thanks, we'll get back to you soon. Fištrónek is already reading it."
