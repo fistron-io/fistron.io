@@ -22,6 +22,14 @@ how:
 questions:
   title: "Questions Fistron is built to answer"
 
+outcomes:
+  title: "Quality, schedule and cost. Without trading one for another."
+  intro: "Every project is run against three baselines, and more quality usually costs time or money. Fistron doesn't break that triangle. It removes the waste inside it: tests that add no evidence, flaky reruns, failures waiting for the right person, test plans assembled by hand."
+  paragraphs:
+    - "Fewer tests, same evidence. Every test that doesn't run for a change has a recorded reason. Flaky tests are quarantined, not deleted. The full suite still runs on a schedule, to catch what selection would have missed."
+    - "A saving counts only if quality holds. Fistron records your baseline first, and reports change failure rate and escaped defects next to every saving."
+  note: "No percentages here yet. We'll publish them when pilots have measured them."
+
 ci:
   title: "Start where it hurts: CI failed. Tell me why."
   paragraphs:

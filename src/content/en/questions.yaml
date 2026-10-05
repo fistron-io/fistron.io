@@ -15,6 +15,10 @@
   question: "Which work is necessary, and where should it run?"
   answer: "Select existing tests and observations, reuse applicable evidence and skip redundant runs."
   status: in-development
+- id: suite-health
+  question: "Which tests are flaky, and which ones add nothing?"
+  answer: "Quarantine flaky tests outside the blocking path with an owner, and recommend tests to merge or retire, for your approval."
+  status: in-development
 - id: service-objective
   question: "Can we demonstrate this service's operating objective?"
   answer: "Coordinate the observations or recovery checks an agreed objective requires, for the agreed period."

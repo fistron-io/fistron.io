@@ -81,6 +81,16 @@ const audiences = defineCollection({
   schema: simpleItem.extend({ example: z.string() }),
 });
 
+const outcomes = defineCollection({
+  loader: orderedList("outcomes"),
+  schema: simpleItem.extend({ label: z.string() }),
+});
+
+const messages = defineCollection({
+  loader: orderedList("messages"),
+  schema: z.object({ order, title: z.string(), lines: z.array(z.string()).min(1) }),
+});
+
 const questions = defineCollection({
   loader: orderedList("questions"),
   schema: z.object({ order, question: z.string(), answer: z.string(), status }),
@@ -105,6 +115,8 @@ export const collections = {
   governance,
   deployment,
   audiences,
+  outcomes,
+  messages,
   questions,
   integrations,
   roadmap,
