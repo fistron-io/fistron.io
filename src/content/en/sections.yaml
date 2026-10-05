@@ -60,7 +60,10 @@ roadmap:
 
 openCore:
   title: "Open at the core"
-  intro: "The agent, the Evidence Model and the integration contract are planned as open source, so you can inspect how every conclusion is reached and plug in your own tools."
+  intro: "The agent, the reasoning, the Evidence Model and the integration contract are planned as open source, so you can inspect how every conclusion is reached and plug in your own tools."
+  paragraphs:
+    - "Every download will also include the closed Fistron core with a free licence: flaky test quarantine, test selection and suite health for your own projects. No registration."
+    - "When your organisation needs more projects and teams, governance and support, a paid licence unlocks them in the same installation. Your results stay readable and exportable whatever the licence."
   linkLabel: "Visit fistron.org"
 
 about:
