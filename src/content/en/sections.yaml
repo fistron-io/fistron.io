@@ -2,8 +2,8 @@
 # Lists (questions, integrations, ...) are in their own files next to this one.
 
 hero:
-  title: "Don't replace anything. Orchestrate everything."
-  intro: "Fistron helps you achieve the quality your software and IT services require, and prove it, by orchestrating the tools you already own."
+  title: "Prove your quality. Keep your tools. Get your time back."
+  intro: "Fistron helps you achieve the quality your software and IT services require, and prove it, by orchestrating the tools you already own. Less time spent on tests that add nothing and on debugging failures by hand."
   primaryCta: "Request a demo"
   secondaryCta: "See how it works"
   caption: "Target workflow with example data. In development."

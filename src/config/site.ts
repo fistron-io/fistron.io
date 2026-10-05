@@ -4,7 +4,7 @@ export const site = {
   url: "https://fistron.io",
   description:
     "Fistron helps you achieve the quality your software and IT services require, and prove it, by orchestrating the tools you already own.",
-  slogan: "Don't replace anything. Orchestrate everything.",
+  slogan: "Prove your quality. Keep your tools. Get your time back.",
 
   /** Small jokes outside the main story. */
   footerNote: "No flaky tests were harmed in the making of this website. A few were caught.",
