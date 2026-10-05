@@ -41,6 +41,7 @@ touching layout:
 | `sections.yaml` | Headings and short copy for every section, keyed by section |
 | `objective.yaml` | The example quality objective in the hero |
 | `problems.yaml`, `steps.yaml`, `trust.yaml`, `governance.yaml`, `deployment.yaml`, `audiences.yaml`, `roadmap.yaml` | Section lists, shown in file order |
+| `outcomes.yaml`, `messages.yaml` | The quality, schedule and cost baselines and what each audience gets (outcomes section, in development as a whole) |
 | `questions.yaml`, `integrations.yaml` | Lists with a `status` per item |
 | `ci-output.txt`, `evidence-item.txt` | Example CLI output and evidence item (shortened from a synthetic example case) |
 
@@ -53,7 +54,7 @@ Every capability the site shows is either `available` (filled green checkbox,
 "Available now") or `in-development` (empty checkbox, "In development"). Mark
 something `available` only when it works in the Fistron repository today.
 When a capability ships, change its `status` in `questions.yaml` or
-`integrations.yaml`. Sections that are in development as a whole (governance,
+`integrations.yaml`. Sections that are in development as a whole (outcomes, governance,
 control-plane deployment options) say so in their component or copy.
 
 ### Sections and layout

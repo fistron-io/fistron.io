@@ -1,0 +1,12 @@
+# What each audience gets, in their own words. Shown in file order.
+- id: leadership
+  title: "For leadership and project managers"
+  lines:
+    - "Meet your quality, schedule and cost baselines, and prove it."
+    - "Know where your release stands on quality, with evidence instead of status meetings."
+- id: engineers
+  title: "For engineers"
+  lines:
+    - "Your CI failed. Fistron tells you why."
+    - "You changed one file. You don't wait for the whole suite."
+    - "Flaky tests stop blocking you. Someone owns them, and they get fixed."
