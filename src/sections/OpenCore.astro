@@ -13,6 +13,7 @@ const about = await section("about");
     <div class="card">
       <h2 id="open-core-title">{open.title}</h2>
       <p>{open.intro}</p>
+      {open.paragraphs?.map((p) => <p>{p}</p>)}
       <a href={site.links.openSource}>{open.linkLabel}</a>
     </div>
     <div class="card about">
