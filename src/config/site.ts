@@ -26,6 +26,7 @@ export const site = {
   nav: [
     { label: "How it works", href: "/#how" },
     { label: "Use cases", href: "/#use-cases" },
+    { label: "Outcomes", href: "/#outcomes" },
     { label: "Trust", href: "/#trust" },
     { label: "Deployment", href: "/#deployment" },
     { label: "Open source", href: "https://fistron.org" },

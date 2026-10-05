@@ -1,7 +1,8 @@
 # current: true marks the stage in progress.
 - { id: v1, stage: "V1", title: "Evidence-based failure analysis", current: true }
-- { id: v2, stage: "V2", title: "Risk-based test selection" }
-- { id: v3, stage: "V3", title: "Coverage-gap detection" }
+- { id: v1-5, stage: "V1.5", title: "Flaky test quarantine" }
+- { id: v2, stage: "V2", title: "Risk-based test selection and test plans" }
+- { id: v3, stage: "V3", title: "Coverage gaps and suite health audit" }
 - { id: v4, stage: "V4", title: "Test authoring with your tools" }
 - { id: v5, stage: "V5", title: "Predictive quality" }
 - { id: v6, stage: "V6", title: "Closed-loop quality engineering" }

@@ -1,0 +1,13 @@
+# The three delivery baselines, shown in file order.
+- id: quality
+  label: "Quality"
+  title: "Evidence, not hope."
+  text: "Every change gets the evidence its risk and your policies require. Gaps are closed before the release, not discovered after it."
+- id: schedule
+  label: "Schedule"
+  title: "Plan from risk. Run what matters. Know why it failed."
+  text: "Test plans derived from risk instead of assembled by hand, only the tests a change needs, and failures explained from evidence."
+- id: cost
+  label: "Cost"
+  title: "Spend testing where the risk is."
+  text: "Fewer runs that add no evidence, fewer reruns of flaky tests, a leaner suite and fewer engineer hours spent on triage."
