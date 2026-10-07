@@ -43,6 +43,7 @@ touching layout:
 | `problems.yaml`, `steps.yaml`, `trust.yaml`, `governance.yaml`, `deployment.yaml`, `audiences.yaml`, `roadmap.yaml` | Section lists, shown in file order |
 | `outcomes.yaml`, `messages.yaml` | The quality, schedule and cost baselines and what each audience gets (outcomes section, in development as a whole) |
 | `questions.yaml`, `integrations.yaml` | Lists with a `status` per item |
+| `platforms.yaml` | CI platforms, local logo names, exact support scope and featured candidates |
 | `ci-output.txt`, `evidence-item.txt` | Example CLI output and evidence item (shortened from a synthetic example case) |
 
 The schemas in `src/content.config.ts` validate every file at build time: a
@@ -53,10 +54,12 @@ missing field or a typo in a status fails the build with a message.
 Homepage copy was reconciled with the Fistron documentation supplied on
 2026-10-07: README, `docs/design/go-to-market.md`, `roadmap.md`,
 `business-model.md`, `use-cases/measurable-quality.md`, `docs/ci-job.md`
-and `docs/experiments.md`.
+and `docs/experiments.md`. The evening update also follows the V2.1 commit
+plan and CI platform table in the latest roadmap, plus ADRs 0038–0040.
 
 V1 functionality is implemented, with broader real-case validation ongoing;
-V2 is in development. Flaky quarantine, Suite Health, organisation metrics,
+V2.1 change assessment is available in an early form, with human review and
+further validation required. The rest of V2, flaky quarantine, Suite Health, organisation metrics,
 commercial packaging and control-plane hosting remain planned. The
 proposed edition split is not a released offer or final licence commitment.
 
@@ -68,6 +71,22 @@ something `available` only when it works in the Fistron repository today.
 When a capability ships, change its `status` in `questions.yaml` or
 `integrations.yaml`. Sections that are in development as a whole (outcomes, governance,
 control-plane deployment options) say so in their component or copy.
+
+### CI platform support and logos
+
+`platforms.yaml` distinguishes `available` (native adapter), `limited`
+(a specific working subset) and `candidate` (no native adapter yet).
+The displayed label and detail must describe the actual scope. GitLab CI
+is the only native adapter; Jenkins supports supplied console logs only.
+Candidate cards do not promise delivery dates. Generic artifact ingestion
+is described separately from automatic collection or job execution.
+
+Four featured platforms are visible by default; the other candidates are
+in a native HTML disclosure. Logos are local SVGs in `public/platforms/`.
+Source commits, hashes, brand metadata and licence copies are kept there;
+no third-party asset requests or icon dependency are added. Azure DevOps,
+AWS and Google Cloud marks identify the platform family named on the card.
+The platform marks do not imply vendor endorsement or partnership.
 
 ### Sections and layout
 

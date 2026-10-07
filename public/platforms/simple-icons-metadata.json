@@ -1,0 +1,71 @@
+[
+  {
+    "title": "Argo",
+    "hex": "EF7B4D",
+    "source": "https://github.com/cncf/artwork/blob/c2e619cdf85e8bac090ceca7c0834c5cfedf9426/projects/argo/icon/black/argo-icon-black.svg"
+  },
+  {
+    "title": "Bitbucket",
+    "hex": "0052CC",
+    "source": "https://atlassian.design/resources/logo-library",
+    "guidelines": "https://atlassian.design/foundations/logos"
+  },
+  {
+    "title": "Buildkite",
+    "hex": "14CC80",
+    "source": "https://buildkite.com/brand-assets",
+    "guidelines": "https://buildkite.com/brand-assets"
+  },
+  {
+    "title": "CircleCI",
+    "hex": "343434",
+    "source": "https://circleci.com/press"
+  },
+  {
+    "title": "Drone",
+    "hex": "212121",
+    "source": "https://github.com/drone/brand/tree/f3ba7a1ad3c35abfe9571ea9c3ea93dff9912955"
+  },
+  {
+    "title": "GitHub Actions",
+    "hex": "2088FF",
+    "source": "https://github.com/features/actions"
+  },
+  {
+    "title": "GitLab",
+    "hex": "FC6D26",
+    "source": "https://about.gitlab.com/press/press-kit/",
+    "guidelines": "https://about.gitlab.com/handbook/marketing/corporate-marketing/brand-activation/trademark-guidelines/"
+  },
+  {
+    "title": "Google Cloud",
+    "hex": "4285F4",
+    "source": "https://cloud.google.com"
+  },
+  {
+    "title": "Jenkins",
+    "hex": "D24939",
+    "source": "https://get.jenkins.io/art/",
+    "guidelines": "https://www.jenkins.io/press/",
+    "license": {
+      "type": "CC-BY-SA-3.0"
+    }
+  },
+  {
+    "title": "TeamCity",
+    "hex": "000000",
+    "source": "https://www.jetbrains.com/company/brand/logos",
+    "guidelines": "https://www.jetbrains.com/company/brand"
+  },
+  {
+    "title": "Tekton",
+    "hex": "FD495C",
+    "source": "https://github.com/cdfoundation/artwork/blob/3e748ca9cf9c3136a4a571f7655271b568c16a64/tekton/icon/black/tekton-icon-black.svg",
+    "guidelines": "https://github.com/cdfoundation/artwork/blob/main/tekton/tekton_brand_guide.pdf"
+  },
+  {
+    "title": "Travis CI",
+    "hex": "3EAAAF",
+    "source": "https://travis-ci.com/logo"
+  }
+]

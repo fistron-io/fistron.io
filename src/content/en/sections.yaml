@@ -21,6 +21,7 @@ how:
 
 questions:
   title: "Questions Fistron is built to answer"
+  intro: "CI failure analysis and early change assessment work today. Change assessments still need human review: a cited test assertion can be real without proving the whole requirement. Broader validation is ongoing."
 
 outcomes:
   title: "Quality, schedule and cost. Without trading one for another."
@@ -36,7 +37,7 @@ ci:
     - "The first Fistron workflow explains failed pipelines from evidence, not guesses. When the cause isn't in the log, Fistron names the missing evidence and acquires it read-only from GitLab, Kubernetes or the failing endpoint."
     - "Run it locally or in GitLab CI after a failure, collecting evidence before environment cleanup. Keep the assessment as JSON, Markdown or HTML, with recordings you can replay offline."
     - "Delegate deeper investigation to HolmesGPT, or enable a policy-controlled re-run of a failed GitLab job. Re-runs are disabled by default. If the evidence isn't enough, Fistron says so."
-    - "V1 is implemented and broader validation on real failures is ongoing. Change assessment and test planning are the next workflow in development."
+    - "V1 is implemented and broader validation on real failures is ongoing. Early change assessment is now available too: derive required checks, inspect test assertions and results, and report failures or evidence gaps. Test planning and selection remain in development."
   caption: "Shortened output from a synthetic example case."
 
 trust:
@@ -44,8 +45,19 @@ trust:
   intro: "Fistron uses AI where it helps, never as the source of truth. Every claim points back to evidence you can open."
   caption: "An evidence item"
 
+platforms:
+  title: "Your CI. One quality control plane."
+  intro: "Fistron is built around evidence, so teams can keep their CI platforms. GitLab CI is the first implemented adapter. Here is exactly what works today and what is being considered next."
+  note: "GitLab CI is the only native CI adapter today. GitHub Actions, a full Jenkins adapter and Azure DevOps are the likely next candidates; pilot needs determine the order."
+  linkLabel: "Explore more platform candidates"
+  caption: "These platforms are listed in the roadmap for evaluation. No native adapters or delivery dates are committed. Descriptions show the intended evidence sources."
+  paragraphs:
+    - "Already have the artifacts? Fistron can analyse supplied CI logs, diffs and JUnit files without a native platform adapter. This does not include automatic collection, CI setup or job re-runs on those platforms."
+    - "Using more than one CI? Tell us which workflow needs evidence first."
+  primaryCta: "Discuss your platform"
+
 integrations:
-  title: "Works with the tools you already run"
+  title: "Evidence beyond the pipeline"
   intro: "Integrations are capabilities: each one declares what it can observe, investigate, execute or author. You decide which are switched on."
 
 governance:
@@ -59,7 +71,7 @@ deployment:
 
 roadmap:
   title: "Where Fistron is heading"
-  intro: "V1 works today, with broader real-case validation ongoing. V2 development has started independently of V1.5. Later stages are planned; their order and scope will be validated with users."
+  intro: "V1 works today. V2.1 change assessment is implemented in an early form and has been exercised on a controlled merge request. Human review and broader validation continue. V2 runs independently of V1.5; later stages remain planned."
 
 openCore:
   title: "Start with one project. Grow across teams."

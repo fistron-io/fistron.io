@@ -5,12 +5,12 @@
   status: available
 - id: feature-evidence
   question: "What must this feature or fix demonstrate before we ship it?"
-  answer: "Turn intent, acceptance criteria and policies into explicit evidence requirements."
-  status: in-development
+  answer: "Derive required checks from a change's intent and diff, with evidence references and explicit gaps."
+  status: available
 - id: test-coverage
   question: "Do our existing tests actually check what changed?"
-  answer: "Map requirements to real assertions and results, checking revision, environment and test strength."
-  status: in-development
+  answer: "Inspect test assertions and results for the assessed revision. Report supported, failed or unverified checks, for human review."
+  status: available
 - id: necessary-work
   question: "Which work is necessary, and where should it run?"
   answer: "Select tests from required evidence and policy. Record a reason for every omitted test, preserve always-run checks and measure misses with periodic full runs."

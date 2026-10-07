@@ -1,8 +1,30 @@
-# V2 is active; V1 validation continues. V1.5 is an independent planned stage.
-- { id: v1, stage: "V1 · Implemented; validating", title: "Evidence-based CI failure analysis" }
-- { id: v1-5, stage: "V1.5 · Planned", title: "Flaky quarantine with ownership and tracking" }
-- { id: v2, stage: "V2 · In development", title: "Change assessment, test plans and risk-based evidence selection", current: true }
-- { id: v3, stage: "V3 · Planned", title: "Coverage-gap detection and Suite Health audit" }
-- { id: v4, stage: "V4 · Planned", title: "Missing tests authored with your tools" }
-- { id: v5, stage: "V5 · Planned", title: "Predictive quality" }
-- { id: v6, stage: "V6 · Planned", title: "Closed-loop quality engineering" }
+# V2.1 exists; validation is ongoing. V1.5 is independent of V2.
+- id: v1
+  stage: "V1 · Implemented; validating"
+  title: "CI failed. Tell me why."
+  detail: "Evidence-backed RCA, live reads, replay, CI reports and policy-controlled job re-runs. Broader real-case validation continues."
+- id: v1-5
+  stage: "V1.5 · Planned"
+  title: "Flaky quarantine"
+  detail: "Keep flaky tests outside the blocking path, still running and reported, with an owner until fixed or retired."
+- id: v2
+  stage: "V2 · Active development"
+  title: "From a change to the evidence it needs"
+  detail: "V2.1: early change assessment with rules or LLMs, inspected test assertions, revision-specific results, live acquisition and reports. Human review remains essential. Next: test plans, extension points, delivery baselines, then evidence selection."
+  current: true
+- id: v3
+  stage: "V3 · Planned"
+  title: "Coverage gaps and Suite Health"
+  detail: "Add coverage and test-to-code data. Recommend tests to merge, quarantine or retire, with human approval."
+- id: v4
+  stage: "V4 · Planned"
+  title: "Author the missing tests"
+  detail: "Create missing tests with your existing tools and review workflows."
+- id: v5
+  stage: "V5 · Planned"
+  title: "Predictive quality"
+  detail: "Use accumulated evidence to anticipate quality risks."
+- id: v6
+  stage: "V6 · Planned"
+  title: "Closed-loop quality engineering"
+  detail: "Coordinate quality objectives, evidence, gap closure and reassessment across tools."
