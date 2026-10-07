@@ -1,0 +1,96 @@
+# Native CI support, separate from generic file-based evidence ingestion.
+# A candidate is not an implemented integration or a promised delivery date.
+- id: gitlab-ci
+  name: "GitLab CI"
+  logo: "gitlab"
+  support: available
+  label: "Available now"
+  featured: true
+  detail: "Import failed jobs, read merge requests and test reports, run Fistron in CI and optionally re-run a failed job under policy."
+- id: github-actions
+  name: "GitHub Actions"
+  logo: "githubactions"
+  support: candidate
+  label: "Candidate · no adapter yet"
+  featured: true
+  detail: "A candidate for the next CI adapter. Integration scope and delivery order will follow pilot needs."
+- id: jenkins
+  name: "Jenkins"
+  logo: "jenkins"
+  support: limited
+  label: "Limited · console logs only"
+  featured: true
+  detail: "Fistron can normalize supplied Jenkins console logs today. Live acquisition and Jenkins CI job integration are not implemented."
+- id: azure-pipelines
+  name: "Azure DevOps Pipelines"
+  logo: "azuredevops"
+  support: candidate
+  label: "Candidate · no adapter yet"
+  featured: true
+  detail: "Build, repository and test-result integration is a roadmap candidate, to be scoped with pilot teams."
+- id: bitbucket
+  name: "Bitbucket Pipelines"
+  logo: "bitbucket"
+  support: candidate
+  label: "Candidate · no adapter yet"
+  detail: "Pipeline logs and test artifacts."
+- id: circleci
+  name: "CircleCI"
+  logo: "circleci"
+  support: candidate
+  label: "Candidate · no adapter yet"
+  detail: "Pipelines, job logs and stored test results."
+- id: aws
+  name: "AWS CodeBuild / CodePipeline"
+  logo: "aws"
+  support: candidate
+  label: "Candidate · no adapter yet"
+  detail: "Build evidence and CodeBuild test reports."
+- id: google-cloud-build
+  name: "Google Cloud Build"
+  logo: "googlecloud"
+  support: candidate
+  label: "Candidate · no adapter yet"
+  detail: "Build logs and JUnit artifacts."
+- id: teamcity
+  name: "TeamCity"
+  logo: "teamcity"
+  support: candidate
+  label: "Candidate · no adapter yet"
+  detail: "Builds and per-test results."
+- id: buildkite
+  name: "Buildkite"
+  logo: "buildkite"
+  support: candidate
+  label: "Candidate · no adapter yet"
+  detail: "Builds, jobs, logs and Test Engine results."
+- id: tekton
+  name: "Tekton"
+  logo: "tekton"
+  support: candidate
+  label: "Candidate · no adapter yet"
+  detail: "Kubernetes-native runs, pod logs and artifacts."
+- id: argo
+  name: "Argo Workflows"
+  logo: "argo"
+  support: candidate
+  label: "Candidate · no adapter yet"
+  detail: "Kubernetes-native workflows, pod logs and artifacts."
+- id: travis
+  name: "Travis CI"
+  logo: "travisci"
+  support: candidate
+  label: "Candidate · no adapter yet"
+  detail: "Build logs and test artifacts."
+- id: drone
+  name: "Drone"
+  logo: "drone"
+  support: candidate
+  label: "Candidate · no adapter yet"
+  detail: "Pipeline logs and test artifacts."
+- id: woodpecker
+  name: "Woodpecker CI"
+  logo: "woodpecker"
+  support: candidate
+  label: "Candidate · no adapter yet"
+  detail: "Pipeline logs and test artifacts."

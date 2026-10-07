@@ -1,0 +1,85 @@
+---
+import { section, list } from "../lib/content";
+import Section from "../components/Section.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import PlatformCard from "../components/PlatformCard.astro";
+
+const copy = await section("platforms");
+const platforms = await list("platforms");
+---
+
+<Section id="platforms" labelledby="platforms-title">
+  <SectionHeading id="platforms-title" title={copy.title} intro={copy.intro} />
+  <ul class="platforms featured">
+    {platforms.filter((p) => p.featured).map((platform) => <PlatformCard platform={platform} />)}
+  </ul>
+  <p class="note">{copy.note}</p>
+  <details class="more">
+    <summary>{copy.linkLabel}</summary>
+    <p class="caption">{copy.caption}</p>
+    <ul class="platforms">
+      {platforms.filter((p) => !p.featured).map((platform) => <PlatformCard platform={platform} />)}
+    </ul>
+  </details>
+  <div class="evidence">
+    {copy.paragraphs?.map((p) => <p>{p}</p>)}
+    <a href="#demo">{copy.primaryCta}</a>
+  </div>
+</Section>
+
+<style>
+  .platforms {
+    list-style: none;
+    padding: 0;
+    margin: 24px 0 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+  }
+  .featured {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    margin-top: 40px;
+  }
+  .note, .caption {
+    margin-top: 20px;
+    color: var(--color-muted);
+    font-size: 0.9375rem;
+    max-width: 76ch;
+  }
+  .more {
+    margin-top: 28px;
+    border-top: 1px solid var(--color-line);
+    border-bottom: 1px solid var(--color-line);
+    padding: 20px 0;
+  }
+  summary {
+    cursor: pointer;
+    font-weight: 500;
+    color: var(--color-indigo);
+  }
+  summary:focus-visible {
+    outline: 2px solid var(--color-indigo);
+    outline-offset: 6px;
+  }
+  .more[open] { padding-bottom: 24px; }
+  .evidence {
+    margin-top: 28px;
+    padding: 24px 28px;
+    background: var(--color-paper);
+    border-radius: var(--radius-card);
+    color: var(--color-ink-2);
+  }
+  .evidence p + p { margin-top: 10px; }
+  .evidence a {
+    display: inline-block;
+    margin-top: 16px;
+    font-weight: 500;
+  }
+  @media (max-width: 1100px) {
+    .platforms, .featured { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 640px) {
+    .platforms, .featured { grid-template-columns: 1fr; }
+    .evidence { padding: 22px; }
+  }
+</style>

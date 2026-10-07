@@ -101,9 +101,22 @@ const integrations = defineCollection({
   schema: z.object({ order, name: z.string(), status }),
 });
 
+const platforms = defineCollection({
+  loader: orderedList("platforms"),
+  schema: z.object({
+    order,
+    name: z.string(),
+    logo: z.string().regex(/^[a-z0-9-]+$/),
+    support: z.enum(["available", "limited", "candidate"]),
+    label: z.string(),
+    detail: z.string(),
+    featured: z.boolean().default(false),
+  }),
+});
+
 const roadmap = defineCollection({
   loader: orderedList("roadmap"),
-  schema: z.object({ order, stage: z.string(), title: z.string(), current: z.boolean().default(false) }),
+  schema: z.object({ order, stage: z.string(), title: z.string(), detail: z.string(), current: z.boolean().default(false) }),
 });
 
 export const collections = {
@@ -119,5 +132,6 @@ export const collections = {
   messages,
   questions,
   integrations,
+  platforms,
   roadmap,
 };
