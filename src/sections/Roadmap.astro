@@ -2,13 +2,22 @@
 import { section, list } from "../lib/content";
 import Section from "../components/Section.astro";
 import SectionHeading from "../components/SectionHeading.astro";
+import Fistronek from "../components/Fistronek.astro";
 
 const copy = await section("roadmap");
 const stages = await list("roadmap");
 ---
 
 <Section labelledby="roadmap-title">
-  <SectionHeading id="roadmap-title" title={copy.title} intro={copy.intro} />
+  <div class="top">
+    <div class="text">
+      <SectionHeading id="roadmap-title" title={copy.title} intro={copy.intro} />
+    </div>
+    <figure class="art">
+      <Fistronek pose="telescope" label="Fištrónek looking ahead through a telescope" />
+      {copy.caption && <figcaption>{copy.caption}</figcaption>}
+    </figure>
+  </div>
   <ol class="stages">
     {
       stages.map((s) => (
@@ -23,6 +32,28 @@ const stages = await list("roadmap");
 </Section>
 
 <style>
+  .top {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px 48px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .text {
+    flex: 1 1 520px;
+    min-width: 0;
+  }
+  .art {
+    flex: 0 1 230px;
+    max-width: 230px;
+    margin: 0 auto;
+  }
+  figcaption {
+    margin-top: 4px;
+    font-size: 0.875rem;
+    color: var(--color-muted);
+    text-align: center;
+  }
   .stages {
     list-style: none;
     padding: 0;

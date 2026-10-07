@@ -1,4 +1,10 @@
 /** Site-wide settings: names, URLs and navigation. */
+
+export type ServiceKey = "app" | "docs" | "support" | "openSource";
+
+/** A link inside this site, or one of the separate services. */
+export type NavItem = { label: string; href?: string; service?: ServiceKey };
+
 export const site = {
   name: "Fistron",
   url: "https://fistron.io",
@@ -12,15 +18,19 @@ export const site = {
     "Hi, developer. Fištrónek checked this console.",
     "0 errors, 0 warnings, 0 flaky tests.",
     "Your own pipeline? We'd need evidence for that.",
-    "How it works: https://docs.fistron.io",
+    "Docs are coming soon at docs.fistron.io.",
   ],
 
-  /** Separate services on their own hosts. */
-  links: {
-    app: "https://app.fistron.io",
-    docs: "https://docs.fistron.io",
-    support: "https://support.fistron.io",
-    openSource: "https://fistron.org",
+  /**
+   * Separate services on their own hosts. While `live` is false the site shows
+   * the name with "Coming soon" instead of a link. Set it to true once the
+   * host is up.
+   */
+  services: {
+    app: { url: "https://app.fistron.io", live: false },
+    docs: { url: "https://docs.fistron.io", live: false },
+    support: { url: "https://support.fistron.io", live: false },
+    openSource: { url: "https://fistron.org", live: false },
   },
 
   nav: [
@@ -29,9 +39,9 @@ export const site = {
     { label: "Outcomes", href: "/#outcomes" },
     { label: "Platforms", href: "/#platforms" },
     { label: "Deployment", href: "/#deployment" },
-    { label: "Open source", href: "https://fistron.org" },
-    { label: "Docs", href: "https://docs.fistron.io" },
-  ],
+    { label: "Open source", service: "openSource" },
+    { label: "Docs", service: "docs" },
+  ] as NavItem[],
 
   /**
    * Search engines may index the site only when PUBLIC_INDEXABLE=true at

@@ -1,0 +1,52 @@
+---
+import { site, type NavItem } from "../config/site";
+
+/**
+ * A navigation link. Links to a separate service (docs, app, ...) render as
+ * text with a "Coming soon" tag until the service is marked live in
+ * src/config/site.ts.
+ */
+interface Props {
+  item: NavItem;
+  class?: string;
+  /** Short "Soon" tag for tight spaces such as the header. */
+  compact?: boolean;
+}
+const { item, class: className, compact = false } = Astro.props;
+const service = item.service ? site.services[item.service] : undefined;
+const href = service ? service.url : item.href;
+const live = service ? service.live : true;
+---
+
+{
+  live ? (
+    <a href={href} class={className}>
+      {item.label}
+    </a>
+  ) : (
+    <span class:list={["soon", className]} title={`${item.label}: coming soon`}>
+      {item.label}
+      <span class="tag">{compact ? "Soon" : "Coming soon"}</span>
+    </span>
+  )
+}
+
+<style>
+  .soon {
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    cursor: default;
+    opacity: 0.75;
+  }
+  .tag {
+    font-size: 0.6875rem;
+    font-weight: 500;
+    line-height: 1;
+    padding: 3px 6px;
+    border-radius: 999px;
+    border: 1px solid currentColor;
+    white-space: nowrap;
+  }
+</style>

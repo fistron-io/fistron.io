@@ -1,7 +1,7 @@
 ---
 import { section } from "../lib/content";
-import { site } from "../config/site";
 import Section from "../components/Section.astro";
+import NavLink from "../components/NavLink.astro";
 import Fistronek from "../components/Fistronek.astro";
 
 const open = await section("openCore");
@@ -14,7 +14,7 @@ const about = await section("about");
       <h2 id="open-core-title">{open.title}</h2>
       <p>{open.intro}</p>
       {open.paragraphs?.map((p) => <p>{p}</p>)}
-      <a href={site.links.openSource}>{open.linkLabel}</a>
+      <NavLink item={{ label: open.linkLabel ?? "fistron.org", service: "openSource" }} class="more-link" />
     </div>
     <div class="card about">
       <div class="about-text">
@@ -65,8 +65,8 @@ const about = await section("about");
     margin-top: 14px;
     color: var(--color-ink-2);
   }
-  a {
-    display: inline-block;
+  .card :global(.more-link) {
+    display: inline-flex;
     margin-top: 20px;
     font-weight: 500;
   }

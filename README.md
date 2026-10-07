@@ -134,22 +134,34 @@ All tokens are in `src/styles/tokens.css`; components use only those.
 **Fištrónek** is the Fistron crow: crows are clever and use the tools around
 them, as Fistron does. **Flaky** is his opponent, the half-red, half-green
 gremlin of flaky tests. Both are inline SVG in `src/components/Fistronek.astro`
-with four poses: `main` (checkbox in the beak), `investigating` (magnifier),
-`skeptical` (with Flaky) and `chase` (chasing Flaky).
+with eight poses: `main` (checkbox in the beak), `investigating` (magnifier),
+`skeptical` (with Flaky), `chase` (chasing Flaky), `telescope` (looking
+ahead), `broom` (sweeping out tests that add no evidence), `stamp` (approving
+a report) and `conductor` (baton).
 
 The tone is serious where it carries the message (hero, how it works, CI
 failure analysis, deployment) and playful around it:
 
-- illustrations in the problem, trust and "Why Fistron" sections and on the
-  404 page
-- dry self-irony from the QE world in short lines (`note`, `caption` in
-  `sections.yaml`), never in claims about what Fistron does
+- illustrations in the problem, outcomes (broom at the triangle), trust,
+  platforms (conductor), governance (stamp), roadmap (telescope) and "Why
+  Fistron" sections and on the 404 page
+- dry self-irony from the QE world in short lines (`note`, `caption`,
+  `quip` in `sections.yaml`), never in claims about what Fistron does
 - easter eggs: the sent demo form, a note in the browser console
   (`site.consoleMessage`), the footer note (`site.footerNote`) and the
   wordmark checkbox in the header, which Fištrónek ticks back when clicked
 
 The drawings are sketches for the private phase; an illustrator should refine
 the characters before launch.
+
+## Services on other hosts
+
+app.fistron.io, docs.fistron.io, support.fistron.io and fistron.org are
+separate projects. `site.services` in `src/config/site.ts` lists them with a
+`live` flag. While a service is not live, `NavLink` shows its name with a
+"Coming soon" tag (a short "Soon" in the header) instead of a link, so no
+page points at a host that doesn't answer. Set `live: true` once the host is
+up.
 
 ## Demo form
 
