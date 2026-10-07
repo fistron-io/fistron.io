@@ -45,7 +45,7 @@ function crow(e: Eye, opts: { wing?: string; item?: string; back?: string; fly?:
   s += `<ellipse cx="90" cy="120" rx="42" ry="35" fill="${IND}"/><ellipse cx="102" cy="128" rx="23" ry="21" fill="${BELLY}"/>`;
   s += back;
   s += `<circle cx="114" cy="78" r="30" fill="${IND}"/><path d="M103 53 Q101 36 112 46 Q116 31 125 51 Z" fill="${IND}"/>`;
-  s += `<path d="M138 70 Q170 80 140 93 Q132 82 138 70 Z" fill="${BEAK}"/><path d="M141 82 Q153 83 162 81" stroke="${NIGHT}" stroke-width="2" fill="none"/>`;
+  s += `<path d="M138 70 Q170 80 140 93 Q132 82 138 70 Z" fill="${BEAK}"/><path d="M141 82 Q147 82.5 151 82" stroke="${NIGHT}" stroke-width="2" fill="none"/>`;
   return s + eye(e) + wing + item;
 }
 
