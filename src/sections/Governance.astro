@@ -3,6 +3,7 @@ import { section, list } from "../lib/content";
 import Section from "../components/Section.astro";
 import SectionHeading from "../components/SectionHeading.astro";
 import StatusBadge from "../components/StatusBadge.astro";
+import Fistronek from "../components/Fistronek.astro";
 
 const copy = await section("governance");
 const items = await list("governance");
@@ -21,6 +22,10 @@ const items = await list("governance");
         </div>
       ))
     }
+    <figure class="art">
+      <div class="crow"><Fistronek pose="stamp" label="Fištrónek stamping a report with a green checkbox" /></div>
+      {copy.caption && <figcaption>{copy.caption}</figcaption>}
+    </figure>
   </div>
 </Section>
 
@@ -30,6 +35,32 @@ const items = await list("governance");
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 40px;
     margin-top: 48px;
+  }
+  .art {
+    grid-column: span 2;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+  }
+  .crow {
+    width: 200px;
+    flex: none;
+  }
+  figcaption {
+    font-size: 0.875rem;
+    color: var(--color-muted);
+    max-width: 14em;
+  }
+  @media (max-width: 600px) {
+    .art {
+      grid-column: auto;
+      flex-direction: column;
+    }
+    figcaption {
+      text-align: center;
+    }
   }
   .item {
     border-top: 2px solid var(--color-leaf);

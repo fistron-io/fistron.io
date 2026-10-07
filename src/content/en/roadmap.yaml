@@ -10,7 +10,7 @@
 - id: v2
   stage: "V2 · Active development"
   title: "From a change to the evidence it needs"
-  detail: "V2.1: early change assessment with rules or LLMs, inspected test assertions, revision-specific results, live acquisition and reports. Human review remains essential. Next: test plans, extension points, delivery baselines, then evidence selection."
+  detail: "V2.1 done in an early form: change assessment with rules or LLMs, inspected test assertions, revision-specific results, live acquisition and reports, still reviewed by a person. Now: V2.2 test plan generation. Then extension points, the delivery baseline and evidence selection."
   current: true
 - id: v3
   stage: "V3 · Planned"
