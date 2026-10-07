@@ -30,6 +30,7 @@ outcomes:
     - "Fewer tests, same evidence. Every test that doesn't run for a change has a recorded reason. Flaky tests are quarantined, not deleted. The full suite still runs on a schedule, to catch what selection would have missed."
     - "A saving counts only if quality holds. Fistron records your baseline first, and reports change failure rate and escaped defects next to every saving."
   note: "Test planning, evidence selection, quarantine and baseline reporting are planned. No savings figures yet; pilots must measure them against quality guardrails."
+  quip: "Tests that add no evidence. Out."
 
 ci:
   title: "Start where it hurts: CI failed. Tell me why."
@@ -55,6 +56,7 @@ platforms:
     - "Already have the artifacts? Fistron can analyse supplied CI logs, diffs and JUnit files without a native platform adapter. This does not include automatic collection, CI setup or job re-runs on those platforms."
     - "Using more than one CI? Tell us which workflow needs evidence first."
   primaryCta: "Discuss your platform"
+  quip: "Your CI plays. Fištrónek conducts."
 
 integrations:
   title: "Evidence beyond the pipeline"
@@ -62,6 +64,7 @@ integrations:
 
 governance:
   title: "Quality you can demonstrate, not just claim"
+  caption: "Approved. With the evidence attached."
 
 deployment:
   title: "Runs where your evidence lives"
@@ -71,7 +74,8 @@ deployment:
 
 roadmap:
   title: "Where Fistron is heading"
-  intro: "V1 works today. V2.1 change assessment is implemented in an early form and has been exercised on a controlled merge request. Human review and broader validation continue. V2 runs independently of V1.5; later stages remain planned."
+  intro: "V1 works today. V2.1 change assessment is implemented in an early form and has been exercised on a controlled merge request; human review and broader validation continue. V2.2, test plan generation, has started. V2 runs independently of V1.5; later stages remain planned."
+  caption: "V6 looks promising. V2.2 first."
 
 openCore:
   title: "Start with one project. Grow across teams."

@@ -1,14 +1,16 @@
 ---
 import { site } from "../config/site";
 import Wordmark from "./Wordmark.astro";
+import NavLink from "./NavLink.astro";
+import type { NavItem } from "../config/site";
 
-const columns = [
+const columns: NavItem[] = [
   { label: "Product", href: "/#how" },
-  { label: "Documentation", href: site.links.docs },
-  { label: "Open source", href: site.links.openSource },
+  { label: "Documentation", service: "docs" },
+  { label: "Open source", service: "openSource" },
   { label: "Use cases", href: "/#use-cases" },
-  { label: "Support", href: site.links.support },
-  { label: "Sign in", href: site.links.app },
+  { label: "Support", service: "support" },
+  { label: "Sign in", service: "app" },
   { label: "Deployment", href: "/#deployment" },
   { label: "Contact", href: "/#demo" },
 ];
@@ -28,7 +30,7 @@ const year = new Date().getFullYear();
         <p>{site.slogan}</p>
       </div>
       <nav aria-label="Footer" class="links">
-        {columns.map((link) => <a href={link.href}>{link.label}</a>)}
+        {columns.map((link) => <NavLink item={link} />)}
       </nav>
     </div>
     <p class="legal"><span>© {year} Fistron</span><span>{site.footerNote}</span></p>
@@ -73,11 +75,12 @@ const year = new Date().getFullYear();
     grid-template-columns: repeat(3, minmax(120px, auto));
     gap: 10px 48px;
   }
-  .links a {
+  .links :global(a),
+  .links :global(.soon) {
     color: var(--color-white);
     text-decoration: none;
   }
-  .links a:hover {
+  .links :global(a:hover) {
     text-decoration: underline;
   }
   .legal {
