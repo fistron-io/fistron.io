@@ -3,7 +3,7 @@ export const site = {
   name: "Fistron",
   url: "https://fistron.io",
   description:
-    "Fistron helps you achieve the quality your software and IT services require, and prove it, by orchestrating the tools you already own.",
+    "Fistron is a Quality Control Plane for software products, infrastructure and IT services. Prove your quality. Keep your tools. Get your time back.",
   slogan: "Prove your quality. Keep your tools. Get your time back.",
 
   /** Small jokes outside the main story. */
