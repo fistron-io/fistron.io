@@ -8,12 +8,12 @@ const stages = await list("roadmap");
 ---
 
 <Section labelledby="roadmap-title">
-  <SectionHeading id="roadmap-title" title={copy.title} />
+  <SectionHeading id="roadmap-title" title={copy.title} intro={copy.intro} />
   <ol class="stages">
     {
       stages.map((s) => (
         <li class:list={{ current: s.current }} aria-current={s.current ? "step" : undefined}>
-          <span class="stage">{s.current ? `${s.stage}, in progress` : s.stage}</span>
+          <span class="stage">{s.stage}</span>
           <span class="title">{s.title}</span>
         </li>
       ))

@@ -1,12 +1,16 @@
 - id: build-software
   title: "For teams that build software"
-  text: "Product engineering, QA and platform teams get evidence for features, fixes and releases: which tests matter, whether they check the change, and what is still missing."
+  text: "The target workflow gives product engineering, QA and platform teams evidence for features, fixes and releases: which tests matter, whether they check the change, and what is still missing."
   example: "Example: prove that retries never create duplicate orders, from existing tests to the missing concurrency check."
 - id: run-it
   title: "For teams that run IT"
-  text: "IT operations, SRE and shared-service teams get evidence for upgrades, migrations and service objectives, including software they don't develop themselves."
+  text: "The target workflow gives IT operations, SRE and shared-service teams evidence for upgrades, migrations and service objectives, including software they don't develop themselves."
   example: "Example: a successful backup job is one observation. A verified restore within the agreed time is the evidence."
 - id: manage-delivery
   title: "For people who manage delivery"
-  text: "Project, programme and delivery managers, PMOs and engineering leaders see quality per change and release, tied to the quality, schedule and cost baselines they answer for."
+  text: "The planned release view gives project, programme and delivery managers, PMOs and engineering leaders visibility into quality per change and release, tied to the quality, schedule and cost baselines they answer for."
   example: "Example: before the release review, see which changes still lack required evidence, and who owns each gap."
+- id: lead-quality
+  title: "For leaders making quality measurable"
+  text: "The planned Goals–Signals–Metrics workflow turns a company objective into reviewable department metrics and a Product Quality Index (PQI)."
+  example: "Example: compare quality against an agreed baseline, with metric definitions, weights and critical guardrails visible beside the index."

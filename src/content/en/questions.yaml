@@ -13,11 +13,11 @@
   status: in-development
 - id: necessary-work
   question: "Which work is necessary, and where should it run?"
-  answer: "Select existing tests and observations, reuse applicable evidence and skip redundant runs."
+  answer: "Select tests from required evidence and policy. Record a reason for every omitted test, preserve always-run checks and measure misses with periodic full runs."
   status: in-development
 - id: suite-health
   question: "Which tests are flaky, and which ones add nothing?"
-  answer: "Quarantine flaky tests outside the blocking path with an owner, and recommend tests to merge or retire, for your approval."
+  answer: "Keep quarantined tests running and reported with an owner. Recommend tests to merge or retire, with your approval and reversible changes."
   status: in-development
 - id: service-objective
   question: "Can we demonstrate this service's operating objective?"
@@ -26,4 +26,12 @@
 - id: release-decision
   question: "Can we explain the quality decision for this release?"
   answer: "Connect each requirement to its evidence, unresolved gaps and risk rationale, across tools."
+  status: in-development
+- id: test-plan
+  question: "What is the test plan for this change?"
+  answer: "Derive a reviewable plan from required evidence, existing tests and the checks still missing."
+  status: in-development
+- id: measurable-quality
+  question: "How do we improve quality across the company and measure it?"
+  answer: "Propose goals, signals and metrics for review, then a Product Quality Index with traceable inputs, approved weights and visible gaps."
   status: in-development

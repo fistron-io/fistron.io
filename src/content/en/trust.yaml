@@ -6,7 +6,7 @@
   text: "When the facts don't support a conclusion, Fistron abstains and names what's missing instead of guessing. Refreshing, we know."
 - id: read-only
   title: "Read-only by default"
-  text: "Acquisition goes through an allowlisted gateway with narrow capabilities. Nothing runs that you didn't permit."
+  text: "Evidence reads go through an allowlisted gateway. Re-running a failed GitLab job is a separate experiment, disabled unless explicitly enabled by policy."
 - id: models
   title: "Your model, or none"
   text: "Use any OpenAI-compatible endpoint or a local model, combine several for consensus, or run deterministic rules only."
