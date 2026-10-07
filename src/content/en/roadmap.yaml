@@ -1,8 +1,8 @@
-# current: true marks the stage in progress.
-- { id: v1, stage: "V1", title: "Evidence-based failure analysis", current: true }
-- { id: v1-5, stage: "V1.5", title: "Flaky test quarantine" }
-- { id: v2, stage: "V2", title: "Risk-based test selection and test plans" }
-- { id: v3, stage: "V3", title: "Coverage gaps and suite health audit" }
-- { id: v4, stage: "V4", title: "Test authoring with your tools" }
-- { id: v5, stage: "V5", title: "Predictive quality" }
-- { id: v6, stage: "V6", title: "Closed-loop quality engineering" }
+# V2 is active; V1 validation continues. V1.5 is an independent planned stage.
+- { id: v1, stage: "V1 · Implemented; validating", title: "Evidence-based CI failure analysis" }
+- { id: v1-5, stage: "V1.5 · Planned", title: "Flaky quarantine with ownership and tracking" }
+- { id: v2, stage: "V2 · In development", title: "Change assessment, test plans and risk-based evidence selection", current: true }
+- { id: v3, stage: "V3 · Planned", title: "Coverage-gap detection and Suite Health audit" }
+- { id: v4, stage: "V4 · Planned", title: "Missing tests authored with your tools" }
+- { id: v5, stage: "V5 · Planned", title: "Predictive quality" }
+- { id: v6, stage: "V6 · Planned", title: "Closed-loop quality engineering" }

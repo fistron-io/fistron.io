@@ -6,8 +6,14 @@
   title: "Quality-based policies"
   text: "Versioned policies with owners, exceptions and expiry, applied to the right scope."
 - id: review
-  title: "Review and certification"
+  title: "Internal quality review"
   text: "Record an accountable acceptance for a defined scope and evidence snapshot, and reassess it when things change."
 - id: reports
   title: "Reports others can verify"
   text: "Scoped reports with versioned metrics and traceable evidence, including failures, gaps and accepted risk."
+- id: metrics
+  title: "Goals, signals and measurable quality"
+  text: "Propose metrics from your objectives, for human review. Compare a baseline with later evidence; missing data remains visible."
+- id: pqi
+  title: "A quality index you can explain"
+  text: "Trace the Product Quality Index to versioned metrics and approved weights. Show critical guardrail breaches even when the overall score rises."
