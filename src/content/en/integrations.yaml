@@ -1,14 +1,10 @@
 # status: available | in-development
-- { id: gitlab, name: "GitLab, read-only", status: available }
 - { id: kubernetes, name: "Kubernetes via MCP", status: available }
 - { id: http-tls, name: "HTTP and TLS probe", status: available }
 - { id: junit, name: "JUnit XML", status: available }
 - { id: ci-logs, name: "CI logs and diffs", status: available }
 - { id: llm, name: "OpenAI-compatible LLMs", status: available }
 - { id: holmesgpt, name: "HolmesGPT investigation", status: available }
-- { id: gitlab-ci, name: "GitLab CI job mode", status: available }
-- { id: gitlab-rerun, name: "GitLab job re-run, opt-in", status: available }
-- { id: jenkins, name: "Jenkins", status: in-development }
 - { id: testkube, name: "Testkube", status: in-development }
 - { id: openqa, name: "openQA", status: in-development }
 - { id: prometheus, name: "Prometheus", status: in-development }

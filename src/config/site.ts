@@ -27,7 +27,7 @@ export const site = {
     { label: "How it works", href: "/#how" },
     { label: "Use cases", href: "/#use-cases" },
     { label: "Outcomes", href: "/#outcomes" },
-    { label: "Trust", href: "/#trust" },
+    { label: "Platforms", href: "/#platforms" },
     { label: "Deployment", href: "/#deployment" },
     { label: "Open source", href: "https://fistron.org" },
     { label: "Docs", href: "https://docs.fistron.io" },
