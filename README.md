@@ -48,6 +48,18 @@ touching layout:
 The schemas in `src/content.config.ts` validate every file at build time: a
 missing field or a typo in a status fails the build with a message.
 
+### Product documentation baseline
+
+Homepage copy was reconciled with the Fistron documentation supplied on
+2026-10-07: README, `docs/design/go-to-market.md`, `roadmap.md`,
+`business-model.md`, `use-cases/measurable-quality.md`, `docs/ci-job.md`
+and `docs/experiments.md`.
+
+V1 functionality is implemented, with broader real-case validation ongoing;
+V2 is in development. Flaky quarantine, Suite Health, organisation metrics,
+commercial packaging and control-plane hosting remain planned. The
+proposed edition split is not a released offer or final licence commitment.
+
 ### Status: available or in development
 
 Every capability the site shows is either `available` (filled green checkbox,
