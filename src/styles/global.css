@@ -8,6 +8,8 @@
 
 html {
   scroll-behavior: smooth;
+  /* Keep anchor targets below the sticky navigation. */
+  scroll-padding-top: 6rem;
   -webkit-text-size-adjust: 100%;
 }
 
