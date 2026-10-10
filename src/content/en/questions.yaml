@@ -11,6 +11,10 @@
   question: "Do our existing tests actually check what changed?"
   answer: "Inspect test assertions and results for the assessed revision. Report supported, failed or unverified checks, for human review."
   status: available
+- id: test-plan
+  question: "What is the test plan for this change?"
+  answer: "Derive a reviewable plan from required evidence, existing tests and the checks still missing."
+  status: available
 - id: necessary-work
   question: "Which work is necessary, and where should it run?"
   answer: "Select tests from required evidence and policy. Record a reason for every omitted test, preserve always-run checks and measure misses with periodic full runs."
@@ -26,10 +30,6 @@
 - id: release-decision
   question: "Can we explain the quality decision for this release?"
   answer: "Connect each requirement to its evidence, unresolved gaps and risk rationale, across tools."
-  status: in-development
-- id: test-plan
-  question: "What is the test plan for this change?"
-  answer: "Derive a reviewable plan from required evidence, existing tests and the checks still missing."
   status: in-development
 - id: measurable-quality
   question: "How do we improve quality across the company and measure it?"

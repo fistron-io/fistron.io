@@ -10,10 +10,10 @@
 - id: github-actions
   name: "GitHub Actions"
   logo: "githubactions"
-  support: candidate
-  label: "Candidate · no adapter yet"
+  support: available
+  label: "Available now"
   featured: true
-  detail: "A candidate for the next CI adapter. Integration scope and delivery order will follow pilot needs."
+  detail: "Import failed jobs, read pull requests, job logs and JUnit artifacts, run Fistron in a workflow after a failed run and assess pull requests. Job re-runs are not implemented."
 - id: jenkins
   name: "Jenkins"
   logo: "jenkins"

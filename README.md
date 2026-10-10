@@ -31,6 +31,24 @@ npm run preview   # serve dist/ locally
 Run `npm run check && npm run build` before every commit. CI runs the same
 (`.github/workflows/build.yml`).
 
+## Conventions
+
+- Code, comments, content and commit messages are in English.
+- Homepage copy belongs in `src/content/en/*.yaml` (and the two `.txt`
+  examples), not in components. Keep YAML lists in display order.
+- Mark a capability `available` only if it works in the Fistron repository
+  today; everything else is `in-development`. Never invent customers,
+  metrics, prices or quotes: use a visible placeholder and say so.
+- Use the brand tokens in `src/styles/tokens.css`; don't add colours or
+  fonts elsewhere. No requests to third-party hosts (fonts, CDNs, analytics).
+- The site stays private (`noindex`, `robots.txt` disallow) until launch.
+- Run `npm run check && npm run build` before proposing a change.
+- A change comes as one `git format-patch` file applicable with `git am`,
+  or as a branch for a pull request; `main` changes only through merged
+  pull requests.
+
+Astro documentation: https://docs.astro.build
+
 ## Editing content
 
 All homepage copy is in `src/content/en/` and can be changed without
@@ -51,17 +69,22 @@ missing field or a typo in a status fails the build with a message.
 
 ### Product documentation baseline
 
-Homepage copy was reconciled with the Fistron documentation supplied on
-2026-10-07: README, `docs/design/go-to-market.md`, `roadmap.md`,
-`business-model.md`, `use-cases/measurable-quality.md`, `docs/ci-job.md`
-and `docs/experiments.md`. The evening update also follows the V2.1 commit
-plan and CI platform table in the latest roadmap, plus ADRs 0038–0040.
+Homepage copy was reconciled with the Fistron documentation on 2026-10-10:
+README, `docs/design/roadmap.md` (milestone status, dogfooding steps),
+`docs/github.md`, `docs/ci-job.md`, `docs/baseline.md`, `docs/selection.md`
+and ADRs 0047, 0048 and 0051–0053, after the earlier reconciliation with
+`go-to-market.md`, `business-model.md`, `use-cases/measurable-quality.md`
+and `docs/experiments.md` (2026-10-07).
 
-V1 functionality is implemented, with broader real-case validation ongoing;
-V2.1 change assessment is available in an early form, with human review and
-further validation required. The rest of V2, flaky quarantine, Suite Health, organisation metrics,
-commercial packaging and control-plane hosting remain planned. The
-proposed edition split is not a released offer or final licence commitment.
+V1 functionality is implemented, with broader real-case validation ongoing.
+V2.1 change assessment, V2.2 test plans, V2.3 extension points and the V2.4
+delivery baseline are available in an early form, with human review and
+further validation required. Evidence selection (V2.5) and flaky quarantine
+(V1.5) run in shadow mode on Fistron's own repositories: they record what
+they would do, nothing is skipped or quarantined. Enforcement, Suite Health
+(V3), organisation metrics, commercial packaging and control-plane hosting
+remain planned. The proposed edition split is not a released offer or final
+licence commitment.
 
 ### Status: available or in development
 
@@ -77,7 +100,8 @@ control-plane deployment options) say so in their component or copy.
 `platforms.yaml` distinguishes `available` (native adapter), `limited`
 (a specific working subset) and `candidate` (no native adapter yet).
 The displayed label and detail must describe the actual scope. GitLab CI
-is the only native adapter; Jenkins supports supplied console logs only.
+and GitHub Actions have native adapters (re-running a failed job works on
+GitLab only); Jenkins supports supplied console logs only.
 Candidate cards do not promise delivery dates. Generic artifact ingestion
 is described separately from automatic collection or job execution.
 
