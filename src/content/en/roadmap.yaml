@@ -1,19 +1,20 @@
-# V2.1 exists; validation is ongoing. V1.5 is independent of V2.
+# V2.1 to V2.4 exist; V2.5 and V1.5 run in shadow mode; validation is ongoing.
+# V1.5 is independent of V2.
 - id: v1
   stage: "V1 · Implemented; validating"
   title: "CI failed. Tell me why."
   detail: "Evidence-backed RCA, live reads, replay, CI reports and policy-controlled job re-runs. Broader real-case validation continues."
 - id: v1-5
-  stage: "V1.5 · Planned"
+  stage: "V1.5 · In development"
   title: "Flaky quarantine"
-  detail: "Keep flaky tests outside the blocking path, still running and reported, with an owner until fixed or retired."
+  detail: "Keep flaky tests outside the blocking path, still running and reported, with an owner until fixed or retired. Now in shadow mode on Fistron's own CI history: candidates are reported, nothing is quarantined yet."
 - id: v2
   stage: "V2 · Active development"
   title: "From a change to the evidence it needs"
-  detail: "V2.1 done in an early form: change assessment with rules or LLMs, inspected test assertions, revision-specific results, live acquisition and reports, still reviewed by a person. Now: V2.2 test plan generation. Then extension points, the delivery baseline and evidence selection."
+  detail: "Done in an early form: change assessment with rules or LLMs, inspected test assertions and revision-specific results (V2.1), test plans (V2.2), extension points (V2.3) and the delivery baseline (V2.4), still reviewed by a person. Now: evidence selection (V2.5) in shadow mode, recording what each change would skip and why before anything is skipped."
   current: true
 - id: v3
-  stage: "V3 · Planned"
+  stage: "V3 · Next"
   title: "Coverage gaps and Suite Health"
   detail: "Add coverage and test-to-code data. Recommend tests to merge, quarantine or retire, with human approval."
 - id: v4
