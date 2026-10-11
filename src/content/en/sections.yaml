@@ -70,12 +70,12 @@ deployment:
   title: "Runs where your evidence lives"
   intro: "Run the CLI or CI job inside your environment. Choose an approved model endpoint, a local model or deterministic rules; the endpoint you configure determines where evidence is sent."
   note: "Today: local CLI, CI job mode in GitLab CI and GitHub Actions, record/replay and a local Linux Compose profile for HolmesGPT. Offline analysis uses existing evidence with rules or a local model."
-  caption: "Control plane options are in development."
+  caption: "A local interface and the control plane are planned (V4)."
 
 roadmap:
   title: "Where Fistron is heading"
-  intro: "V1 works today. Change assessment, test plans, extension points and the delivery baseline (V2.1 to V2.4) are implemented in an early form; evidence selection (V2.5) and flaky quarantine (V1.5) run in shadow mode on Fistron's own repositories. Human review and broader validation continue. Coverage gaps and Suite Health (V3) come next; later stages remain planned."
-  caption: "V6 looks promising. V3 first."
+  intro: "V1 works today. Change assessment, test plans, extension points and the delivery baseline (V2.1 to V2.4) are implemented in an early form; evidence selection (V2.5) and flaky quarantine (V1.5) run in shadow mode on Fistron's own repositories. Human review and broader validation continue. Coverage gaps and Suite Health (V3) come next, then the user interface and setup (V4) before general availability; later stages remain planned."
+  caption: "V7 looks promising. V3 first."
 
 openCore:
   title: "Start with one project. Grow across teams."

@@ -69,7 +69,9 @@ missing field or a typo in a status fails the build with a message.
 
 ### Product documentation baseline
 
-Homepage copy was reconciled with the Fistron documentation on 2026-10-10:
+Homepage copy was reconciled with the Fistron documentation on 2026-10-10,
+and the roadmap on 2026-10-11 with ADR 0054 (user interface and setup as
+V4 before general availability; test authoring after it as V5):
 README, `docs/design/roadmap.md` (milestone status, dogfooding steps),
 `docs/github.md`, `docs/ci-job.md`, `docs/baseline.md`, `docs/selection.md`
 and ADRs 0047, 0048 and 0051–0053, after the earlier reconciliation with
@@ -82,8 +84,8 @@ delivery baseline are available in an early form, with human review and
 further validation required. Evidence selection (V2.5) and flaky quarantine
 (V1.5) run in shadow mode on Fistron's own repositories: they record what
 they would do, nothing is skipped or quarantined. Enforcement, Suite Health
-(V3), organisation metrics, commercial packaging and control-plane hosting
-remain planned. The proposed edition split is not a released offer or final
+(V3), the local interface and setup (V4a), the control plane (V4b),
+organisation metrics and commercial packaging remain planned. The proposed edition split is not a released offer or final
 licence commitment.
 
 ### Status: available or in development

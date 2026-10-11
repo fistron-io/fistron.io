@@ -1,5 +1,6 @@
 # V2.1 to V2.4 exist; V2.5 and V1.5 run in shadow mode; validation is ongoing.
-# V1.5 is independent of V2.
+# V1.5 is independent of V2. V4 (user interface) comes before general
+# availability; test authoring follows it as V5 (Fistron ADR 0054, 2026-10-11).
 - id: v1
   stage: "V1 · Implemented; validating"
   title: "CI failed. Tell me why."
@@ -17,15 +18,27 @@
   stage: "V3 · Next"
   title: "Coverage gaps and Suite Health"
   detail: "Add coverage and test-to-code data. Recommend tests to merge, quarantine or retire, with human approval."
-- id: v4
-  stage: "V4 · Planned"
+- id: v4a
+  stage: "V4a · Planned"
+  title: "Your quality desk, on your machine"
+  detail: "A local web interface for everything the CLI does, with approvals as pull or merge requests and a guided setup from install to the first assessment."
+- id: v4b
+  stage: "V4b · Planned"
+  title: "One control plane for your teams"
+  detail: "The same interface for organisations: history across teams and projects, sign-in through your identity provider, roles and audit. On-premises, air-gapped, hybrid or as Fistron Cloud."
+- id: ga
+  stage: "GA · Planned"
+  title: "General availability"
+  detail: "The first release offered for sale, once V3 and V4 meet their exit criteria. No date is committed."
+- id: v5
+  stage: "V5 · After GA"
   title: "Author the missing tests"
   detail: "Create missing tests with your existing tools and review workflows."
-- id: v5
-  stage: "V5 · Planned"
+- id: v6
+  stage: "V6 · After GA"
   title: "Predictive quality"
   detail: "Use accumulated evidence to anticipate quality risks."
-- id: v6
-  stage: "V6 · Planned"
+- id: v7
+  stage: "V7 · After GA"
   title: "Closed-loop quality engineering"
   detail: "Coordinate quality objectives, evidence, gap closure and reassessment across tools."
