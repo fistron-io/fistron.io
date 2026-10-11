@@ -79,7 +79,7 @@ roadmap:
 
 openCore:
   title: "Start with one project. Grow across teams."
-  intro: "The proposed open-source edition includes the CLI, Evidence Model, connectors and evidence-backed analysis, usable independently of the commercial core."
+  intro: "The proposed open-source edition includes the CLI, Evidence Model, connectors, evidence-backed analysis and the local interface, usable independently of the commercial core. It is planned to be published with general availability."
   paragraphs:
     - "The planned commercial core adds evidence selection, flaky quarantine, Suite Health and history, with a bundled free licence for limited scope and a paid licence for organisation-wide use."
     - "Cross-team orchestration, PQI and governance are planned for organisations. Packaging, licences, scope limits and pricing are not final; these editions are not released yet."

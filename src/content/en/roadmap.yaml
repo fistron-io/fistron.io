@@ -34,8 +34,8 @@
   detail: "The same interface for organisations: history across teams and projects, sign-in through your identity provider, roles and audit. On-premises, air-gapped, hybrid or as Fistron Cloud."
 - id: ga
   stage: "GA · Planned"
-  title: "General availability"
-  detail: "The first release offered for sale, once V3 and V4 meet their exit criteria. No date is committed."
+  title: "General availability and open source"
+  detail: "The first release offered for sale, together with the public open-source edition at fistron.org, once V3 and V4 meet their exit criteria. No date is committed."
 - id: v5
   stage: "V5 · After GA"
   title: "Author the missing tests"
