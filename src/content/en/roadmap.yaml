@@ -1,4 +1,4 @@
-# V2.1 to V2.4 exist; V2.5 and V1.5 run in shadow mode; validation is ongoing.
+# V2.1 to V2.4 and V1.5a exist; V2.5 and V1.5 run in shadow mode; validation is ongoing.
 # V1.5 is independent of V2. V4 (user interface) comes before general
 # availability; test authoring follows it as V5 (Fistron ADR 0054, 2026-10-11).
 - id: v1
@@ -6,9 +6,9 @@
   title: "CI failed. Tell me why."
   detail: "Evidence-backed RCA, live reads, replay, CI reports and policy-controlled job re-runs. Broader real-case validation continues."
 - id: v1-5
-  stage: "V1.5 · In development"
+  stage: "V1.5 · Implemented; shadow mode"
   title: "Flaky quarantine"
-  detail: "Keep flaky tests outside the blocking path, still running and reported, with an owner until fixed or retired. Now in shadow mode on Fistron's own CI history: candidates are reported, nothing is quarantined yet."
+  detail: "Keep flaky tests outside the blocking path, still running and reported, with an owner until fixed or retired. Running weekly in shadow mode on Fistron's own CI history: candidates are proposed and quarantined tests are tracked; the pipeline is not changed yet."
 - id: v2
   stage: "V2 · Active development"
   title: "From a change to the evidence it needs"
