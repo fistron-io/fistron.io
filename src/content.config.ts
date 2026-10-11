@@ -117,7 +117,15 @@ const platforms = defineCollection({
 
 const roadmap = defineCollection({
   loader: orderedList("roadmap"),
-  schema: z.object({ order, stage: z.string(), title: z.string(), detail: z.string(), current: z.boolean().default(false) }),
+  schema: z.object({
+    order,
+    stage: z.string(),
+    // implemented: filled checkbox; in-development: empty checkbox; planned: no checkbox
+    status: z.enum(["implemented", "in-development", "planned"]).default("planned"),
+    title: z.string(),
+    detail: z.string(),
+    current: z.boolean().default(false),
+  }),
 });
 
 export const collections = {

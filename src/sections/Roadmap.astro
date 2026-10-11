@@ -3,6 +3,7 @@ import { section, list } from "../lib/content";
 import Section from "../components/Section.astro";
 import SectionHeading from "../components/SectionHeading.astro";
 import Fistronek from "../components/Fistronek.astro";
+import CheckIcon from "../components/CheckIcon.astro";
 
 const copy = await section("roadmap");
 const stages = await list("roadmap");
@@ -21,8 +22,11 @@ const stages = await list("roadmap");
   <ol class="stages">
     {
       stages.map((s) => (
-        <li class:list={{ current: s.current }} aria-current={s.current ? "step" : undefined}>
-          <span class="stage">{s.stage}</span>
+        <li class:list={[s.status, { current: s.current }]} aria-current={s.current ? "step" : undefined}>
+          <span class="stage">
+            {s.status !== "planned" && <CheckIcon filled={s.status === "implemented"} size={14} />}
+            {s.stage}
+          </span>
           <span class="title">{s.title}</span>
           <p class="detail">{s.detail}</p>
         </li>
@@ -73,16 +77,28 @@ const stages = await list("roadmap");
   }
   .current {
     grid-column: span 2;
-    border-color: var(--color-leaf-text);
+    border-color: var(--color-indigo);
     background: var(--color-paper);
   }
   .stage {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
     font-size: 0.875rem;
     color: var(--color-muted);
   }
-  .current .stage {
+  .stage :global(svg) {
+    flex: none;
+    margin-top: 0.2em;
+  }
+  /* Green means done, as everywhere on the site (StatusBadge). */
+  .implemented .stage {
     font-weight: 500;
     color: var(--color-leaf-text);
+  }
+  .current .stage {
+    font-weight: 500;
+    color: var(--color-indigo);
   }
   .title {
     font-size: 1.0625rem;
