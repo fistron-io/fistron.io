@@ -97,6 +97,11 @@ When a capability ships, change its `status` in `questions.yaml` or
 `integrations.yaml`. Sections that are in development as a whole (outcomes, governance,
 control-plane deployment options) say so in their component or copy.
 
+Roadmap stages use the same checkboxes through `status` in `roadmap.yaml`:
+`implemented` (filled green checkbox, green label), `in-development` (empty
+checkbox) and `planned` (the default, no checkbox). Green means done; the
+current stage is highlighted in indigo.
+
 ### CI platform support and logos
 
 `platforms.yaml` distinguishes `available` (native adapter), `limited`
