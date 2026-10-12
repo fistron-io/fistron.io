@@ -75,8 +75,8 @@ const stages = await list("roadmap");
     border: 1px solid var(--color-line);
     border-radius: var(--radius-card);
   }
+  /* Several stages can be in development at once: equal cells keep the order readable. */
   .current {
-    grid-column: span 2;
     border-color: var(--color-indigo);
     background: var(--color-paper);
   }
@@ -114,6 +114,5 @@ const stages = await list("roadmap");
   }
   @media (max-width: 640px) {
     .stages { grid-template-columns: 1fr; }
-    .current { grid-column: auto; }
   }
 </style>

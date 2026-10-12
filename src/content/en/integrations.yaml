@@ -5,6 +5,10 @@
 - { id: ci-logs, name: "CI logs and diffs", status: available }
 - { id: llm, name: "OpenAI-compatible LLMs", status: available }
 - { id: holmesgpt, name: "HolmesGPT investigation", status: available }
+- { id: diff-cover, name: "diff-cover", status: available }
+- { id: coverage-py, name: "coverage.py with test contexts", status: available }
+- { id: cobertura-lcov, name: "Cobertura and LCOV", status: available }
+- { id: mutation, name: "Mutation testing (mutmut, Stryker)", status: in-development }
 - { id: testkube, name: "Testkube", status: in-development }
 - { id: openqa, name: "openQA", status: in-development }
 - { id: prometheus, name: "Prometheus", status: in-development }
