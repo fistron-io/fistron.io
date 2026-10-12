@@ -128,7 +128,20 @@ const roadmap = defineCollection({
   }),
 });
 
+const dogfood = defineCollection({
+  loader: orderedList("dogfood"),
+  schema: z.object({ order, when: z.string(), text: z.string() }),
+});
+
+/** Figures stay as measured; see the comment in dogfood-stats.yaml. */
+const dogfoodStats = defineCollection({
+  loader: orderedList("dogfood-stats"),
+  schema: z.object({ order, value: z.string(), text: z.string() }),
+});
+
 export const collections = {
+  dogfood,
+  dogfoodStats,
   sections,
   objective,
   problems,

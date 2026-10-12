@@ -21,6 +21,7 @@ how:
 
 questions:
   title: "Questions Fistron is built to answer"
+  quip: "Quarantined, not deleted. Still running, still reported."
   intro: "CI failure analysis, change assessment, test plans and coverage gaps work today. Change assessments still need human review: a cited test assertion can be real without proving the whole requirement. Broader validation is ongoing."
 
 outcomes:
@@ -45,6 +46,14 @@ trust:
   title: "Conclusions you can check"
   intro: "Fistron uses AI where it helps, never as the source of truth. Every claim points back to evidence you can open."
   caption: "An evidence item"
+
+dogfood:
+  title: "We test Fistron with Fistron"
+  intro: "Fistron and its closed core are built on GitHub Actions, and Fistron watches its own CI before it watches yours. All of it runs in shadow mode: Fistron records what it would do, and a person decides."
+  quip: "Chef's rule: taste it before you serve it."
+  paragraphs:
+    - "In a controlled test, a pull request promised “no change in behaviour”. Fistron read the diff and the failing test instead, and named the change."
+  note: "Measured on Fistron's own repository on 11 October 2026. Changes there are made and reviewed by the same developer, so this shows the mechanics, not independent validation."
 
 platforms:
   title: "Your CI. One quality control plane."
@@ -71,6 +80,7 @@ deployment:
   intro: "Run the CLI or CI job inside your environment. Choose an approved model endpoint, a local model or deterministic rules; the endpoint you configure determines where evidence is sent."
   note: "Today: local CLI, CI job mode in GitLab CI and GitHub Actions from a signed image, record/replay and a local Linux Compose profile for HolmesGPT. Offline analysis uses existing evidence with rules or a local model."
   caption: "The local interface is being built (V4a); the control plane for teams follows (V4b)."
+  quip: "127.0.0.1:8740. Fištrónek's favourite address."
 
 roadmap:
   title: "Where Fistron is heading"
