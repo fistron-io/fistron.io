@@ -1,0 +1,170 @@
+---
+/**
+ * Theme switch: System, Light or Dark, in that cycle. "System" follows the
+ * operating system; the choice is remembered in this browser only
+ * (localStorage "fistron.theme", the same key as Fistron's local UI).
+ * BaseLayout applies a stored choice before the page paints.
+ */
+---
+
+<div class="theme">
+  <button type="button" class="toggle" data-theme-toggle aria-label="Theme: System. Switch to Light.">
+    <svg class="icon system" viewBox="0 0 24 24" aria-hidden="true">
+      <circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.8"></circle>
+      <path d="M12 4 A8 8 0 0 1 12 20 Z" fill="currentColor"></path>
+    </svg>
+    <svg class="icon light" viewBox="0 0 24 24" aria-hidden="true">
+      <circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8"></circle>
+      <path
+        d="M12 2.5v2.6M12 18.9v2.6M2.5 12h2.6M18.9 12h2.6M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M5.3 18.7l1.8-1.8M16.9 7.1l1.8-1.8"
+        stroke="currentColor"
+        stroke-width="1.8"
+        stroke-linecap="round"></path>
+    </svg>
+    <svg class="icon dark" viewBox="0 0 24 24" aria-hidden="true">
+      <path
+        d="M19.5 14.6A8 8 0 0 1 9.4 4.5a8 8 0 1 0 10.1 10.1Z"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.8"
+        stroke-linejoin="round"></path>
+    </svg>
+  </button>
+  <p class="quip" role="status" aria-live="polite"></p>
+</div>
+
+<script>
+  type Theme = "system" | "light" | "dark";
+  const KEY = "fistron.theme";
+  const ORDER: Theme[] = ["system", "light", "dark"];
+  const NAMES: Record<Theme, string> = { system: "System", light: "Light", dark: "Dark" };
+  const QUIPS: Record<Theme, string> = {
+    system: "Following your system. Fištrónek adapts.",
+    light: "Lights on. Flaky has nowhere to hide.",
+    dark: "Night shift. Fištrónek put on his headlamp.",
+  };
+  const PAGE_COLOURS = { light: "#ffffff", dark: "#0e1430" };
+
+  function stored(): Theme {
+    try {
+      const value = localStorage.getItem(KEY);
+      return value === "light" || value === "dark" ? value : "system";
+    } catch {
+      return "system";
+    }
+  }
+
+  function resolved(theme: Theme): "light" | "dark" {
+    if (theme !== "system") return theme;
+    return matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  }
+
+  function apply(theme: Theme) {
+    const root = document.documentElement;
+    if (theme === "system") delete root.dataset.theme;
+    else root.dataset.theme = theme;
+    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", PAGE_COLOURS[resolved(theme)]);
+    const next = ORDER[(ORDER.indexOf(theme) + 1) % ORDER.length];
+    for (const button of document.querySelectorAll<HTMLButtonElement>("[data-theme-toggle]")) {
+      button.dataset.current = theme;
+      const label = `Theme: ${NAMES[theme]}. Switch to ${NAMES[next]}.`;
+      button.setAttribute("aria-label", label);
+      button.title = label;
+    }
+  }
+
+  let hideQuip: number | undefined;
+  function say(theme: Theme) {
+    for (const quip of document.querySelectorAll<HTMLElement>(".theme .quip")) {
+      quip.textContent = QUIPS[theme];
+      quip.classList.add("shown");
+    }
+    clearTimeout(hideQuip);
+    hideQuip = window.setTimeout(() => {
+      for (const quip of document.querySelectorAll<HTMLElement>(".theme .quip")) quip.classList.remove("shown");
+    }, 2600);
+  }
+
+  apply(stored());
+  for (const button of document.querySelectorAll<HTMLButtonElement>("[data-theme-toggle]")) {
+    button.addEventListener("click", () => {
+      const current = stored();
+      const next = ORDER[(ORDER.indexOf(current) + 1) % ORDER.length];
+      try {
+        if (next === "system") localStorage.removeItem(KEY);
+        else localStorage.setItem(KEY, next);
+      } catch {
+        // Private mode or blocked storage: the switch still works for this page.
+      }
+      apply(next);
+      say(next);
+    });
+  }
+  // "System" follows the operating system while the page is open.
+  matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => apply(stored()));
+</script>
+
+<style>
+  .theme {
+    position: relative;
+  }
+  .toggle {
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: 1px solid var(--color-control);
+    border-radius: var(--radius);
+    background: transparent;
+    color: var(--color-ink-2);
+    cursor: pointer;
+  }
+  .toggle:hover {
+    color: var(--color-heading);
+    border-color: var(--color-indigo);
+  }
+  .icon {
+    width: 20px;
+    height: 20px;
+    display: none;
+  }
+  .toggle:not([data-current]) .system,
+  .toggle[data-current="system"] .system,
+  .toggle[data-current="light"] .light,
+  .toggle[data-current="dark"] .dark {
+    display: block;
+  }
+  .quip {
+    position: absolute;
+    right: 0;
+    top: calc(100% + 10px);
+    z-index: 6;
+    width: max-content;
+    max-width: 260px;
+    padding: 8px 12px;
+    border-radius: var(--radius);
+    background: var(--color-brand-fill);
+    color: var(--color-white);
+    font-size: 0.8125rem;
+    line-height: 1.4;
+    opacity: 0;
+    transform: translateY(-4px);
+    pointer-events: none;
+    transition:
+      opacity 0.2s,
+      transform 0.2s;
+  }
+  .quip:empty {
+    display: none;
+  }
+  .quip.shown {
+    opacity: 1;
+    transform: none;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .quip {
+      transition: none;
+    }
+  }
+</style>

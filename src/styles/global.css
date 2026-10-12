@@ -25,7 +25,7 @@ body {
   font-size: 1.0625rem;
   line-height: 1.6;
   color: var(--color-ink);
-  background: var(--color-white);
+  background: var(--surface-page);
 }
 
 h1,
@@ -46,7 +46,7 @@ a {
 }
 
 a:hover {
-  color: var(--color-night);
+  color: var(--color-link-hover);
 }
 
 :focus-visible {
@@ -66,8 +66,8 @@ a:hover {
   top: -48px;
   z-index: 10;
   padding: 10px 16px;
-  background: var(--color-indigo);
-  color: var(--color-white);
+  background: var(--btn-bg);
+  color: var(--btn-fg);
   border-radius: var(--radius);
 }
 
@@ -101,17 +101,17 @@ a:hover {
 }
 
 .btn-primary {
-  background: var(--color-indigo);
-  color: var(--color-white);
+  background: var(--btn-bg);
+  color: var(--btn-fg);
 }
 
 .btn-primary:hover {
-  background: var(--color-night);
-  color: var(--color-white);
+  background: var(--btn-bg-hover);
+  color: var(--btn-fg);
 }
 
 .btn-secondary {
-  background: var(--color-white);
+  background: var(--surface-card);
   color: var(--color-indigo);
   border-color: var(--color-control);
 }
@@ -134,4 +134,24 @@ a:hover {
 /* The first band sits right under the header, which already has a border. */
 main > section:first-child {
   border-top: 0;
+}
+
+/* Fištrónek works nights: in the dark theme a rim keeps him visible and he
+ * wears his headlamp (see Fistronek.astro). */
+.fistronek {
+  filter: var(--crow-rim);
+}
+
+.fistronek .headlamp {
+  display: none;
+}
+
+:root[data-theme="dark"] .fistronek .headlamp {
+  display: inline;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .fistronek .headlamp {
+    display: inline;
+  }
 }

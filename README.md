@@ -23,7 +23,7 @@ Requires Node.js 22.12 or newer and npm.
 ```bash
 npm ci            # install exactly what package-lock.json pins
 npm run dev       # dev server on http://localhost:4321
-npm run check     # type and template checks (astro check)
+npm run check     # type and template checks (astro check), dark theme blocks identical
 npm run build     # static site into dist/
 npm run preview   # serve dist/ locally
 ```
@@ -146,6 +146,27 @@ locale there and a sibling content folder.
 
 All tokens are in `src/styles/tokens.css`; components use only those.
 
+### Light and dark theme
+
+The site has a light and a dark theme. The switch in the header cycles
+System, Light and Dark; "System" (the default) follows the operating system.
+The choice is kept in the visitor's browser only (`localStorage`
+`fistron.theme`, the same key as Fistron's local UI), and a small inline
+script in `BaseLayout.astro` applies it before the page paints.
+
+- Components use role tokens (`--surface-page`, `--surface-card`,
+  `--color-heading`, `--btn-bg`, ...) rather than literal colours, so a
+  colour that changes with the theme is changed in `tokens.css` only.
+- The dark values are written twice in `tokens.css`: for an explicit choice
+  (`:root[data-theme="dark"]`) and for "System" on a dark operating system
+  (`@media (prefers-color-scheme: dark)`). `npm run check` fails if the two
+  differ (`scripts/check-theme-tokens.mjs`).
+- Dark bands (CI, demo, footer) look the same in both themes.
+- Vendor logos sit on a white tile in the dark theme, because they are drawn
+  for light backgrounds.
+- In the dark theme Fištrónek works nights: a light rim keeps him visible
+  and he wears a headlamp.
+
 - **Wordmark:** "Fistron" with a small filled checkbox at the top right. Used
   in the header and footer (`Wordmark.astro`). In running text, write the
   name as plain "Fistron".
@@ -180,7 +201,9 @@ failure analysis, deployment) and playful around it:
   `quip` in `sections.yaml`), never in claims about what Fistron does
 - easter eggs: the sent demo form, a note in the browser console
   (`site.consoleMessage`), the footer note (`site.footerNote`) and the
-  wordmark checkbox in the header, which Fištrónek ticks back when clicked
+  wordmark checkbox in the header, which Fištrónek ticks back when clicked;
+  the theme switch comments on the choice, and in the dark theme Fištrónek
+  wears a headlamp
 
 The drawings are sketches for the private phase; an illustrator should refine
 the characters before launch.

@@ -1,5 +1,12 @@
-/* Fistron brand tokens. Change brand values here only. */
+/* Fistron brand tokens. Change brand values here only.
+ *
+ * Two themes: light (default) and dark. The dark values apply when the
+ * visitor chose "Dark" in the header (data-theme="dark" on <html>), or
+ * chose "System" (no data-theme) and the operating system prefers dark.
+ * The two dark blocks below must stay identical. */
 :root {
+  color-scheme: light;
+
   /* Brand */
   --color-indigo: #24305e; /* primary: wordmark, headings, buttons */
   --color-night: #1a2347; /* dark sections, footer */
@@ -24,6 +31,20 @@
   --color-control: #c9cedb;
   --color-indigo-tint: #e6e9f2;
 
+  /* Roles: what a colour is for. Light and dark themes set these. */
+  --surface-page: #ffffff; /* page and header */
+  --surface-card: #ffffff; /* cards, panels and form fields on any band */
+  --color-heading: #24305e; /* hero and section headings, wordmark */
+  --color-link-hover: #1a2347;
+  --color-brand-fill: #24305e; /* indigo band, highlighted step */
+  --btn-bg: #24305e;
+  --btn-bg-hover: #1a2347;
+  --btn-fg: #ffffff;
+  --color-danger-text: #b42318;
+  --color-dashed: #b4bacb; /* outline of things in development */
+  --logo-tile: transparent; /* behind third-party logos */
+  --crow-rim: none; /* outline that keeps Fištrónek visible on dark pages */
+
   /* Type */
   --font-sans: "IBM Plex Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --font-mono: "IBM Plex Mono", Menlo, Consolas, monospace;
@@ -45,5 +66,65 @@
   :root {
     --gutter: 20px;
     --section-pad: 72px;
+  }
+}
+
+/* ---- Dark theme ---------------------------------------------------- */
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --surface-page: #0e1430;
+  --surface-card: #161e45;
+  --color-paper: #121939;
+  --color-heading: #f2f4fc;
+  --color-indigo: #c9d0f2;
+  --color-ink: #e8ebf4;
+  --color-ink-2: #c3cae0;
+  --color-muted: #a9b1cc;
+  --color-pending: #8a93b8;
+  --color-line: #2a3570;
+  --color-line-soft: #232c5e;
+  --color-line-faint: #1d2552;
+  --color-control: #3a4580;
+  --color-indigo-tint: #2a3570;
+  --color-leaf-text: #6ccb8f;
+  --color-link-hover: #ffffff;
+  --color-brand-fill: #24305e;
+  --btn-bg: #6ccb8f;
+  --btn-bg-hover: #8ad8a6;
+  --btn-fg: #0e1430;
+  --color-danger-text: #ff9c94;
+  --color-dashed: #4a5590;
+  --logo-tile: #ffffff;
+  --crow-rim: drop-shadow(0 0 0.6px #c3cae0) drop-shadow(0 0 10px rgba(160, 175, 230, 0.16));
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --surface-page: #0e1430;
+    --surface-card: #161e45;
+    --color-paper: #121939;
+    --color-heading: #f2f4fc;
+    --color-indigo: #c9d0f2;
+    --color-ink: #e8ebf4;
+    --color-ink-2: #c3cae0;
+    --color-muted: #a9b1cc;
+    --color-pending: #8a93b8;
+    --color-line: #2a3570;
+    --color-line-soft: #232c5e;
+    --color-line-faint: #1d2552;
+    --color-control: #3a4580;
+    --color-indigo-tint: #2a3570;
+    --color-leaf-text: #6ccb8f;
+    --color-link-hover: #ffffff;
+    --color-brand-fill: #24305e;
+    --btn-bg: #6ccb8f;
+    --btn-bg-hover: #8ad8a6;
+    --btn-fg: #0e1430;
+    --color-danger-text: #ff9c94;
+    --color-dashed: #4a5590;
+    --logo-tile: #ffffff;
+    --crow-rim: drop-shadow(0 0 0.6px #c3cae0) drop-shadow(0 0 10px rgba(160, 175, 230, 0.16));
   }
 }

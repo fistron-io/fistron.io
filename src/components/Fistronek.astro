@@ -4,6 +4,8 @@
  * "chase" poses include Flaky, the flaky-test gremlin.
  *
  * Plain inline SVG in brand colours: no requests, scales with its container.
+ * In the dark theme he works nights: a rim keeps him visible on the dark
+ * page and he wears a headlamp (styles in global.css).
  * Give `label` for meaningful illustrations; leave it empty for decorative ones.
  */
 interface Props {
@@ -22,6 +24,17 @@ const LEAF = "#3fa66b";
 const RED = "#d64545";
 const LEG = "#3a415a";
 const INK = "#1b2033";
+const LAMP = "#f2c94c";
+const LAMP_LIGHT = "#ffe27a";
+
+/** Hidden unless the dark theme is on: a strap, the lamp and its beam. */
+const headlamp =
+  `<g class="headlamp">` +
+  `<path d="M146 48 L204 18 L204 58 L146 56 Z" fill="${LAMP_LIGHT}" opacity="0.28"/>` +
+  `<path d="M87 66 Q104 44 136 50" stroke="${LEG}" stroke-width="5" stroke-linecap="round" fill="none"/>` +
+  `<rect x="132" y="46" width="13" height="10" rx="3" fill="${LAMP}" stroke="${INK}" stroke-width="1.5"/>` +
+  `<circle cx="145" cy="51" r="3.2" fill="${LAMP_LIGHT}"/>` +
+  `</g>`;
 
 // clipPath ids must be unique per page.
 const uid = `flaky-${Math.random().toString(36).slice(2, 8)}`;
@@ -46,7 +59,7 @@ function crow(e: Eye, opts: { wing?: string; item?: string; back?: string; fly?:
   s += back;
   s += `<circle cx="114" cy="78" r="30" fill="${IND}"/><path d="M103 53 Q101 36 112 46 Q116 31 125 51 Z" fill="${IND}"/>`;
   s += `<path d="M138 70 Q170 80 140 93 Q132 82 138 70 Z" fill="${BEAK}"/><path d="M141 82 Q147 82.5 151 82" stroke="${NIGHT}" stroke-width="2" fill="none"/>`;
-  return s + eye(e) + wing + item;
+  return s + eye(e) + headlamp + wing + item;
 }
 
 function flaky(run = false, lookBack = false) {

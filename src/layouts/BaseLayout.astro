@@ -26,7 +26,20 @@ const canonical = new URL(Astro.url.pathname, site.url).toString();
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
     {!site.indexable && <meta name="robots" content="noindex, nofollow" />}
-    <meta name="theme-color" content="#24305e" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#ffffff" />
+    <script is:inline>
+      // Apply a stored theme choice before the page paints (see ThemeToggle).
+      (function () {
+        var theme = null;
+        try {
+          theme = localStorage.getItem("fistron.theme");
+        } catch (e) {}
+        var dark = theme === "dark" || (theme !== "light" && matchMedia("(prefers-color-scheme: dark)").matches);
+        if (theme === "light" || theme === "dark") document.documentElement.dataset.theme = theme;
+        document.querySelector('meta[name="theme-color"]').setAttribute("content", dark ? "#0e1430" : "#ffffff");
+      })();
+    </script>
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
