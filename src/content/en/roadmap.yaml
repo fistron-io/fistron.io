@@ -1,6 +1,7 @@
-# V2.1 to V2.4 and V1.5a exist; V2.5 and V1.5 run in shadow mode; validation is ongoing.
-# V1.5 is independent of V2. V4 (user interface) comes before general
-# availability; test authoring follows it as V5 (Fistron ADR 0054, 2026-10-11).
+# State of 2026-10-12: V1, V1.5 and V2 exist (V1.5 and V2.5 in shadow mode);
+# V3.1 and V3.2a exist, V3.2b (mutation results) and the pilots are under way;
+# V4a (local UI) is being built. V4 comes before general availability; test
+# authoring follows it as V5 (Fistron ADR 0054, 2026-10-11).
 # status: implemented (filled checkbox), in-development (empty checkbox),
 # planned (default, no checkbox).
 - id: v1
@@ -14,28 +15,30 @@
   title: "Flaky quarantine"
   detail: "Keep flaky tests outside the blocking path, still running and reported, with an owner until fixed or retired. Running weekly in shadow mode on Fistron's own CI history: candidates are proposed and quarantined tests are tracked; the pipeline is not changed yet."
 - id: v2
-  status: in-development
-  stage: "V2 · Active development"
+  status: implemented
+  stage: "V2 · Implemented; shadow mode"
   title: "From a change to the evidence it needs"
-  detail: "Done in an early form: change assessment with rules or LLMs, inspected test assertions and revision-specific results (V2.1), test plans (V2.2), extension points (V2.3) and the delivery baseline (V2.4), still reviewed by a person. Now: evidence selection (V2.5) in shadow mode, recording what each change would skip and why before anything is skipped."
-  current: true
+  detail: "Change assessment, test plans, extension points and the delivery baseline, reviewed by a person. Evidence selection runs in shadow mode on every pull request of Fistron's own repositories: it records what it would skip, and why, before anything is skipped."
 - id: v3
   status: in-development
-  stage: "V3 · Next"
+  stage: "V3 · Active development"
   title: "Coverage gaps and Suite Health"
-  detail: "Add coverage and test-to-code data. Recommend tests to merge, quarantine or retire, with human approval."
+  detail: "Implemented: changed lines no test executes, read from your coverage tools (V3.1), and the Suite Health audit, which runs weekly in shadow mode on Fistron's own suite (V3.2a). Now: mutation results, so tests can be recommended to merge or retire (V3.2b), and pilots on real pull requests."
+  current: true
 - id: v4a
-  stage: "V4a · Planned"
+  status: in-development
+  stage: "V4a · Active development"
   title: "Your quality desk, on your machine"
-  detail: "A local web interface for everything the CLI does, with approvals as pull or merge requests and a guided setup from install to the first assessment."
+  detail: "A local web interface over the same operations as the CLI, started with fistron ui. It already shows reports and records and starts runs. Next: approvals as pull or merge requests and a guided setup from install to the first assessment."
+  current: true
 - id: v4b
   stage: "V4b · Planned"
   title: "One control plane for your teams"
   detail: "The same interface for organisations: history across teams and projects, sign-in through your identity provider, roles and audit. On-premises, air-gapped, hybrid or as Fistron Cloud."
 - id: ga
   stage: "GA · Planned"
-  title: "General availability"
-  detail: "The first release offered for sale, once V3 and V4 meet their exit criteria. No date is committed."
+  title: "General availability and open source"
+  detail: "The first release offered for sale, together with the public open-source edition at fistron.org, once V3 and V4 meet their exit criteria. No date is committed."
 - id: v5
   stage: "V5 · After GA"
   title: "Author the missing tests"

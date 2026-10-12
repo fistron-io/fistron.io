@@ -21,7 +21,8 @@ how:
 
 questions:
   title: "Questions Fistron is built to answer"
-  intro: "CI failure analysis, early change assessment and test plans work today. Change assessments still need human review: a cited test assertion can be real without proving the whole requirement. Broader validation is ongoing."
+  quip: "Quarantined, not deleted. Still running, still reported."
+  intro: "CI failure analysis, change assessment, test plans and coverage gaps work today. Change assessments still need human review: a cited test assertion can be real without proving the whole requirement. Broader validation is ongoing."
 
 outcomes:
   title: "Quality, schedule and cost. Without trading one for another."
@@ -29,7 +30,7 @@ outcomes:
   paragraphs:
     - "Fewer tests, same evidence. Every test that doesn't run for a change has a recorded reason. Flaky tests are quarantined, not deleted. The full suite still runs on a schedule, to catch what selection would have missed."
     - "A saving counts only if quality holds. Fistron records your baseline first, and reports change failure rate and escaped defects next to every saving."
-  note: "Test plans and the delivery baseline work today. Evidence selection and flaky quarantine run in shadow mode on Fistron's own repositories: they record what they would do, nothing is skipped or quarantined yet. No savings figures yet; pilots must measure them against quality guardrails."
+  note: "Test plans and the delivery baseline work today. Evidence selection, flaky quarantine and the Suite Health audit run in shadow mode on Fistron's own repositories: they record what they would do, nothing is skipped, quarantined or removed yet. No savings figures yet; pilots must measure them against quality guardrails."
   quip: "Tests that add no evidence. Out."
 
 ci:
@@ -38,13 +39,21 @@ ci:
     - "The first Fistron workflow explains failed pipelines from evidence, not guesses. When the cause isn't in the log, Fistron names the missing evidence and acquires it read-only from GitLab, GitHub, Kubernetes or the failing endpoint."
     - "Run it locally, in GitLab CI or in GitHub Actions after a failure, collecting evidence before environment cleanup. Keep the assessment as JSON, Markdown or HTML, with recordings you can replay offline."
     - "Delegate deeper investigation to HolmesGPT, or enable a policy-controlled re-run of a failed GitLab job. Re-runs are disabled by default. If the evidence isn't enough, Fistron says so."
-    - "V1 is implemented and broader validation on real failures is ongoing. Early change assessment and test plans are available too: derive required checks, inspect test assertions and results, report failures or evidence gaps and plan the tests to run. Evidence selection remains in development."
+    - "V1 is implemented and broader validation on real failures is ongoing. Change assessment and test plans are available too: derive required checks, inspect test assertions, results and coverage, report failures or evidence gaps and plan the tests to run. Evidence selection runs in shadow mode."
   caption: "Shortened output from a synthetic example case."
 
 trust:
   title: "Conclusions you can check"
   intro: "Fistron uses AI where it helps, never as the source of truth. Every claim points back to evidence you can open."
   caption: "An evidence item"
+
+dogfood:
+  title: "We test Fistron with Fistron"
+  intro: "Fistron and its closed core are built on GitHub Actions, and Fistron watches its own CI before it watches yours. All of it runs in shadow mode: Fistron records what it would do, and a person decides."
+  quip: "Chef's rule: taste it before you serve it."
+  paragraphs:
+    - "In a controlled test, a pull request promised “no change in behaviour”. Fistron read the diff and the failing test instead, and named the change."
+  note: "Measured on Fistron's own repository on 11 October 2026. Changes there are made and reviewed by the same developer, so this shows the mechanics, not independent validation."
 
 platforms:
   title: "Your CI. One quality control plane."
@@ -69,17 +78,18 @@ governance:
 deployment:
   title: "Runs where your evidence lives"
   intro: "Run the CLI or CI job inside your environment. Choose an approved model endpoint, a local model or deterministic rules; the endpoint you configure determines where evidence is sent."
-  note: "Today: local CLI, CI job mode in GitLab CI and GitHub Actions, record/replay and a local Linux Compose profile for HolmesGPT. Offline analysis uses existing evidence with rules or a local model."
-  caption: "A local interface and the control plane are planned (V4)."
+  note: "Today: local CLI, CI job mode in GitLab CI and GitHub Actions from a signed image, record/replay and a local Linux Compose profile for HolmesGPT. Offline analysis uses existing evidence with rules or a local model."
+  caption: "The local interface is being built (V4a); the control plane for teams follows (V4b)."
+  quip: "127.0.0.1:8740. Fištrónek's favourite address."
 
 roadmap:
   title: "Where Fistron is heading"
-  intro: "V1 works today. Change assessment, test plans, extension points and the delivery baseline (V2.1 to V2.4) are implemented in an early form; evidence selection (V2.5) and flaky quarantine (V1.5) run in shadow mode on Fistron's own repositories. Human review and broader validation continue. Coverage gaps and Suite Health (V3) come next, then the user interface and setup (V4) before general availability; later stages remain planned."
-  caption: "V7 looks promising. V3 first."
+  intro: "V1, V1.5 and V2 work today, with flaky quarantine and evidence selection in shadow mode on Fistron's own repositories. Coverage gaps and the Suite Health audit (V3) are implemented and in their pilots; the local interface (V4a) is being built alongside. The control plane for teams (V4b) comes before general availability; later stages remain planned. Human review and broader validation continue."
+  caption: "V7 looks promising. V3 and V4a first."
 
 openCore:
   title: "Start with one project. Grow across teams."
-  intro: "The proposed open-source edition includes the CLI, Evidence Model, connectors and evidence-backed analysis, usable independently of the commercial core."
+  intro: "The proposed open-source edition includes the CLI, Evidence Model, connectors, evidence-backed analysis, coverage gaps and the local interface, usable independently of the commercial core. It is planned to be published with general availability."
   paragraphs:
     - "The planned commercial core adds evidence selection, flaky quarantine, Suite Health and history, with a bundled free licence for limited scope and a paid licence for organisation-wide use."
     - "Cross-team orchestration, PQI and governance are planned for organisations. Packaging, licences, scope limits and pricing are not final; these editions are not released yet."

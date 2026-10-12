@@ -15,13 +15,17 @@
   question: "What is the test plan for this change?"
   answer: "Derive a reviewable plan from required evidence, existing tests and the checks still missing."
   status: available
+- id: coverage-gap
+  question: "Which changed lines does no test even execute?"
+  answer: "Read diff and per-test coverage from your own tools (diff-cover, coverage.py, Cobertura, LCOV) and cite the uncovered lines as gaps. Covered is not tested: coverage never supports a check on its own."
+  status: available
 - id: necessary-work
   question: "Which work is necessary, and where should it run?"
   answer: "Select tests from required evidence and policy. Record a reason for every omitted test, preserve always-run checks and measure misses with periodic full runs."
   status: in-development
 - id: suite-health
   question: "Which tests are flaky, and which ones add nothing?"
-  answer: "Keep quarantined tests running and reported with an owner. Recommend tests to merge or retire, with your approval and reversible changes."
+  answer: "Find flaky tests in your CI history and tests whose coverage another test already has, and propose them as a pull request you merge or reject. Both run in shadow mode today; recommending tests to merge or retire waits for mutation results."
   status: in-development
 - id: service-objective
   question: "Can we demonstrate this service's operating objective?"

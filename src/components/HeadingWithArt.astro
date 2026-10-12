@@ -1,0 +1,63 @@
+---
+import SectionHeading from "./SectionHeading.astro";
+import Fistronek from "./Fistronek.astro";
+
+/**
+ * A section heading with Fištrónek beside it and an optional caption under
+ * him. On narrow screens he moves below the heading. The default slot goes
+ * to the heading's aside (e.g. a status legend).
+ */
+interface Props {
+  id: string;
+  title: string;
+  intro?: string;
+  pose: "main" | "investigating" | "skeptical" | "chase" | "telescope" | "broom" | "stamp" | "conductor" | "chef" | "desk" | "quarantine";
+  label: string;
+  caption?: string;
+}
+const { id, title, intro, pose, label, caption } = Astro.props;
+const hasAside = Astro.slots.has("default");
+---
+
+<div class="top">
+  <div class="text">
+    {
+      hasAside ? (
+        <SectionHeading id={id} title={title} intro={intro}>
+          <slot />
+        </SectionHeading>
+      ) : (
+        <SectionHeading id={id} title={title} intro={intro} />
+      )
+    }
+  </div>
+  <figure class="art">
+    <Fistronek pose={pose} label={label} />
+    {caption && <figcaption>{caption}</figcaption>}
+  </figure>
+</div>
+
+<style>
+  .top {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px 48px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .text {
+    flex: 1 1 520px;
+    min-width: 0;
+  }
+  .art {
+    flex: 0 1 250px;
+    max-width: 250px;
+    margin: 0 auto;
+  }
+  figcaption {
+    margin-top: 4px;
+    font-size: 0.875rem;
+    color: var(--color-muted);
+    text-align: center;
+  }
+</style>

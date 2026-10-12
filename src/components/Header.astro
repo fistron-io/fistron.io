@@ -3,6 +3,7 @@ import { site } from "../config/site";
 import Wordmark from "./Wordmark.astro";
 import Fistronek from "./Fistronek.astro";
 import NavLink from "./NavLink.astro";
+import ThemeToggle from "./ThemeToggle.astro";
 ---
 
 <header class="header">
@@ -17,6 +18,7 @@ import NavLink from "./NavLink.astro";
     </nav>
 
     <div class="actions">
+      <ThemeToggle />
       <NavLink item={{ label: "Sign in", service: "app" }} class="signin" compact />
       <a href="/#demo" class="btn btn-primary cta">Request a demo</a>
     </div>
@@ -57,7 +59,7 @@ import NavLink from "./NavLink.astro";
     position: sticky;
     top: 0;
     z-index: 5;
-    background: var(--color-white);
+    background: var(--surface-page);
     border-bottom: 1px solid var(--color-line-soft);
   }
   .bar {
@@ -113,7 +115,7 @@ import NavLink from "./NavLink.astro";
   }
   .nav {
     display: flex;
-    gap: 24px;
+    gap: 20px;
     font-size: 0.9375rem;
     white-space: nowrap;
   }
@@ -135,6 +137,7 @@ import NavLink from "./NavLink.astro";
   }
   .cta {
     padding: 11px 18px;
+    white-space: nowrap;
   }
   .menu {
     display: none;
@@ -160,7 +163,7 @@ import NavLink from "./NavLink.astro";
     display: grid;
     min-width: 220px;
     padding: 8px;
-    background: var(--color-white);
+    background: var(--surface-page);
     border: 1px solid var(--color-line);
     border-radius: var(--radius-card);
   }

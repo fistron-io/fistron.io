@@ -1,7 +1,7 @@
 ---
 import { section, list } from "../lib/content";
 import Section from "../components/Section.astro";
-import SectionHeading from "../components/SectionHeading.astro";
+import HeadingWithArt from "../components/HeadingWithArt.astro";
 import StatusBadge from "../components/StatusBadge.astro";
 
 const copy = await section("questions");
@@ -10,12 +10,19 @@ const audiences = await list("audiences");
 ---
 
 <Section id="use-cases" labelledby="use-cases-title">
-  <SectionHeading id="use-cases-title" title={copy.title} intro={copy.intro}>
+  <HeadingWithArt
+    id="use-cases-title"
+    title={copy.title}
+    intro={copy.intro}
+    pose="quarantine"
+    label="Flaky, the flaky-test gremlin, behind quarantine tape, still running, with Fištrónek watching"
+    caption={copy.quip}
+  >
     <div class="legend">
       <StatusBadge status="available" />
       <StatusBadge status="in-development" />
     </div>
-  </SectionHeading>
+  </HeadingWithArt>
 
   <ul class="questions">
     {

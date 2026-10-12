@@ -1,0 +1,15 @@
+# Figures from Fistron's own suite, measured 2026-10-11 (Fistron ADR 0055
+# point 7a, docs/suite-health.md, fistron-core audit). Keep them as measured;
+# update value and text together.
+- id: tests
+  value: "1,527"
+  text: "tests in Fistron's own suite"
+- id: groups
+  value: "157"
+  text: "groups of tests with identical coverage, 394 tests in all, proposed for review"
+- id: speed
+  value: "45 ms"
+  text: "for the Suite Health audit in the closed core to find them"
+- id: no-own-line
+  value: "1,102"
+  text: "tests without a line of their own. Not a reason to delete them, so Fistron doesn't suggest it. Fištrónek was tempted."

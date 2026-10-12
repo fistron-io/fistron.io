@@ -1,0 +1,12 @@
+# What runs on Fistron's own repositories, in display order. All in shadow
+# mode. Source: Fistron docs/design/roadmap.md, "Dogfooding on Fistron's own
+# repositories", and fistron-core README.
+- id: failed-run
+  when: "Every failed CI run"
+  text: "A root cause analysis from the run's evidence, with a model and deterministic rules as the fallback."
+- id: pull-request
+  when: "Every pull request"
+  text: "A change assessment, a test plan, and the CI jobs evidence selection would have skipped, with the reason for each."
+- id: weekly
+  when: "Every week"
+  text: "Flaky candidates and Suite Health reviews from the CI history, proposed as a pull request that a person merges or rejects."

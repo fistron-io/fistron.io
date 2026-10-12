@@ -1,7 +1,7 @@
 ---
 import { section, list } from "../lib/content";
 import Section from "../components/Section.astro";
-import SectionHeading from "../components/SectionHeading.astro";
+import HeadingWithArt from "../components/HeadingWithArt.astro";
 import CheckIcon from "../components/CheckIcon.astro";
 
 const copy = await section("deployment");
@@ -9,7 +9,14 @@ const options = await list("deployment");
 ---
 
 <Section id="deployment" tone="mist" contours={{ cx: 240 }} labelledby="deployment-title">
-  <SectionHeading id="deployment-title" title={copy.title} intro={copy.intro} />
+  <HeadingWithArt
+    id="deployment-title"
+    title={copy.title}
+    intro={copy.intro}
+    pose="desk"
+    label="Fištrónek at a screen showing Fistron's local interface"
+    caption={copy.quip}
+  />
   <div class="grid">
     {
       options.map((o) => (
@@ -34,7 +41,7 @@ const options = await list("deployment");
     margin-top: 48px;
   }
   .card {
-    background: var(--color-white);
+    background: var(--surface-card);
     border: 1px solid var(--color-line);
     border-radius: var(--radius-card);
     padding: 26px;

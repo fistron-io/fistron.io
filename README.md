@@ -23,7 +23,7 @@ Requires Node.js 22.12 or newer and npm.
 ```bash
 npm ci            # install exactly what package-lock.json pins
 npm run dev       # dev server on http://localhost:4321
-npm run check     # type and template checks (astro check)
+npm run check     # type and template checks (astro check), dark theme blocks identical
 npm run build     # static site into dist/
 npm run preview   # serve dist/ locally
 ```
@@ -62,6 +62,7 @@ touching layout:
 | `outcomes.yaml`, `messages.yaml` | The quality, schedule and cost baselines and what each audience gets (outcomes section, in development as a whole) |
 | `questions.yaml`, `integrations.yaml` | Lists with a `status` per item |
 | `platforms.yaml` | CI platforms, local logo names, exact support scope and featured candidates |
+| `dogfood.yaml`, `dogfood-stats.yaml` | What runs on Fistron's own repositories, and figures measured on its own suite. Figures stay exactly as measured (source and date in the file); change value and text together |
 | `ci-output.txt`, `evidence-item.txt` | Example CLI output and evidence item (shortened from a synthetic example case) |
 
 The schemas in `src/content.config.ts` validate every file at build time: a
@@ -146,6 +147,27 @@ locale there and a sibling content folder.
 
 All tokens are in `src/styles/tokens.css`; components use only those.
 
+### Light and dark theme
+
+The site has a light and a dark theme. The switch in the header cycles
+System, Light and Dark; "System" (the default) follows the operating system.
+The choice is kept in the visitor's browser only (`localStorage`
+`fistron.theme`, the same key as Fistron's local UI), and a small inline
+script in `BaseLayout.astro` applies it before the page paints.
+
+- Components use role tokens (`--surface-page`, `--surface-card`,
+  `--color-heading`, `--btn-bg`, ...) rather than literal colours, so a
+  colour that changes with the theme is changed in `tokens.css` only.
+- The dark values are written twice in `tokens.css`: for an explicit choice
+  (`:root[data-theme="dark"]`) and for "System" on a dark operating system
+  (`@media (prefers-color-scheme: dark)`). `npm run check` fails if the two
+  differ (`scripts/check-theme-tokens.mjs`).
+- Dark bands (CI, demo, footer) look the same in both themes.
+- Vendor logos sit on a white tile in the dark theme, because they are drawn
+  for light backgrounds.
+- In the dark theme Fištrónek works nights: a light rim keeps him visible
+  and he wears a headlamp.
+
 - **Wordmark:** "Fistron" with a small filled checkbox at the top right. Used
   in the header and footer (`Wordmark.astro`). In running text, write the
   name as plain "Fistron".
@@ -165,22 +187,28 @@ All tokens are in `src/styles/tokens.css`; components use only those.
 **Fištrónek** is the Fistron crow: crows are clever and use the tools around
 them, as Fistron does. **Flaky** is his opponent, the half-red, half-green
 gremlin of flaky tests. Both are inline SVG in `src/components/Fistronek.astro`
-with eight poses: `main` (checkbox in the beak), `investigating` (magnifier),
-`skeptical` (with Flaky), `chase` (chasing Flaky), `telescope` (looking
-ahead), `broom` (sweeping out tests that add no evidence), `stamp` (approving
-a report) and `conductor` (baton).
+with eleven poses: `main` (checkbox in the beak), `investigating`
+(magnifier), `skeptical` (with Flaky), `chase` (chasing Flaky), `telescope`
+(looking ahead), `broom` (sweeping out tests that add no evidence), `stamp`
+(approving a report), `conductor` (baton), `chef` (tasting Fistron's own
+cooking), `desk` (at the local interface) and `quarantine` (Flaky behind
+tape, still running). `HeadingWithArt.astro` puts one beside a section
+heading with a caption.
 
 The tone is serious where it carries the message (hero, how it works, CI
 failure analysis, deployment) and playful around it:
 
-- illustrations in the problem, outcomes (broom at the triangle), trust,
-  platforms (conductor), governance (stamp), roadmap (telescope) and "Why
-  Fistron" sections and on the 404 page
+- illustrations in the problem, questions (quarantine), outcomes (broom at
+  the triangle), trust, dogfooding (chef), platforms (conductor), governance
+  (stamp), deployment (desk), roadmap (telescope) and "Why Fistron" sections
+  and on the 404 page
 - dry self-irony from the QE world in short lines (`note`, `caption`,
   `quip` in `sections.yaml`), never in claims about what Fistron does
 - easter eggs: the sent demo form, a note in the browser console
   (`site.consoleMessage`), the footer note (`site.footerNote`) and the
-  wordmark checkbox in the header, which Fištrónek ticks back when clicked
+  wordmark checkbox in the header, which Fištrónek ticks back when clicked;
+  the theme switch comments on the choice, and in the dark theme Fištrónek
+  wears a headlamp
 
 The drawings are sketches for the private phase; an illustrator should refine
 the characters before launch.
