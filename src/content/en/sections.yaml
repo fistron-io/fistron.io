@@ -79,17 +79,17 @@ deployment:
   title: "Runs where your evidence lives"
   intro: "Run the CLI or CI job inside your environment. Choose an approved model endpoint, a local model or deterministic rules; the endpoint you configure determines where evidence is sent."
   note: "Today: local CLI, CI job mode in GitLab CI and GitHub Actions from a signed image, record/replay and a local Linux Compose profile for HolmesGPT. Offline analysis uses existing evidence with rules or a local model."
-  caption: "The local interface is being built (V4a); the control plane for teams follows (V4b)."
+  caption: "The local interface is implemented (V4a); the control plane for teams follows (V4b)."
   quip: "127.0.0.1:8740. Fištrónek's favourite address."
 
 roadmap:
   title: "Where Fistron is heading"
-  intro: "V1, V1.5 and V2 work today, with flaky quarantine and evidence selection in shadow mode on Fistron's own repositories. Coverage gaps and the Suite Health audit (V3) are implemented and in their pilots; the local interface (V4a) is being built alongside. The control plane for teams (V4b) comes before general availability; later stages remain planned. Human review and broader validation continue."
+  intro: "V1, V1.5 and V2 work today, with flaky quarantine and evidence selection in shadow mode on Fistron's own repositories. Coverage gaps and the Suite Health audit (V3) are implemented and in their pilots; the local interface and setup (V4a) are implemented and being validated. The control plane for teams (V4b), test authoring (V5), predictive quality (V6) and the closed loop (V7) follow; general availability comes after them. Human review and broader validation continue."
   caption: "V7 looks promising. V3 and V4a first."
 
 openCore:
   title: "Start with one project. Grow across teams."
-  intro: "The proposed open-source edition includes the CLI, Evidence Model, connectors, evidence-backed analysis, coverage gaps and the local interface, usable independently of the commercial core. It is planned to be published with general availability."
+  intro: "Fistron's engine (the CLI, Evidence Model, connectors, evidence-backed analysis, coverage gaps and the local interface) works independently of the commercial core. An open-source edition of it is not planned for now; it may follow once Fistron is in use."
   paragraphs:
     - "The planned commercial core adds evidence selection, flaky quarantine, Suite Health and history, with a bundled free licence for limited scope and a paid licence for organisation-wide use."
     - "Cross-team orchestration, PQI and governance are planned for organisations. Packaging, licences, scope limits and pricing are not final; these editions are not released yet."
