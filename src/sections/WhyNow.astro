@@ -1,0 +1,70 @@
+---
+import { section, list } from "../lib/content";
+import Section from "../components/Section.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+
+const copy = await section("whyNow");
+const signals = await list("signals");
+---
+
+<Section id="why-now" labelledby="why-now-title">
+  <SectionHeading id="why-now-title" title={copy.title} intro={copy.intro} />
+  <ul class="signals">
+    {
+      signals.map((s) => (
+        <li>
+          <p class="value">{s.value}</p>
+          <p class="text">{s.text}</p>
+          <p class="source">
+            <a href={s.url} rel="noopener noreferrer">
+              {s.source}
+            </a>
+          </p>
+        </li>
+      ))
+    }
+  </ul>
+  {copy.note && <p class="note">{copy.note}</p>}
+</Section>
+
+<style>
+  .signals {
+    list-style: none;
+    padding: 0;
+    margin-top: 48px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 32px 28px;
+  }
+  .signals li {
+    border-top: 2px solid var(--color-indigo);
+    padding-top: 18px;
+    display: flex;
+    flex-direction: column;
+  }
+  .value {
+    font-size: clamp(2rem, 3.2vw, 2.5rem);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    color: var(--color-indigo);
+  }
+  .text {
+    margin-top: 10px;
+    color: var(--color-ink-2);
+  }
+  .source {
+    margin-top: auto;
+    padding-top: 14px;
+    font-size: 0.8125rem;
+  }
+  .source a {
+    color: var(--color-muted);
+  }
+  .note {
+    margin-top: 32px;
+    font-size: 0.9375rem;
+    color: var(--color-muted);
+    max-width: 52em;
+  }
+</style>

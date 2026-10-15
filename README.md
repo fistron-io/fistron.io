@@ -60,6 +60,7 @@ touching layout:
 | `sections.yaml` | Headings and short copy for every section, keyed by section |
 | `objective.yaml` | The example quality objective in the hero |
 | `problems.yaml`, `steps.yaml`, `trust.yaml`, `governance.yaml`, `deployment.yaml`, `audiences.yaml`, `roadmap.yaml` | Section lists, shown in file order |
+| `signals.yaml` | Market signals in the "Why now" section: third-party survey figures exactly as published, with source, link and date. Re-verify before going public |
 | `engagement.yaml`, `guarantees.yaml` | How an engagement runs and what the offer commits to (offer section, "What we deliver") |
 | `outcomes.yaml`, `messages.yaml` | The quality, schedule and cost baselines and what each audience gets (outcomes section, in development as a whole) |
 | `questions.yaml`, `integrations.yaml` | Lists with a `status` per item |
@@ -264,3 +265,5 @@ configuration without deploying.
    sitemap.
 4. Connect the demo form and publish a privacy notice.
 5. Have the mascot illustrations refined.
+6. Re-verify the survey figures in `src/content/en/signals.yaml` against their
+   sources, and remove any that cannot be confirmed.

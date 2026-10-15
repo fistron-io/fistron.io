@@ -41,7 +41,7 @@
   status: in-development
 - id: ai-code
   question: "How do we verify code written with AI before it ships?"
-  answer: "Check every change against its intent and the evidence its risk requires: do the tests really check it, would they fail without it, are new dependencies real and approved. A signed report on the pull request."
+  answer: "Check every change against its intent and the evidence its risk requires: do the tests really check it, would they fail without it, are new dependencies real and approved. Stricter rules for AI-authored changes, a different model or plain rules as the verifier, and a signed report on the pull request."
   status: in-development
 - id: compliance
   question: "Can we pass NIS2, EU DORA or ISO 27001 without months of manual evidence?"

@@ -1,0 +1,30 @@
+# Market signals for the "Why now" section, shown in file order. Figures are
+# third-party survey results exactly as published, mostly vendor-sponsored:
+# keep value, text, source and date together, and re-verify them before the
+# site goes public (README, Going public). Same list as the Fistron
+# value proposition (docs/design/value-proposition.md, "Market signals").
+- id: nis2
+  value: "16 %"
+  text: "of organisations in scope of NIS2 are confident they fully comply. Budget, guidance and expertise hold the rest back."
+  source: "CyberSmart, 670 leaders in nine EU countries, late 2025"
+  url: "https://cybersmart.co.uk/nis2-research-2026/"
+- id: ai-code
+  value: "42 %"
+  text: "of committed code is AI-generated, yet only 48 % of developers always check it before committing."
+  source: "Sonar developer survey, January 2026"
+  url: "https://www.sonarsource.com/company/press-releases/sonar-data-reveals-critical-verification-gap-in-ai-coding/"
+- id: untested
+  value: "2 in 3"
+  text: "organisations regularly deploy untested code; for two in five, outages cost more than USD 1 million a year."
+  source: "Tricentis report via CIO Dive, 2,700 respondents, 2025"
+  url: "https://www.ciodive.com/news/software-outages-untested-code-ai-coding-assistants/748272/"
+- id: toil
+  value: "84 %"
+  text: "of engineers' time goes to maintenance, patching and toil; 16 % to new features."
+  source: "Chainguard 2026 Engineering Reality Report via BSSw"
+  url: "https://bssw.io/items/survey-engineers-want-to-code-but-spend-all-day-on-tech-debt"
+- id: sovereignty
+  value: "61 %"
+  text: "of Western European CIOs want to use more local cloud providers."
+  source: "Gartner via The Register, 241 CIOs, 2025"
+  url: "https://www.theregister.com/2025/11/13/gartner_cio_cloud_sovereignty/"

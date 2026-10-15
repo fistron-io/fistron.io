@@ -14,6 +14,11 @@ problem:
   note: "Your pipeline is green. Your release manager is not."
   caption: "Passed on retry. Again. Fištrónek has questions."
 
+whyNow:
+  title: "Why now"
+  intro: "Regulation turned proof of quality and security into a purchasing requirement, AI made code faster to write and harder to trust, and engineers spend most of their week keeping things running."
+  note: "Third-party surveys, most of them sponsored by vendors; figures are shown as published, with their source. Fistron's own results will be published when pilots have measured them."
+
 how:
   title: "From desired quality to verified evidence"
   intro: "Don't replace anything. Orchestrate everything. The target workflow compares the quality you need with the evidence you have, then coordinates your tools to close the gap."
@@ -30,6 +35,7 @@ outcomes:
   paragraphs:
     - "Fewer tests, same evidence. Every test that doesn't run for a change has a recorded reason. Flaky tests are quarantined, not deleted. The full suite still runs on a schedule, to catch what selection would have missed."
     - "A saving counts only if quality holds. Fistron records your baseline first, and reports change failure rate and escaped defects next to every saving."
+    - "Time taken back goes to what your customers pay for. Velocity is measured, never promised: lead time from your CI data today, deployment frequency and the share of time on new work later, never story points."
   note: "Test plans and the delivery baseline work today. Evidence selection, flaky quarantine and the Suite Health audit run in shadow mode on Fistron's own repositories: they record what they would do, nothing is skipped, quarantined or removed yet. No savings figures yet; pilots must measure them against quality guardrails."
   quip: "Tests that add no evidence. Out."
 
