@@ -14,7 +14,7 @@ const about = await section("about");
       <h2 id="open-core-title">{open.title}</h2>
       <p>{open.intro}</p>
       {open.paragraphs?.map((p) => <p>{p}</p>)}
-      <NavLink item={{ label: open.linkLabel ?? "fistron.org", service: "openSource" }} class="more-link" />
+      <NavLink item={{ label: open.linkLabel ?? "Request a readiness assessment", href: "/#demo" }} class="more-link" />
     </div>
     <div class="card about">
       <div class="about-text">

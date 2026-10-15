@@ -2,9 +2,10 @@
 
 Company website for Fistron: the homepage at https://fistron.io.
 
-Related hosts are separate projects and servers: https://fistron.org (open
-source), https://app.fistron.io (cloud services), https://docs.fistron.io and
-https://support.fistron.io.
+Related hosts are separate projects and servers: https://app.fistron.io (cloud
+services), https://docs.fistron.io and https://support.fistron.io;
+https://fistron.org is reserved for an open-source edition, which is not
+planned for now.
 
 **Status: private.** The site is not public yet. Every page carries
 `noindex, nofollow` and `public/robots.txt` disallows crawling until launch
@@ -59,6 +60,7 @@ touching layout:
 | `sections.yaml` | Headings and short copy for every section, keyed by section |
 | `objective.yaml` | The example quality objective in the hero |
 | `problems.yaml`, `steps.yaml`, `trust.yaml`, `governance.yaml`, `deployment.yaml`, `audiences.yaml`, `roadmap.yaml` | Section lists, shown in file order |
+| `engagement.yaml`, `guarantees.yaml` | How an engagement runs and what the offer commits to (offer section, "What we deliver") |
 | `outcomes.yaml`, `messages.yaml` | The quality, schedule and cost baselines and what each audience gets (outcomes section, in development as a whole) |
 | `questions.yaml`, `integrations.yaml` | Lists with a `status` per item |
 | `platforms.yaml` | CI platforms, local logo names, exact support scope and featured candidates |
@@ -77,7 +79,13 @@ README, `docs/design/roadmap.md` (milestone status, dogfooding steps),
 `docs/github.md`, `docs/ci-job.md`, `docs/baseline.md`, `docs/selection.md`
 and ADRs 0047, 0048 and 0051–0053, after the earlier reconciliation with
 `go-to-market.md`, `business-model.md`, `use-cases/measurable-quality.md`
-and `docs/experiments.md` (2026-10-07).
+and `docs/experiments.md` (2026-10-07). On 2026-10-15 the copy followed the
+offer of `docs/design/value-proposition.md` and ADR 0061 (delivered solutions
+with a stamp, compliance in the tool as V4.5, a time-limited trial instead
+of a free licence, no open-source edition for now): the offer section, the
+compliance items in governance, four use-case questions, the security and
+compliance audience, V4.5 in the roadmap, and the open-source link removed
+from the navigation and footer.
 
 V1 functionality is implemented, with broader real-case validation ongoing.
 V2.1 change assessment, V2.2 test plans, V2.3 extension points and the V2.4

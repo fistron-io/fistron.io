@@ -1,4 +1,13 @@
 # Shown as "In development" as a whole section.
+- id: controls
+  title: "Controls monitored from your tools"
+  text: "Framework profiles for ISO 27001 mapped to NIS2, then EU DORA, ISO 22301, ISO/IEC 20000-1, TMMi and the Cyber Resilience Act. Always visible: which controls are met, which are not, and why."
+- id: remediation
+  title: "Gaps closed, not just listed"
+  text: "Fistron fixes what it can through your tools, as pull or merge requests you approve, and proposes the rest; our people do what a tool cannot."
+- id: audit
+  title: "The audit, prepared"
+  text: "An evidence package and read-only access for the auditor, findings with owners and deadlines, and a signed attestation. The certificate comes from an independent accredited partner."
 - id: audits
   title: "Automated quality audits"
   text: "Check continuously whether requirements, tests, results and policies still support your quality claims."

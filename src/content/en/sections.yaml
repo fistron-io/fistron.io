@@ -3,7 +3,7 @@
 
 hero:
   title: "Prove your quality. Keep your tools. Get your time back."
-  intro: "A Quality Control Plane for software products, infrastructure and IT services. Start with evidence-backed CI failure analysis. Build towards quality decisions across the tools you already run."
+  intro: "We design and deliver the quality and compliance solution your software and IT services need, with the tools you already run, and give you proof that auditors, regulators and your customers accept. It starts with evidence-backed CI failure analysis that works today."
   primaryCta: "Request a demo"
   secondaryCta: "See how it works"
   caption: "Target workflow with example data. In development."
@@ -32,6 +32,16 @@ outcomes:
     - "A saving counts only if quality holds. Fistron records your baseline first, and reports change failure rate and escaped defects next to every saving."
   note: "Test plans and the delivery baseline work today. Evidence selection, flaky quarantine and the Suite Health audit run in shadow mode on Fistron's own repositories: they record what they would do, nothing is skipped, quarantined or removed yet. No savings figures yet; pilots must measure them against quality guardrails."
   quip: "Tests that add no evidence. Out."
+
+offer:
+  title: "We deliver the solution, not just a tool"
+  intro: "Fistron's people design and deliver it with the Fistron platform. You approve; we do the work, with your permission at every step."
+  paragraphs:
+    - "Need a certificate? One package delivers the complete QA solution with the certification you need: Fistron sets up the processes, tests and evidence and obtains the certificate for you through an accredited partner."
+    - "The partner audits independently and decides; Fistron prepares everything and coordinates the process. Without a certificate you get the same solution with Fistron's signed reports."
+    - "Above a contract level, a named Fistron architect works with your team one hour every week."
+  caption: "What we commit to"
+  note: "Offered from the first pilots; terms are set per contract. Compliance in the tool and the certification path are in development."
 
 ci:
   title: "Start where it hurts: CI failed. Tell me why."
@@ -72,28 +82,29 @@ integrations:
   intro: "Integrations are capabilities: each one declares what it can observe, investigate, execute or author. You decide which are switched on."
 
 governance:
-  title: "Quality you can demonstrate, not just claim"
+  title: "Compliance and quality you can demonstrate"
+  intro: "For NIS2, EU DORA and ISO 27001, Fistron monitors the controls from your own tools, fixes what it can through them and prepares the audit. You approve; your management stays accountable."
   caption: "Approved. With the evidence attached."
 
 deployment:
   title: "Runs where your evidence lives"
-  intro: "Run the CLI or CI job inside your environment. Choose an approved model endpoint, a local model or deterministic rules; the endpoint you configure determines where evidence is sent."
+  intro: "Run the CLI or CI job inside your environment. AI is optional: Fistron works on deterministic rules without any model, or with a local model or an approved endpoint. The endpoint you configure determines where evidence is sent."
   note: "Today: local CLI, CI job mode in GitLab CI and GitHub Actions from a signed image, record/replay and a local Linux Compose profile for HolmesGPT. Offline analysis uses existing evidence with rules or a local model."
-  caption: "The local interface is being built (V4a); the control plane for teams follows (V4b)."
+  caption: "The local interface is implemented (V4a); the control plane for teams follows (V4b)."
   quip: "127.0.0.1:8740. Fištrónek's favourite address."
 
 roadmap:
   title: "Where Fistron is heading"
-  intro: "V1, V1.5 and V2 work today, with flaky quarantine and evidence selection in shadow mode on Fistron's own repositories. Coverage gaps and the Suite Health audit (V3) are implemented and in their pilots; the local interface (V4a) is being built alongside. The control plane for teams (V4b) comes before general availability; later stages remain planned. Human review and broader validation continue."
+  intro: "V1, V1.5 and V2 work today, with flaky quarantine and evidence selection in shadow mode on Fistron's own repositories. Coverage gaps and the Suite Health audit (V3) are implemented and in their pilots; the local interface and setup (V4a) are implemented and being validated. The control plane for teams (V4b), test authoring (V5), predictive quality (V6) and the closed loop (V7) follow; general availability comes after them. Human review and broader validation continue."
   caption: "V7 looks promising. V3 and V4a first."
 
 openCore:
   title: "Start with one project. Grow across teams."
-  intro: "The proposed open-source edition includes the CLI, Evidence Model, connectors, evidence-backed analysis, coverage gaps and the local interface, usable independently of the commercial core. It is planned to be published with general availability."
+  intro: "Start with a readiness assessment of one project or service: where you stand on quality and, if relevant, compliance, and what closing the gaps would take."
   paragraphs:
-    - "The planned commercial core adds evidence selection, flaky quarantine, Suite Health and history, with a bundled free licence for limited scope and a paid licence for organisation-wide use."
-    - "Cross-team orchestration, PQI and governance are planned for organisations. Packaging, licences, scope limits and pricing are not final; these editions are not released yet."
-  linkLabel: "Visit fistron.org"
+    - "A time-limited trial licence lets a pilot try Fistron's commercial core (evidence selection, flaky quarantine, Suite Health and history) on a limited scope; for compliance it shows the gaps but does not close them. A paid licence opens it organisation-wide, with cross-team orchestration, PQI and governance."
+    - "Packaging, licences, scope limits and pricing are not final, and these editions are not released yet. Fistron is not published as open source for now."
+  linkLabel: "Request a readiness assessment"
 
 about:
   title: "Why Fistron"
@@ -103,7 +114,7 @@ about:
 
 demo:
   title: "See Fistron on your toolchain"
-  intro: "Tell us about a quality decision that takes too much manual work today. We'll show you what Fistron finds, and what it would need."
+  intro: "Tell us about a quality decision or an audit that takes too much manual work today. We'll show you what Fistron finds and what it would need, starting with a readiness assessment of one project or service."
   primaryCta: "Request a demo"
   note: "Demo requests aren't connected yet. This form doesn't send anything."
   faxLabel: "Fax number"

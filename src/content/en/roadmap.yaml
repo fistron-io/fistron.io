@@ -1,7 +1,9 @@
-# State of 2026-10-12: V1, V1.5 and V2 exist (V1.5 and V2.5 in shadow mode);
+# State of 2026-10-14: V1, V1.5 and V2 exist (V1.5 and V2.5 in shadow mode);
 # V3.1 and V3.2a exist, V3.2b (mutation results) and the pilots are under way;
-# V4a (local UI) is being built. V4 comes before general availability; test
-# authoring follows it as V5 (Fistron ADR 0054, 2026-10-11).
+# V4a (local UI and setup) is implemented and being validated. General
+# availability follows V7, without an open-source release (Fistron ADR 0060,
+# 2026-10-14; ADR 0054 before it). V4.5, compliance in the tool, sits between
+# V4b and V5 (Fistron ADR 0061, 2026-10-14).
 # status: implemented (filled checkbox), in-development (empty checkbox),
 # planned (default, no checkbox).
 - id: v1
@@ -27,27 +29,31 @@
   current: true
 - id: v4a
   status: in-development
-  stage: "V4a · Active development"
+  stage: "V4a · Implemented; validating"
   title: "Your quality desk, on your machine"
-  detail: "A local web interface over the same operations as the CLI, started with fistron ui. It already shows reports and records and starts runs. Next: approvals as pull or merge requests and a guided setup from install to the first assessment."
+  detail: "A local web interface over the same operations as the CLI, started with fistron ui: reports and records, runs, approvals as pull or merge requests and a guided setup from install to the first assessment. Now: first installs by people new to Fistron."
   current: true
 - id: v4b
   stage: "V4b · Planned"
   title: "One control plane for your teams"
   detail: "The same interface for organisations: history across teams and projects, sign-in through your identity provider, roles and audit. On-premises, air-gapped, hybrid or as Fistron Cloud."
-- id: ga
-  stage: "GA · Planned"
-  title: "General availability and open source"
-  detail: "The first release offered for sale, together with the public open-source edition at fistron.org, once V3 and V4 meet their exit criteria. No date is committed."
+- id: v4-5
+  stage: "V4.5 · Planned"
+  title: "Compliance, done for you"
+  detail: "Framework profiles (first ISO 27001 mapped to NIS2), controls monitored from your tools, gaps remediated through them, the audit package and auditor access. The certificate comes from an accredited partner."
 - id: v5
-  stage: "V5 · After GA"
+  stage: "V5 · Planned"
   title: "Author the missing tests"
   detail: "Create missing tests with your existing tools and review workflows."
 - id: v6
-  stage: "V6 · After GA"
+  stage: "V6 · Planned"
   title: "Predictive quality"
   detail: "Use accumulated evidence to anticipate quality risks."
 - id: v7
-  stage: "V7 · After GA"
+  stage: "V7 · Planned"
   title: "Closed-loop quality engineering"
   detail: "Coordinate quality objectives, evidence, gap closure and reassessment across tools."
+- id: ga
+  stage: "GA · After V7"
+  title: "General availability"
+  detail: "The first release offered for sale, once V3 to V7, including V4.5, meet their exit criteria. No date is committed."
