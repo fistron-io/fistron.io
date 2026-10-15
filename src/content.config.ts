@@ -92,6 +92,11 @@ const messages = defineCollection({
   schema: z.object({ order, title: z.string(), lines: z.array(z.string()).min(1) }),
 });
 
+const signals = defineCollection({
+  loader: orderedList("signals"),
+  schema: z.object({ order, value: z.string(), text: z.string(), source: z.string(), url: z.string().url() }),
+});
+
 const engagement = defineCollection({ loader: orderedList("engagement"), schema: simpleItem });
 const guarantees = defineCollection({ loader: orderedList("guarantees"), schema: simpleItem });
 
@@ -157,6 +162,7 @@ export const collections = {
   messages,
   engagement,
   guarantees,
+  signals,
   questions,
   integrations,
   platforms,
