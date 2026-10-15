@@ -1,0 +1,146 @@
+---
+import { section, list } from "../lib/content";
+import Section from "../components/Section.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+
+const copy = await section("offer");
+const steps = await list("engagement");
+const guarantees = await list("guarantees");
+---
+
+<Section id="offer" labelledby="offer-title">
+  <SectionHeading id="offer-title" title={copy.title} intro={copy.intro} />
+
+  <ol class="steps">
+    {
+      steps.map((step, i) => (
+        <li class:list={{ last: i === steps.length - 1 }}>
+          <span class="num">{i + 1}</span>
+          <h3>{step.title}</h3>
+          <p>{step.text}</p>
+        </li>
+      ))
+    }
+  </ol>
+
+  <div class="lower">
+    <div class="stamp">
+      {copy.paragraphs?.map((p) => <p>{p}</p>)}
+    </div>
+    <div class="guarantees">
+      {copy.caption && <h3>{copy.caption}</h3>}
+      <ul>
+        {
+          guarantees.map((g) => (
+            <li>
+              <p class="g-title">{g.title}</p>
+              <p class="g-text">{g.text}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+
+  {copy.note && <p class="note">{copy.note}</p>}
+</Section>
+
+<style>
+  .steps {
+    list-style: none;
+    padding: 0;
+    margin-top: 48px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 16px;
+  }
+  .steps li {
+    background: var(--surface-card);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-card);
+    padding: 24px;
+  }
+  .num {
+    font-size: 0.875rem;
+    color: var(--color-muted);
+  }
+  .steps h3 {
+    margin-top: 6px;
+    font-size: 1.1875rem;
+    font-weight: 500;
+    color: var(--color-indigo);
+  }
+  .steps p {
+    margin-top: 8px;
+    font-size: 0.9375rem;
+    color: var(--color-muted);
+  }
+  .steps .last {
+    background: var(--color-brand-fill);
+    border-color: var(--color-brand-fill);
+  }
+  .steps .last .num {
+    color: var(--color-on-dark-muted);
+  }
+  .steps .last h3 {
+    color: var(--color-white);
+  }
+  .steps .last p {
+    color: var(--color-on-dark);
+  }
+  .lower {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px 56px;
+    margin-top: 56px;
+  }
+  .stamp {
+    flex: 1 1 420px;
+    min-width: 0;
+  }
+  .stamp p {
+    color: var(--color-ink-2);
+  }
+  .stamp p + p {
+    margin-top: 14px;
+  }
+  .stamp p:first-child {
+    font-size: var(--text-lead);
+    font-weight: 500;
+    color: var(--color-indigo);
+  }
+  .guarantees {
+    flex: 1 1 380px;
+    min-width: 0;
+  }
+  .guarantees h3 {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--color-muted);
+  }
+  .guarantees ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 14px;
+    display: grid;
+    gap: 14px;
+  }
+  .guarantees li {
+    border-left: 2px solid var(--color-leaf);
+    padding-left: 14px;
+  }
+  .g-title {
+    font-weight: 500;
+    color: var(--color-ink);
+  }
+  .g-text {
+    margin-top: 2px;
+    font-size: 0.9375rem;
+    color: var(--color-muted);
+  }
+  .note {
+    margin-top: 32px;
+    font-size: 0.9375rem;
+    color: var(--color-muted);
+  }
+</style>

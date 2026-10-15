@@ -39,3 +39,19 @@
   question: "How do we improve quality across the company and measure it?"
   answer: "Propose goals, signals and metrics for review, then a Product Quality Index with traceable inputs, approved weights and visible gaps."
   status: in-development
+- id: ai-code
+  question: "How do we verify code written with AI before it ships?"
+  answer: "Check every change against its intent and the evidence its risk requires: do the tests really check it, would they fail without it, are new dependencies real and approved. A signed report on the pull request."
+  status: in-development
+- id: compliance
+  question: "Can we pass NIS2, EU DORA or ISO 27001 without months of manual evidence?"
+  answer: "Monitor the controls from the tools you already run, close the gaps through them and prepare the audit; the certificate through an accredited partner."
+  status: in-development
+- id: cra
+  question: "Are our releases ready for the Cyber Resilience Act?"
+  answer: "Release evidence with the SBOM, recorded vulnerability handling, and root-cause analysis for the reports the act requires."
+  status: in-development
+- id: supplier
+  question: "Did our supplier deliver what the contract requires?"
+  answer: "Check each delivery against the evidence it must carry before acceptance, with an acceptance record."
+  status: in-development

@@ -92,6 +92,9 @@ const messages = defineCollection({
   schema: z.object({ order, title: z.string(), lines: z.array(z.string()).min(1) }),
 });
 
+const engagement = defineCollection({ loader: orderedList("engagement"), schema: simpleItem });
+const guarantees = defineCollection({ loader: orderedList("guarantees"), schema: simpleItem });
+
 const questions = defineCollection({
   loader: orderedList("questions"),
   schema: z.object({ order, question: z.string(), answer: z.string(), status }),
@@ -152,6 +155,8 @@ export const collections = {
   audiences,
   outcomes,
   messages,
+  engagement,
+  guarantees,
   questions,
   integrations,
   platforms,

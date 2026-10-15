@@ -1,0 +1,13 @@
+# How a Fistron engagement runs, shown in file order (offer section).
+- id: assess
+  title: "Assess"
+  text: "We measure where you stand from your own tools: quality, delivery speed and, if you need it, the gaps against NIS2, EU DORA or ISO 27001."
+- id: design
+  title: "Design"
+  text: "The target solution: quality policies, the evidence each change and service needs, and the controls an auditor will look for."
+- id: deliver
+  title: "Deliver"
+  text: "We set up Fistron in your toolchain, add what is missing and close the gaps, as pull or merge requests you approve."
+- id: operate
+  title: "Operate and prove"
+  text: "Continuous assessment and signed reports per change and release. If you need a certificate, we obtain it for you through an accredited partner."

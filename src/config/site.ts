@@ -9,7 +9,7 @@ export const site = {
   name: "Fistron",
   url: "https://fistron.io",
   description:
-    "Fistron is a Quality Control Plane for software products, infrastructure and IT services. Prove your quality. Keep your tools. Get your time back.",
+    "Fistron designs and delivers the quality and compliance solution your software and IT services need, with the tools you already run, and proves it. Prove your quality. Keep your tools. Get your time back.",
   slogan: "Prove your quality. Keep your tools. Get your time back.",
 
   /** Small jokes outside the main story. */
@@ -39,7 +39,7 @@ export const site = {
     { label: "Outcomes", href: "/#outcomes" },
     { label: "Platforms", href: "/#platforms" },
     { label: "Deployment", href: "/#deployment" },
-    { label: "Open source", service: "openSource" },
+    { label: "What we deliver", href: "/#offer" },
     { label: "Docs", service: "docs" },
   ] as NavItem[],
 

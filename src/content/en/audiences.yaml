@@ -14,3 +14,7 @@
   title: "For leaders making quality measurable"
   text: "The planned Goals–Signals–Metrics workflow turns a company objective into reviewable department metrics and a Product Quality Index (PQI)."
   example: "Example: compare quality against an agreed baseline, with metric definitions, weights and critical guardrails visible beside the index."
+- id: security-compliance
+  title: "For security and compliance leaders"
+  text: "The planned compliance workflow gives CISOs, compliance officers and auditors the evidence for NIS2, EU DORA and ISO 27001 from the tools teams already use, with gaps closed before the audit."
+  example: "Example: before the surveillance audit, see which change-management controls lack evidence this quarter, and the pull requests that fix them."
