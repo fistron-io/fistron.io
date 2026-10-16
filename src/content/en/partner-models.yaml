@@ -1,0 +1,9 @@
+# The two platform partner models (Fistron ADR 0064), shown in file order.
+- id: add-on
+  label: "Marketplace add-on"
+  title: "Fistron in your marketplace"
+  text: "Your customers enable Fistron from your console and pay on your invoice. Fistron runs under its own brand; you receive a share."
+- id: oem
+  label: "Your own brand"
+  title: "Your quality service, powered by Fistron"
+  text: "You offer quality and compliance under your name, with your branding in the same interface. Fistron works behind you at a wholesale price."

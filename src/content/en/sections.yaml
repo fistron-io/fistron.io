@@ -99,6 +99,15 @@ deployment:
   caption: "The local interface is implemented (V4a); the control plane for teams follows (V4b)."
   quip: "127.0.0.1:8740. Fištrónek's favourite address."
 
+partners:
+  title: "Run a platform? Offer quality to your customers"
+  intro: "PaaS and SaaS providers can offer Fistron inside their own services. Your customers get quality and compliance where they already deploy and pay, built on the evidence your platform already holds."
+  paragraphs:
+    - "Each customer gets its own tenant, in the region you promise, with nothing shared across customers. Your customers sign in from your console; usage records feed your billing."
+    - "Fistron's services (solution packages, certification through a partner, the weekly architect hour) are available to your customers too, directly or through you."
+  primaryCta: "Become a platform partner"
+  note: "Planned with the control plane for teams (V4b). We build the first integration together with the first partner; commercial terms are agreed per partner."
+
 roadmap:
   title: "Where Fistron is heading"
   intro: "V1, V1.5 and V2 work today, with flaky quarantine and evidence selection in shadow mode on Fistron's own repositories. Coverage gaps and the Suite Health audit (V3) are implemented and in their pilots; the local interface and setup (V4a) are implemented and being validated. The control plane for teams (V4b), test authoring (V5), predictive quality (V6) and the closed loop (V7) follow; general availability comes after them. Human review and broader validation continue."
