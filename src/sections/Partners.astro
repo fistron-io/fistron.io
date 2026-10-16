@@ -1,0 +1,91 @@
+---
+import { section, list } from "../lib/content";
+import Section from "../components/Section.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import StatusBadge from "../components/StatusBadge.astro";
+
+const copy = await section("partners");
+const models = await list("partnerModels");
+---
+
+<Section id="partners" labelledby="partners-title">
+  <SectionHeading id="partners-title" title={copy.title} intro={copy.intro}>
+    <StatusBadge status="in-development" />
+  </SectionHeading>
+  <div class="layout">
+    <div class="models">
+      {
+        models.map((m) => (
+          <div class="model">
+            <p class="label">{m.label}</p>
+            <h3>{m.title}</h3>
+            <p class="text">{m.text}</p>
+          </div>
+        ))
+      }
+    </div>
+    <div class="side">
+      {copy.paragraphs?.map((p) => <p>{p}</p>)}
+      {copy.primaryCta && <a href="#demo" class="btn btn-secondary">{copy.primaryCta}</a>}
+    </div>
+  </div>
+  {copy.note && <p class="note">{copy.note}</p>}
+</Section>
+
+<style>
+  .layout {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px 56px;
+    margin-top: 48px;
+    align-items: flex-start;
+  }
+  .models {
+    flex: 2 1 520px;
+    min-width: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+  }
+  .model {
+    background: var(--surface-card);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-card);
+    padding: 24px;
+  }
+  .label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-leaf-text);
+  }
+  .model h3 {
+    margin-top: 6px;
+    font-size: 1.1875rem;
+    font-weight: 500;
+    color: var(--color-indigo);
+  }
+  .text {
+    margin-top: 8px;
+    font-size: 0.9375rem;
+    color: var(--color-muted);
+  }
+  .side {
+    flex: 1 1 300px;
+    min-width: 0;
+  }
+  .side p {
+    color: var(--color-ink-2);
+  }
+  .side p + p {
+    margin-top: 14px;
+  }
+  .side .btn {
+    margin-top: 24px;
+  }
+  .note {
+    margin-top: 32px;
+    font-size: 0.9375rem;
+    color: var(--color-muted);
+    max-width: 52em;
+  }
+</style>

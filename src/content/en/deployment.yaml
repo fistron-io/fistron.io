@@ -10,3 +10,6 @@
 - id: air-gapped
   title: "Air-gapped"
   text: "No internet, no calls home, with your own local model."
+- id: platform
+  title: "On your platform"
+  text: "As an add-on in your PaaS or SaaS provider's marketplace, or as the provider's own quality service."
