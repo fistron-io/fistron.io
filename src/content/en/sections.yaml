@@ -27,7 +27,7 @@ how:
 questions:
   title: "Questions Fistron is built to answer"
   quip: "Quarantined, not deleted. Still running, still reported."
-  intro: "CI failure analysis, change assessment, test plans and coverage gaps work today. Change assessments still need human review: a cited test assertion can be real without proving the whole requirement. Broader validation is ongoing."
+  intro: "CI failure analysis, change assessment, test plans, coverage gaps and the checks for AI-written changes work today. Change assessments still need human review: a cited test assertion can be real without proving the whole requirement. Broader validation is ongoing."
 
 outcomes:
   title: "Quality, schedule and cost. Without trading one for another."
@@ -35,8 +35,8 @@ outcomes:
   paragraphs:
     - "Fewer tests, same evidence. Every test that doesn't run for a change has a recorded reason. Flaky tests are quarantined, not deleted. The full suite still runs on a schedule, to catch what selection would have missed."
     - "A saving counts only if quality holds. Fistron records your baseline first, and reports change failure rate and escaped defects next to every saving."
-    - "Time taken back goes to what your customers pay for. Velocity is measured, never promised: lead time from your CI data today, deployment frequency and the share of time on new work later, never story points."
-  note: "Test plans and the delivery baseline work today. Evidence selection, flaky quarantine and the Suite Health audit run in shadow mode on Fistron's own repositories: they record what they would do, nothing is skipped, quarantined or removed yet. No savings figures yet; pilots must measure them against quality guardrails."
+    - "Time taken back goes to what your customers pay for. Velocity is measured, never promised: lead time, deployment frequency and the share of merged changes that are new work, from your own CI and repository data. Never story points."
+  note: "Test plans and the delivery baseline, velocity included, work today. Evidence selection, flaky quarantine and the Suite Health audit run in shadow mode on Fistron's own repositories: they record what they would do, nothing is skipped, quarantined or removed yet. No savings figures yet; pilots must measure them against quality guardrails."
   quip: "Tests that add no evidence. Out."
 
 offer:
@@ -99,8 +99,8 @@ governance:
 deployment:
   title: "Runs where your evidence lives"
   intro: "Run the CLI or CI job inside your environment. AI is optional: Fistron works on deterministic rules without any model, or with a local model or an approved endpoint. The endpoint you configure determines where evidence is sent."
-  note: "Today: local CLI, CI job mode in GitLab CI and GitHub Actions from a signed image, record/replay and a local Linux Compose profile for HolmesGPT. Offline analysis uses existing evidence with rules or a local model."
-  caption: "The local interface is implemented (V4a); the control plane for teams follows (V4b)."
+  note: "Today: local CLI and web interface, CI job mode in GitLab CI and GitHub Actions from a signed image, record/replay and a local Linux Compose profile for HolmesGPT. Offline analysis uses existing evidence with rules or a local model."
+  caption: "The local interface is implemented (V4a); the control plane for teams (V4b) runs on Fistron's staging."
   quip: "127.0.0.1:8740. Fištrónek's favourite address."
 
 partners:
@@ -114,8 +114,8 @@ partners:
 
 roadmap:
   title: "Where Fistron is heading"
-  intro: "V1, V1.5 and V2 work today, with flaky quarantine and evidence selection in shadow mode on Fistron's own repositories. Coverage gaps and the Suite Health audit (V3) are implemented and in their pilots; the local interface and setup (V4a) are implemented and being validated. The control plane for teams (V4b), compliance in the tool (V4.5), the Fištrónek assistant (V4.6), test authoring (V5), predictive quality (V6) and the closed loop (V7) follow; general availability comes after them. Human review and broader validation continue."
-  caption: "V7 looks promising. V3 and V4a first."
+  intro: "V1 to V3 work today, with flaky quarantine, evidence selection and the Suite Health audit in shadow mode on Fistron's own repositories; the local interface and setup (V4a) are released and being validated. The control plane for teams (V4b) runs on Fistron's staging, and compliance in the tool (V4.5) is in development. The Fištrónek assistant (V4.6), test authoring (V5), predictive quality (V6) and the closed loop (V7) follow; general availability comes after them. Human review and broader validation continue."
+  caption: "V7 looks promising. Compliance first."
 
 openCore:
   title: "Start with one project. Grow across teams."
