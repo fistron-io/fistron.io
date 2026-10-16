@@ -62,7 +62,7 @@ touching layout:
 | `problems.yaml`, `steps.yaml`, `trust.yaml`, `governance.yaml`, `deployment.yaml`, `audiences.yaml`, `roadmap.yaml` | Section lists, shown in file order |
 | `signals.yaml` | Market signals in the "Why now" section: third-party survey figures exactly as published, with source, link and date. Re-verify before going public |
 | `partner-models.yaml` | The two platform partner models (marketplace add-on, own brand) in the partners section; Fistron ADR 0064 |
-| `engagement.yaml`, `guarantees.yaml` | How an engagement runs and what the offer commits to (offer section, "What we deliver") |
+| `engagement.yaml`, `included.yaml`, `guarantees.yaml` | How an engagement runs, what every subscription includes besides the software, and what the offer commits to (offer section, "What we deliver"); no prices |
 | `outcomes.yaml`, `messages.yaml` | The quality, schedule and cost baselines and what each audience gets (outcomes section, in development as a whole) |
 | `questions.yaml`, `integrations.yaml` | Lists with a `status` per item |
 | `platforms.yaml` | CI platforms, local logo names, exact support scope and featured candidates |

@@ -45,9 +45,13 @@ offer:
   paragraphs:
     - "Need a certificate? One package delivers the complete QA solution with the certification you need: Fistron sets up the processes, tests and evidence and obtains the certificate for you through an accredited partner."
     - "The partner audits independently and decides; Fistron prepares everything and coordinates the process. Without a certificate you get the same solution with Fistron's signed reports."
-    - "Above a contract level, a named Fistron architect works with your team one hour every week. Between the sessions, Fištrónek, Fistron's assistant, guides setup and scope and sends a weekly status report."
+    - "Between the weekly sessions with your architect, Fištrónek, Fistron's assistant, guides setup and scope and sends a weekly status report."
   caption: "What we commit to"
   note: "Offered from the first pilots; terms are set per contract. Compliance in the tool and the certification path are in development."
+
+included:
+  title: "Included in every subscription"
+  intro: "You pay for people and for results we stand behind, not for a licence. No premium add-ons."
 
 ci:
   title: "Start where it hurts: CI failed. Tell me why."

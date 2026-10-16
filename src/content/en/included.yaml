@@ -1,0 +1,23 @@
+# What every subscription includes besides the software (offer section),
+# shown in file order. Terms are set per contract; no prices on the site.
+- id: architect
+  title: "A named architect"
+  text: "One hour every week with your team: onboarding, deployment, day-to-day operation and the plan for what comes next."
+- id: outcomes
+  title: "Results you can measure"
+  text: "Goals, signals and metrics agreed at the start, as the KPIs you report or key results under your OKRs, with a baseline and targets, measured from evidence."
+- id: review
+  title: "A quarterly quality review"
+  text: "With your leadership: the agreed KPIs against the baseline, delivery speed, open gaps and the next steps."
+- id: regulation
+  title: "Regulation followed for you"
+  text: "Changes in NIS2, EU DORA, the Cyber Resilience Act and the EU AI Act, turned into updated controls and rules, with what changes for you."
+- id: audit-day
+  title: "Someone with you at the audit"
+  text: "A Fistron person at your external audit or supplier assessment, in the scope we delivered."
+- id: rca
+  title: "An engineer when it breaks"
+  text: "A Fistron engineer joins the analysis of a production or pipeline failure in the delivered scope, within the SLA."
+- id: training
+  title: "Training for your team"
+  text: "Your people learn the method and the tool, so the knowledge stays with you."

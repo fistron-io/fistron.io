@@ -37,7 +37,7 @@
   status: in-development
 - id: measurable-quality
   question: "How do we improve quality across the company and measure it?"
-  answer: "Propose goals, signals and metrics for review, then a Product Quality Index with traceable inputs, approved weights and visible gaps."
+  answer: "Propose goals, signals and metrics for review, as the KPIs you report or key results under your OKRs, then a Product Quality Index with traceable inputs, approved weights and visible gaps."
   status: in-development
 - id: ai-code
   question: "How do we verify code written with AI before it ships?"
