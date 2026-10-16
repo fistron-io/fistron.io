@@ -45,7 +45,7 @@ offer:
   paragraphs:
     - "Need a certificate? One package delivers the complete QA solution with the certification you need: Fistron sets up the processes, tests and evidence and obtains the certificate for you through an accredited partner."
     - "The partner audits independently and decides; Fistron prepares everything and coordinates the process. Without a certificate you get the same solution with Fistron's signed reports."
-    - "Above a contract level, a named Fistron architect works with your team one hour every week."
+    - "Above a contract level, a named Fistron architect works with your team one hour every week. Between the sessions, Fištrónek, Fistron's assistant, guides setup and scope and sends a weekly status report."
   caption: "What we commit to"
   note: "Offered from the first pilots; terms are set per contract. Compliance in the tool and the certification path are in development."
 
@@ -110,7 +110,7 @@ partners:
 
 roadmap:
   title: "Where Fistron is heading"
-  intro: "V1, V1.5 and V2 work today, with flaky quarantine and evidence selection in shadow mode on Fistron's own repositories. Coverage gaps and the Suite Health audit (V3) are implemented and in their pilots; the local interface and setup (V4a) are implemented and being validated. The control plane for teams (V4b), test authoring (V5), predictive quality (V6) and the closed loop (V7) follow; general availability comes after them. Human review and broader validation continue."
+  intro: "V1, V1.5 and V2 work today, with flaky quarantine and evidence selection in shadow mode on Fistron's own repositories. Coverage gaps and the Suite Health audit (V3) are implemented and in their pilots; the local interface and setup (V4a) are implemented and being validated. The control plane for teams (V4b), compliance in the tool (V4.5), the Fištrónek assistant (V4.6), test authoring (V5), predictive quality (V6) and the closed loop (V7) follow; general availability comes after them. Human review and broader validation continue."
   caption: "V7 looks promising. V3 and V4a first."
 
 openCore:

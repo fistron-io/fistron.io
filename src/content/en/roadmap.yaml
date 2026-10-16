@@ -3,7 +3,8 @@
 # V4a (local UI and setup) is implemented and being validated. General
 # availability follows V7, without an open-source release (Fistron ADR 0060,
 # 2026-10-14; ADR 0054 before it). V4.5, compliance in the tool, sits between
-# V4b and V5 (Fistron ADR 0061, 2026-10-14).
+# V4b and V5 (Fistron ADR 0061, 2026-10-14); V4.6, the Fištrónek assistant,
+# follows it (Fistron ADR 0065, 2026-10-15).
 # status: implemented (filled checkbox), in-development (empty checkbox),
 # planned (default, no checkbox).
 - id: v1
@@ -41,6 +42,10 @@
   stage: "V4.5 · Planned"
   title: "Compliance, done for you"
   detail: "Framework profiles (first ISO 27001 mapped to NIS2), controls monitored from your tools, gaps remediated through them, the audit package and auditor access. The certificate comes from an accredited partner."
+- id: v4-6
+  stage: "V4.6 · Planned"
+  title: "Fištrónek, your assistant"
+  detail: "Guided setup, help defining scope and status reports on request or every week: what is met, what is missing and why, next steps, each linked to its evidence. Works without AI as a guided wizard; proposals come as pull or merge requests you approve."
 - id: v5
   stage: "V5 · Planned"
   title: "Author the missing tests"
@@ -56,4 +61,4 @@
 - id: ga
   stage: "GA · After V7"
   title: "General availability"
-  detail: "The first release offered for sale, once V3 to V7, including V4.5, meet their exit criteria. No date is committed."
+  detail: "The first release offered for sale, once V3 to V7, including V4.5 and V4.6, meet their exit criteria. No date is committed."

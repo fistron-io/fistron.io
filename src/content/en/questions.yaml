@@ -55,3 +55,7 @@
   question: "Did our supplier deliver what the contract requires?"
   answer: "Check each delivery against the evidence it must carry before acceptance, with an acceptance record."
   status: in-development
+- id: status
+  question: "Where do we stand, and what is still missing?"
+  answer: "Fištrónek, Fistron's assistant, reports on request or every week: what is met, what is missing and why, what changed, the next steps. Every statement links to its evidence; missing data is named, never filled in."
+  status: in-development
