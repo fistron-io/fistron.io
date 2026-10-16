@@ -1,10 +1,12 @@
-# State of 2026-10-14: V1, V1.5 and V2 exist (V1.5 and V2.5 in shadow mode);
-# V3.1 and V3.2a exist, V3.2b (mutation results) and the pilots are under way;
-# V4a (local UI and setup) is implemented and being validated. General
-# availability follows V7, without an open-source release (Fistron ADR 0060,
-# 2026-10-14; ADR 0054 before it). V4.5, compliance in the tool, sits between
-# V4b and V5 (Fistron ADR 0061, 2026-10-14); V4.6, the Fištrónek assistant,
-# follows it (Fistron ADR 0065, 2026-10-15).
+# State of 2026-10-16: V1, V1.5, V2 and V3 exist (V1.5, V2.5 and the Suite
+# Health audit in shadow mode; pilots on real pull requests continue); V4a
+# (local UI and setup) is released and being validated; V4b (control plane)
+# runs on Fistron's staging with its remaining exit checks alongside V4.5;
+# V4.5a (compliance readiness) is in development, V4.5b (audit) follows.
+# General availability follows V7, without an open-source release (Fistron
+# ADR 0060). V4.5 sits between V4b and V5 (ADR 0061, milestones ADR 0067);
+# V4.6, the Fištrónek assistant, follows it (ADR 0066) and carries the
+# measurable outcomes of every subscription (ADR 0068).
 # status: implemented (filled checkbox), in-development (empty checkbox),
 # planned (default, no checkbox).
 - id: v1
@@ -23,29 +25,31 @@
   title: "From a change to the evidence it needs"
   detail: "Change assessment, test plans, extension points and the delivery baseline, reviewed by a person. Evidence selection runs in shadow mode on every pull request of Fistron's own repositories: it records what it would skip, and why, before anything is skipped."
 - id: v3
-  status: in-development
-  stage: "V3 · Active development"
-  title: "Coverage gaps and Suite Health"
-  detail: "Implemented: changed lines no test executes, read from your coverage tools (V3.1), and the Suite Health audit, which runs weekly in shadow mode on Fistron's own suite (V3.2a). Now: mutation results, so tests can be recommended to merge or retire (V3.2b), and pilots on real pull requests."
-  current: true
+  status: implemented
+  stage: "V3 · Implemented; validating"
+  title: "Coverage gaps, Suite Health and AI-written changes"
+  detail: "Changed lines no test executes, from your coverage tools (V3.1). The Suite Health audit, which recommends retiring a test only when mutation results show nothing is lost (V3.2). An evidence gate for AI-written changes, with velocity in the delivery baseline (V3.3). In shadow mode and pilots on Fistron's own repositories."
 - id: v4a
-  status: in-development
+  status: implemented
   stage: "V4a · Implemented; validating"
   title: "Your quality desk, on your machine"
   detail: "A local web interface over the same operations as the CLI, started with fistron ui: reports and records, runs, approvals as pull or merge requests and a guided setup from install to the first assessment. Now: first installs by people new to Fistron."
-  current: true
 - id: v4b
-  stage: "V4b · Planned"
+  status: in-development
+  stage: "V4b · Running on staging"
   title: "One control plane for your teams"
-  detail: "The same interface for organisations: history across teams and projects, sign-in through your identity provider, roles and audit. On-premises, air-gapped, hybrid or as Fistron Cloud."
+  detail: "The same interface for organisations: history across teams and projects, sign-in through your identity provider, roles and audit. On-premises, air-gapped, hybrid or as Fistron Cloud. Running on Fistron's staging; the remaining exit checks run alongside V4.5."
+  current: true
 - id: v4-5
-  stage: "V4.5 · Planned"
+  status: in-development
+  stage: "V4.5 · Active development"
   title: "Compliance, done for you"
-  detail: "Framework profiles (first ISO 27001 mapped to NIS2), controls monitored from your tools, gaps remediated through them, the audit package and auditor access. The certificate comes from an accredited partner."
+  detail: "Now readiness (V4.5a): framework profiles, first ISO 27001 mapped to NIS2, each control's state with its evidence or the reason, monitored continuously. Then the audit (V4.5b): remediation through your tools, approvals, findings, the signed audit package, auditor access and Fistron's attestation. The certificate comes from an accredited partner."
+  current: true
 - id: v4-6
   stage: "V4.6 · Planned"
   title: "Fištrónek, your assistant"
-  detail: "Guided setup, help defining scope and status reports on request or every week: what is met, what is missing and why, next steps, each linked to its evidence. Works without AI as a guided wizard; proposals come as pull or merge requests you approve."
+  detail: "Guided setup, help defining scope and status reports on request or every week: what is met, what is missing and why, next steps, each linked to its evidence. Measurable outcomes: goals, signals and metrics for your products and tests, as KPIs and key results with baselines and targets, and the quarterly quality review as a report. Works without AI as a guided wizard; proposals come as pull or merge requests you approve."
 - id: v5
   stage: "V5 · Planned"
   title: "Author the missing tests"
@@ -53,7 +57,7 @@
 - id: v6
   stage: "V6 · Planned"
   title: "Predictive quality"
-  detail: "Use accumulated evidence to anticipate quality risks."
+  detail: "Use your own accumulated evidence to anticipate quality risks. Nothing is learned or compared across customers."
 - id: v7
   stage: "V7 · Planned"
   title: "Closed-loop quality engineering"

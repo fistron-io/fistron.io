@@ -1,5 +1,6 @@
 # What every subscription includes besides the software (offer section),
-# shown in file order. Terms are set per contract; no prices on the site.
+# shown in file order (Fistron ADR 0068). Terms are set per contract; no
+# prices on the site.
 - id: architect
   title: "A named architect"
   text: "One hour every week with your team: onboarding, deployment, day-to-day operation and the plan for what comes next."

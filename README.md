@@ -87,16 +87,25 @@ with a stamp, compliance in the tool as V4.5, a time-limited trial instead
 of a free licence, no open-source edition for now): the offer section, the
 compliance items in governance, four use-case questions, the security and
 compliance audience, V4.5 in the roadmap, and the open-source link removed
-from the navigation and footer.
+from the navigation and footer. On 2026-10-16 the roadmap, the questions,
+the integrations and the velocity copy were synced with the Fistron
+repository's head (`docs/design/roadmap.md`: V3.2b and V3.3 done, V4b on
+staging, V4.5a in development; ADRs 0063 and 0065–0068), and the offer
+gained what every subscription includes (ADR 0068).
 
 V1 functionality is implemented, with broader real-case validation ongoing.
 V2.1 change assessment, V2.2 test plans, V2.3 extension points and the V2.4
 delivery baseline are available in an early form, with human review and
-further validation required. Evidence selection (V2.5) and flaky quarantine
-(V1.5) run in shadow mode on Fistron's own repositories: they record what
-they would do, nothing is skipped or quarantined. Enforcement, Suite Health
-(V3), the local interface and setup (V4a), the control plane (V4b),
-organisation metrics and commercial packaging remain planned. The proposed edition split is not a released offer or final
+further validation required. V3 (coverage gaps, the Suite Health audit with
+mutation results, the evidence gate for AI-written changes and velocity in
+the baseline) is implemented, with pilots on real pull requests continuing.
+Evidence selection (V2.5), flaky quarantine (V1.5) and the Suite Health
+audit run in shadow mode on Fistron's own repositories: they record what
+they would do, nothing is skipped, quarantined or removed. The local
+interface and setup (V4a) are released and being validated; the control
+plane (V4b) runs on Fistron's staging, not for customers; compliance in the
+tool (V4.5a) is in development. Enforcement, organisation metrics and
+commercial packaging remain planned. The proposed edition split is not a released offer or final
 licence commitment.
 
 ### Status: available or in development
