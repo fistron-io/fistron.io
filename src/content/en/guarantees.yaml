@@ -5,6 +5,9 @@
 - id: sla
   title: "An SLA on what we deliver"
   text: "Availability, response and fix times by support tier."
+- id: outcomes
+  title: "Agreed results, or we work for free"
+  text: "If we miss a result we agreed with you, for reasons on our side, we work for free until it is met or you get a discount."
 - id: audit-ready
   title: "Audit-ready"
   text: "If the auditor finds a nonconformity in what we delivered, we fix it at our cost."

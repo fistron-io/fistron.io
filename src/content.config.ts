@@ -104,6 +104,7 @@ const partnerModels = defineCollection({
 
 const engagement = defineCollection({ loader: orderedList("engagement"), schema: simpleItem });
 const guarantees = defineCollection({ loader: orderedList("guarantees"), schema: simpleItem });
+const included = defineCollection({ loader: orderedList("included"), schema: simpleItem });
 
 const questions = defineCollection({
   loader: orderedList("questions"),
@@ -167,6 +168,7 @@ export const collections = {
   messages,
   engagement,
   guarantees,
+  included,
   signals,
   partnerModels,
   questions,
