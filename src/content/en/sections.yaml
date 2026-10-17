@@ -4,7 +4,7 @@
 hero:
   eyebrow: "Assured, not assumed."
   title: "The end-to-end autonomous assurance platform"
-  intro: "Fistron is the autonomous orchestration of quality and compliance: with the tools you already run, it assures the quality your customers, auditors and regulators expect, end to end and under your control, with the proof they accept. Prove your quality, keep your tools and get your time back."
+  intro: "Fistron is the platform for autonomous quality and compliance assurance. By orchestrating the tools you already run, it delivers the quality your customers, auditors and regulators expect and an end-to-end solution for ISO certification that supports NIS2 and EU DORA, under your control and with the proof they accept. Prove your quality, keep your tools and get your time back."
   note: "CI failure analysis, change assessment, test plans, coverage gaps and the checks for code written with AI work today; the rest is in development. People and guarantees are set per contract."
   primaryCta: "Request a demo"
   secondaryCta: "See how it works"
