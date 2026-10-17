@@ -26,6 +26,7 @@ const status = z.enum(["available", "in-development"]);
 const sections = defineCollection({
   loader: file(`${dir}/sections.yaml`),
   schema: z.object({
+    eyebrow: z.string().optional(),
     title: z.string(),
     intro: z.string().optional(),
     paragraphs: z.array(z.string()).optional(),
@@ -105,6 +106,7 @@ const partnerModels = defineCollection({
 const engagement = defineCollection({ loader: orderedList("engagement"), schema: simpleItem });
 const guarantees = defineCollection({ loader: orderedList("guarantees"), schema: simpleItem });
 const included = defineCollection({ loader: orderedList("included"), schema: simpleItem });
+const offerings = defineCollection({ loader: orderedList("offerings"), schema: simpleItem });
 
 const questions = defineCollection({
   loader: orderedList("questions"),
@@ -169,6 +171,7 @@ export const collections = {
   engagement,
   guarantees,
   included,
+  offerings,
   signals,
   partnerModels,
   questions,

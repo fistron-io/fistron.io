@@ -62,6 +62,7 @@ touching layout:
 | `problems.yaml`, `steps.yaml`, `trust.yaml`, `governance.yaml`, `deployment.yaml`, `audiences.yaml`, `roadmap.yaml` | Section lists, shown in file order |
 | `signals.yaml` | Market signals in the "Why now" section: third-party survey figures exactly as published, with source, link and date. Re-verify before going public |
 | `partner-models.yaml` | The two platform partner models (marketplace add-on, own brand) in the partners section; Fistron ADR 0064 |
+| `offerings.yaml` | What Fistron offers in short words, the grid under the hero headline (positioning in Fistron's `go-to-market.md`); the hero note says what works today |
 | `engagement.yaml`, `included.yaml`, `guarantees.yaml` | How an engagement runs, what every subscription includes besides the software, and what the offer commits to (offer section, "What we deliver"); no prices |
 | `outcomes.yaml`, `messages.yaml` | The quality, schedule and cost baselines and what each audience gets (outcomes section, in development as a whole) |
 | `questions.yaml`, `integrations.yaml` | Lists with a `status` per item |
@@ -91,7 +92,12 @@ from the navigation and footer. On 2026-10-16 the roadmap, the questions,
 the integrations and the velocity copy were synced with the Fistron
 repository's head (`docs/design/roadmap.md`: V3.2b and V3.3 done, V4b on
 staging, V4.5a in development; ADRs 0063 and 0065–0068), and the offer
-gained what every subscription includes (ADR 0068).
+gained what every subscription includes (ADR 0068). On 2026-10-17 the hero,
+the page title and the footer follow the positioning in
+`docs/design/go-to-market.md`: the category "the end-to-end autonomous
+assurance platform" is the headline and the page title, the motto
+"Assured, not assumed." stands above it, and the three-beat slogan is the
+supporting line in the hero.
 
 V1 functionality is implemented, with broader real-case validation ongoing.
 V2.1 change assessment, V2.2 test plans, V2.3 extension points and the V2.4

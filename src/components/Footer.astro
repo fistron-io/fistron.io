@@ -28,7 +28,8 @@ const year = new Date().getFullYear();
     <div class="top">
       <div class="brand">
         <Wordmark tone="dark" />
-        <p>{site.slogan}</p>
+        <p>{site.category}</p>
+        <p class="motto">{site.slogan}</p>
       </div>
       <nav aria-label="Footer" class="links">
         {columns.map((link) => <NavLink item={link} />)}
@@ -70,6 +71,11 @@ const year = new Date().getFullYear();
   .brand p {
     max-width: 16em;
     line-height: 1.5;
+  }
+  .brand .motto {
+    margin-top: -8px;
+    font-size: 0.875rem;
+    color: var(--color-on-dark-muted);
   }
   .links {
     display: grid;

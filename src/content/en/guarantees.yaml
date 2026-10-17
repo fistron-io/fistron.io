@@ -6,8 +6,8 @@
   title: "An SLA on what we deliver"
   text: "Availability, response and fix times by support tier."
 - id: outcomes
-  title: "Agreed results, or we work for free"
-  text: "If we miss a result we agreed with you, for reasons on our side, we work for free until it is met or you get a discount."
+  title: "Results you can hold us to"
+  text: "We agree the results with you as your KPIs or OKR key results and report them against the baseline every quarter. The contract says what happens if one is missed."
 - id: audit-ready
   title: "Audit-ready"
   text: "If the auditor finds a nonconformity in what we delivered, we fix it at our cost."
