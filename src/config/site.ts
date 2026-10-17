@@ -10,9 +10,9 @@ export const site = {
   url: "https://fistron.io",
   description:
     "Fistron, the end-to-end autonomous assurance platform: it orchestrates the tools you already run to deliver quality and compliance, under your control, with proof auditors accept. Assured, not assumed.",
-  /** The motto; the page title and the footer use it. */
+  /** The motto, shown under the category in the footer. */
   slogan: "Assured, not assumed.",
-  /** The category, shown under the motto in the footer. */
+  /** The category: the page title and the footer lead with it. */
   category: "The end-to-end autonomous assurance platform",
 
   /** Small jokes outside the main story. */

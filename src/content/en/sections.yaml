@@ -2,8 +2,8 @@
 # Lists (questions, integrations, ...) are in their own files next to this one.
 
 hero:
-  eyebrow: "The end-to-end autonomous assurance platform"
-  title: "Assured, not assumed."
+  eyebrow: "Assured, not assumed."
+  title: "The end-to-end autonomous assurance platform"
   intro: "Fistron orchestrates the tools you already run to deliver quality and compliance for your software and IT services, autonomously and under your control, with proof that auditors, regulators and your customers accept. Prove your quality, keep your tools and get your time back, starting with evidence-backed CI failure analysis that works today."
   primaryCta: "Request a demo"
   secondaryCta: "See how it works"
