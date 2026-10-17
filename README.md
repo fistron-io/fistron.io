@@ -91,7 +91,11 @@ from the navigation and footer. On 2026-10-16 the roadmap, the questions,
 the integrations and the velocity copy were synced with the Fistron
 repository's head (`docs/design/roadmap.md`: V3.2b and V3.3 done, V4b on
 staging, V4.5a in development; ADRs 0063 and 0065–0068), and the offer
-gained what every subscription includes (ADR 0068).
+gained what every subscription includes (ADR 0068). On 2026-10-17 the hero,
+the page title and the footer follow the positioning in
+`docs/design/go-to-market.md`: the category "the end-to-end autonomous
+assurance platform" and the motto "Assured, not assumed."; the three-beat
+slogan is the supporting line in the hero.
 
 V1 functionality is implemented, with broader real-case validation ongoing.
 V2.1 change assessment, V2.2 test plans, V2.3 extension points and the V2.4

@@ -11,6 +11,7 @@ const panel = (await getEntry("objective", "hero"))!.data;
 <Section id="top" tone="mist" contours={{ cx: 410, cy: 250 }} labelledby="hero-title">
   <div class="hero">
     <div class="text">
+      {copy.eyebrow && <p class="eyebrow">{copy.eyebrow}</p>}
       <h1 id="hero-title">{copy.title}</h1>
       <p class="intro">{copy.intro}</p>
       <div class="ctas">
@@ -63,6 +64,13 @@ const panel = (await getEntry("objective", "hero"))!.data;
   .text {
     flex: 1 1 480px;
     min-width: 0;
+  }
+  .eyebrow {
+    margin-bottom: 16px;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: var(--color-leaf-text);
   }
   h1 {
     font-size: var(--text-h1);

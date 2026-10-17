@@ -2,8 +2,9 @@
 # Lists (questions, integrations, ...) are in their own files next to this one.
 
 hero:
-  title: "Prove your quality. Keep your tools. Get your time back."
-  intro: "We design and deliver the quality and compliance solution your software and IT services need, with the tools you already run, and give you proof that auditors, regulators and your customers accept. It starts with evidence-backed CI failure analysis that works today."
+  eyebrow: "The end-to-end autonomous assurance platform"
+  title: "Assured, not assumed."
+  intro: "Fistron orchestrates the tools you already run to deliver quality and compliance for your software and IT services, autonomously and under your control, with proof that auditors, regulators and your customers accept. Prove your quality, keep your tools and get your time back, starting with evidence-backed CI failure analysis that works today."
   primaryCta: "Request a demo"
   secondaryCta: "See how it works"
   caption: "Target workflow with example data. In development."

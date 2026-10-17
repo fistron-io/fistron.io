@@ -9,8 +9,11 @@ export const site = {
   name: "Fistron",
   url: "https://fistron.io",
   description:
-    "Fistron designs and delivers the quality and compliance solution your software and IT services need, with the tools you already run, and proves it. Prove your quality. Keep your tools. Get your time back.",
-  slogan: "Prove your quality. Keep your tools. Get your time back.",
+    "Fistron, the end-to-end autonomous assurance platform: it orchestrates the tools you already run to deliver quality and compliance, under your control, with proof auditors accept. Assured, not assumed.",
+  /** The motto; the page title and the footer use it. */
+  slogan: "Assured, not assumed.",
+  /** The category, shown under the motto in the footer. */
+  category: "The end-to-end autonomous assurance platform",
 
   /** Small jokes outside the main story. */
   footerNote: "No flaky tests were harmed in the making of this website. A few were caught.",

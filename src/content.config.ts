@@ -26,6 +26,7 @@ const status = z.enum(["available", "in-development"]);
 const sections = defineCollection({
   loader: file(`${dir}/sections.yaml`),
   schema: z.object({
+    eyebrow: z.string().optional(),
     title: z.string(),
     intro: z.string().optional(),
     paragraphs: z.array(z.string()).optional(),
