@@ -1,0 +1,31 @@
+# What Fistron offers, in short words (hero, below the headline), shown in
+# file order. Source: Fistron docs/design/go-to-market.md, "Positioning".
+# Many items are in development; the hero note says so and points to the
+# roadmap. Terms of people and guarantees are set per contract.
+- id: turnkey
+  title: "Turnkey, end to end"
+  text: "Assess, design, deliver, operate and prove."
+- id: orchestration
+  title: "Orchestration, not replacement"
+  text: "Works with your CI, tests, observability and tickets."
+- id: autonomous
+  title: "Autonomous, under your control"
+  text: "Finds the gaps and proposes the fix as a pull or merge request; you approve."
+- id: quality
+  title: "Quality"
+  text: "Root cause of failures, flaky quarantine, test plans, test selection, coverage gaps, Suite Health, checks for code written with AI."
+- id: delivery
+  title: "Delivery"
+  text: "Quality, schedule and cost baselines, measured velocity, scope."
+- id: compliance
+  title: "Compliance"
+  text: "NIS2, EU DORA, ISO 27001, ISO/IEC 20000-1, TMMi, CRA: readiness, remediation, the audit package. The certificate through an accredited partner."
+- id: sovereignty
+  title: "Sovereignty"
+  text: "EU cloud, hybrid, on-premises, air-gapped, a mode without AI."
+- id: people
+  title: "People"
+  text: "A named architect every week, a quarterly review, support on audit day."
+- id: outcomes
+  title: "Guaranteed outcomes"
+  text: "Your KPIs and OKRs, measured from your own tools. If we miss an agreed result, we work for free."

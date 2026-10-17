@@ -1,11 +1,12 @@
 ---
 import { getEntry } from "astro:content";
-import { section } from "../lib/content";
+import { section, list } from "../lib/content";
 import Section from "../components/Section.astro";
 import CheckIcon from "../components/CheckIcon.astro";
 
 const copy = await section("hero");
 const panel = (await getEntry("objective", "hero"))!.data;
+const offerings = await list("offerings");
 ---
 
 <Section id="top" tone="mist" contours={{ cx: 410, cy: 250 }} labelledby="hero-title">
@@ -51,6 +52,18 @@ const panel = (await getEntry("objective", "hero"))!.data;
       </figcaption>
     </figure>
   </div>
+
+  <ul class="offerings" aria-label="What Fistron offers">
+    {
+      offerings.map((item) => (
+        <li>
+          <p class="o-title">{item.title}</p>
+          <p class="o-text">{item.text}</p>
+        </li>
+      ))
+    }
+  </ul>
+  {copy.note && <p class="hero-note">{copy.note} <a href="#roadmap">See the roadmap.</a></p>}
 </Section>
 
 <style>
@@ -174,6 +187,32 @@ const panel = (await getEntry("objective", "hero"))!.data;
     background: var(--color-indigo-tint);
     border-radius: var(--radius-sm);
     padding: 3px 10px;
+  }
+  .offerings {
+    list-style: none;
+    padding: 0;
+    margin-top: 64px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px 40px;
+  }
+  .offerings li {
+    border-top: 2px solid var(--color-leaf);
+    padding-top: 12px;
+  }
+  .o-title {
+    font-weight: 500;
+    color: var(--color-heading);
+  }
+  .o-text {
+    margin-top: 4px;
+    font-size: 0.9375rem;
+    color: var(--color-muted);
+  }
+  .hero-note {
+    margin-top: 28px;
+    font-size: 0.875rem;
+    color: var(--color-muted);
   }
   figcaption {
     display: flex;

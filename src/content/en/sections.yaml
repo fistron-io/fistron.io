@@ -4,7 +4,8 @@
 hero:
   eyebrow: "Assured, not assumed."
   title: "The end-to-end autonomous assurance platform"
-  intro: "Fistron orchestrates the tools you already run to deliver quality and compliance for your software and IT services, autonomously and under your control, with proof that auditors, regulators and your customers accept. Prove your quality, keep your tools and get your time back, starting with evidence-backed CI failure analysis that works today."
+  intro: "Fistron orchestrates the tools you already run to deliver quality and compliance for your software and IT services, autonomously and under your control, with proof that auditors, regulators and your customers accept. Prove your quality, keep your tools and get your time back."
+  note: "CI failure analysis, change assessment, test plans, coverage gaps and the checks for code written with AI work today; the rest is in development. People and guarantees are set per contract."
   primaryCta: "Request a demo"
   secondaryCta: "See how it works"
   caption: "Target workflow with example data. In development."
