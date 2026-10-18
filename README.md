@@ -97,7 +97,10 @@ the page title and the footer follow the positioning in
 `docs/design/go-to-market.md`: the category "the end-to-end autonomous
 assurance platform" is the headline and the page title, the motto
 "Assured, not assumed." stands above it, and the three-beat slogan is the
-supporting line in the hero.
+supporting line in the hero. On 2026-10-18 the roadmap, the questions,
+the hero note and the offer note were synced with the Fistron head (V4.5,
+V4.6 and V6a implemented and being validated, V7a in development, V5 after
+general availability; ADRs 0069–0073).
 
 V1 functionality is implemented, with broader real-case validation ongoing.
 V2.1 change assessment, V2.2 test plans, V2.3 extension points and the V2.4
@@ -109,9 +112,11 @@ Evidence selection (V2.5), flaky quarantine (V1.5) and the Suite Health
 audit run in shadow mode on Fistron's own repositories: they record what
 they would do, nothing is skipped, quarantined or removed. The local
 interface and setup (V4a) are released and being validated; the control
-plane (V4b) runs on Fistron's staging, not for customers; compliance in the
-tool (V4.5a) is in development. Enforcement, organisation metrics and
-commercial packaging remain planned. The proposed edition split is not a released offer or final
+plane (V4b) runs on Fistron's staging, not for customers. Compliance in the
+tool (V4.5), Fištrónek with measurable outcomes (V4.6) and the change risk
+(V6a, shadow mode) are implemented and being validated; the repair of bad
+tests (V7a) is in development. Enforcement and commercial packaging remain
+planned. The proposed edition split is not a released offer or final
 licence commitment.
 
 ### Status: available or in development

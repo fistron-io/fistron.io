@@ -13,7 +13,7 @@
   text: "Finds the gaps and proposes the fix as a pull or merge request; you approve."
 - id: quality
   title: "Quality"
-  text: "Root cause of failures, flaky quarantine, test plans, test selection, coverage gaps, Suite Health, checks for code written with AI."
+  text: "Root cause of failures, flaky quarantine, test plans, test selection, coverage gaps, Suite Health, the risk of each change, repair of weak tests, checks for code written with AI."
 - id: delivery
   title: "Delivery"
   text: "Quality, schedule and cost baselines, measured velocity, scope."

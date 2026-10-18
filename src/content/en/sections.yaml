@@ -5,7 +5,7 @@ hero:
   eyebrow: "Assured, not assumed."
   title: "The end-to-end autonomous assurance platform"
   intro: "Fistron is the **platform for autonomous quality and compliance assurance**. By orchestrating the tools you already run, it delivers an **end-to-end solution** for the quality your customers, auditors and regulators expect, including **ISO certification that supports NIS2 and EU DORA**, under your control and with the proof they accept. Prove your quality, keep your tools and get your time back."
-  note: "CI failure analysis, change assessment, test plans, coverage gaps and the checks for code written with AI work today; the rest is in development. People and guarantees are set per contract."
+  note: "CI failure analysis, change assessment, test plans, coverage gaps and the checks for code written with AI work today. Compliance in the tool, Fištrónek with measurable outcomes and the risk of each change are implemented and being validated; the rest is in development. People and guarantees are set per contract."
   primaryCta: "Request a demo"
   secondaryCta: "See how it works"
   caption: "Target workflow with example data. In development."
@@ -49,7 +49,7 @@ offer:
     - "The partner audits independently and decides; Fistron prepares everything and coordinates the process. Without a certificate you get the same solution with Fistron's signed reports."
     - "Between the weekly sessions with your architect, Fištrónek, Fistron's assistant, guides setup and scope and sends a weekly status report."
   caption: "What we commit to"
-  note: "Offered from the first pilots; terms are set per contract. Compliance in the tool and the certification path are in development."
+  note: "Offered from the first pilots; terms are set per contract. Compliance in the tool is implemented and being validated on Fistron's own repositories; certification goes through accredited partners."
 
 included:
   title: "Included in every subscription"
@@ -116,8 +116,8 @@ partners:
 
 roadmap:
   title: "Where Fistron is heading"
-  intro: "V1 to V3 work today, with flaky quarantine, evidence selection and the Suite Health audit in shadow mode on Fistron's own repositories; the local interface and setup (V4a) are released and being validated. The control plane for teams (V4b) runs on Fistron's staging, and compliance in the tool (V4.5) is in development. The Fištrónek assistant (V4.6), test authoring (V5), predictive quality (V6) and the closed loop (V7) follow; general availability comes after them. Human review and broader validation continue."
-  caption: "V7 looks promising. Compliance first."
+  intro: "V1 to V3 work today, with flaky quarantine, evidence selection and the Suite Health audit in shadow mode on Fistron's own repositories; the local interface and setup (V4a) are released and being validated, and the control plane for teams (V4b) runs on Fistron's staging. Compliance in the tool (V4.5), the Fištrónek assistant with measurable outcomes (V4.6) and the risk of each change (V6a) are implemented and being validated; the closed loop on your tests (V7) is in development. General availability follows V7; authoring new tests (V5) comes after it. Human review and broader validation continue."
+  caption: "V7 in sight. Fištrónek brought binoculars."
 
 openCore:
   title: "Start with one project. Grow across teams."
