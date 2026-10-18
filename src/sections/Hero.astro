@@ -7,6 +7,8 @@ import CheckIcon from "../components/CheckIcon.astro";
 const copy = await section("hero");
 const panel = (await getEntry("objective", "hero"))!.data;
 const offerings = await list("offerings");
+// **text** in the intro is shown emphasised; everything else is plain text.
+const introParts = (copy.intro ?? "").split("**").map((text, i) => ({ text, strong: i % 2 === 1 }));
 ---
 
 <Section id="top" tone="mist" contours={{ cx: 410, cy: 250 }} labelledby="hero-title">
@@ -14,7 +16,7 @@ const offerings = await list("offerings");
     <div class="text">
       {copy.eyebrow && <p class="eyebrow">{copy.eyebrow}</p>}
       <h1 id="hero-title">{copy.title}</h1>
-      <p class="intro">{copy.intro}</p>
+      <p class="intro">{introParts.map((part) => (part.strong ? <strong>{part.text}</strong> : part.text))}</p>
       <div class="ctas">
         <a href="#demo" class="btn btn-primary">{copy.primaryCta}</a>
         <a href="#how" class="btn btn-secondary">{copy.secondaryCta}</a>
@@ -98,6 +100,10 @@ const offerings = await list("offerings");
     line-height: 1.55;
     color: var(--color-ink-2);
     max-width: 34em;
+  }
+  .intro strong {
+    font-weight: 600;
+    color: var(--color-heading);
   }
   .ctas {
     display: flex;

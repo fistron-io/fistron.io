@@ -27,6 +27,14 @@
   question: "Which tests are flaky, and which ones add nothing?"
   answer: "Find flaky tests in your CI history and tests whose coverage another test already has, and propose them as a pull request you merge or reject. A test is recommended to merge or retire only when mutation results show nothing is lost. Both run in shadow mode today."
   status: in-development
+- id: change-risk
+  question: "How risky is this change before we merge it?"
+  answer: "A risk level with its factors, from the change's gaps, the history of the changed code and the tests that guard it, each citing its evidence and naming what is missing. Never blocking; from your own data only."
+  status: in-development
+- id: test-repair
+  question: "Which of our tests work badly, and can they be fixed?"
+  answer: "Find weak, flaky and slow tests with proof, propose the repair as a pull or merge request, run it on your CI and check that it really is better. A person merges."
+  status: in-development
 - id: service-objective
   question: "Can we demonstrate this service's operating objective?"
   answer: "Coordinate the observations or recovery checks an agreed objective requires, for the agreed period."
