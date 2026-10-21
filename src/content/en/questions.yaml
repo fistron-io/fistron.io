@@ -35,6 +35,10 @@
   question: "Which of our tests work badly, and can they be fixed?"
   answer: "Find weak, flaky and slow tests with proof, propose the repair as a pull or merge request, run it on your CI and check that it really is better. A person merges."
   status: in-development
+- id: pre-ga
+  question: "Will our next release work in our customers' environments?"
+  answer: "Let your key customers validate pre-release builds in their own staging environments: your suite and their checks run by Fistron's agent, results shared as you agree, and a signed attestation per release and environment that backs your certification."
+  status: in-development
 - id: service-objective
   question: "Can we demonstrate this service's operating objective?"
   answer: "Coordinate the observations or recovery checks an agreed objective requires, for the agreed period."

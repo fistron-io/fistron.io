@@ -5,7 +5,9 @@
 # ADR 0066, 0068 and 0069) and V6a (change risk, ADR 0072) are implemented
 # and being validated; V7a (repair of bad tests, ADR 0073) is in
 # development. Order since 2026-10-17 (ADR 0071): V4.6, V6, V7, then general
-# availability (ADR 0060); V5 (authoring new tests) after it.
+# availability (ADR 0060); V5 (authoring new tests) after it. V7.5,
+# Distributed Continuous Certification (ADR 0075, proposed 2026-10-21),
+# right after V7a.
 # status: implemented (filled checkbox), in-development (empty checkbox),
 # planned (default, no checkbox).
 - id: v1
@@ -59,6 +61,10 @@
   title: "A closed loop on your tests"
   detail: "Fistron finds the tests that work badly (weak, flaky, slow without contribution), proves it, proposes the repair as a pull or merge request, runs it on your CI and checks the result (V7a). For what no test covers, a test plan your people write against (V7b)."
   current: true
+- id: v7-5
+  stage: "V7.5 · Planned"
+  title: "Distributed Continuous Certification"
+  detail: "For vendors of on-premises software: your key customers receive pre-release builds, Fistron's agent installs and tests them in their staging environments with your suite and their checks, and each run ends with a signed attestation. What is shared with you is agreed per programme; you certify the release for their environment."
 - id: ga
   stage: "GA · After V7"
   title: "General availability"
