@@ -100,7 +100,9 @@ assurance platform" is the headline and the page title, the motto
 supporting line in the hero. On 2026-10-18 the roadmap, the questions,
 the hero note and the offer note were synced with the Fistron head (V4.5,
 V4.6 and V6a implemented and being validated, V7a in development, V5 after
-general availability; ADRs 0069–0073).
+general availability; ADRs 0069–0073). On 2026-10-21 Distributed
+Continuous Certification (ADR 0075, V7.5) was added to the roadmap, the
+audiences and the questions.
 
 V1 functionality is implemented, with broader real-case validation ongoing.
 V2.1 change assessment, V2.2 test plans, V2.3 extension points and the V2.4

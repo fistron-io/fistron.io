@@ -116,7 +116,7 @@ partners:
 
 roadmap:
   title: "Where Fistron is heading"
-  intro: "V1 to V3 work today, with flaky quarantine, evidence selection and the Suite Health audit in shadow mode on Fistron's own repositories; the local interface and setup (V4a) are released and being validated, and the control plane for teams (V4b) runs on Fistron's staging. Compliance in the tool (V4.5), the Fištrónek assistant with measurable outcomes (V4.6) and the risk of each change (V6a) are implemented and being validated; the closed loop on your tests (V7) is in development. General availability follows V7; authoring new tests (V5) comes after it. Human review and broader validation continue."
+  intro: "V1 to V3 work today, with flaky quarantine, evidence selection and the Suite Health audit in shadow mode on Fistron's own repositories; the local interface and setup (V4a) are released and being validated, and the control plane for teams (V4b) runs on Fistron's staging. Compliance in the tool (V4.5), the Fištrónek assistant with measurable outcomes (V4.6) and the risk of each change (V6a) are implemented and being validated; the closed loop on your tests (V7) is in development, with Distributed Continuous Certification for software vendors (V7.5) right after its first step. General availability follows V7; authoring new tests (V5) comes after it. Human review and broader validation continue."
   caption: "V7 in sight. Fištrónek brought binoculars."
 
 openCore:
