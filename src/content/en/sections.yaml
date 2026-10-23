@@ -102,7 +102,7 @@ deployment:
   title: "Runs where your evidence lives"
   intro: "Run the CLI or CI job inside your environment. AI is optional: Fistron works on deterministic rules without any model, or with a local model or an approved endpoint. The endpoint you configure determines where evidence is sent."
   note: "Today: local CLI and web interface, CI job mode in GitLab CI and GitHub Actions from a signed image, record/replay and a local Linux Compose profile for HolmesGPT. Offline analysis uses existing evidence with rules or a local model."
-  caption: "The local interface is implemented (V4a); the control plane for teams (V4b) runs on Fistron's staging."
+  caption: "The local interface (V4a) and the control plane for teams (V4b) are implemented; the control plane runs in production on Fistron Cloud for its first pilot."
   quip: "127.0.0.1:8740. Fištrónek's favourite address."
 
 partners:
@@ -116,8 +116,8 @@ partners:
 
 roadmap:
   title: "Where Fistron is heading"
-  intro: "V1 to V3 work today, with flaky quarantine, evidence selection and the Suite Health audit in shadow mode on Fistron's own repositories; the local interface and setup (V4a) are released and being validated, and the control plane for teams (V4b) runs on Fistron's staging. Compliance in the tool (V4.5), the Fištrónek assistant with measurable outcomes (V4.6) and the risk of each change (V6a) are implemented and being validated; the closed loop on your tests (V7) is in development, with Distributed Continuous Certification for software vendors (V7.5) right after its first step. Authoring new tests (V5) and a guide on every page of the interface (V4.6c) are in development; general availability follows V7 and V5. Human review and broader validation continue."
-  caption: "V7 in sight. Fištrónek brought binoculars."
+  intro: "V1 to V3 work today, with flaky quarantine, evidence selection and the Suite Health audit in shadow mode on Fistron's own repositories; the map of your suite against your product with the plan of the missing tests (V3.5) is being validated; the local interface and setup (V4a) are released and being validated, and the control plane for teams (V4b) runs in production for its first pilot. Compliance in the tool (V4.5), the Fištrónek assistant with measurable outcomes (V4.6), the risk of each change (V6a) and the repair of your tests that work badly (V7a) are implemented and being validated, with Distributed Continuous Certification for software vendors (V7.5) right after V7a. Authoring new tests (V5) and a guide on every page of the interface (V4.6c) are in development; general availability follows V7 and V5. Human review and broader validation continue."
+  caption: "V5 in sight. Fištrónek brought binoculars."
 
 openCore:
   title: "Start with one project. Grow across teams."
