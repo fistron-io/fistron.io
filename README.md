@@ -102,7 +102,10 @@ the hero note and the offer note were synced with the Fistron head (V4.5,
 V4.6 and V6a implemented and being validated, V7a in development, V5 after
 general availability; ADRs 0069–0073). On 2026-10-21 Distributed
 Continuous Certification (ADR 0075, V7.5) was added to the roadmap, the
-audiences and the questions.
+audiences and the questions. On 2026-10-23 the roadmap and its intro
+followed ADRs 0082 and 0083: authoring new tests (V5) in development and
+before general availability, and the guide on every page (V4.6c) in
+development and a condition of it.
 
 V1 functionality is implemented, with broader real-case validation ongoing.
 V2.1 change assessment, V2.2 test plans, V2.3 extension points and the V2.4
