@@ -5,9 +5,10 @@
 # ADR 0066, 0068 and 0069) and V6a (change risk, ADR 0072) are implemented
 # and being validated; V7a (repair of bad tests, ADR 0073) is in
 # development. Order since 2026-10-17 (ADR 0071): V4.6, V6, V7, then general
-# availability (ADR 0060); V5 (authoring new tests) after it. V7.5,
-# Distributed Continuous Certification (ADR 0075, proposed 2026-10-21),
-# right after V7a.
+# availability (ADR 0060). V7.5, Distributed Continuous Certification (ADR
+# 0075, proposed 2026-10-21), right after V7a. Since 2026-10-22: V5
+# (authoring new tests, ADR 0082) in development and before general
+# availability, and V4.6c (the guide that acts, ADR 0083) a condition of it.
 # status: implemented (filled checkbox), in-development (empty checkbox),
 # planned (default, no checkbox).
 - id: v1
@@ -49,7 +50,7 @@
   status: implemented
   stage: "V4.6 · Implemented; validating"
   title: "Fištrónek, your assistant"
-  detail: "Recommendations, guided scope and status reports on request or every week, each statement linked to its evidence; measurable outcomes as KPIs and key results with baselines, targets and the quarterly review. Works without AI; with a model, a conversation that cites what it read, and the same tools as an MCP server for your own assistant."
+  detail: "Recommendations, guided scope and status reports on request or every week, each statement linked to its evidence; measurable outcomes as KPIs and key results with baselines, targets and the quarterly review. Works without AI; with a model, a conversation that cites what it read, and the same tools as an MCP server for your own assistant. In development (V4.6c): a guide on every page of the interface that shows what the page needs next and, after you confirm, does it as you."
 - id: v6
   status: in-development
   stage: "V6 · Change risk in shadow mode"
@@ -65,11 +66,12 @@
   stage: "V7.5 · Planned"
   title: "Distributed Continuous Certification"
   detail: "For vendors of on-premises software: your key customers receive pre-release builds, Fistron's agent installs and tests them in their staging environments with your suite and their checks, and each run ends with a signed attestation. What is shared with you is agreed per programme; you certify the release for their environment."
-- id: ga
-  stage: "GA · After V7"
-  title: "General availability"
-  detail: "The first release offered for sale, once V3 to V4.6, V6 and V7 meet their exit criteria. No date is committed."
 - id: v5
-  stage: "V5 · After GA"
+  status: in-development
+  stage: "V5 · In development"
   title: "Author new tests"
-  detail: "Create new tests with your existing tools and review workflows."
+  detail: "Fistron writes the tests your plan says are missing, from your suite's own steps first, generating only what no step provides and labelling it, and proposes each as a pull or merge request a person merges. A test is accepted only when it runs, is stable and measurably meets its plan item. First for Gherkin suites (V5a), then tests in your own tools for infrastructure changes (V5b)."
+- id: ga
+  stage: "GA · After V7 and V5"
+  title: "General availability"
+  detail: "The first release offered for sale, once V3 to V4.6 (with the guide), V5, V6 and V7 meet their exit criteria. No date is committed."
