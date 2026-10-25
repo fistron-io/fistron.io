@@ -1,0 +1,264 @@
+---
+import { site } from "../config/site";
+import { listWithIds } from "../lib/content";
+
+/**
+ * The Solutions drop-down: the solutions in the columns of their group
+ * (site.solutionGroups), each with whom it is for, and the overview.
+ * `bar` is the header's menu (opens on hover, focus or click); `list` is the
+ * small screens' menu, folded under one summary.
+ */
+interface Props {
+  label: string;
+  href: string;
+  variant?: "bar" | "list";
+}
+const { label, href, variant = "bar" } = Astro.props;
+const solutions = await listWithIds("solutions");
+const groups = site.solutionGroups.map((group) => ({
+  ...group,
+  solutions: solutions.filter((s) => s.group === group.id),
+}));
+const current = Astro.url.pathname.startsWith(href);
+---
+
+{
+  variant === "bar" ? (
+    <div class="dropdown" data-dropdown>
+      <button
+        type="button"
+        class:list={["trigger", { current }]}
+        aria-expanded="false"
+        aria-controls="solutions-menu"
+        data-dropdown-trigger
+      >
+        {label}
+        <svg class="chevron" width="10" height="10" viewBox="0 0 10 10" aria-hidden="true">
+          <path d="M1.5 3.5 5 7l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" />
+        </svg>
+      </button>
+      <div class="panel" id="solutions-menu" data-dropdown-panel>
+        <div class="sheet">
+          <div class="columns">
+            {groups.map((group) => (
+              <div class="group">
+                <p class="group-label">{group.label}</p>
+                <ul>
+                  {group.solutions.map((s) => (
+                    <li>
+                      <a href={`${href}${s.id}/`}>
+                        <span class="title">{s.title}</span>
+                        <span class="for">{s.for}</span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+          <a class="all" href={href}>
+            All solutions →
+          </a>
+        </div>
+      </div>
+    </div>
+  ) : (
+    <details class="folded">
+      <summary>{label}</summary>
+      {groups.map((group) => (
+        <div class="folded-group">
+          <p class="group-label">{group.label}</p>
+          {group.solutions.map((s) => (
+            <a href={`${href}${s.id}/`}>{s.title}</a>
+          ))}
+        </div>
+      ))}
+      <a class="all" href={href}>
+        All solutions →
+      </a>
+    </details>
+  )
+}
+
+<script>
+  // Click toggles, Escape and a click outside close; hover and keyboard focus
+  // open it through CSS as well, so the links work without this script.
+  for (const dropdown of document.querySelectorAll<HTMLElement>("[data-dropdown]")) {
+    const trigger = dropdown.querySelector<HTMLButtonElement>("[data-dropdown-trigger]");
+    const panel = dropdown.querySelector<HTMLElement>("[data-dropdown-panel]");
+    if (!trigger || !panel) continue;
+    // `dismissed` keeps it closed after Escape or a click on the trigger,
+    // until the pointer and the focus leave it.
+    const close = (dismiss: boolean) => {
+      dropdown.classList.remove("open");
+      dropdown.classList.toggle("dismissed", dismiss);
+      trigger.setAttribute("aria-expanded", "false");
+    };
+    const open = () => {
+      dropdown.classList.add("open");
+      dropdown.classList.remove("dismissed");
+      trigger.setAttribute("aria-expanded", "true");
+    };
+    const shown = () => getComputedStyle(panel).display !== "none";
+    trigger.addEventListener("click", () =>
+      dropdown.classList.contains("open") ? close(true) : open(),
+    );
+    document.addEventListener("keydown", (event) => {
+      if (event.key !== "Escape" || !shown()) return;
+      const inside = dropdown.contains(document.activeElement);
+      close(true);
+      if (inside) trigger.focus();
+    });
+    document.addEventListener("click", (event) => {
+      if (!dropdown.contains(event.target as Node)) close(false);
+    });
+    dropdown.addEventListener("focusout", (event) => {
+      if (!dropdown.contains(event.relatedTarget as Node | null)) close(false);
+    });
+    dropdown.addEventListener("mouseleave", () => {
+      if (!dropdown.classList.contains("open") && !dropdown.contains(document.activeElement)) {
+        dropdown.classList.remove("dismissed");
+      }
+    });
+  }
+</script>
+
+<style>
+  .dropdown {
+    position: relative;
+  }
+  .trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0;
+    border: 0;
+    background: none;
+    font: inherit;
+    color: var(--color-ink-2);
+    cursor: pointer;
+  }
+  .trigger:hover,
+  .trigger.current,
+  .dropdown.open .trigger {
+    color: var(--color-indigo);
+  }
+  .chevron {
+    transition: transform 0.15s ease;
+  }
+  .dropdown.open .chevron {
+    transform: rotate(180deg);
+  }
+  .panel {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: -24px;
+    z-index: 6;
+    /* the padding bridges the gap to the trigger, so hover is not lost */
+    padding-top: 14px;
+    white-space: normal;
+  }
+  .dropdown.open .panel,
+  .dropdown:not(.dismissed):focus-within .panel {
+    display: block;
+  }
+  @media (hover: hover) {
+    .dropdown:not(.dismissed):hover .panel {
+      display: block;
+    }
+  }
+  .sheet {
+    overflow: hidden;
+    background: var(--surface-page);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-card);
+    box-shadow: 0 12px 32px -12px rgba(20, 28, 60, 0.28);
+  }
+  .columns {
+    display: grid;
+    grid-template-columns: repeat(3, 250px);
+    gap: 8px 20px;
+    padding: 20px 20px 12px;
+  }
+  .group-label {
+    margin: 0 0 6px;
+    padding: 0 10px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+  }
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .columns a {
+    display: grid;
+    gap: 2px;
+    padding: 9px 10px;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+  }
+  .columns a:hover,
+  .columns a:focus-visible {
+    background: var(--color-paper);
+  }
+  .title {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--color-heading);
+  }
+  .for {
+    font-size: 0.8125rem;
+    line-height: 1.35;
+    color: var(--color-muted);
+  }
+  .sheet > .all {
+    display: block;
+    padding: 12px 30px 14px;
+    background: var(--color-paper);
+    border-top: 1px solid var(--color-line-soft);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    text-decoration: none;
+    color: var(--color-indigo);
+  }
+  .sheet > .all:hover {
+    text-decoration: underline;
+  }
+
+  .folded summary {
+    cursor: pointer;
+    padding: 10px 12px;
+    color: var(--color-ink);
+    border-radius: var(--radius-sm);
+  }
+  .folded summary:hover {
+    background: var(--color-paper);
+  }
+  .folded-group {
+    display: grid;
+    padding: 4px 0 4px 12px;
+  }
+  .folded .group-label {
+    padding: 6px 12px 2px;
+  }
+  .folded a {
+    padding: 8px 12px;
+    text-decoration: none;
+    color: var(--color-ink);
+    border-radius: var(--radius-sm);
+  }
+  .folded a:hover {
+    background: var(--color-paper);
+  }
+  .folded > .all {
+    display: block;
+    margin: 4px 0 4px 12px;
+    font-weight: 500;
+    color: var(--color-indigo);
+  }
+</style>
