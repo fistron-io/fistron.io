@@ -110,8 +110,8 @@ gained what every subscription includes (ADR 0068). On 2026-10-17 the hero,
 the page title and the footer follow the positioning in
 `docs/design/go-to-market.md`: the category "the end-to-end autonomous
 assurance platform" is the headline and the page title, the motto
-"Assured, not assumed." stands above it, and the three-beat slogan is the
-supporting line in the hero. On 2026-10-18 the roadmap, the questions,
+"Assured, not assumed." stands above it; the three-beat slogan was the supporting line in the
+hero until 2026-10-25, when it was removed. On 2026-10-18 the roadmap, the questions,
 the hero note and the offer note were synced with the Fistron head (V4.5,
 V4.6 and V6a implemented and being validated, V7a in development, V5 after
 general availability; ADRs 0069–0073). On 2026-10-21 Distributed
