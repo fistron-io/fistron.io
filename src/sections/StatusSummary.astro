@@ -1,0 +1,107 @@
+---
+import { section, listWithIds } from "../lib/content";
+import Section from "../components/Section.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import CheckIcon from "../components/CheckIcon.astro";
+
+/** Where Fistron is today, from roadmap.yaml, in three columns; the whole roadmap on /roadmap/. */
+const copy = await section("status");
+const stages = await listWithIds("roadmap");
+const columns = [
+  { label: copy.paragraphs?.[0] ?? "Works today", status: "implemented" },
+  { label: copy.paragraphs?.[1] ?? "In development", status: "in-development" },
+  { label: copy.paragraphs?.[2] ?? "Planned", status: "planned" },
+].map((c) => ({ ...c, stages: stages.filter((s) => s.status === c.status) }));
+---
+
+<Section id="status" tone="mist" labelledby="status-title">
+  <SectionHeading id="status-title" title={copy.title} intro={copy.intro} />
+  <div class="columns">
+    {
+      columns
+        .filter((c) => c.stages.length > 0)
+        .map((c) => (
+          <div class:list={["column", c.status]}>
+            <h3>
+              {c.status !== "planned" && <CheckIcon filled={c.status === "implemented"} size={16} />}
+              {c.label}
+            </h3>
+            <ul>
+              {c.stages.map((s) => (
+                <li>
+                  <span class="stage">{s.stage.split(" · ")[0]}</span>
+                  <span class="title">{s.title}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+    }
+  </div>
+  {
+    copy.linkLabel && (
+      <p class="more">
+        <a href="/roadmap/">{copy.linkLabel} →</a>
+      </p>
+    )
+  }
+</Section>
+
+<style>
+  .columns {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    margin-top: 40px;
+  }
+  .column {
+    background: var(--surface-card);
+    border: 1px solid var(--color-line-soft);
+    border-radius: var(--radius-card);
+    padding: 24px 28px;
+  }
+  h3 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-heading);
+  }
+  .implemented h3 {
+    color: var(--color-leaf-text);
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 16px;
+  }
+  li {
+    display: flex;
+    gap: 12px;
+    padding: 8px 0;
+    border-top: 1px solid var(--color-line-soft);
+    font-size: 0.9375rem;
+  }
+  .stage {
+    flex: 0 0 3.2em;
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    color: var(--color-muted);
+    padding-top: 2px;
+  }
+  .title {
+    color: var(--color-ink-2);
+  }
+  .more {
+    margin-top: 28px;
+  }
+  .more a {
+    font-weight: 500;
+  }
+  @media (max-width: 900px) {
+    .columns {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -50,6 +50,19 @@ Run `npm run check && npm run build` before every commit. CI runs the same
 
 Astro documentation: https://docs.astro.build
 
+## Pages
+
+| Page | What it holds |
+|---|---|
+| `/` | The story in order: hero, the problem, the solutions, how Fistron differs, how it works, conclusions you can check, where Fistron is today, the demo request |
+| `/solutions/` and `/solutions/<id>/` | Every solution as a card, and a page each (`solutions.yaml`), with the questions Fistron answers |
+| `/why-fistron/` | How Fistron differs in detail, why now, Fistron on Fistron, starting with one project |
+| `/platform/` | How it works, CI platforms, integrations, deployment |
+| `/roadmap/` | The roadmap (`roadmap.yaml`); the homepage shows the same stages in three columns |
+| `/partners/` | Platform partners |
+
+The demo request lives on the homepage (`/#demo`); every other page ends with a band that links to it.
+
 ## Editing content
 
 All homepage copy is in `src/content/en/` and can be changed without
@@ -62,7 +75,8 @@ touching layout:
 | `problems.yaml`, `steps.yaml`, `trust.yaml`, `governance.yaml`, `deployment.yaml`, `audiences.yaml`, `roadmap.yaml` | Section lists, shown in file order |
 | `signals.yaml` | Market signals in the "Why now" section: third-party survey figures exactly as published, with source, link and date. Re-verify before going public |
 | `partner-models.yaml` | The two platform partner models (marketplace add-on, own brand) in the partners section; Fistron ADR 0064 |
-| `offerings.yaml` | What Fistron offers in short words, the grid under the hero headline (positioning in Fistron's `go-to-market.md`); the hero note says what works today |
+| `solutions.yaml` | The solutions: a card on the homepage and on `/solutions/`, and a page of each at `/solutions/<id>/` (the problem, what you get, where it stands, the questions it answers by id from `questions.yaml`, the homepage sections shown with it). Source: Fistron's `value-proposition.md`; mark `available` only what works today |
+| `differentiators.yaml` | How Fistron differs from categories of alternatives (never named products), on the homepage and on `/why-fistron/` |
 | `engagement.yaml`, `included.yaml`, `guarantees.yaml` | How an engagement runs, what every subscription includes besides the software, and what the offer commits to (offer section, "What we deliver"); no prices |
 | `outcomes.yaml`, `messages.yaml` | The quality, schedule and cost baselines and what each audience gets (outcomes section, in development as a whole) |
 | `questions.yaml`, `integrations.yaml` | Lists with a `status` per item |
@@ -108,7 +122,15 @@ before general availability, and the guide on every page (V4.6c) in
 development and a condition of it. The same day the stages were synced
 with reality: V3.5 (the suite map) added, V4b implemented and in
 production for its first pilot, V7a implemented and being validated, V5
-the current stage and shown before V6.
+the current stage and shown before V6. On 2026-10-25 the site became a
+homepage with pages: the solutions from `value-proposition.md` (each with
+its page and its honest state), how Fistron differs from categories of
+alternatives (never named products), the platform, the roadmap and the
+partners on pages of their own, and the hero's grid of offerings replaced
+by the solutions. The state followed the Fistron head: V4.6c implemented,
+V6b and V7b decided (ADRs 0091, 0092), V7.5a in development with its kit,
+runners, attestation signed by the participant's installation (ADR 0093)
+and sharing implemented.
 
 V1 functionality is implemented, with broader real-case validation ongoing.
 V2.1 change assessment, V2.2 test plans, V2.3 extension points and the V2.4

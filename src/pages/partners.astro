@@ -1,0 +1,15 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHeader from "../components/PageHeader.astro";
+import Partners from "../sections/Partners.astro";
+import CallToAction from "../components/CallToAction.astro";
+import { section } from "../lib/content";
+
+const page = await section("partnersPage");
+---
+
+<BaseLayout title="Platform partners" description={page.intro}>
+  <PageHeader title={page.title} intro={page.intro} />
+  <Partners />
+  <CallToAction title="Offer quality to your customers" primary="Become a platform partner" />
+</BaseLayout>

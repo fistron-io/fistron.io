@@ -1,12 +1,11 @@
 ---
 import { getEntry } from "astro:content";
-import { section, list } from "../lib/content";
+import { section } from "../lib/content";
 import Section from "../components/Section.astro";
 import CheckIcon from "../components/CheckIcon.astro";
 
 const copy = await section("hero");
 const panel = (await getEntry("objective", "hero"))!.data;
-const offerings = await list("offerings");
 // **text** in the intro is shown emphasised; everything else is plain text.
 const introParts = (copy.intro ?? "").split("**").map((text, i) => ({ text, strong: i % 2 === 1 }));
 ---
@@ -19,7 +18,7 @@ const introParts = (copy.intro ?? "").split("**").map((text, i) => ({ text, stro
       <p class="intro">{introParts.map((part) => (part.strong ? <strong>{part.text}</strong> : part.text))}</p>
       <div class="ctas">
         <a href="#demo" class="btn btn-primary">{copy.primaryCta}</a>
-        <a href="#how" class="btn btn-secondary">{copy.secondaryCta}</a>
+        <a href="#solutions" class="btn btn-secondary">{copy.secondaryCta}</a>
       </div>
     </div>
 
@@ -55,17 +54,7 @@ const introParts = (copy.intro ?? "").split("**").map((text, i) => ({ text, stro
     </figure>
   </div>
 
-  <ul class="offerings" aria-label="What Fistron offers">
-    {
-      offerings.map((item) => (
-        <li>
-          <p class="o-title">{item.title}</p>
-          <p class="o-text">{item.text}</p>
-        </li>
-      ))
-    }
-  </ul>
-  {copy.note && <p class="hero-note">{copy.note} <a href="#roadmap">See the roadmap.</a></p>}
+  {copy.note && <p class="hero-note">{copy.note} <a href="/roadmap/">See the roadmap.</a></p>}
 </Section>
 
 <style>
@@ -194,29 +183,8 @@ const introParts = (copy.intro ?? "").split("**").map((text, i) => ({ text, stro
     border-radius: var(--radius-sm);
     padding: 3px 10px;
   }
-  .offerings {
-    list-style: none;
-    padding: 0;
-    margin-top: 64px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 24px 40px;
-  }
-  .offerings li {
-    border-top: 2px solid var(--color-leaf);
-    padding-top: 12px;
-  }
-  .o-title {
-    font-weight: 500;
-    color: var(--color-heading);
-  }
-  .o-text {
-    margin-top: 4px;
-    font-size: 0.9375rem;
-    color: var(--color-muted);
-  }
   .hero-note {
-    margin-top: 28px;
+    margin-top: 40px;
     font-size: 0.875rem;
     color: var(--color-muted);
   }

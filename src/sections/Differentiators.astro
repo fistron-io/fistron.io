@@ -1,0 +1,124 @@
+---
+import { section, list } from "../lib/content";
+import Section from "../components/Section.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+
+/**
+ * How Fistron differs from categories of alternatives (never named
+ * products). Compact on the homepage, with a link to /why-fistron/; in
+ * detail there, with the typical approach beside Fistron's.
+ */
+interface Props {
+  detailed?: boolean;
+}
+const { detailed = false } = Astro.props;
+const copy = await section("differentiators");
+const points = await list("differentiators");
+---
+
+<Section id="different" tone="night" contours={{ cx: 1240, cy: 160, ring: true }} labelledby="different-title">
+  <SectionHeading id="different-title" title={copy.title} intro={copy.intro} tone="dark" />
+  <ul class:list={["points", { detailed }]}>
+    {
+      points.map((p) => (
+        <li>
+          <h3>{p.title}</h3>
+          <p class="instead">
+            {copy.caption}: {p.instead}
+          </p>
+          {detailed && (
+            <p class="others">
+              <span class="label">Typically</span>
+              {p.others}
+            </p>
+          )}
+          <p class="fistron">
+            {detailed && <span class="label">Fistron</span>}
+            {p.fistron}
+          </p>
+        </li>
+      ))
+    }
+  </ul>
+  {
+    !detailed && copy.linkLabel && (
+      <p class="more">
+        <a href="/why-fistron/">{copy.linkLabel} →</a>
+      </p>
+    )
+  }
+</Section>
+
+<style>
+  .points {
+    list-style: none;
+    padding: 0;
+    margin-top: 48px;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 32px 28px;
+  }
+  .points.detailed {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+  li {
+    border-top: 2px solid var(--color-leaf-light);
+    padding-top: 18px;
+  }
+  .detailed li {
+    border: 1px solid var(--color-night-line);
+    border-top: 2px solid var(--color-leaf-light);
+    border-radius: var(--radius-card);
+    padding: 24px 28px;
+  }
+  h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--color-white);
+  }
+  .instead {
+    margin-top: 6px;
+    font-size: 0.8125rem;
+    color: var(--color-on-dark-muted);
+  }
+  .others,
+  .fistron {
+    margin-top: 12px;
+    font-size: 0.9375rem;
+    color: var(--color-on-dark);
+  }
+  .others {
+    color: var(--color-on-dark-muted);
+  }
+  .label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-on-dark-muted);
+    margin-bottom: 4px;
+  }
+  .fistron .label {
+    color: var(--color-leaf-light);
+  }
+  .more {
+    margin-top: 40px;
+  }
+  .more a {
+    color: var(--color-leaf-light);
+    font-weight: 500;
+  }
+  @media (max-width: 1000px) {
+    .points {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  @media (max-width: 640px) {
+    .points,
+    .points.detailed {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

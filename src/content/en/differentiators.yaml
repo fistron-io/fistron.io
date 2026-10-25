@@ -1,0 +1,44 @@
+# How Fistron differs, shown in file order: on the homepage and on
+# /why-fistron/. Categories of alternatives only, never named products
+# (decided with the founder 2026-10-25). Source: Fistron
+# docs/design/value-proposition.md, moat.md and go-to-market.md.
+- id: evidence
+  title: "Evidence first, AI optional"
+  instead: "Tools built only on AI"
+  others: "A model's answer: fluent, plausible, and checked by nobody. Without the model there is no product."
+  fistron: "Deterministic rules by default, AI where it helps. Every conclusion cites the evidence you can open, and “insufficient evidence” is an answer, not a guess. Works with no model at all."
+- id: solution
+  title: "A solution, not one more tool"
+  instead: "Tools you integrate yourself, consultancies that deliver documents"
+  others: "A licence and a manual, or a report on what you should do."
+  fistron: "Fistron's people design, deliver and run the solution with the platform: a named architect every week, outcomes agreed as your KPIs and reviewed every quarter."
+- id: orchestration
+  title: "Your tools, orchestrated"
+  instead: "Platforms that replace your stack"
+  others: "Move your tests, pipelines and data to a new platform first."
+  fistron: "Your CI, tests, observability and tickets keep doing the work. Fistron coordinates them toward the quality objective. Don't replace anything."
+- id: one-base
+  title: "Quality and compliance on one evidence base"
+  instead: "Compliance automation next to separate quality tools"
+  others: "Audit evidence collected in one place, quality improved somewhere else, connected by hand."
+  fistron: "The same evidence answers whether a change is good enough and whether a control is met, and the gaps are closed through your own tools."
+- id: verifiable
+  title: "Proof anyone can verify"
+  instead: "Dashboards and screenshots"
+  others: "A green tile you have to trust."
+  fistron: "Signed, reproducible reports and attestations, verifiable offline without a licence, recomputable from the preserved evidence."
+- id: sovereign
+  title: "Sovereign by design"
+  instead: "Cloud-only services"
+  others: "Your code, logs and test data sent to someone else's cloud."
+  fistron: "On-premises, air-gapped, hybrid or in the EU; agents that connect outbound only; a mode without any AI; a ledger of where data went."
+- id: control
+  title: "Autonomous, under your control"
+  instead: "Agents that act on their own"
+  others: "Changes made for you, explained afterwards."
+  fistron: "Fistron proposes every change as a pull or merge request or a recorded action, at the autonomy level you allow. A person approves."
+- id: measured
+  title: "Measured, not promised"
+  instead: "Claimed savings"
+  others: "A percentage on a slide."
+  fistron: "A baseline from your own data first, guardrails next to every saving, and no figures until a pilot has measured them."

@@ -2,41 +2,28 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Hero from "../sections/Hero.astro";
 import Problem from "../sections/Problem.astro";
-import WhyNow from "../sections/WhyNow.astro";
+import Solutions from "../sections/Solutions.astro";
+import Differentiators from "../sections/Differentiators.astro";
 import HowItWorks from "../sections/HowItWorks.astro";
-import UseCases from "../sections/UseCases.astro";
-import Outcomes from "../sections/Outcomes.astro";
-import Offer from "../sections/Offer.astro";
-import CiFailure from "../sections/CiFailure.astro";
 import Trust from "../sections/Trust.astro";
-import Dogfood from "../sections/Dogfood.astro";
-import Platforms from "../sections/Platforms.astro";
-import Integrations from "../sections/Integrations.astro";
-import Governance from "../sections/Governance.astro";
-import Deployment from "../sections/Deployment.astro";
-import Partners from "../sections/Partners.astro";
-import Roadmap from "../sections/Roadmap.astro";
-import OpenCore from "../sections/OpenCore.astro";
+import StatusSummary from "../sections/StatusSummary.astro";
 import DemoRequest from "../sections/DemoRequest.astro";
 ---
 
+<!--
+  The homepage tells the story in order: what Fistron is, the problem, the
+  solutions (each with a page of its own), how Fistron differs, how it
+  works, why its conclusions can be checked, where it stands, and the demo.
+  The details are on /solutions/, /why-fistron/, /platform/, /roadmap/ and
+  /partners/.
+-->
 <BaseLayout>
   <Hero />
   <Problem />
-  <WhyNow />
+  <Solutions />
+  <Differentiators />
   <HowItWorks />
-  <UseCases />
-  <Outcomes />
-  <Offer />
-  <CiFailure />
   <Trust />
-  <Dogfood />
-  <Platforms />
-  <Integrations />
-  <Governance />
-  <Deployment />
-  <Partners />
-  <Roadmap />
-  <OpenCore />
+  <StatusSummary />
   <DemoRequest />
 </BaseLayout>

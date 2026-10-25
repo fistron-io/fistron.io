@@ -1,0 +1,90 @@
+---
+import Section from "./Section.astro";
+
+/**
+ * The header band of a page other than the homepage: a trail back to its
+ * parent, the page's title (h1) and its lead, with an optional slot on the
+ * right (a status badge, a call to action).
+ */
+interface Props {
+  title: string;
+  intro?: string;
+  /** The page above this one, e.g. Solutions for a solution's page. */
+  parent?: { label: string; href: string };
+  kicker?: string;
+}
+const { title, intro, parent, kicker } = Astro.props;
+---
+
+<Section tone="mist" contours={{ cx: 1180, cy: 120 }} labelledby="page-title">
+  <div class="header">
+    <div class="text">
+      <nav class="trail" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        {
+          parent && (
+            <>
+              <span aria-hidden="true">/</span>
+              <a href={parent.href}>{parent.label}</a>
+            </>
+          )
+        }
+      </nav>
+      {kicker && <p class="kicker">{kicker}</p>}
+      <h1 id="page-title">{title}</h1>
+      {intro && <p class="lead">{intro}</p>}
+    </div>
+    {
+      Astro.slots.has("default") && (
+        <div class="aside">
+          <slot />
+        </div>
+      )
+    }
+  </div>
+</Section>
+
+<style>
+  .header {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px 48px;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+  .text {
+    flex: 1 1 560px;
+    min-width: 0;
+  }
+  .trail {
+    display: flex;
+    gap: 8px;
+    font-size: 0.875rem;
+    color: var(--color-muted);
+  }
+  .trail a {
+    color: var(--color-muted);
+  }
+  .kicker {
+    margin-top: 24px;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--color-indigo);
+  }
+  h1 {
+    margin-top: 12px;
+    font-size: var(--text-h1);
+    line-height: 1.08;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    color: var(--color-heading);
+    max-width: 18em;
+  }
+  .lead {
+    margin-top: 20px;
+    max-width: 44em;
+  }
+  .aside {
+    flex: 0 0 auto;
+  }
+</style>
