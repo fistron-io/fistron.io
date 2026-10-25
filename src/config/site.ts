@@ -2,8 +2,11 @@
 
 export type ServiceKey = "app" | "docs" | "support" | "openSource";
 
-/** A link inside this site, or one of the separate services. */
-export type NavItem = { label: string; href?: string; service?: ServiceKey };
+/**
+ * A link inside this site, or one of the separate services. `menu` makes it a
+ * drop-down: "solutions" lists the solutions by their group.
+ */
+export type NavItem = { label: string; href?: string; service?: ServiceKey; menu?: "solutions" };
 
 export const site = {
   name: "Fistron",
@@ -37,13 +40,20 @@ export const site = {
   },
 
   nav: [
-    { label: "Solutions", href: "/solutions/" },
+    { label: "Solutions", href: "/solutions/", menu: "solutions" },
     { label: "Why Fistron", href: "/why-fistron/" },
     { label: "Platform", href: "/platform/" },
     { label: "Roadmap", href: "/roadmap/" },
     { label: "Partners", href: "/partners/" },
     { label: "Docs", service: "docs" },
   ] as NavItem[],
+
+  /** The columns of the Solutions menu, in order; each solution names its group. */
+  solutionGroups: [
+    { id: "quality", label: "Quality and delivery" },
+    { id: "compliance", label: "Compliance and resilience" },
+    { id: "certification", label: "Certification and acceptance" },
+  ],
 
   /**
    * Search engines may index the site only when PUBLIC_INDEXABLE=true at
