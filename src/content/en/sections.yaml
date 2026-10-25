@@ -5,9 +5,9 @@ hero:
   eyebrow: "Assured, not assumed."
   title: "The end-to-end autonomous assurance platform"
   intro: "Fistron is the **platform for autonomous quality and compliance assurance**. By orchestrating the tools you already run, it delivers an **end-to-end solution** for the quality your customers, auditors and regulators expect, including **ISO certification that supports NIS2 and EU DORA**, under your control and with the proof they accept. Prove your quality, keep your tools and get your time back."
-  note: "CI failure analysis, change assessment, test plans, coverage gaps and the checks for code written with AI work today. Compliance in the tool, Fištrónek with measurable outcomes and the risk of each change are implemented and being validated; the rest is in development. People and guarantees are set per contract."
+  note: "CI failure analysis, change assessment, test plans, coverage gaps and the checks for code written with AI work today. Compliance in the tool, Fištrónek with measurable outcomes, the risk of each change and the repair of tests that work badly are implemented and being validated; new tests and Distributed Continuous Certification are in development. People and guarantees are set per contract."
   primaryCta: "Request a demo"
-  secondaryCta: "See how it works"
+  secondaryCta: "Explore the solutions"
   caption: "Target workflow with example data. In development."
 
 problem:
@@ -116,7 +116,7 @@ partners:
 
 roadmap:
   title: "Where Fistron is heading"
-  intro: "V1 to V3 work today, with flaky quarantine, evidence selection and the Suite Health audit in shadow mode on Fistron's own repositories; the map of your suite against your product with the plan of the missing tests (V3.5) is being validated; the local interface and setup (V4a) are released and being validated, and the control plane for teams (V4b) runs in production for its first pilot. Compliance in the tool (V4.5), the Fištrónek assistant with measurable outcomes (V4.6), the risk of each change (V6a) and the repair of your tests that work badly (V7a) are implemented and being validated, with Distributed Continuous Certification for software vendors (V7.5) right after V7a. Authoring new tests (V5) and a guide on every page of the interface (V4.6c) are in development; general availability follows V7 and V5. Human review and broader validation continue."
+  intro: "V1 to V3 work today, with flaky quarantine, evidence selection and the Suite Health audit in shadow mode on Fistron's own repositories; the map of your suite against your product with the plan of the missing tests (V3.5) is being validated; the local interface and setup (V4a) are released and being validated, and the control plane for teams (V4b) runs in production for its first pilot. Compliance in the tool (V4.5), the Fištrónek assistant with measurable outcomes and the guide on every page (V4.6), the risk of each change (V6a) and the repair of your tests that work badly (V7a) are implemented and being validated. Distributed Continuous Certification for software vendors (V7.5a) and authoring new tests (V5) are in development; checking predictions against what really happened (V6b) and the plan for what no test covers (V7b) are planned. General availability follows V7 and V5. Human review and broader validation continue."
   caption: "V5 in sight. Fištrónek brought binoculars."
 
 openCore:
@@ -149,3 +149,55 @@ notFound:
   title: "This page went flaky."
   intro: "It was here on the last run. Fištrónek is chasing it down. In the meantime, the homepage passes every time."
   primaryCta: "Back to the homepage"
+
+# --- since 2026-10-25: solutions, how Fistron differs, the pages ---
+
+solutions:
+  title: "Solutions"
+  intro: "Each solution is delivered by Fistron's people with the Fistron platform, on the tools you already run. Start with the one that hurts most; they share one evidence base."
+  linkLabel: "All solutions"
+  note: "Each card says where the solution stands today. Nothing is shown as available before it works in Fistron's own repositories."
+
+differentiators:
+  title: "What makes Fistron different"
+  intro: "Not one more AI test tool, not another dashboard, not a consultancy that leaves a report. Here is how Fistron compares with the kinds of alternatives you may be weighing."
+  linkLabel: "Why Fistron, in detail"
+  caption: "Instead of"
+
+status:
+  title: "Where Fistron is today"
+  intro: "Plainly, as of October 2026: what works, what is being validated on Fistron's own repositories and with its first pilot, and what is still in development."
+  linkLabel: "The whole roadmap"
+  paragraphs:
+    - "Works today, being validated"
+    - "In development"
+    - "Planned"
+
+solutionsPage:
+  title: "Solutions for quality and compliance you can prove"
+  intro: "Fistron delivers solutions, not licences: its people design and run each one with the platform, on your own tools, under your control. They share one evidence base, so starting with one makes the next one cheaper."
+  caption: "Who it is for"
+
+solutionPage:
+  title: "The problem"
+  intro: "What you get"
+  caption: "Where it stands"
+  linkLabel: "Questions it answers"
+  primaryCta: "Discuss this solution"
+  secondaryCta: "All solutions"
+
+whyPage:
+  title: "Why Fistron"
+  intro: "Assurance is a claim you have to prove. Fistron is built so that every claim it makes points back to evidence, and so that the proof holds without trusting Fistron."
+
+platformPage:
+  title: "The platform"
+  intro: "How Fistron works, the CI platforms and integrations it uses, and where it runs. One set of artifacts for Fistron Cloud, on-premises, air-gapped and hybrid."
+
+roadmapPage:
+  title: "Roadmap"
+  intro: "What Fistron does today, what is being validated and what comes next. Dates are not committed; each stage ends with its exit criteria met."
+
+partnersPage:
+  title: "Platform partners"
+  intro: "PaaS and SaaS providers can offer Fistron's quality and compliance inside their own services."

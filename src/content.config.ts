@@ -106,7 +106,6 @@ const partnerModels = defineCollection({
 const engagement = defineCollection({ loader: orderedList("engagement"), schema: simpleItem });
 const guarantees = defineCollection({ loader: orderedList("guarantees"), schema: simpleItem });
 const included = defineCollection({ loader: orderedList("included"), schema: simpleItem });
-const offerings = defineCollection({ loader: orderedList("offerings"), schema: simpleItem });
 
 const questions = defineCollection({
   loader: orderedList("questions"),
@@ -144,6 +143,31 @@ const roadmap = defineCollection({
   }),
 });
 
+/** A solution: a card on the homepage and a page at /solutions/<id>/. */
+const solutions = defineCollection({
+  loader: orderedList("solutions"),
+  schema: z.object({
+    order,
+    title: z.string(),
+    for: z.string(),
+    short: z.string(),
+    status,
+    stage: z.string(),
+    problem: z.string(),
+    gets: z.array(z.string()).min(1),
+    // ids from questions.yaml, checked when the page is built
+    questions: z.array(z.string()).default([]),
+    // homepage sections shown on the solution's page
+    related: z.array(z.enum(["offer", "open-core", "ci", "outcomes", "trust", "governance"])).default([]),
+  }),
+});
+
+/** How Fistron differs from a category of alternatives (never a named product). */
+const differentiators = defineCollection({
+  loader: orderedList("differentiators"),
+  schema: z.object({ order, title: z.string(), instead: z.string(), others: z.string(), fistron: z.string() }),
+});
+
 const dogfood = defineCollection({
   loader: orderedList("dogfood"),
   schema: z.object({ order, when: z.string(), text: z.string() }),
@@ -156,6 +180,8 @@ const dogfoodStats = defineCollection({
 });
 
 export const collections = {
+  solutions,
+  differentiators,
   dogfood,
   dogfoodStats,
   sections,
@@ -171,7 +197,6 @@ export const collections = {
   engagement,
   guarantees,
   included,
-  offerings,
   signals,
   partnerModels,
   questions,

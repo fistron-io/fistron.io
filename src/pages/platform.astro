@@ -1,0 +1,21 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHeader from "../components/PageHeader.astro";
+import HowItWorks from "../sections/HowItWorks.astro";
+import Platforms from "../sections/Platforms.astro";
+import Integrations from "../sections/Integrations.astro";
+import Deployment from "../sections/Deployment.astro";
+import CallToAction from "../components/CallToAction.astro";
+import { section } from "../lib/content";
+
+const page = await section("platformPage");
+---
+
+<BaseLayout title="The platform" description={page.intro}>
+  <PageHeader title={page.title} intro={page.intro} />
+  <HowItWorks />
+  <Platforms />
+  <Integrations />
+  <Deployment />
+  <CallToAction secondary={{ label: "Explore the solutions", href: "/solutions/" }} />
+</BaseLayout>

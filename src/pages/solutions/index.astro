@@ -1,0 +1,17 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageHeader from "../../components/PageHeader.astro";
+import Solutions from "../../sections/Solutions.astro";
+import UseCases from "../../sections/UseCases.astro";
+import CallToAction from "../../components/CallToAction.astro";
+import { section } from "../../lib/content";
+
+const page = await section("solutionsPage");
+---
+
+<BaseLayout title="Solutions" description={page.intro}>
+  <PageHeader title={page.title} intro={page.intro} />
+  <Solutions heading={false} />
+  <UseCases />
+  <CallToAction />
+</BaseLayout>

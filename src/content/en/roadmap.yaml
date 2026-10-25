@@ -1,14 +1,15 @@
-# State of 2026-10-23 (Fistron docs/design/roadmap.md): V1 to V3 exist (V1.5,
+# State of 2026-10-25 (Fistron docs/design/roadmap.md): V1 to V3 exist (V1.5,
 # V2.5 and the Suite Health audit in shadow mode; pilots continue); V3.5 (the
 # suite map and the plan of the missing tests, ADR 0078) runs on an
 # open-source project's acceptance suite; V4a is released and being
 # validated; V4b runs in production (app.fistron.io) for its first pilot;
-# V4.5, V4.6 and V6a are implemented and being validated; V7a (repair of bad
-# tests, ADR 0073) is implemented and its exit runs on Fistron's own
-# repositories. Since 2026-10-22: V5 (authoring new tests, ADR 0082) is in
-# development and comes before general availability, and V4.6c (the guide
-# that acts, ADR 0083) is a condition of it. V7.5, Distributed Continuous
-# Certification (ADR 0080), right after V7a.
+# V4.5, V4.6 (with V4.6c, the guide on every page and how-to questions,
+# ADR 0083 and 0089) and V6a are implemented and being validated; V7a (repair
+# of bad tests, ADR 0073) is implemented and its exit runs on Fistron's own
+# repositories. V5 (authoring new tests, ADR 0082) is in development before
+# general availability. V6b (ADR 0091) and V7b (ADR 0092) are decided and
+# planned. V7.5a, Distributed Continuous Certification (ADR 0080, 0090,
+# 0093), is in development: steps 2 to 8 done, the dogfood programme next.
 # status: implemented (filled checkbox), in-development (empty checkbox),
 # planned (default, no checkbox). The list is shown in this order.
 - id: v1
@@ -55,7 +56,7 @@
   status: implemented
   stage: "V4.6 · Implemented; validating"
   title: "Fištrónek, your assistant"
-  detail: "Recommendations, guided scope and status reports on request or every week, each statement linked to its evidence; measurable outcomes as KPIs and key results with baselines, targets and the quarterly review. Works without AI; with a model, a conversation that cites what it read, and the same tools as an MCP server for your own assistant. In development (V4.6c): a guide on every page of the interface that shows what the page needs next and, after you confirm, does it as you."
+  detail: "Recommendations, guided scope and status reports on request or every week, each statement linked to its evidence; measurable outcomes as KPIs and key results with baselines, targets and the quarterly review. Works without AI; with a model, a conversation that cites what it read, and the same tools as an MCP server for your own assistant. A guide on every page of the interface (V4.6c) shows what the page needs next, does it as you after you confirm, and answers how-to questions from the guide; implemented, its onboarding measurement continues."
 - id: v5
   status: in-development
   stage: "V5 · Active development"
@@ -66,16 +67,17 @@
   status: in-development
   stage: "V6 · Change risk in shadow mode"
   title: "Predictive quality"
-  detail: "The risk of each change before it is merged, with its factors and the missing data named, in shadow mode and never blocking (V6a). Next: predictions checked against what really happened after the merge (V6b). From your own data only; nothing learned or compared across customers."
+  detail: "The risk of each change before it is merged, with its factors and the missing data named, in shadow mode and never blocking (V6a). Next (V6b, planned): each prediction checked against what really happened in the weeks after the merge (reverts, fixes of the same code, escaped defects from your issue trackers), and its accuracy measured against a plain size-of-change baseline, stated only when there are enough outcomes. From your own data only; nothing learned or compared across customers."
 - id: v7
   status: in-development
   stage: "V7 · Repair implemented; validating"
   title: "A closed loop on your tests"
-  detail: "Fistron finds the tests that work badly (weak, flaky, slow without contribution), proves it, proposes the repair as a pull or merge request, runs it on your CI and checks the result (V7a, implemented; validated on Fistron's own repositories). For what no test covers, a test plan your people write against (V7b)."
+  detail: "Fistron finds the tests that work badly (weak, flaky, slow without contribution), proves it, proposes the repair as a pull or merge request, runs it on your CI and checks the result (V7a, implemented; validated on Fistron's own repositories). For what no test covers (V7b, planned): new kinds of gaps in the same Test plan, from the checks a change could not support, the changed lines no test executes and the risk factors no test guards, each closed when a later run shows it met."
 - id: v7-5
-  stage: "V7.5 · Planned"
+  status: in-development
+  stage: "V7.5 · In development"
   title: "Distributed Continuous Certification"
-  detail: "For vendors of on-premises software: your key customers receive pre-release builds, Fistron's agent installs and tests them in their staging environments with your suite and their checks, and each run ends with a signed attestation. What is shared with you is agreed per programme; you certify the release for their environment."
+  detail: "For vendors of on-premises software: your key customers receive pre-release builds, Fistron's agent installs and tests them in their staging environments with your suite and their checks, and each run ends with a signed attestation. What is shared with you is agreed per programme; you certify the release for their environment. Implemented in V7.5a: the validation kit with five runners (script, container, Ansible, Testkube, openQA), build verification, staging-only targets, the run, its attestation and the sharing with export for air-gapped sites; next the first programme, then programmes across customers in the control plane (V7.5b)."
 - id: ga
   stage: "GA · After V7 and V5"
   title: "General availability"

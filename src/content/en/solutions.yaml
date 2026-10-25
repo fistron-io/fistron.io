@@ -1,0 +1,142 @@
+# The solutions Fistron offers, shown in file order: a card on the homepage
+# and on /solutions/, and a page of its own at /solutions/<id>/.
+# Source: Fistron docs/design/value-proposition.md ("Customer problems Fistron
+# solves", "The offer"), go-to-market.md ("Positioning", "Messages by
+# audience") and target-audiences.md; state of 2026-10-25.
+#
+# status: available only when the solution's core works in the Fistron
+# repository today; everything else is in-development. `stage` says exactly
+# what works, what is being validated and what is planned.
+# questions: ids from questions.yaml, shown with their own status.
+- id: end-to-end
+  title: "End-to-end quality solution"
+  for: "For organisations that want the result, not one more tool"
+  short: "Fistron's people design, deliver and run the solution to your quality problem with the Fistron platform, and prove it with evidence. The certificate, if you need one, through an accredited partner."
+  status: in-development
+  stage: "Offered to the first pilots; people and guarantees are set per contract. The platform parts are in the roadmap with their own state."
+  problem: "Most organisations don't want to buy a quality tool and build the solution themselves. They want a solved problem: someone who designs it for their software or service, runs it, and hands them proof they can show to management, customers, auditors and regulators."
+  gets:
+    - "Assess: a baseline of your quality, delivery and compliance from your own tools, and the gaps against the standard or policy you need."
+    - "Design: quality policies, the evidence each change and service requires, the test and check strategy, the controls an auditor will look for."
+    - "Deliver: Fistron set up in your toolchain, the missing capabilities enabled, the gaps closed through pull or merge requests you approve."
+    - "Operate and prove: continuous assessment, signed reports per change and release, and preparation for external audits."
+    - "A named architect one hour every week, outcomes agreed as your KPIs and key results, and a quarterly review against the baseline."
+  questions: [status, measurable-quality, release-decision]
+  related: [offer, open-core]
+- id: quality-improvement
+  title: "Quality improvement"
+  for: "For engineering, QE and platform teams"
+  short: "Explain failed pipelines from evidence, plan the tests a change needs, find what no test covers, quarantine flaky tests and repair the tests that work badly, with the tools you already run."
+  status: available
+  stage: "CI failure analysis, change assessment, test plans and coverage gaps work today. Flaky quarantine, evidence selection and the Suite Health audit run in shadow mode; the repair of bad tests and the risk of each change are implemented and being validated; authoring new tests is in development."
+  problem: "Red pipelines nobody can explain, flaky re-runs, test plans assembled by hand, thousands of tests run for a one-line change, and suites full of tests that check nothing. Each tool answers its own question; nobody answers whether the change is good enough."
+  gets:
+    - "Why a pipeline failed, from evidence across CI, source, cluster and endpoints; what is missing is acquired read-only or named."
+    - "The evidence a change requires, the existing tests that support it, and a test plan for what is still missing."
+    - "Changed lines no test executes, from your own coverage tools, and your suite mapped against your product's functions."
+    - "Flaky tests out of the blocking path with an owner; tests that add no evidence recommended for retirement only when nothing is lost."
+    - "Weak, flaky and slow tests found with proof, repaired as a pull or merge request, run on your CI and checked."
+    - "The risk of a change before it is merged, with its factors and the data that is missing; never blocking."
+  questions: [pipeline-failure, feature-evidence, test-coverage, test-plan, coverage-gap, necessary-work, suite-health, test-repair, change-risk]
+  related: [ci, outcomes]
+- id: ai-written-code
+  title: "Verifying code written with AI"
+  for: "For teams that merge code written by assistants and agents"
+  short: "An evidence gate on every change, whoever wrote it: does it do what was asked, do the tests really check it, would they fail without it, are its new dependencies real."
+  status: available
+  stage: "The checks of a change and the evidence gate on pull requests work today; stricter rules for AI-authored changes are set by policy. Broader validation continues."
+  problem: "A large share of committed code is now written with AI, and most developers don't fully trust it. A model that writes both the code and its tests can make both wrong in the same way, and changes often do more than was asked."
+  gets:
+    - "The change compared with its stated intent: unexplained parts of the diff are a finding."
+    - "The evidence the change requires by risk, and whether existing tests and their results support it."
+    - "Tests that would not fail without the change, and tests written by the same model, called out."
+    - "New dependencies checked to exist and to be approved, with your security scanners' results as evidence."
+    - "A different verifier than the author: another model, or plain rules with no model at all."
+    - "The result on the pull request, blocking by policy, kept as a signed report."
+  questions: [ai-code, test-coverage, feature-evidence]
+  related: [trust]
+- id: compliance
+  title: "NIS2, EU DORA and ISO 27001 compliance"
+  for: "For security, compliance and risk leaders"
+  short: "The controls monitored from the tools your teams already use, the gaps closed through them, the audit package prepared, and the certificate through an accredited partner."
+  status: in-development
+  stage: "Readiness and the audit (remediation, approvals, findings, the signed audit package, auditor access, Fistron's attestation) are implemented and being validated on Fistron's own repositories, first for ISO 27001 mapped to NIS2 Article 21. EU DORA, ISO 22301, ISO/IEC 20000-1, TMMi and the Cyber Resilience Act follow."
+  problem: "NIS2 and EU DORA turned proof of security and quality into a purchasing requirement. Evidence is assembled by hand before every audit, and few organisations in scope are confident they comply."
+  gets:
+    - "Framework profiles: the controls a framework needs and the evidence that shows each, first ISO 27001 for development and change, mapped to NIS2 Article 21."
+    - "Each control's state at any time, with its evidence or the reason it is not met."
+    - "Remediation, not only findings: what the tool can fix as pull or merge requests you approve, the rest assigned to Fistron's people."
+    - "Management approvals, findings with owners and deadlines, and the signed audit package with read-only auditor access."
+    - "Certification by an independent accredited partner, prepared and coordinated by Fistron; the partner decides."
+  questions: [compliance, status]
+  related: [governance]
+- id: continuous-certification
+  title: "Distributed Continuous Certification"
+  for: "For vendors of on-premises software"
+  short: "Your key customers validate your pre-release builds in their own staging environments, with your test suite and their checks. Each run ends with a signed attestation; what they share with you is agreed."
+  status: in-development
+  stage: "In development (V7.5a). Implemented: the validation kit, its five runners (script, container, Ansible playbook, Testkube, openQA), the build's digest and signature verified before anything is installed, staging-only targets, the run itself, its attestation and the sharing with export for air-gapped sites. Next: the first programme on an open-source project's public pre-release builds; then programmes across customers in the control plane (V7.5b)."
+  problem: "On-premises software meets operating systems, networks, proxies, scale and air-gapped sites its vendor's lab never reproduces. Releases then fail only at customers, upgrades slow down, and customers must test every change before production anyway."
+  gets:
+    - "Your release installed and tested before general availability, in the environments you cannot reproduce: problems found where they would appear."
+    - "Your installer and suite run as you define them: a script, a container, an Ansible playbook, a Testkube test or an openQA job."
+    - "Never in production: the agent installs only in targets the customer marks as staging or isolated, and only builds whose digest and signature verify."
+    - "A signed attestation per run, release and environment, verifiable offline by anyone with the installation's public key."
+    - "Sharing agreed per programme and customer: by default the result, the versions and a test summary; logs and details only if both agree, every item in a ledger; air-gapped sites export a file."
+    - "A programme you offer your key customers: certified for your environment, before you upgrade. The certification is yours, not an accredited certificate."
+  questions: [pre-ga]
+  related: []
+- id: measurable-quality
+  title: "Measurable quality and velocity"
+  for: "For leaders who must show the return"
+  short: "Quality, schedule and cost baselines from your own tools, outcomes agreed as your KPIs and key results, and velocity measured against guardrails, never promised."
+  status: in-development
+  stage: "The delivery baseline, velocity included, works today. Outcomes as KPIs and key results, the Product Quality Index and Fištrónek's status reports are implemented and being validated. No savings figures until pilots measure them."
+  problem: "The top obstacle to scaling quality and AI investments is unclear return. Leadership asks for one number, teams report story points, and savings are claimed without checking whether quality held."
+  gets:
+    - "A baseline first: lead time, deployment frequency, change failure rate and escaped defects, from your CI and repositories."
+    - "Goals, signals and metrics proposed for review, as the KPIs you report or key results under your OKRs."
+    - "A Product Quality Index with traceable inputs, approved weights and visible gaps, where leadership wants one number."
+    - "A saving counts only if quality holds: guardrail metrics next to every claim."
+    - "Status reports on request or every week, each statement linked to its evidence."
+  questions: [measurable-quality, status, release-decision]
+  related: [outcomes]
+- id: cyber-resilience-act
+  title: "Cyber Resilience Act readiness"
+  for: "For vendors selling software in the EU"
+  short: "Release evidence with the SBOM, vulnerability handling recorded as evidence, and root-cause analysis for the reports the act requires."
+  status: in-development
+  stage: "Planned as a framework profile of the compliance stage, built on the root-cause analysis and release evidence that work today."
+  problem: "Reporting of actively exploited vulnerabilities applies from September 2026; an SBOM per release and a tested vulnerability-handling process follow with the full obligations from December 2027."
+  gets:
+    - "Release evidence including the SBOM, kept per release."
+    - "Vulnerability handling recorded as evidence, with its timeline."
+    - "Root-cause analysis prepared for the 14-day report; the report and the decision stay with you."
+  questions: [cra]
+  related: []
+- id: supplier-acceptance
+  title: "Accepting supplier deliveries"
+  for: "For organisations that outsource development"
+  short: "Each delivery checked against the evidence it must carry before you accept it, with an acceptance record."
+  status: in-development
+  stage: "Planned, built on change assessment and coverage gaps (work today) and the compliance profiles."
+  problem: "Outsourced development arrives with a release note and a promise. NIS2 Article 21(2)(d) and EU DORA require managing supplier security, and a failed delivery is found in production."
+  gets:
+    - "The evidence each delivery must carry, stated before it arrives."
+    - "The delivery assessed against it: tests, results, coverage of the changes, security findings."
+    - "An acceptance record you can show to auditors, or the list of what is missing."
+  questions: [supplier]
+  related: []
+- id: resilience
+  title: "Proof of recovery and resilience"
+  for: "For teams that run IT services"
+  short: "Verified restores and recovery within the agreed time as evidence, not only a backup job that succeeded."
+  status: in-development
+  stage: "Planned for IT operations, with the EU DORA and ISO 22301 profiles."
+  problem: "EU DORA requires testing ICT systems, backups and restoration. A successful backup job is one observation; a restore verified within the agreed time is the evidence."
+  gets:
+    - "The observations and recovery checks an agreed service objective requires, coordinated through your tools."
+    - "Evidence that required behaviour survived an upgrade, a migration or a recovery."
+    - "Gaps named, with the checks that would close them."
+  questions: [service-objective]
+  related: []

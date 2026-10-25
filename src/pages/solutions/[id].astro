@@ -1,0 +1,232 @@
+---
+import type { GetStaticPaths } from "astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageHeader from "../../components/PageHeader.astro";
+import Section from "../../components/Section.astro";
+import StatusBadge from "../../components/StatusBadge.astro";
+import CheckIcon from "../../components/CheckIcon.astro";
+import CallToAction from "../../components/CallToAction.astro";
+import Offer from "../../sections/Offer.astro";
+import OpenCore from "../../sections/OpenCore.astro";
+import CiFailure from "../../sections/CiFailure.astro";
+import Outcomes from "../../sections/Outcomes.astro";
+import Trust from "../../sections/Trust.astro";
+import Governance from "../../sections/Governance.astro";
+import { section, listWithIds } from "../../lib/content";
+
+export const getStaticPaths = (async () => {
+  const solutions = await listWithIds("solutions");
+  return solutions.map((solution) => ({ params: { id: solution.id }, props: { solution } }));
+}) satisfies GetStaticPaths;
+
+const { solution } = Astro.props;
+const page = await section("solutionPage");
+const allQuestions = await listWithIds("questions");
+const questions = solution.questions.map((id) => {
+  const found = allQuestions.find((q) => q.id === id);
+  if (!found) throw new Error(`solutions.yaml ${solution.id}: no question "${id}" in questions.yaml`);
+  return found;
+});
+const others = (await listWithIds("solutions")).filter((s) => s.id !== solution.id);
+const related = { offer: Offer, "open-core": OpenCore, ci: CiFailure, outcomes: Outcomes, trust: Trust, governance: Governance };
+---
+
+<BaseLayout title={solution.title} description={solution.short}>
+  <PageHeader
+    title={solution.title}
+    intro={solution.short}
+    kicker={solution.for}
+    parent={{ label: "Solutions", href: "/solutions/" }}
+  >
+    <StatusBadge status={solution.status} />
+  </PageHeader>
+
+  <Section labelledby="problem-title">
+    <div class="body">
+      <div class="problem">
+        <h2 id="problem-title">{page.title}</h2>
+        <p>{solution.problem}</p>
+        <div class="stage">
+          <h3>
+            <CheckIcon filled={solution.status === "available"} size={16} />
+            {page.caption}
+          </h3>
+          <p>{solution.stage}</p>
+        </div>
+      </div>
+      <div class="gets">
+        <h2>{page.intro}</h2>
+        <ul>
+          {
+            solution.gets.map((item) => (
+              <li>
+                <span class="dot" aria-hidden="true" />
+                <span>{item}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+
+    {
+      questions.length > 0 && (
+        <div class="questions">
+          <h2>{page.linkLabel}</h2>
+          <ul>
+            {questions.map((q) => (
+              <li>
+                <h3>{q.question}</h3>
+                <p>{q.answer}</p>
+                <StatusBadge status={q.status} />
+              </li>
+            ))}
+          </ul>
+        </div>
+      )
+    }
+  </Section>
+
+  {
+    solution.related.map((key) => {
+      const Related = related[key];
+      return <Related />;
+    })
+  }
+
+  <Section tone="mist" labelledby="others-title">
+    <h2 id="others-title" class="others-title">Other solutions</h2>
+    <ul class="others">
+      {
+        others.map((s) => (
+          <li>
+            <a href={`/solutions/${s.id}/`}>{s.title}</a>
+            <span>{s.for}</span>
+          </li>
+        ))
+      }
+    </ul>
+  </Section>
+
+  <CallToAction primary={page.primaryCta} secondary={{ label: page.secondaryCta ?? "All solutions", href: "/solutions/" }} />
+</BaseLayout>
+
+<style>
+  .body {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+    gap: 48px;
+  }
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-heading);
+  }
+  .problem p {
+    margin-top: 16px;
+    font-size: var(--text-lead);
+    color: var(--color-ink-2);
+  }
+  .stage {
+    margin-top: 32px;
+    padding: 20px 24px;
+    border-radius: var(--radius-card);
+    background: var(--color-paper);
+    border: 1px solid var(--color-line-soft);
+  }
+  .stage h3 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9375rem;
+    font-weight: 600;
+  }
+  .stage p {
+    margin-top: 8px;
+    font-size: 0.9375rem;
+    color: var(--color-muted);
+  }
+  .gets ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 16px;
+  }
+  .gets li {
+    display: flex;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--color-line-soft);
+  }
+  .dot {
+    flex: 0 0 8px;
+    height: 8px;
+    margin-top: 0.6em;
+    border-radius: 50%;
+    background: var(--color-indigo);
+  }
+  .questions {
+    margin-top: 72px;
+  }
+  .questions ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 16px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+  .questions li {
+    padding: 20px 24px;
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-card);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .questions h3 {
+    font-size: 1.0625rem;
+    font-weight: 500;
+  }
+  .questions p {
+    flex: 1;
+    color: var(--color-muted);
+    font-size: 0.9375rem;
+  }
+  .others-title {
+    font-size: 1.25rem;
+  }
+  .others {
+    list-style: none;
+    padding: 0;
+    margin-top: 16px;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px 24px;
+  }
+  .others li {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .others a {
+    font-weight: 500;
+  }
+  .others span {
+    font-size: 0.8125rem;
+    color: var(--color-muted);
+  }
+  @media (max-width: 900px) {
+    .body,
+    .questions ul {
+      grid-template-columns: 1fr;
+    }
+    .others {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  @media (max-width: 560px) {
+    .others {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

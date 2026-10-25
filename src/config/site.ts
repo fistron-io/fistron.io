@@ -37,12 +37,11 @@ export const site = {
   },
 
   nav: [
-    { label: "How it works", href: "/#how" },
-    { label: "Use cases", href: "/#use-cases" },
-    { label: "Outcomes", href: "/#outcomes" },
-    { label: "Platforms", href: "/#platforms" },
-    { label: "Deployment", href: "/#deployment" },
-    { label: "What we deliver", href: "/#offer" },
+    { label: "Solutions", href: "/solutions/" },
+    { label: "Why Fistron", href: "/why-fistron/" },
+    { label: "Platform", href: "/platform/" },
+    { label: "Roadmap", href: "/roadmap/" },
+    { label: "Partners", href: "/partners/" },
     { label: "Docs", service: "docs" },
   ] as NavItem[],
 

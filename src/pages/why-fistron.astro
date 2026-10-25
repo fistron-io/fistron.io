@@ -1,0 +1,21 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHeader from "../components/PageHeader.astro";
+import Differentiators from "../sections/Differentiators.astro";
+import WhyNow from "../sections/WhyNow.astro";
+import Dogfood from "../sections/Dogfood.astro";
+import OpenCore from "../sections/OpenCore.astro";
+import CallToAction from "../components/CallToAction.astro";
+import { section } from "../lib/content";
+
+const page = await section("whyPage");
+---
+
+<BaseLayout title="Why Fistron" description={page.intro}>
+  <PageHeader title={page.title} intro={page.intro} />
+  <Differentiators detailed />
+  <WhyNow />
+  <Dogfood />
+  <OpenCore />
+  <CallToAction secondary={{ label: "Explore the solutions", href: "/solutions/" }} />
+</BaseLayout>

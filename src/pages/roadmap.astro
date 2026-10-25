@@ -1,0 +1,15 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHeader from "../components/PageHeader.astro";
+import Roadmap from "../sections/Roadmap.astro";
+import CallToAction from "../components/CallToAction.astro";
+import { section } from "../lib/content";
+
+const page = await section("roadmapPage");
+---
+
+<BaseLayout title="Roadmap" description={page.intro}>
+  <PageHeader title={page.title} intro={page.intro} />
+  <Roadmap />
+  <CallToAction secondary={{ label: "Explore the solutions", href: "/solutions/" }} />
+</BaseLayout>

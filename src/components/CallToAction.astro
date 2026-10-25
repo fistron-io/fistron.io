@@ -1,0 +1,55 @@
+---
+import Section from "./Section.astro";
+
+/** The closing band of a page other than the homepage: the demo request lives on the homepage. */
+interface Props {
+  title?: string;
+  primary?: string;
+  secondary?: { label: string; href: string };
+}
+const {
+  title = "See Fistron on your toolchain",
+  primary = "Request a demo",
+  secondary,
+} = Astro.props;
+---
+
+<Section tone="indigo" contours={{ cx: 1200, cy: 140, ring: true }} labelledby="cta-title">
+  <div class="cta">
+    <h2 id="cta-title">{title}</h2>
+    <div class="buttons">
+      <a href="/#demo" class="btn btn-secondary">{primary}</a>
+      {secondary && <a href={secondary.href} class="btn ghost">{secondary.label}</a>}
+    </div>
+  </div>
+</Section>
+
+<style>
+  .cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px 48px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  h2 {
+    font-size: var(--text-h2);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--color-white);
+    max-width: 18em;
+  }
+  .buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .ghost {
+    background: transparent;
+    color: var(--color-white);
+    border-color: var(--color-on-dark-muted);
+  }
+  .ghost:hover {
+    border-color: var(--color-white);
+  }
+</style>
