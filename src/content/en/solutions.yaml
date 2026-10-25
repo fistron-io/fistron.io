@@ -60,7 +60,7 @@
   questions: [ai-code, test-coverage, feature-evidence]
   related: [trust]
 - id: compliance
-  title: "NIS2, EU DORA and ISO 27001 compliance"
+  title: "End-to-end solution for NIS2, EU DORA and ISO 27001"
   for: "For security, compliance and risk leaders"
   group: compliance
   short: "The controls monitored from the tools your teams already use, the gaps closed through them, the audit package prepared, and the certificate through an accredited partner."

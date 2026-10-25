@@ -4,7 +4,7 @@
 hero:
   eyebrow: "Assured, not assumed."
   title: "The end-to-end autonomous assurance platform"
-  intro: "Fistron is the **platform for autonomous quality and compliance assurance**. By orchestrating the tools you already run, it delivers an **end-to-end solution** for the quality your customers, auditors and regulators expect, including **ISO certification that supports NIS2 and EU DORA**, under your control and with the proof they accept. Prove your quality, keep your tools and get your time back."
+  intro: "Fistron is the **platform for autonomous quality and compliance assurance**. By orchestrating the tools you already run, it delivers an **end-to-end solution** for the quality your customers, auditors and regulators expect, including **ISO certification that supports NIS2 and EU DORA**, under your control and with the proof they accept. **Deterministic where it counts, AI where it helps.**"
   note: "CI failure analysis, change assessment, test plans, coverage gaps and the checks for code written with AI work today. Compliance in the tool, Fištrónek with measurable outcomes, the risk of each change and the repair of tests that work badly are implemented and being validated; new tests and Distributed Continuous Certification are in development. People and guarantees are set per contract."
   primaryCta: "Request a demo"
   secondaryCta: "Explore the solutions"
@@ -66,7 +66,7 @@ ci:
 
 trust:
   title: "Conclusions you can check"
-  intro: "Fistron uses AI where it helps, never as the source of truth. Every claim points back to evidence you can open."
+  intro: "Deterministic where it counts, AI where it helps. Gates, control states and attestations are computed by rules from recorded evidence, so the same evidence gives the same verdict, recomputable by you or your auditor. A model never is the source of truth: every claim points back to evidence you can open."
   caption: "An evidence item"
 
 dogfood:
