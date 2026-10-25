@@ -3,10 +3,10 @@
 # (decided with the founder 2026-10-25). Source: Fistron
 # docs/design/value-proposition.md, moat.md and go-to-market.md.
 - id: evidence
-  title: "Evidence first, AI optional"
+  title: "Deterministic where it counts, AI where it helps"
   instead: "Tools built only on AI"
-  others: "A model's answer: fluent, plausible, and checked by nobody. Without the model there is no product."
-  fistron: "Deterministic rules by default, AI where it helps. Every conclusion cites the evidence you can open, and “insufficient evidence” is an answer, not a guess. Works with no model at all."
+  others: "A model's answer: fluent, plausible, different on the next run, and checked by nobody. Without the model there is no product."
+  fistron: "Gates, control states, test selection, risk levels, metrics and attestations are computed by rules from recorded evidence: the same evidence gives the same verdict, recomputable offline by you or your auditor. A model only adds findings that cite their evidence and are recorded for replay; “insufficient evidence” is an answer, not a guess. Works with no model at all."
 - id: solution
   title: "A solution, not one more tool"
   instead: "Tools you integrate yourself, consultancies that deliver documents"

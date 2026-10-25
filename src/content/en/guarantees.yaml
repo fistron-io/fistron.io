@@ -14,6 +14,9 @@
 - id: proof
   title: "Proof you can check"
   text: "Every report can be recomputed from the preserved evidence, by you or your auditor."
+- id: same-verdict
+  title: "Same evidence, same verdict"
+  text: "Gates, control states and attestations are computed by rules from recorded evidence; replaying the record gives the same result, with or without a model."
 - id: no-lock-in
   title: "No lock-in"
   text: "Evidence, reports and policies export in open formats."
