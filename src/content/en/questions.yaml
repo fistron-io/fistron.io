@@ -71,3 +71,7 @@
   question: "Where do we stand, and what is still missing?"
   answer: "Fištrónek, Fistron's assistant, reports on request or every week: what is met, what is missing and why, what changed, the next steps. Every statement links to its evidence; missing data is named, never filled in."
   status: in-development
+- id: sovereignty
+  question: "Can we use Fistron without sending our code and logs to an AI?"
+  answer: "Yes: with Fistron Sovereign Rules — Deterministic no model is used, and gates, risk levels and attestations are computed by rules either way. Or keep a model you trust inside your network; it receives evidence only up to the data class you allow."
+  status: available

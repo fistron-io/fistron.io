@@ -31,7 +31,7 @@
   title: "Sovereign by design"
   instead: "Cloud-only services"
   others: "Your code, logs and test data sent to someone else's cloud."
-  fistron: "On-premises, air-gapped, hybrid or in the EU; agents that connect outbound only; a mode without any AI; a ledger of where data went."
+  fistron: "On-premises, air-gapped, hybrid or in the EU; agents that connect outbound only; Fistron Sovereign Rules — Deterministic, with no AI at all; a ledger of where data went."
 - id: control
   title: "Autonomous, under your control"
   instead: "Agents that act on their own"

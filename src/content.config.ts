@@ -151,7 +151,7 @@ const solutions = defineCollection({
     title: z.string(),
     for: z.string(),
     // the column of the Solutions menu, labelled in src/config/site.ts
-    group: z.enum(["quality", "compliance", "certification"]),
+    group: z.enum(["quality", "compliance", "certification", "sovereignty"]),
     short: z.string(),
     status,
     stage: z.string(),

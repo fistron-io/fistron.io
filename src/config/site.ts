@@ -53,6 +53,7 @@ export const site = {
     { id: "quality", label: "Quality and delivery" },
     { id: "compliance", label: "Compliance and resilience" },
     { id: "certification", label: "Certification and acceptance" },
+    { id: "sovereignty", label: "Sovereignty and control" },
   ],
 
   /**
