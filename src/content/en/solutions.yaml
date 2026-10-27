@@ -31,7 +31,7 @@
   group: quality
   short: "Explain failed pipelines from evidence, plan the tests a change needs, find what no test covers, quarantine flaky tests and repair the tests that work badly, with the tools you already run."
   status: available
-  stage: "CI failure analysis, change assessment, test plans and coverage gaps work today. Flaky quarantine, evidence selection and the Suite Health audit run in shadow mode; the repair of bad tests and the risk of each change are implemented and being validated; authoring new tests is in development."
+  stage: "CI failure analysis, change assessment, test plans and coverage gaps work today. Flaky quarantine, evidence selection and the Suite Health audit run in shadow mode; the repair of bad tests and the risk of each change are implemented and being validated; authoring new tests is in development. A quality audit of a project shows where to start."
   problem: "Red pipelines nobody can explain, flaky re-runs, test plans assembled by hand, thousands of tests run for a one-line change, and suites full of tests that check nothing. Each tool answers its own question; nobody answers whether the change is good enough."
   gets:
     - "Why a pipeline failed, from evidence across CI, source, cluster and endpoints; what is missing is acquired read-only or named."
@@ -40,6 +40,7 @@
     - "Flaky tests out of the blocking path with an owner; tests that add no evidence recommended for retirement only when nothing is lost."
     - "Weak, flaky and slow tests found with proof, repaired as a pull or merge request, run on your CI and checked."
     - "The risk of a change before it is merged, with its factors and the data that is missing; never blocking."
+    - "A quality audit of your tests and CI from what you already have: a plan ordered by what costs your team most, and what the audit needs to say more."
   questions: [pipeline-failure, feature-evidence, test-coverage, test-plan, coverage-gap, necessary-work, suite-health, test-repair, change-risk]
   related: [ci, outcomes]
 - id: ai-written-code
@@ -81,7 +82,7 @@
   group: certification
   short: "Your key customers validate your pre-release builds in their own staging environments, with your test suite and their checks. Each run ends with a signed attestation; what they share with you is agreed."
   status: in-development
-  stage: "In development (V7.5a). Implemented: the validation kit, its five runners (script, container, Ansible playbook, Testkube, openQA), the build's digest and signature verified before anything is installed, staging-only targets, the run itself, its attestation and the sharing with export for air-gapped sites. Next: the first programme on an open-source project's public pre-release builds; then programmes across customers in the control plane (V7.5b)."
+  stage: "In development (V7.5a). Implemented: the validation kit, its five runners (script, container, Ansible playbook, Testkube, openQA), the build's digest and signature verified before anything is installed, staging-only targets, the run itself, its attestation and the sharing with export for air-gapped sites (V7.5a); programmes across customers in the control plane, builds published from your CI, results received and your view of each release by environment (V7.5b). Next: the first programme on production."
   problem: "On-premises software meets operating systems, networks, proxies, scale and air-gapped sites its vendor's lab never reproduces. Releases then fail only at customers, upgrades slow down, and customers must test every change before production anyway."
   gets:
     - "Your release installed and tested before general availability, in the environments you cannot reproduce: problems found where they would appear."
@@ -156,7 +157,7 @@
   group: sovereignty
   short: "Choose how Fistron decides: rules only, with no AI at all, or a model you trust inside your network. Your code, logs and test data stay where your policy says."
   status: available
-  stage: "Fistron Sovereign Rules — Deterministic, on-premises and air-gapped installation, a local model and outbound-only agents work today. Planned: Fistron Sovereign LLM with your own adaptation (V7.6), a ledger of where data went in every report, and a model policy by region and origin."
+  stage: "Fistron Sovereign Rules — Deterministic, on-premises and air-gapped installation, a local model and outbound-only agents work today, as does a benchmark of rules, commercial and open-weight models on cases from your own runs. Planned: Fistron Sovereign LLM with your own adaptation (V7.6), a ledger of where data went in every report, and a model policy by region and origin."
   problem: "\"We use an LLM\" does not say which endpoint receives which data, in which jurisdiction. Regulated teams and air-gapped networks may not send code and logs out at all, and some organisations forbid AI, or models of certain origins, by policy."
   gets:
     - "Fistron Sovereign Rules — Deterministic: no LLM, every decision comes from rules and evidence, the same evidence gives the same verdict."
