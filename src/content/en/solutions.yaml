@@ -2,7 +2,7 @@
 # and on /solutions/, and a page of its own at /solutions/<id>/.
 # Source: Fistron docs/design/value-proposition.md ("Customer problems Fistron
 # solves", "The offer"), go-to-market.md ("Positioning", "Messages by
-# audience") and target-audiences.md; state of 2026-10-25.
+# audience") and target-audiences.md; state of 2026-10-27.
 #
 # status: available only when the solution's core works in the Fistron
 # repository today; everything else is in-development. `stage` says exactly
@@ -55,7 +55,7 @@
     - "The evidence the change requires by risk, and whether existing tests and their results support it."
     - "Tests that would not fail without the change, and tests written by the same model, called out."
     - "New dependencies checked to exist and to be approved, with your security scanners' results as evidence."
-    - "A different verifier than the author: another model, or plain rules with no model at all."
+    - "A different verifier than the author: another model, or Fistron Sovereign Rules — Deterministic, with no model at all."
     - "The result on the pull request, blocking by policy, kept as a signed report."
   questions: [ai-code, test-coverage, feature-evidence]
   related: [trust]
@@ -98,12 +98,12 @@
   group: quality
   short: "Quality, schedule and cost baselines from your own tools, outcomes agreed as your KPIs and key results, and velocity measured against guardrails, never promised."
   status: in-development
-  stage: "The delivery baseline, velocity included, works today. Outcomes as KPIs and key results, the Product Quality Index and Fištrónek's status reports are implemented and being validated. No savings figures until pilots measure them."
+  stage: "The delivery baseline, velocity included, works today. Outcomes as KPIs and key results and Fištrónek's status reports are implemented and being validated; the Product Quality Index is planned. No savings figures until pilots measure them."
   problem: "The top obstacle to scaling quality and AI investments is unclear return. Leadership asks for one number, teams report story points, and savings are claimed without checking whether quality held."
   gets:
     - "A baseline first: lead time, deployment frequency, change failure rate and escaped defects, from your CI and repositories."
     - "Goals, signals and metrics proposed for review, as the KPIs you report or key results under your OKRs."
-    - "A Product Quality Index with traceable inputs, approved weights and visible gaps, where leadership wants one number."
+    - "Planned: a Product Quality Index with traceable inputs, approved weights and visible gaps, where leadership wants one number."
     - "A saving counts only if quality holds: guardrail metrics next to every claim."
     - "Status reports on request or every week, each statement linked to its evidence."
   questions: [measurable-quality, status, release-decision]
@@ -149,4 +149,21 @@
     - "Evidence that required behaviour survived an upgrade, a migration or a recovery."
     - "Gaps named, with the checks that would close them."
   questions: [service-objective]
+  related: []
+- id: sovereignty
+  title: "Sovereignty: your data, your choice of AI"
+  for: "For regulated organisations, air-gapped networks and no-AI policies"
+  group: sovereignty
+  short: "Choose how Fistron decides: rules only, with no AI at all, or a model you trust inside your network. Your code, logs and test data stay where your policy says."
+  status: available
+  stage: "Fistron Sovereign Rules — Deterministic, on-premises and air-gapped installation, a local model and outbound-only agents work today. Planned: Fistron Sovereign LLM with your own adaptation (V7.6), a ledger of where data went in every report, and a model policy by region and origin."
+  problem: "\"We use an LLM\" does not say which endpoint receives which data, in which jurisdiction. Regulated teams and air-gapped networks may not send code and logs out at all, and some organisations forbid AI, or models of certain origins, by policy."
+  gets:
+    - "Fistron Sovereign Rules — Deterministic: no LLM, every decision comes from rules and evidence, the same evidence gives the same verdict."
+    - "Fistron Sovereign LLM — Performance and Fistron Sovereign LLM — Traceable (planned): Fistron's own model, the second on a base whose training data is documented, for audit."
+    - "Your own adaptation (planned): trained on your data in your environment, also air-gapped, used only when it does better on your own benchmark; nothing leaves."
+    - "A model receives evidence only up to the data class you allow; what it could not receive is reported as missing."
+    - "On-premises or without internet access: the licence verified offline, no telemetry, agents that connect outbound only."
+    - "All variants keep Fistron's deterministic evidence and gates; the LLM variants add model reasoning on top."
+  questions: [sovereignty]
   related: []

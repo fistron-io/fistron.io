@@ -1,7 +1,7 @@
 # Commitments of the offer, shown in file order. Terms are set per contract.
 - id: eu-data
   title: "Your data stays in the EU"
-  text: "Fistron Cloud is planned with an EU provider; on-premises and rules-only setups send nothing out at all."
+  text: "Fistron Cloud is planned with an EU provider; on-premises setups and Fistron Sovereign Rules — Deterministic send nothing out at all."
 - id: sla
   title: "An SLA on what we deliver"
   text: "Availability, response and fix times by support tier."

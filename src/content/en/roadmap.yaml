@@ -10,6 +10,10 @@
 # general availability. V6b (ADR 0091) and V7b (ADR 0092) are decided and
 # planned. V7.5a, Distributed Continuous Certification (ADR 0080, 0090,
 # 0093), is in development: steps 2 to 8 done, the dogfood programme next.
+# 2026-10-27: V5a, V6b and V7b steps 1 to 4 implemented; V7.5b step 1 (programmes,
+# participants, sharing policies) implemented; V7.6, Fistron Sovereign (ADR 0100, proposed), is planned right
+# after V7.5: the variants Rules — Deterministic, LLM — Performance and
+# LLM — Traceable; base models are not named on the site.
 # status: implemented (filled checkbox), in-development (empty checkbox),
 # planned (default, no checkbox). The list is shown in this order.
 - id: v1
@@ -59,25 +63,29 @@
   detail: "Recommendations, guided scope and status reports on request or every week, each statement linked to its evidence; measurable outcomes as KPIs and key results with baselines, targets and the quarterly review. Works without AI; with a model, a conversation that cites what it read, and the same tools as an MCP server for your own assistant. A guide on every page of the interface (V4.6c) shows what the page needs next, does it as you after you confirm, and answers how-to questions from the guide; implemented, its onboarding measurement continues."
 - id: v5
   status: in-development
-  stage: "V5 · Active development"
+  stage: "V5 · Gherkin tests implemented; validating"
   title: "Author new tests"
-  detail: "Fistron writes the tests your plan says are missing, from your suite's own steps first, generating only what no step provides and labelling it, and proposes each as a pull or merge request a person merges. A test is accepted only when it runs, is stable and measurably meets its plan item. First for Gherkin suites (V5a), then tests in your own tools for infrastructure changes (V5b)."
+  detail: "Fistron writes the tests your plan says are missing, from your suite's own steps first, generating only what no step provides and labelling it, and proposes each as a pull or merge request a person merges. A test is accepted only when it runs, is stable and measurably meets its plan item. Gherkin suites (V5a) are implemented and being validated: a plan item gets Propose a test, and reviewers' comments on the request are answered with a checked revision. Next: tests in your own tools for infrastructure changes (V5b)."
   current: true
 - id: v6
   status: in-development
-  stage: "V6 · Change risk in shadow mode"
+  stage: "V6 · Change risk and its outcomes; validating"
   title: "Predictive quality"
-  detail: "The risk of each change before it is merged, with its factors and the missing data named, in shadow mode and never blocking (V6a). Next (V6b, planned): each prediction checked against what really happened in the weeks after the merge (reverts, fixes of the same code, escaped defects from your issue trackers), and its accuracy measured against a plain size-of-change baseline, stated only when there are enough outcomes. From your own data only; nothing learned or compared across customers."
+  detail: "The risk of each change before it is merged, with its factors and the missing data named, in shadow mode and never blocking (V6a). Each prediction checked against what really happened in the weeks after the merge (reverts, fixes of the same code, escaped defects from your issue trackers), and its accuracy measured against a plain size-of-change baseline, claimed only when there are enough outcomes and it does better (V6b, implemented; validating). From your own data only; nothing learned or compared across customers."
 - id: v7
   status: in-development
   stage: "V7 · Repair implemented; validating"
   title: "A closed loop on your tests"
-  detail: "Fistron finds the tests that work badly (weak, flaky, slow without contribution), proves it, proposes the repair as a pull or merge request, runs it on your CI and checks the result (V7a, implemented; validated on Fistron's own repositories). For what no test covers (V7b, planned): new kinds of gaps in the same Test plan, from the checks a change could not support, the changed lines no test executes and the risk factors no test guards, each closed when a later run shows it met."
+  detail: "Fistron finds the tests that work badly (weak, flaky, slow without contribution), proves it, proposes the repair as a pull or merge request, runs it on your CI and checks the result (V7a, implemented; validated on Fistron's own repositories). For what no test covers (V7b, in development): new kinds of gaps in the same Test plan, from the checks a change could not support, the changed lines no test executes and the risk factors no test guards, each closed when a later run shows it met."
 - id: v7-5
   status: in-development
   stage: "V7.5 · In development"
   title: "Distributed Continuous Certification"
-  detail: "For vendors of on-premises software: your key customers receive pre-release builds, Fistron's agent installs and tests them in their staging environments with your suite and their checks, and each run ends with a signed attestation. What is shared with you is agreed per programme; you certify the release for their environment. Implemented in V7.5a: the validation kit with five runners (script, container, Ansible, Testkube, openQA), build verification, staging-only targets, the run, its attestation and the sharing with export for air-gapped sites; next the first programme, then programmes across customers in the control plane (V7.5b)."
+  detail: "For vendors of on-premises software: your key customers receive pre-release builds, Fistron's agent installs and tests them in their staging environments with your suite and their checks, and each run ends with a signed attestation. What is shared with you is agreed per programme; you certify the release for their environment. Implemented in V7.5a: the validation kit with five runners (script, container, Ansible, Testkube, openQA), build verification, staging-only targets, the run, its attestation and the sharing with export for air-gapped sites. In development (V7.5b): programmes across customers in the control plane; programmes, participants and the sharing policy each accepts are implemented, builds published to a programme and results sent online are next."
+- id: v7-6
+  stage: "V7.6 · Planned"
+  title: "Fistron Sovereign"
+  detail: "Choose how Fistron decides. Fistron Sovereign Rules — Deterministic: no LLM, every decision comes from rules and evidence. Fistron Sovereign LLM — Performance and Fistron Sovereign LLM — Traceable: Fistron's own model, the second on a base whose training data is documented, for audit. One general model, and your own adaptation trained on your data in your environment, also air-gapped, used only when it does better on your own benchmark. A benchmark across rules, commercial models and open-weight models decides the model. All variants keep Fistron's deterministic evidence and gates; the LLM variants add model reasoning on top."
 - id: ga
   stage: "GA · After V7 and V5"
   title: "General availability"
