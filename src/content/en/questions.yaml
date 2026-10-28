@@ -35,6 +35,14 @@
   question: "Which of our tests work badly, and can they be fixed?"
   answer: "Find weak, flaky and slow tests with proof, propose the repair as a pull or merge request, run it on your CI and check that it really is better. A person merges."
   status: in-development
+- id: deadline
+  question: "The deadline is close. Can we still ship in the quality we need?"
+  answer: "Know what each change needs instead of running everything: a test plan from the change, failures explained from evidence in minutes, the tests no change needs and the flaky ones recorded instead of blocking, and the release decision with its evidence. Measured against your quality, schedule and cost baselines."
+  status: available
+- id: migration
+  question: "Will our customers' move to containers or the cloud work?"
+  answer: "Record what must survive, rehearse the migration on a staging copy with your own tooling, verify the cutover against the same checks and sign the result. For vendors: find the supported migration paths nobody has tested."
+  status: in-development
 - id: pre-ga
   question: "Will our next release work in our customers' environments?"
   answer: "Let your key customers validate pre-release builds in their own staging environments: your suite and their checks run by Fistron's agent, results shared as you agree, and a signed attestation per release and environment that backs your certification."

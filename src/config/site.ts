@@ -33,8 +33,8 @@ export const site = {
    * host is up.
    */
   services: {
-    app: { url: "https://app.fistron.io", live: false },
-    docs: { url: "https://docs.fistron.io", live: false },
+    app: { url: "https://app.fistron.io", live: true },
+    docs: { url: "https://docs.fistron.io", live: true },
     support: { url: "https://support.fistron.io", live: false },
     openSource: { url: "https://fistron.org", live: false },
   },
