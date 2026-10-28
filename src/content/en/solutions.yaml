@@ -22,8 +22,8 @@
     - "Design: quality policies, the evidence each change and service requires, the test and check strategy, the controls an auditor will look for."
     - "Deliver: Fistron set up in your toolchain, the missing capabilities enabled, the gaps closed through pull or merge requests you approve."
     - "Operate and prove: continuous assessment, signed reports per change and release, and preparation for external audits."
-    - "A named architect one hour every week, outcomes agreed as your KPIs and key results, and a quarterly review against the baseline."
-  questions: [status, measurable-quality, release-decision]
+    - "A named architect who installs and sets Fistron up with you, then one hour every week; outcomes agreed as your KPIs and key results, and a quarterly review against the baseline."
+  questions: [deadline, status, measurable-quality, release-decision]
   related: [offer, open-core]
 - id: quality-improvement
   title: "Quality improvement"
@@ -31,7 +31,7 @@
   group: quality
   short: "Explain failed pipelines from evidence, plan the tests a change needs, find what no test covers, quarantine flaky tests and repair the tests that work badly, with the tools you already run."
   status: available
-  stage: "CI failure analysis, change assessment, test plans and coverage gaps work today. Flaky quarantine, evidence selection and the Suite Health audit run in shadow mode; the repair of bad tests and the risk of each change are implemented and being validated; authoring new tests is in development."
+  stage: "CI failure analysis, change assessment, test plans and coverage gaps work today. Flaky quarantine, evidence selection and the Suite Health audit run in shadow mode; the repair of bad tests and the risk of each change are implemented and being validated; authoring new tests is in development. A quality audit of a project shows where to start."
   problem: "Red pipelines nobody can explain, flaky re-runs, test plans assembled by hand, thousands of tests run for a one-line change, and suites full of tests that check nothing. Each tool answers its own question; nobody answers whether the change is good enough."
   gets:
     - "Why a pipeline failed, from evidence across CI, source, cluster and endpoints; what is missing is acquired read-only or named."
@@ -40,6 +40,7 @@
     - "Flaky tests out of the blocking path with an owner; tests that add no evidence recommended for retirement only when nothing is lost."
     - "Weak, flaky and slow tests found with proof, repaired as a pull or merge request, run on your CI and checked."
     - "The risk of a change before it is merged, with its factors and the data that is missing; never blocking."
+    - "A quality audit of your tests and CI from what you already have: a plan ordered by what costs your team most, and what the audit needs to say more."
   questions: [pipeline-failure, feature-evidence, test-coverage, test-plan, coverage-gap, necessary-work, suite-health, test-repair, change-risk]
   related: [ci, outcomes]
 - id: ai-written-code
@@ -81,7 +82,7 @@
   group: certification
   short: "Your key customers validate your pre-release builds in their own staging environments, with your test suite and their checks. Each run ends with a signed attestation; what they share with you is agreed."
   status: in-development
-  stage: "In development (V7.5a). Implemented: the validation kit, its five runners (script, container, Ansible playbook, Testkube, openQA), the build's digest and signature verified before anything is installed, staging-only targets, the run itself, its attestation and the sharing with export for air-gapped sites. Next: the first programme on an open-source project's public pre-release builds; then programmes across customers in the control plane (V7.5b)."
+  stage: "In development (V7.5a). Implemented: the validation kit, its five runners (script, container, Ansible playbook, Testkube, openQA), the build's digest and signature verified before anything is installed, staging-only targets, the run itself, its attestation and the sharing with export for air-gapped sites (V7.5a); programmes across customers in the control plane, builds published from your CI, results received and your view of each release by environment (V7.5b). Next: the first programme on production."
   problem: "On-premises software meets operating systems, networks, proxies, scale and air-gapped sites its vendor's lab never reproduces. Releases then fail only at customers, upgrades slow down, and customers must test every change before production anyway."
   gets:
     - "Your release installed and tested before general availability, in the environments you cannot reproduce: problems found where they would appear."
@@ -136,6 +137,21 @@
     - "An acceptance record you can show to auditors, or the list of what is missing."
   questions: [supplier]
   related: []
+- id: migration-assurance
+  title: "Migration Assurance"
+  for: "For vendors whose customers move to containers or the cloud"
+  group: certification
+  short: "A server moving from virtual machines or bare metal to containers, Kubernetes or a cloud: what must survive recorded before, the migration rehearsed in staging, the cutover verified with a signed attestation."
+  status: in-development
+  stage: "Planned as its own offer. Available today: the rehearsal in staging as a validation kit, with the migration as its upgrade step, your checks as hooks and a signed attestation of the run. Planned: the inventory of the source installation, the checks derived from it, the comparison before and after, the verified restore and, for vendors, the supported migration paths that have no test."
+  problem: "Vendors support more migration paths than they test. Large customers hit the combination nobody tried, the migration fails or loses behaviour, and they stop migrating: they stay on old versions and deployment models for years. And every customer must test such a change before production anyway."
+  gets:
+    - "What must survive, recorded read-only from the source installation: services, configuration, the counts of what the product manages, integrations, certificates, scheduled jobs and performance."
+    - "A rehearsal on a staging copy with the vendor's own migration tooling, and every difference before and after reported. Never in production."
+    - "The cutover verified: the restore of the backup proven first, the same checks after, a signed attestation that the migration preserved what it had to, or the list of what it did not."
+    - "For vendors: the supported paths without a test found and covered through your own tools, the paths your customers really use first; a migration that fails in the field becomes a test of that path."
+  questions: [migration]
+  related: [trust]
 - id: resilience
   title: "Proof of recovery and resilience"
   for: "For teams that run IT services"
@@ -156,7 +172,7 @@
   group: sovereignty
   short: "Choose how Fistron decides: rules only, with no AI at all, or a model you trust inside your network. Your code, logs and test data stay where your policy says."
   status: available
-  stage: "Fistron Sovereign Rules — Deterministic, on-premises and air-gapped installation, a local model and outbound-only agents work today. Planned: Fistron Sovereign LLM with your own adaptation (V7.6), a ledger of where data went in every report, and a model policy by region and origin."
+  stage: "Fistron Sovereign Rules — Deterministic, on-premises and air-gapped installation, a local model and outbound-only agents work today, as does a benchmark of rules, commercial and open-weight models on cases from your own runs. Planned: Fistron Sovereign LLM with your own adaptation (V7.6), a ledger of where data went in every report, and a model policy by region and origin."
   problem: "\"We use an LLM\" does not say which endpoint receives which data, in which jurisdiction. Regulated teams and air-gapped networks may not send code and logs out at all, and some organisations forbid AI, or models of certain origins, by policy."
   gets:
     - "Fistron Sovereign Rules — Deterministic: no LLM, every decision comes from rules and evidence, the same evidence gives the same verdict."

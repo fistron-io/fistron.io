@@ -14,6 +14,10 @@
 # participants, sharing policies) implemented; V7.6, Fistron Sovereign (ADR 0100, proposed), is planned right
 # after V7.5: the variants Rules — Deterministic, LLM — Performance and
 # LLM — Traceable; base models are not named on the site.
+# 2026-10-27 evening: V7.5b steps 2 to 4 implemented (builds published to a
+# programme, results received, the Programmes page); V7.6a's benchmark is
+# implemented for every task (ADR 0104); the quality audit of a project
+# (ADR 0103) is implemented.
 # status: implemented (filled checkbox), in-development (empty checkbox),
 # planned (default, no checkbox). The list is shown in this order.
 - id: v1
@@ -81,11 +85,12 @@
   status: in-development
   stage: "V7.5 · In development"
   title: "Distributed Continuous Certification"
-  detail: "For vendors of on-premises software: your key customers receive pre-release builds, Fistron's agent installs and tests them in their staging environments with your suite and their checks, and each run ends with a signed attestation. What is shared with you is agreed per programme; you certify the release for their environment. Implemented in V7.5a: the validation kit with five runners (script, container, Ansible, Testkube, openQA), build verification, staging-only targets, the run, its attestation and the sharing with export for air-gapped sites. In development (V7.5b): programmes across customers in the control plane; programmes, participants and the sharing policy each accepts are implemented, builds published to a programme and results sent online are next."
+  detail: "For vendors of on-premises software: your key customers receive pre-release builds, Fistron's agent installs and tests them in their staging environments with your suite and their checks, and each run ends with a signed attestation. What is shared with you is agreed per programme; you certify the release for their environment. Implemented in V7.5a: the validation kit with five runners (script, container, Ansible, Testkube, openQA), build verification, staging-only targets, the run, its attestation and the sharing with export for air-gapped sites. Implemented in V7.5b: programmes across customers in the control plane, with the participants, the sharing policy each accepts, builds published to a programme from your CI, results received online or as an export, and the vendor's view of each release by environment with the regressions test by test. Next: the first programme on production."
 - id: v7-6
-  stage: "V7.6 · Planned"
+  status: in-development
+  stage: "V7.6 · Benchmark implemented; in development"
   title: "Fistron Sovereign"
-  detail: "Choose how Fistron decides. Fistron Sovereign Rules — Deterministic: no LLM, every decision comes from rules and evidence. Fistron Sovereign LLM — Performance and Fistron Sovereign LLM — Traceable: Fistron's own model, the second on a base whose training data is documented, for audit. One general model, and your own adaptation trained on your data in your environment, also air-gapped, used only when it does better on your own benchmark. A benchmark across rules, commercial models and open-weight models decides the model. All variants keep Fistron's deterministic evidence and gates; the LLM variants add model reasoning on top."
+  detail: "Choose how Fistron decides. Fistron Sovereign Rules — Deterministic: no LLM, every decision comes from rules and evidence. Fistron Sovereign LLM — Performance and Fistron Sovereign LLM — Traceable: Fistron's own model, the second on a base whose training data is documented, for audit. One general model, and your own adaptation trained on your data in your environment, also air-gapped, used only when it does better on your own benchmark. A benchmark across rules, commercial models and open-weight models decides the model; it is implemented: each candidate runs the same tasks three times through the same pipeline (root cause analysis, change assessment, a test's repair, a proposed test and a review), on cases from your own runs, and the report shows what it solves beyond rules, what changes between runs and what it costs. All variants keep Fistron's deterministic evidence and gates; the LLM variants add model reasoning on top."
 - id: ga
   stage: "GA · After V7 and V5"
   title: "General availability"

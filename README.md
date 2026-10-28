@@ -130,7 +130,11 @@ partners on pages of their own, and the hero's grid of offerings replaced
 by the solutions. The state followed the Fistron head: V4.6c implemented,
 V6b and V7b decided (ADRs 0091, 0092), V7.5a in development with its kit,
 runners, attestation signed by the participant's installation (ADR 0093)
-and sharing implemented.
+and sharing implemented. On 2026-10-28 Migration
+Assurance (Fistron ADR 0107) became a solution with its question, the
+named architect installs and sets Fistron up (ADR 0068 point 2 as
+amended), a question for deadline pressure joined the end-to-end
+solution, and app.fistron.io and docs.fistron.io became live links.
 
 V1 functionality is implemented, with broader real-case validation ongoing.
 V2.1 change assessment, V2.2 test plans, V2.3 extension points and the V2.4
