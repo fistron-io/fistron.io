@@ -1,0 +1,13 @@
+# Programmes and services on /pricing/, shown in file order; all on request.
+- id: dcc
+  title: "Distributed Continuous Certification"
+  text: "For vendors of on-premises software: a programme fee and a price per participating customer environment. Your customers take part at no cost."
+- id: migration
+  title: "Migration Assurance"
+  text: "For vendors, by migration paths covered and customer environments; for an organisation, per migration project, rehearsal and cutover with our people."
+- id: certification
+  title: "Certification through an accredited partner"
+  text: "Fistron's preparation and coordination; the certification body's fee passed through at cost where the body accepts it."
+- id: days
+  title: "More Fistroneer days and solution packages"
+  text: "Fixed-scope packages (assess, design, deliver) and days beyond your subscription, remote or on site."

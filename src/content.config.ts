@@ -73,6 +73,35 @@ const simpleItem = z.object({
 });
 
 const problems = defineCollection({ loader: orderedList("problems"), schema: simpleItem });
+const fistroneer = defineCollection({ loader: orderedList("fistroneer"), schema: simpleItem });
+const pricingExtras = defineCollection({ loader: orderedList("pricing-extras"), schema: simpleItem });
+
+/** The Fistron Sovereign variants: how Fistron decides (ADR 0102 of Fistron). */
+const sovereign = defineCollection({
+  loader: orderedList("sovereign"),
+  schema: z.object({
+    order,
+    title: z.string(),
+    tagline: z.string(),
+    text: z.string(),
+    status: z.enum(["available", "in-development"]),
+  }),
+});
+
+/** The tiers on /pricing/; a price only where the founder set one. */
+const pricing = defineCollection({
+  loader: orderedList("pricing"),
+  schema: z.object({
+    order,
+    name: z.string(),
+    price: z.string(),
+    priceNote: z.string().optional(),
+    for: z.string(),
+    features: z.array(z.string()).min(1),
+    cta: z.string(),
+    featured: z.boolean().default(false),
+  }),
+});
 const steps = defineCollection({ loader: orderedList("steps"), schema: simpleItem });
 const trust = defineCollection({ loader: orderedList("trust"), schema: simpleItem });
 const governance = defineCollection({ loader: orderedList("governance"), schema: simpleItem });
@@ -183,6 +212,10 @@ const dogfoodStats = defineCollection({
 
 export const collections = {
   solutions,
+  fistroneer,
+  sovereign,
+  pricing,
+  pricingExtras,
   differentiators,
   dogfood,
   dogfoodStats,

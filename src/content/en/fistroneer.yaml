@@ -1,0 +1,16 @@
+# What a Fistroneer does in a subscription (homepage and /pricing/), shown
+# in file order. Source: Fistron ADR 0068 point 2 (as amended 2026-10-27
+# and 2026-10-29). Days and on-site work are set by the subscription and
+# the contract; no prices here.
+- id: setup
+  title: "Installs and sets Fistron up"
+  text: "In the deployment you chose, hosted, hybrid, on-premises or air-gapped: the agent and its access, your projects, policies, models and CI templates."
+- id: capacity
+  title: "Quality engineering days, without a new hire"
+  text: "10 person-days a year in the Subscription, 40 in Subscription Plus: test strategy, flaky and weak tests, test plans, compliance gaps, audit preparation. No recruiting, no onboarding of a new employee, no gap when someone leaves."
+- id: weekly
+  title: "One hour every week"
+  text: "With your team: what changed, what is missing, what comes next, and the quarterly review with your leadership."
+- id: grows
+  title: "Grows with you"
+  text: "In Subscription Plus also the ongoing work: upgrades, new projects and teams, new compliance frameworks, and on site where your contract says so."

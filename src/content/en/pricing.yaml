@@ -1,0 +1,42 @@
+# The tiers on /pricing/, shown in file order. Source: Fistron
+# business-model.md and ADR 0068 (as amended 2026-10-29). The only price
+# shown is the working assumption "from EUR 100,000 a year"; everything
+# else is on request. Never invent a price here.
+- id: trial
+  name: "Trial"
+  price: "Free"
+  priceNote: "60 days"
+  for: "To see the gap on one project"
+  features:
+    - "One project or service"
+    - "Readiness for one compliance framework: controls, state and gaps"
+    - "The commercial core on a limited scope"
+    - "Fistron Sovereign Rules — Deterministic, or the model you bring"
+  cta: "Start with a pilot"
+- id: subscription
+  name: "Subscription"
+  price: "from EUR 100,000"
+  priceNote: "a year"
+  for: "For organisations that want the result"
+  features:
+    - "The platform hosted in the EU, hybrid, on-premises or air-gapped"
+    - "A Fistroneer who installs and sets Fistron up, then one hour every week"
+    - "10 Fistroneer person-days a year of quality engineering"
+    - "Compliance in the tool for the frameworks in your scope"
+    - "Outcomes as your KPIs, a quarterly review, signed attestations"
+    - "Regulatory watch, audit-day support, RCA on call, training"
+    - "Fistron Sovereign Rules and Fistron Sovereign LLM (planned)"
+  cta: "Request a quote"
+  featured: true
+- id: plus
+  name: "Subscription Plus"
+  price: "On request"
+  priceNote: "a year"
+  for: "For large organisations and many teams"
+  features:
+    - "Everything in the Subscription"
+    - "40 Fistroneer person-days a year of quality engineering"
+    - "Ongoing work: upgrades, new projects and teams, new frameworks"
+    - "On site where your contract says so"
+    - "Fistron Sovereign LLM trained on your data, in your environment (planned)"
+  cta: "Request a quote"
