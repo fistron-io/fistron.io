@@ -35,6 +35,10 @@
   question: "Which of our tests work badly, and can they be fixed?"
   answer: "Find weak, flaky and slow tests with proof, propose the repair as a pull or merge request, run it on your CI and check that it really is better. A person merges."
   status: in-development
+- id: headcount
+  question: "We can't hire more QE engineers. Who does the work?"
+  answer: "A Fistroneer, a named quality engineer from Fistron, with the platform: Fistron set up in your toolchain, 10 or 40 person-days a year of quality engineering and one hour every week, while the platform does the repetitive work. No recruiting, no onboarding, no gap when someone leaves."
+  status: in-development
 - id: deadline
   question: "The deadline is close. Can we still ship in the quality we need?"
   answer: "Know what each change needs instead of running everything: a test plan from the change, failures explained from evidence in minutes, the tests no change needs and the flaky ones recorded instead of blocking, and the release decision with its evidence. Measured against your quality, schedule and cost baselines."

@@ -201,3 +201,20 @@
     - "All variants keep Fistron's deterministic evidence and gates; the LLM variants add model reasoning on top."
   questions: [sovereignty]
   related: []
+- id: without-headcount
+  title: "Quality assurance without new headcount"
+  for: "For teams that need quality engineering but can't hire"
+  group: sovereignty
+  short: "A Fistroneer, a named quality engineer from Fistron, joins your team with the platform: Fistron set up and running, and 10 or 40 person-days a year of quality engineering, without recruiting, onboarding and keeping one more specialist."
+  status: in-development
+  stage: "Offered with every subscription to the first pilots; the person-days and on-site work are set in the contract. The platform parts the Fistroneer works with have their own state, on the pages of the solutions."
+  problem: "The work grows faster than the team: flaky tests, missing tests, test plans, audits. A new quality engineer needs approval for the headcount, months of hiring and onboarding, and when the person leaves, the knowledge leaves too."
+  gets:
+    - "Fistron installed and set up in your toolchain by your Fistroneer: hosted, hybrid, on-premises or air-gapped."
+    - "10 person-days a year of quality engineering in the Subscription, 40 in Subscription Plus: test strategy, flaky and weak tests, test plans, compliance gaps, audit preparation."
+    - "One hour every week with your team, and the quarterly review against your baseline."
+    - "The repetitive work done by the platform: failure analysis, flaky quarantine, test selection, coverage gaps, reviews."
+    - "The knowledge kept in your evidence, policies and goals, not in one person's head."
+    - "Capacity added to your team, not a replacement for it; more days as a package when you need them."
+  questions: [headcount, deadline]
+  related: [offer]
