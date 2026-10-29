@@ -17,7 +17,7 @@
   name: "Subscription"
   price: "from EUR 100,000"
   priceNote: "a year"
-  for: "For organisations that want the result"
+  for: "For about the yearly cost of one senior QE engineer"
   features:
     - "The platform hosted in the EU, hybrid, on-premises or air-gapped"
     - "A Fistroneer who installs and sets Fistron up, then one hour every week"
