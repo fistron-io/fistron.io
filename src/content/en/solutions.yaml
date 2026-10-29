@@ -94,6 +94,22 @@
     - "A programme you offer your key customers: certified for your environment, before you upgrade. The certification is yours, not an accredited certificate."
   questions: [pre-ga]
   related: []
+- id: developer-assistant
+  title: "Fistron for your coding assistant"
+  for: "For developers who work with a coding assistant"
+  group: quality
+  short: "Your coding assistant asks Fistron while you work: why your pull request failed, what your branch still needs, whether your feature's steps exist, a test for an item of the plan. Answers cite their evidence."
+  status: in-development
+  stage: "Available today: Fistron as an MCP server over a project's reports and records, its tools read-only, the assistant's answer checked against what it cites. In development: tools for your own work (the root cause of your pull request, a review of your branch, the steps of your feature, a test proposed for a plan item) and a plugin for coding assistants, over Fistron's local operations."
+  problem: "Developers ask their coding assistant why CI failed or whether a change is tested, and the assistant answers from what it can see in the editor. The CI history, the test suite's map, the project's rules and the evidence are somewhere else, so the answer is a plausible guess."
+  gets:
+    - "The root cause of your pull request's failure, from the CI run's evidence, inside your assistant."
+    - "A review of your branch before you open the pull request: the evidence the change needs, what is missing, tests that don't check what changed."
+    - "Your feature's steps checked against the suite: undefined or ambiguous steps, a feature outside every run set, a step without an assertion."
+    - "A test proposed for an item of the plan, as a change you review, never pushed for you."
+    - "The same tools for any assistant that speaks MCP; answers cite the reports they come from, and your data classes and model policy apply."
+  questions: [dev-assistant, ai-code]
+  related: [trust]
 - id: measurable-quality
   title: "Measurable quality and velocity"
   for: "For leaders who must show the return"
