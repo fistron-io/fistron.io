@@ -48,7 +48,7 @@ const related = { offer: Offer, "open-core": OpenCore, ci: CiFailure, outcomes: 
         <p>{solution.problem}</p>
         <div class="stage">
           <h3>
-            <CheckIcon filled={solution.status === "available"} size={16} />
+            <CheckIcon filled={solution.status !== "in-development"} size={16} />
             {page.caption}
           </h3>
           <p>{solution.stage}</p>

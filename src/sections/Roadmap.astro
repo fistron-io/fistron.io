@@ -7,6 +7,8 @@ import CheckIcon from "../components/CheckIcon.astro";
 
 const copy = await section("roadmap");
 const stages = await list("roadmap");
+/** A milestone's state, for screen readers (the checkbox says it visually). */
+const STATE = { implemented: "implemented", "in-development": "in development", planned: "planned" };
 ---
 
 <Section id="roadmap" labelledby="roadmap-title">
@@ -29,6 +31,23 @@ const stages = await list("roadmap");
           </span>
           <span class="title">{s.title}</span>
           <p class="detail">{s.detail}</p>
+          {s.parts.length > 0 && (
+            <ul class="parts">
+              {s.parts.map((p) => (
+                <li class={p.status}>
+                  {p.status === "planned" ? (
+                    <span class="box" aria-hidden="true" />
+                  ) : (
+                    <CheckIcon filled={p.status === "implemented"} size={12} />
+                  )}
+                  <span>
+                    <span class="label">{p.label}</span> {p.text}
+                    <span class="sr-only"> ({STATE[p.status]})</span>
+                  </span>
+                </li>
+              ))}
+            </ul>
+          )}
         </li>
       ))
     }
@@ -66,7 +85,7 @@ const stages = await list("roadmap");
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 18px;
   }
-  li {
+  .stages > li {
     display: grid;
     gap: 6px;
     align-content: start;
@@ -92,6 +111,9 @@ const stages = await list("roadmap");
     margin-top: 0.2em;
   }
   /* Green means done, as everywhere on the site (StatusBadge). */
+  .stages > .implemented {
+    border-left: 4px solid var(--color-leaf);
+  }
   .implemented .stage {
     font-weight: 500;
     color: var(--color-leaf-text);
@@ -99,6 +121,38 @@ const stages = await list("roadmap");
   .current .stage {
     font-weight: 500;
     color: var(--color-indigo);
+  }
+  .parts {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+    display: grid;
+    gap: 6px;
+    font-size: 0.875rem;
+    color: var(--color-ink-2);
+  }
+  .parts li {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+  }
+  .parts :global(svg),
+  .parts .box {
+    flex: none;
+    margin-top: 0.25em;
+  }
+  .parts .box {
+    width: 12px;
+    height: 12px;
+  }
+  .parts .label {
+    font-weight: 500;
+  }
+  .parts .implemented {
+    color: var(--color-leaf-text);
+  }
+  .parts .planned {
+    color: var(--color-muted);
   }
   .title {
     font-size: 1.0625rem;

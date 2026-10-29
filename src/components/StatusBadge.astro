@@ -1,18 +1,24 @@
 ---
 import CheckIcon from "./CheckIcon.astro";
 
-/** "Available now" (filled checkbox) or "In development" (empty checkbox). */
+/**
+ * "Available now" and "Implemented, validating" (filled checkbox, green: it
+ * exists and works) or "In development" (empty checkbox).
+ */
 interface Props {
-  status: "available" | "in-development";
+  status: "available" | "implemented" | "in-development";
   tone?: "light" | "dark";
 }
 const { status, tone = "light" } = Astro.props;
-const available = status === "available";
+const done = status !== "in-development";
+const label = { available: "Available now", implemented: "Implemented, validating", "in-development": "In development" }[
+  status
+];
 ---
 
-<span class:list={["badge", tone, available ? "available" : "pending"]}>
-  <CheckIcon filled={available} size={14} />
-  {available ? "Available now" : "In development"}
+<span class:list={["badge", tone, done ? "available" : "pending"]}>
+  <CheckIcon filled={done} size={14} />
+  {label}
 </span>
 
 <style>

@@ -1,4 +1,4 @@
-# status: available | in-development
+# status: available | implemented (being validated) | in-development
 - id: pipeline-failure
   question: "Why did this pipeline fail?"
   answer: "Explain the failure from evidence across CI, source, cluster and endpoints, and acquire what the log doesn't show."
@@ -22,19 +22,19 @@
 - id: necessary-work
   question: "Which work is necessary, and where should it run?"
   answer: "Select tests from required evidence and policy. Record a reason for every omitted test, preserve always-run checks and measure misses with periodic full runs."
-  status: in-development
+  status: implemented
 - id: suite-health
   question: "Which tests are flaky, and which ones add nothing?"
   answer: "Find flaky tests in your CI history and tests whose coverage another test already has, and propose them as a pull request you merge or reject. A test is recommended to merge or retire only when mutation results show nothing is lost. Both run in shadow mode today."
-  status: in-development
+  status: implemented
 - id: change-risk
   question: "How risky is this change before we merge it?"
   answer: "A risk level with its factors, from the change's gaps, the history of the changed code and the tests that guard it, each citing its evidence and naming what is missing. Never blocking; from your own data only."
-  status: in-development
+  status: implemented
 - id: test-repair
   question: "Which of our tests work badly, and can they be fixed?"
   answer: "Find weak, flaky and slow tests with proof, propose the repair as a pull or merge request, run it on your CI and check that it really is better. A person merges."
-  status: in-development
+  status: implemented
 - id: headcount
   question: "We can't hire more QE engineers. Who does the work?"
   answer: "A Fistroneer, a named quality engineer from Fistron, with the platform: Fistron set up in your toolchain, 10 or 40 person-days a year of quality engineering and one hour every week, while the platform does the repetitive work. No recruiting, no onboarding, no gap when someone leaves."
@@ -46,15 +46,15 @@
 - id: migration
   question: "Will our customers' move to containers or the cloud work?"
   answer: "Record what must survive, rehearse the migration on a staging copy with your own tooling, verify the cutover against the same checks and sign the result. For vendors: find the supported migration paths nobody has tested."
-  status: in-development
+  status: implemented
 - id: dev-assistant
   question: "Can my coding assistant use Fistron while I work?"
-  answer: "Yes, through Fistron's MCP server: the reports and records of your project, read-only, with answers checked against what they cite. Tools for your own branch and pull request, and a plugin for coding assistants, are in development."
-  status: in-development
+  answer: "Yes, through Fistron's MCP server or a plugin: the root cause of your pull request, a review of your branch against the suite and your repository's rules, the tests your change is missing and a test proposed for your plan, with answers checked against what they cite."
+  status: implemented
 - id: pre-ga
   question: "Will our next release work in our customers' environments?"
   answer: "Let your key customers validate pre-release builds in their own staging environments: your suite and their checks run by Fistron's agent, results shared as you agree, and a signed attestation per release and environment that backs your certification."
-  status: in-development
+  status: implemented
 - id: service-objective
   question: "Can we demonstrate this service's operating objective?"
   answer: "Coordinate the observations or recovery checks an agreed objective requires, for the agreed period."
@@ -65,8 +65,8 @@
   status: in-development
 - id: measurable-quality
   question: "How do we improve quality across the company and measure it?"
-  answer: "Propose goals, signals and metrics for review, as the KPIs you report or key results under your OKRs, then a Product Quality Index with traceable inputs, approved weights and visible gaps."
-  status: in-development
+  answer: "Propose goals, signals and metrics for review, as the KPIs you report or key results under your OKRs, then (planned) a Product Quality Index with traceable inputs, approved weights and visible gaps."
+  status: implemented
 - id: ai-code
   question: "How do we verify code written with AI before it ships?"
   answer: "Check every change against its intent and the evidence its risk requires: do the tests really check it, would they fail without it, are new dependencies real and approved. Stricter rules for AI-authored changes, a different model or plain rules as the verifier, and a signed report on the pull request."
@@ -74,7 +74,7 @@
 - id: compliance
   question: "Can we pass NIS2, EU DORA or ISO 27001 without months of manual evidence?"
   answer: "Monitor the controls from the tools you already run, close the gaps through them and prepare the audit; the certificate through an accredited partner."
-  status: in-development
+  status: implemented
 - id: cra
   question: "Are our releases ready for the Cyber Resilience Act?"
   answer: "Release evidence with the SBOM, recorded vulnerability handling, and root-cause analysis for the reports the act requires."
@@ -86,7 +86,7 @@
 - id: status
   question: "Where do we stand, and what is still missing?"
   answer: "Fištrónek, Fistron's assistant, reports on request or every week: what is met, what is missing and why, what changed, the next steps. Every statement links to its evidence; missing data is named, never filled in."
-  status: in-development
+  status: implemented
 - id: sovereignty
   question: "Can we use Fistron without sending our code and logs to an AI?"
   answer: "Yes: with Fistron Sovereign Rules — Deterministic no model is used, and gates, risk levels and attestations are computed by rules either way. Or keep a model you trust inside your network; it receives evidence only up to the data class you allow."

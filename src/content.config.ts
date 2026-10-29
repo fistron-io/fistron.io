@@ -20,8 +20,12 @@ function orderedList(name: string) {
   });
 }
 
-/** Every feature shown on the site is either available now or in development. */
-const status = z.enum(["available", "in-development"]);
+/** Every feature shown on the site is available now, implemented and being
+ * validated (both green), or in development. */
+const status = z.enum(["available", "implemented", "in-development"]);
+
+/** A roadmap stage's own state, and each of its milestones'. */
+const stageStatus = z.enum(["implemented", "in-development", "planned"]);
 
 const sections = defineCollection({
   loader: file(`${dir}/sections.yaml`),
@@ -164,11 +168,15 @@ const roadmap = defineCollection({
   schema: z.object({
     order,
     stage: z.string(),
-    // implemented: filled checkbox; in-development: empty checkbox; planned: no checkbox
-    status: z.enum(["implemented", "in-development", "planned"]).default("planned"),
+    // implemented: filled checkbox, green; in-development: empty checkbox; planned: no checkbox
+    status: stageStatus.default("planned"),
     title: z.string(),
     detail: z.string(),
     current: z.boolean().default(false),
+    // the stage's milestones (V5a, V5b, ...), each with its own state
+    parts: z
+      .array(z.object({ label: z.string(), text: z.string(), status: stageStatus }))
+      .default([]),
   }),
 });
 
