@@ -47,7 +47,7 @@ offer:
   paragraphs:
     - "Need a certificate? One package delivers the complete QA solution with the certification you need: Fistron sets up the processes, tests and evidence and obtains the certificate for you through an accredited partner."
     - "The partner audits independently and decides; Fistron prepares everything and coordinates the process. Without a certificate you get the same solution with Fistron's signed reports."
-    - "Between the weekly sessions with your architect, Fištrónek, Fistron's assistant, guides setup and scope and sends a weekly status report."
+    - "Between the weekly sessions with your Fistroneer, Fištrónek, Fistron's assistant, guides setup and scope and sends a weekly status report."
   caption: "What we commit to"
   note: "Offered from the first pilots; terms are set per contract. Compliance in the tool is implemented and being validated on Fistron's own repositories; certification goes through accredited partners."
 
@@ -110,7 +110,7 @@ partners:
   intro: "PaaS and SaaS providers can offer Fistron inside their own services. Your customers get quality and compliance where they already deploy and pay, built on the evidence your platform already holds."
   paragraphs:
     - "Each customer gets its own tenant, in the region you promise, with nothing shared across customers. Your customers sign in from your console; usage records feed your billing."
-    - "Fistron's services (solution packages, certification through a partner, the weekly architect hour) are available to your customers too, directly or through you."
+    - "Fistron's services (solution packages, certification through a partner, the Fistroneer) are available to your customers too, directly or through you."
   primaryCta: "Become a platform partner"
   note: "Planned with the control plane for teams (V4b). We build the first integration together with the first partner; commercial terms are agreed per partner."
 
@@ -201,3 +201,21 @@ roadmapPage:
 partnersPage:
   title: "Platform partners"
   intro: "PaaS and SaaS providers can offer Fistron's quality and compliance inside their own services."
+
+fistroneer:
+  title: "A Fistroneer on your team, not one more hire"
+  intro: "Every subscription comes with a Fistroneer: a named quality engineer from Fistron who sets Fistron up with you and then works on your quality as part of your team. You get the capacity without recruiting, onboarding and keeping one more specialist."
+  note: "Person-days and on-site work as your subscription and contract say."
+  linkLabel: "See pricing"
+
+sovereign:
+  title: "Fistron Sovereign: choose how Fistron decides"
+  intro: "Deterministic rules with no AI at all, or Fistron's own model, running in your network and trained on your data if you want. All variants keep Fistron's deterministic evidence and gates; the LLM variants add model reasoning on top."
+  note: "Fistron's own models are planned (stage V7.6); a benchmark of rules, commercial and open-weight models on cases from your own runs works today and decides which base serves you best."
+  linkLabel: "Sovereignty in detail"
+
+pricingPage:
+  title: "Pricing"
+  intro: "A subscription includes the platform and the people: a Fistroneer who sets Fistron up and works on your quality, outcomes reviewed every quarter, and the proof your auditors accept."
+  note: "Prices exclude VAT. The Subscription's price is where subscriptions start; the final price follows the scope, the deployment and the number of person-days, and is set in your contract. Features marked planned are not yet available."
+  caption: "Programmes and services"

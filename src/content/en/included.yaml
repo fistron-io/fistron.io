@@ -2,8 +2,8 @@
 # shown in file order (Fistron ADR 0068). Terms are set per contract; no
 # prices on the site.
 - id: architect
-  title: "A named architect who sets Fistron up"
-  text: "Installs and sets Fistron up with you, and for large customers keeps doing it as you grow: upgrades, new projects, new frameworks. Then one hour every week with your team. Days included and on-site work as your contract says."
+  title: "A Fistroneer on your team"
+  text: "A named quality engineer from Fistron who installs and sets Fistron up with you and works on your quality: 10 person-days a year in the Subscription, 40 in Subscription Plus with the ongoing work, and one hour every week. On-site work as your contract says."
 - id: outcomes
   title: "Results you can measure"
   text: "Goals, signals and metrics agreed at the start, as the KPIs you report or key results under your OKRs, with a baseline and targets, measured from evidence."

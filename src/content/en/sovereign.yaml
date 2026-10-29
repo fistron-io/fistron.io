@@ -1,0 +1,24 @@
+# The Fistron Sovereign variants (homepage and the sovereignty solution),
+# shown in file order. Source: Fistron ADR 0102 (proposed 2026-10-27; the
+# names and the two bases decided). status: available or in-development
+# (the LLM variants are planned, stage V7.6).
+- id: rules
+  title: "Fistron Sovereign Rules — Deterministic"
+  tagline: "No LLM: every decision comes from rules and evidence."
+  text: "The same evidence gives the same verdict, recomputable by you or your auditor. Works air-gapped and wherever a policy forbids AI. Where the rules don't know a case, Fistron says so instead of guessing."
+  status: available
+- id: performance
+  title: "Fistron Sovereign LLM — Performance"
+  tagline: "Fistron's own model for quality engineering."
+  text: "An open-weight model, chosen by benchmark, taught by Fistron for its work: change assessment, test plans, repairs of tests and reviews. It runs in your network, also air-gapped, and learns from repairs that passed your CI and that a person accepted."
+  status: in-development
+- id: traceable
+  title: "Fistron Sovereign LLM — Traceable"
+  tagline: "The same, on a base whose training data is documented."
+  text: "For audits that ask what a model learned from: the base model's training data is published, and Fistron documents its own training data, sources, licences and consents the same way, with the version on every adaptation."
+  status: in-development
+- id: yours
+  title: "Trained on your data, in your environment"
+  tagline: "Your own adaptation, in Subscription Plus."
+  text: "Fistron's model adapted at your site, also air-gapped: neither your data nor the adaptation leaves. It is used only when it does better than the base on your own benchmark, and every version is signed."
+  status: in-development

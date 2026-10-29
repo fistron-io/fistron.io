@@ -22,7 +22,8 @@
     - "Design: quality policies, the evidence each change and service requires, the test and check strategy, the controls an auditor will look for."
     - "Deliver: Fistron set up in your toolchain, the missing capabilities enabled, the gaps closed through pull or merge requests you approve."
     - "Operate and prove: continuous assessment, signed reports per change and release, and preparation for external audits."
-    - "A named architect who installs and sets Fistron up with you, then one hour every week; outcomes agreed as your KPIs and key results, and a quarterly review against the baseline."
+    - "A Fistroneer, a named quality engineer from Fistron, who installs and sets Fistron up with you and works on your quality: 10 or 40 person-days a year and one hour every week, instead of one more hire."
+    - "Outcomes agreed as your KPIs and key results, and a quarterly review against the baseline."
   questions: [deadline, status, measurable-quality, release-decision]
   related: [offer, open-core]
 - id: quality-improvement
@@ -176,7 +177,8 @@
   problem: "\"We use an LLM\" does not say which endpoint receives which data, in which jurisdiction. Regulated teams and air-gapped networks may not send code and logs out at all, and some organisations forbid AI, or models of certain origins, by policy."
   gets:
     - "Fistron Sovereign Rules — Deterministic: no LLM, every decision comes from rules and evidence, the same evidence gives the same verdict."
-    - "Fistron Sovereign LLM — Performance and Fistron Sovereign LLM — Traceable (planned): Fistron's own model, the second on a base whose training data is documented, for audit."
+    - "Fistron Sovereign LLM — Performance (planned): Fistron's own model for quality engineering, on an open-weight base chosen by benchmark; it runs in your network, also air-gapped, and learns from repairs that passed CI and a person accepted."
+    - "Fistron Sovereign LLM — Traceable (planned): the same on a base whose training data is documented, with Fistron's own training data, licences and consents documented too, for audits that ask what a model learned from."
     - "Your own adaptation (planned): trained on your data in your environment, also air-gapped, used only when it does better on your own benchmark; nothing leaves."
     - "A model receives evidence only up to the data class you allow; what it could not receive is reported as missing."
     - "On-premises or without internet access: the licence verified offline, no telemetry, agents that connect outbound only."

@@ -1,0 +1,68 @@
+---
+import { section, list } from "../lib/content";
+import Section from "../components/Section.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+
+/** The Fistroneer: the named quality engineer every subscription includes. */
+interface Props {
+  link?: boolean;
+}
+const { link = true } = Astro.props;
+const copy = await section("fistroneer");
+const items = await list("fistroneer");
+---
+
+<Section id="fistroneer" labelledby="fistroneer-title">
+  <SectionHeading id="fistroneer-title" title={copy.title} intro={copy.intro} />
+  <ul class="items">
+    {
+      items.map((item) => (
+        <li>
+          <h3>{item.title}</h3>
+          <p>{item.text}</p>
+        </li>
+      ))
+    }
+  </ul>
+  <p class="note">
+    {copy.note}
+    {link && copy.linkLabel && <a href="/pricing/">{copy.linkLabel} →</a>}
+  </p>
+</Section>
+
+<style>
+  .items {
+    list-style: none;
+    padding: 0;
+    margin-top: 48px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 16px;
+  }
+  .items li {
+    background: var(--surface-card);
+    border: 1px solid var(--color-line);
+    border-top: 3px solid var(--color-leaf);
+    border-radius: var(--radius-card);
+    padding: 24px;
+  }
+  .items h3 {
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: var(--color-heading);
+  }
+  .items p {
+    margin-top: 8px;
+    font-size: 0.9375rem;
+    color: var(--color-muted);
+  }
+  .note {
+    margin-top: 28px;
+    font-size: 0.9375rem;
+    color: var(--color-muted);
+  }
+  .note a {
+    margin-left: 8px;
+    font-weight: 500;
+  }
+</style>

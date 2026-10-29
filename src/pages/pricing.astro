@@ -1,0 +1,176 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHeader from "../components/PageHeader.astro";
+import Section from "../components/Section.astro";
+import Fistroneer from "../sections/Fistroneer.astro";
+import Sovereign from "../sections/Sovereign.astro";
+import CallToAction from "../components/CallToAction.astro";
+import { section, list } from "../lib/content";
+
+const page = await section("pricingPage");
+const tiers = await list("pricing");
+const extras = await list("pricingExtras");
+---
+
+<BaseLayout title="Pricing" description={page.intro}>
+  <PageHeader title={page.title} intro={page.intro} />
+
+  <Section labelledby="tiers-title">
+    <h2 id="tiers-title" class="visually-hidden">Tiers</h2>
+    <ul class="tiers">
+      {
+        tiers.map((t) => (
+          <li class:list={{ featured: t.featured }}>
+            <h3>{t.name}</h3>
+            <p class="for">{t.for}</p>
+            <p class="price">
+              <span class="amount">{t.price}</span>
+              {t.priceNote && <span class="per">{t.priceNote}</span>}
+            </p>
+            <ul class="features">
+              {t.features.map((f) => (
+                <li>{f}</li>
+              ))}
+            </ul>
+            <a href="/#demo" class:list={["btn", t.featured ? "btn-primary" : "btn-secondary"]}>
+              {t.cta}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+
+    <h2 class="extras-title">{page.caption}</h2>
+    <ul class="extras">
+      {
+        extras.map((e) => (
+          <li>
+            <h3>{e.title}</h3>
+            <p>{e.text}</p>
+          </li>
+        ))
+      }
+    </ul>
+    <p class="note">{page.note}</p>
+  </Section>
+
+  <Fistroneer link={false} />
+  <Sovereign />
+  <CallToAction title="Get a quote for your scope" primary="Request a quote" />
+</BaseLayout>
+
+<style>
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+  .tiers {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    align-items: stretch;
+  }
+  .tiers > li {
+    display: flex;
+    flex-direction: column;
+    background: var(--surface-card);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-card);
+    padding: 28px;
+  }
+  .tiers > li.featured {
+    border: 2px solid var(--color-leaf);
+  }
+  .tiers h3 {
+    font-size: 1.375rem;
+    font-weight: 600;
+    color: var(--color-heading);
+  }
+  .for {
+    margin-top: 4px;
+    font-size: 0.9375rem;
+    color: var(--color-muted);
+  }
+  .price {
+    margin-top: 20px;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .amount {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--color-heading);
+  }
+  .per {
+    color: var(--color-muted);
+  }
+  .features {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 28px;
+    display: grid;
+    gap: 10px;
+    align-content: start;
+    flex: 1;
+  }
+  .features li {
+    position: relative;
+    padding-left: 22px;
+    font-size: 0.9375rem;
+    color: var(--color-ink-2);
+  }
+  .features li::before {
+    content: "";
+    position: absolute;
+    left: 2px;
+    top: 0.45em;
+    width: 10px;
+    height: 6px;
+    border-left: 2px solid var(--color-leaf);
+    border-bottom: 2px solid var(--color-leaf);
+    transform: rotate(-45deg);
+  }
+  .tiers .btn {
+    align-self: flex-start;
+  }
+  .extras-title {
+    margin-top: 72px;
+    font-size: var(--text-h3, 1.5rem);
+    font-weight: 600;
+    color: var(--color-heading);
+  }
+  .extras {
+    list-style: none;
+    padding: 0;
+    margin-top: 24px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px 32px;
+  }
+  .extras li {
+    border-top: 1px solid var(--color-line);
+    padding-top: 12px;
+  }
+  .extras h3 {
+    font-weight: 500;
+    color: var(--color-heading);
+  }
+  .extras p {
+    margin-top: 4px;
+    font-size: 0.9375rem;
+    color: var(--color-muted);
+  }
+  .note {
+    margin-top: 40px;
+    font-size: 0.875rem;
+    color: var(--color-muted);
+  }
+</style>

@@ -134,7 +134,13 @@ and sharing implemented. On 2026-10-28 Migration
 Assurance (Fistron ADR 0107) became a solution with its question, the
 named architect installs and sets Fistron up (ADR 0068 point 2 as
 amended), a question for deadline pressure joined the end-to-end
-solution, and app.fistron.io and docs.fistron.io became live links.
+solution, and app.fistron.io and docs.fistron.io became live links. On 2026-10-29 the
+homepage gained the Fistroneer (the named quality engineer every
+subscription includes, 10 or 40 person-days a year) and Fistron Sovereign
+(the rules and Fistron's own planned models, ADR 0102), and /pricing/ shows
+the tiers (Trial, Subscription from EUR 100,000 a year, Subscription Plus
+on request) with the programmes and services; `fistroneer.yaml`,
+`sovereign.yaml`, `pricing.yaml` and `pricing-extras.yaml` hold them.
 
 V1 functionality is implemented, with broader real-case validation ongoing.
 V2.1 change assessment, V2.2 test plans, V2.3 extension points and the V2.4

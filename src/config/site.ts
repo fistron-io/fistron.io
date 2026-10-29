@@ -45,6 +45,7 @@ export const site = {
     { label: "Platform", href: "/platform/" },
     { label: "Roadmap", href: "/roadmap/" },
     { label: "Partners", href: "/partners/" },
+    { label: "Pricing", href: "/pricing/" },
     { label: "Docs", service: "docs" },
   ] as NavItem[],
 
