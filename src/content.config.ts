@@ -20,9 +20,9 @@ function orderedList(name: string) {
   });
 }
 
-/** Every feature shown on the site is available now, implemented and being
- * validated (both green), or in development. */
-const status = z.enum(["available", "implemented", "in-development"]);
+/** Every feature shown on the site is either available now (also while it is
+ * being validated) or in development. */
+const status = z.enum(["available", "in-development"]);
 
 /** A roadmap stage's own state, and each of its milestones'. */
 const stageStatus = z.enum(["implemented", "in-development", "planned"]);
