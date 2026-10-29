@@ -215,6 +215,7 @@
     - "One hour every week with your team, and the quarterly review against your baseline."
     - "The repetitive work done by the platform: failure analysis, flaky quarantine, test selection, coverage gaps, reviews."
     - "The knowledge kept in your evidence, policies and goals, not in one person's head."
+    - "For about the yearly cost of one senior QE engineer, you get the platform, a Fistroneer and outcomes reviewed every quarter."
     - "Capacity added to your team, not a replacement for it; more days as a package when you need them."
   questions: [headcount, deadline]
   related: [offer]
