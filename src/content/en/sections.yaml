@@ -116,8 +116,8 @@ partners:
 
 roadmap:
   title: "Where Fistron is heading"
-  intro: "V1 to V3 work today, with flaky quarantine, evidence selection and the Suite Health audit in shadow mode on Fistron's own repositories; the map of your suite against your product with the plan of the missing tests (V3.5) is being validated; the local interface and setup (V4a) are released and being validated, and the control plane for teams (V4b) runs in production for its first pilot. Compliance in the tool (V4.5), the Fištrónek assistant with measurable outcomes and the guide on every page (V4.6), the risk of each change (V6a) and the repair of your tests that work badly (V7a) are implemented and being validated. Distributed Continuous Certification for software vendors (V7.5a) and authoring new tests (V5) are in development; checking predictions against what really happened (V6b) and the plan for what no test covers (V7b) are planned. General availability follows V7 and V5. Human review and broader validation continue."
-  caption: "V5 in sight. Fištrónek brought binoculars."
+  intro: "V1 to V4.6 are implemented and being validated: flaky quarantine, evidence selection and the Suite Health audit in shadow mode on Fistron's own repositories, the local interface and setup released, and the control plane for teams in production for its first pilot. Fistron in your coding assistant (V3.6), the value of your end-to-end tests (V3.2c), Gherkin tests written for your plan (V5a), the risk of each change with its measured accuracy (V6), the closed loop on your tests (V7), certification by your customers across releases (V7.5a and V7.5b) and Migration Assurance (V7.7) are implemented and being validated. In development: the release gate (V7.5c) and Fistron Sovereign LLM (V7.6). General availability follows V7, V5 and V7.7. Green marks what is implemented; human review and broader validation continue."
+  caption: "GA in sight. Fištrónek brought binoculars."
 
 openCore:
   title: "Start with one project. Grow across teams."

@@ -2,10 +2,11 @@
 # and on /solutions/, and a page of its own at /solutions/<id>/.
 # Source: Fistron docs/design/value-proposition.md ("Customer problems Fistron
 # solves", "The offer"), go-to-market.md ("Positioning", "Messages by
-# audience") and target-audiences.md; state of 2026-10-27.
+# audience") and target-audiences.md; state of 2026-10-29.
 #
-# status: available only when the solution's core works in the Fistron
-# repository today; everything else is in-development. `stage` says exactly
+# status: available when the solution's core works in the Fistron
+# repository today, also while it is being validated (decided with the
+# founder 2026-10-29); everything else is in-development. `stage` says exactly
 # what works, what is being validated and what is planned.
 # group: the column of the Solutions menu (labels in src/config/site.ts).
 # questions: ids from questions.yaml, shown with their own status.
@@ -32,7 +33,7 @@
   group: quality
   short: "Explain failed pipelines from evidence, plan the tests a change needs, find what no test covers, quarantine flaky tests and repair the tests that work badly, with the tools you already run."
   status: available
-  stage: "CI failure analysis, change assessment, test plans and coverage gaps work today. Flaky quarantine, evidence selection and the Suite Health audit run in shadow mode; the repair of bad tests and the risk of each change are implemented and being validated; authoring new tests is in development. A quality audit of a project shows where to start."
+  stage: "CI failure analysis, change assessment, test plans and coverage gaps work today. Flaky quarantine, evidence selection and the Suite Health audit run in shadow mode; the repair of bad tests, the risk of each change with its measured accuracy, the value of end-to-end tests and Gherkin and unit tests written for your plan are implemented and being validated; tests in your own tools for infrastructure changes are planned. A quality audit of a project shows where to start."
   problem: "Red pipelines nobody can explain, flaky re-runs, test plans assembled by hand, thousands of tests run for a one-line change, and suites full of tests that check nothing. Each tool answers its own question; nobody answers whether the change is good enough."
   gets:
     - "Why a pipeline failed, from evidence across CI, source, cluster and endpoints; what is missing is acquired read-only or named."
@@ -66,7 +67,7 @@
   for: "For security, compliance and risk leaders"
   group: compliance
   short: "The controls monitored from the tools your teams already use, the gaps closed through them, the audit package prepared, and the certificate through an accredited partner."
-  status: in-development
+  status: available
   stage: "Readiness and the audit (remediation, approvals, findings, the signed audit package, auditor access, Fistron's attestation) are implemented and being validated on Fistron's own repositories, first for ISO 27001 mapped to NIS2 Article 21. EU DORA, ISO 22301, ISO/IEC 20000-1, TMMi and the Cyber Resilience Act follow."
   problem: "NIS2 and EU DORA turned proof of security and quality into a purchasing requirement. Evidence is assembled by hand before every audit, and few organisations in scope are confident they comply."
   gets:
@@ -82,8 +83,8 @@
   for: "For vendors of on-premises software"
   group: certification
   short: "Your key customers validate your pre-release builds in their own staging environments, with your test suite and their checks. Each run ends with a signed attestation; what they share with you is agreed."
-  status: in-development
-  stage: "In development (V7.5a). Implemented: the validation kit, its five runners (script, container, Ansible playbook, Testkube, openQA), the build's digest and signature verified before anything is installed, staging-only targets, the run itself, its attestation and the sharing with export for air-gapped sites (V7.5a); programmes across customers in the control plane, builds published from your CI, results received and your view of each release by environment (V7.5b). Next: the first programme on production."
+  status: available
+  stage: "Implemented and being validated (V7.5a and V7.5b): the validation kit with its five runners (script, container, Ansible playbook, Testkube, openQA), the build's digest and signature verified before anything is installed, staging-only targets, the run, its attestation and the sharing with export for air-gapped sites; programmes across customers in the control plane, builds published from your CI, results received and your view of each release by environment, with the regressions test by test. In development (V7.5c): the release gate your release pipeline waits for, with the upgrades from earlier releases a build must pass. Next: the first programme on production."
   problem: "On-premises software meets operating systems, networks, proxies, scale and air-gapped sites its vendor's lab never reproduces. Releases then fail only at customers, upgrades slow down, and customers must test every change before production anyway."
   gets:
     - "Your release installed and tested before general availability, in the environments you cannot reproduce: problems found where they would appear."
@@ -99,8 +100,8 @@
   for: "For developers who work with a coding assistant"
   group: quality
   short: "Your coding assistant asks Fistron while you work: why your pull request failed, what your branch still needs, whether your feature's steps exist, a test for an item of the plan. Answers cite their evidence."
-  status: in-development
-  stage: "Available today: Fistron as an MCP server over a project's reports and records, its tools read-only, the assistant's answer checked against what it cites. In development: tools for your own work (the root cause of your pull request, a review of your branch, the steps of your feature, a test proposed for a plan item) and a plugin for coding assistants, over Fistron's local operations."
+  status: available
+  stage: "Implemented and being validated (V3.6): Fistron's tools in any coding assistant that speaks MCP, with a plugin for coding assistants: the root cause of your pull request, a review of your branch against the suite with your repository's own rules as its rubric, the steps of your feature checked, the tests your change is missing, a test proposed for a plan item, and a pull request reviewed on your project's agent. Fistron's MCP server over a project's reports and records works today."
   problem: "Developers ask their coding assistant why CI failed or whether a change is tested, and the assistant answers from what it can see in the editor. The CI history, the test suite's map, the project's rules and the evidence are somewhere else, so the answer is a plausible guess."
   gets:
     - "The root cause of your pull request's failure, from the CI run's evidence, inside your assistant."
@@ -115,7 +116,7 @@
   for: "For leaders who must show the return"
   group: quality
   short: "Quality, schedule and cost baselines from your own tools, outcomes agreed as your KPIs and key results, and velocity measured against guardrails, never promised."
-  status: in-development
+  status: available
   stage: "The delivery baseline, velocity included, works today. Outcomes as KPIs and key results and Fištrónek's status reports are implemented and being validated; the Product Quality Index is planned. No savings figures until pilots measure them."
   problem: "The top obstacle to scaling quality and AI investments is unclear return. Leadership asks for one number, teams report story points, and savings are claimed without checking whether quality held."
   gets:
@@ -159,8 +160,8 @@
   for: "For vendors whose customers move to containers or the cloud"
   group: certification
   short: "A server moving from virtual machines or bare metal to containers, Kubernetes or a cloud: what must survive recorded before, the migration rehearsed in staging, the cutover verified with a signed attestation."
-  status: in-development
-  stage: "Planned as its own offer. Available today: the rehearsal in staging as a validation kit, with the migration as its upgrade step, your checks as hooks and a signed attestation of the run. Planned: the inventory of the source installation, the checks derived from it, the comparison before and after, the verified restore and, for vendors, the supported migration paths that have no test."
+  status: available
+  stage: "Implemented and being validated (V7.7): the inventory of the source installation, read-only, and the required behaviour derived from it; the rehearsal in staging compared before and after; the restore of the backup proven; the cutover verified with a signed attestation; for vendors, the matrix of supported migration paths with those without evidence. Next: a real RPM-to-container migration of an open-source product, rehearsed and attested."
   problem: "Vendors support more migration paths than they test. Large customers hit the combination nobody tried, the migration fails or loses behaviour, and they stop migrating: they stay on old versions and deployment models for years. And every customer must test such a change before production anyway."
   gets:
     - "What must survive, recorded read-only from the source installation: services, configuration, the counts of what the product manages, integrations, certificates, scheduled jobs and performance."
