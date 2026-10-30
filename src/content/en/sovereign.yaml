@@ -19,6 +19,6 @@
   status: in-development
 - id: yours
   title: "Trained on your data, in your environment"
-  tagline: "Your own adaptation, in Subscription Plus."
+  tagline: "Your own adaptation, in Enterprise."
   text: "Fistron's model adapted at your site, also air-gapped: neither your data nor the adaptation leaves. It is used only when it does better than the base on your own benchmark, and every version is signed."
   status: in-development

@@ -23,7 +23,7 @@
     - "Design: quality policies, the evidence each change and service requires, the test and check strategy, the controls an auditor will look for."
     - "Deliver: Fistron set up in your toolchain, the missing capabilities enabled, the gaps closed through pull or merge requests you approve."
     - "Operate and prove: continuous assessment, signed reports per change and release, and preparation for external audits."
-    - "A Fistroneer, a named quality engineer from Fistron, who installs and sets Fistron up with you and works on your quality: 10 or 40 person-days a year and one hour every week, instead of one more hire."
+    - "A Fistroneer, a named quality engineer from Fistron, who installs and sets Fistron up with you and works on your quality: from Business, 10 or 40 person-days a year and one hour every week, instead of one more hire."
     - "Outcomes agreed as your KPIs and key results, and a quarterly review against the baseline."
   questions: [deadline, status, measurable-quality, release-decision]
   related: [offer, open-core]
@@ -206,17 +206,17 @@
   title: "Quality assurance without new headcount"
   for: "For teams that need quality engineering but can't hire"
   group: sovereignty
-  short: "A Fistroneer, a named quality engineer from Fistron, joins your team with the platform: Fistron set up and running, and 10 or 40 person-days a year of quality engineering, without recruiting, onboarding and keeping one more specialist."
+  short: "A Fistroneer, a named quality engineer from Fistron, joins your team with the platform: Fistron set up and running and, from Business, 10 or 40 person-days a year of quality engineering, without recruiting, onboarding and keeping one more specialist."
   status: in-development
-  stage: "Offered with every subscription to the first pilots; the person-days and on-site work are set in the contract. The platform parts the Fistroneer works with have their own state, on the pages of the solutions."
+  stage: "Offered to the first pilots: the setup in every tier, the person-days from Business; on-site work is set in the contract. The platform parts the Fistroneer works with have their own state, on the pages of the solutions."
   problem: "The work grows faster than the team: flaky tests, missing tests, test plans, audits. A new quality engineer needs approval for the headcount, months of hiring and onboarding, and when the person leaves, the knowledge leaves too."
   gets:
     - "Fistron installed and set up in your toolchain by your Fistroneer: hosted, hybrid, on-premises or air-gapped."
-    - "10 person-days a year of quality engineering in the Subscription, 40 in Subscription Plus: test strategy, flaky and weak tests, test plans, compliance gaps, audit preparation."
-    - "One hour every week with your team, and the quarterly review against your baseline."
+    - "10 person-days a year of quality engineering in Business, 40 in Enterprise: test strategy, flaky and weak tests, test plans, compliance gaps, audit preparation."
+    - "From Business, one hour every week with your team, and the quarterly review against your baseline."
     - "The repetitive work done by the platform: failure analysis, flaky quarantine, test selection, coverage gaps, reviews."
     - "The knowledge kept in your evidence, policies and goals, not in one person's head."
-    - "For about the yearly cost of one senior QE engineer, you get the platform, a Fistroneer and outcomes reviewed every quarter."
+    - "The price follows your team, per active committer; compare it with the yearly cost of one senior QE engineer."
     - "Capacity added to your team, not a replacement for it; more days as a package when you need them."
   questions: [headcount, deadline]
   related: [offer]

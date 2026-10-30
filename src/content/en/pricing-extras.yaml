@@ -1,13 +1,20 @@
-# Programmes and services on /pricing/, shown in file order; all on request.
+# Add-ons and services on /pricing/, shown in file order. Source: Fistron
+# ADR 0118 point 5 and business-model.md. Prices exclude VAT.
+- id: lines
+  title: "Lines of code beyond those included"
+  text: "50,000 lines of code are included per active committer. Above them, EUR 1,000 a year per started 100,000 lines. Covered lines never count: better coverage never costs more."
+- id: frameworks
+  title: "More compliance frameworks"
+  text: "EUR 10,000 a year for each framework beyond those your tier includes."
+- id: days
+  title: "More Fistroneer days"
+  text: "EUR 1,300 a person-day beyond your tier's, remote or on site; fixed-scope packages (assess, design, deliver) on request."
 - id: dcc
   title: "Distributed Continuous Certification"
-  text: "For vendors of on-premises software: a programme fee and a price per participating customer environment. Your customers take part at no cost."
+  text: "For vendors of on-premises software: EUR 10,000 a year for the programme and EUR 6,000 a year per participating customer environment, a staging or isolated one, never counted by its servers. Joining an environment takes 4 Fistroneer days once. Your customers take part at no cost."
 - id: migration
   title: "Migration Assurance"
-  text: "For vendors, by migration paths covered and customer environments; for an organisation, per migration project, rehearsal and cutover with our people."
+  text: "For vendors, EUR 2,500 a year per migration path in your matrix. For an organisation, per migration project, with the rehearsal and the cutover as Fistroneer days."
 - id: certification
   title: "Certification through an accredited partner"
   text: "Fistron's preparation and coordination; the certification body's fee passed through at cost where the body accepts it."
-- id: days
-  title: "More Fistroneer days and solution packages"
-  text: "Fixed-scope packages (assess, design, deliver) and days beyond your subscription, remote or on site."
