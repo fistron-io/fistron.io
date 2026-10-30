@@ -45,6 +45,24 @@
     - "A quality audit of your tests and CI from what you already have: a plan ordered by what costs your team most, and what the audit needs to say more."
   questions: [pipeline-failure, feature-evidence, test-coverage, test-plan, coverage-gap, necessary-work, suite-health, test-repair, change-risk]
   related: [ci, outcomes]
+- id: fast-feedback-loop
+  title: "Fast Feedback Loop"
+  for: "For teams whose full suite runs for hours"
+  group: quality
+  short: "Know within minutes, not tomorrow. Fistron measures how long your team waits for a test result, proposes test tiers from your own CI history, shows which slow end-to-end tests can move left and proposes the change of your CI configuration. Your CI runs the tiers; your team decides who owns each."
+  status: in-development
+  stage: "An optional extension of evidence selection and the Suite Health audit. The CI history, evidence selection of CI jobs and the Suite Health audit run today in shadow mode; the measurement of the loop, the tiers and the shift-left proposals are in development."
+  problem: "The product is big, the components many, the full suite runs for twelve hours. A change pushed today shows its result tomorrow, the developer has moved on, and every failure costs a day. Some tests are slow because they test the API through the user interface; others run on every change though they add nothing."
+  gets:
+    - "Your feedback loop measured from your CI history: time to the first result and to the first failure, the baseline and the trend."
+    - "Test tiers proposed with the reason for every test: fast checks on every push, the tests a change needs on every pull or merge request, the full suite at night, release validation."
+    - "The tiers' owners set by your team: developers, developers and QE, or QE, in a policy reviewed like code."
+    - "Slow end-to-end tests that only check the API proposed as API tests, and tests that add nothing moved out of the fast tiers, only with proof."
+    - "Within a tier, the tests most likely to fail run first."
+    - "Once you approve the tiers, the change of your CI configuration proposed as a pull or merge request for GitHub Actions, GitLab or Jenkins; you review and merge it, your CI runs it. No new pipeline tool."
+    - "Failures that slipped to a later tier recorded, so the tiers improve with evidence."
+  questions: [feedback-loop, suite-health, necessary-work]
+  related: [ci, outcomes]
 - id: ai-written-code
   title: "Verifying code written with AI"
   for: "For teams that merge code written by assistants and agents"
