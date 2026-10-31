@@ -208,7 +208,7 @@
   group: sovereignty
   short: "Choose how Fistron decides: rules only, with no AI at all, or a model you trust inside your network. Your code, logs and test data stay where your policy says."
   status: available
-  stage: "Fistron Sovereign Rules — Deterministic, on-premises and air-gapped installation, a local model and outbound-only agents work today, as does a benchmark of rules, commercial and open-weight models on cases from your own runs. Planned: Fistron Sovereign LLM with your own adaptation (V7.6), a ledger of where data went in every report, and a model policy by region and origin."
+  stage: "Fistron Sovereign Rules — Deterministic, on-premises and air-gapped installation, a local model and outbound-only agents work today, as does a benchmark of rules, commercial and open-weight models on cases from your own runs. Every run records where its data went (each model and platform contacted, where it is and under whose law, what it was sent and what was withheld), and a policy refuses a contact outside the jurisdictions you allow, or a model of an origin you do not accept, before anything is sent. Planned: Fistron Sovereign LLM with your own adaptation (V7.6)."
   problem: "\"We use an LLM\" does not say which endpoint receives which data, in which jurisdiction. Regulated teams and air-gapped networks may not send code and logs out at all, and some organisations forbid AI, or models of certain origins, by policy."
   gets:
     - "Fistron Sovereign Rules — Deterministic: no LLM, every decision comes from rules and evidence, the same evidence gives the same verdict."
@@ -216,6 +216,7 @@
     - "Fistron Sovereign LLM — Traceable (planned): the same on a base whose training data is documented, with Fistron's own training data, licences and consents documented too, for audits that ask what a model learned from."
     - "Your own adaptation (planned): trained on your data in your environment, also air-gapped, used only when it does better on your own benchmark; nothing leaves."
     - "A model receives evidence only up to the data class you allow; what it could not receive is reported as missing."
+    - "Where every run's data went, in its ledger: each model and platform contacted, where it is and under whose law, what it was sent and what was withheld; and a policy you set in Settings that refuses any other jurisdiction, or a model of another origin, before anything is sent."
     - "On-premises or without internet access: the licence verified offline, no telemetry, agents that connect outbound only."
     - "All variants keep Fistron's deterministic evidence and gates; the LLM variants add model reasoning on top."
   questions: [sovereignty]

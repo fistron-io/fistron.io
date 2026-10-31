@@ -146,7 +146,9 @@ Feedback Loop (V3.7, ADR 0119) implemented and being validated, a condition
 of GA, and the current stage; tests in the customer's tools (V5b) and the
 release gate (V7.5c) implemented; the verification log of a release (V7.8,
 ADR 0117) added; Jenkins read-only (ADR 0074) with the tiers' change of a
-declarative Jenkinsfile.
+declarative Jenkinsfile. Later that day the sovereignty solution gained the
+data-flow ledger of every run and the policy that refuses a contact before
+it is made (Fistron ADR 0121).
 
 V1 functionality is implemented, with broader real-case validation ongoing.
 V2.1 change assessment, V2.2 test plans, V2.3 extension points and the V2.4
