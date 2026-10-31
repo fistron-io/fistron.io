@@ -1,15 +1,16 @@
-# State of 2026-10-29 (Fistron docs/design/roadmap.md). V1 to V4.6 are
+# State of 2026-10-31 (Fistron docs/design/roadmap.md). V1 to V4.6 are
 # implemented and being validated (V1.5, V2.5 and the Suite Health audit in
 # shadow mode; V4b in production for its first pilot). V3.6 (the engineer's
-# loop, ADR 0115) and V3.2c (the value of end-to-end tests, ADR 0113) are
-# implemented, their synthetic exits recorded. V5a, V6a, V6b, V7a and V7b
-# are implemented and being validated; V5b is next. V7.5a and V7.5b are
-# implemented (the dogfood programme next); V7.5c (the release gate, ADR
-# 0114) is in development, steps 2 and 3 done. V7.6a's benchmark is
+# loop, ADR 0115, with the daily CI review, ADR 0120), V3.2c (ADR 0113) and
+# V3.7 (the Fast Feedback Loop, ADR 0119, a condition of GA since 2026-10-30)
+# are implemented, their synthetic exits recorded; V3.7's real exit on a
+# public end-to-end suite is next. V5a and V5b, V6a, V6b, V7a and V7b are
+# implemented and being validated. V7.5a, V7.5b and V7.5c (the release gate)
+# are implemented, their synthetic exits recorded. V7.6a's benchmark is
 # implemented, the prompts and the candidates' runs are in development;
-# V7.6b is planned. V7.7 (Migration Assurance, ADR 0107 and 0109) a, b and c
-# are implemented, their synthetic exits recorded, the dogfood next; V7.7 is
-# a condition of GA since 2026-10-28. Base models are not named on the site.
+# V7.6b is planned. V7.7 a, b and c are implemented, the dogfood next. V7.8
+# (the verification log, ADR 0117) is implemented, its synthetic exit
+# recorded; not a condition of GA. Base models are not named on the site.
 # status: implemented (filled checkbox, green), in-development (empty
 # checkbox), planned (default, no checkbox). parts: the stage's milestones,
 # each with its own status; an implemented one is green. The list is shown
@@ -57,6 +58,12 @@
   stage: "V3.6 · Implemented; validating"
   title: "Fistron in your coding assistant"
   detail: "Your coding assistant asks Fistron while you work, through MCP or a plugin: a review of your branch against the suite (a step without its definition, a feature in no run set, a check that asserts nothing, a fixed sleep), with your repository's own rules as the review's rubric; which tests your change is missing; a test proposed for an item of the plan; a pull request reviewed on your project's agent. Around it: your issue tracker in the daily CI review, and a benchmark that gates every change of a prompt or a model."
+- id: v3-7
+  status: implemented
+  stage: "V3.7 · Implemented; validating"
+  current: true
+  title: "Know within minutes, not tomorrow"
+  detail: "The Fast Feedback Loop: how long your team waits for a test result, measured from your CI history; test tiers proposed with the reason for every test, owned by your team in a policy reviewed like code; slow end-to-end scenarios that only call the API proposed to run earlier (never those that set up or clean up for others); within a tier, the tests a change needs and those most likely to fail first; the change of your GitHub Actions, GitLab or Jenkins configuration proposed as a pull or merge request, validated before it is opened; your history replayed under the tiers as an estimate, never a claimed speed-up. Next: a public end-to-end suite measured, its tiers reviewed by people who know it."
 - id: v4a
   status: implemented
   stage: "V4a · Implemented; validating"
@@ -95,17 +102,17 @@
       text: "The guide on every page that acts as you after you confirm"
       status: implemented
 - id: v5
-  status: in-development
-  stage: "V5 · V5a implemented; V5b next"
+  status: implemented
+  stage: "V5 · Implemented; validating"
   title: "Author new tests"
-  detail: "Fistron writes the tests your plan says are missing, from your suite's own steps first, generating only what no step provides and labelling it, and proposes each as a pull or merge request a person merges. A test is accepted only when it runs, is stable and measurably meets its plan item; reviewers' comments on the request are answered with a checked revision."
+  detail: "Fistron writes the tests your plan says are missing, from your suite's own steps first, generating only what no step provides and labelling it, and proposes each as a pull or merge request a person merges. A test is accepted only when it runs, is stable and measurably meets its plan item; reviewers' comments on the request are answered with a checked revision. For an infrastructure change (an image, a package, an Ansible role), the system checks written as tests in your own tools: openQA, Testkube, Ansible or testinfra."
   parts:
     - label: "V5a"
       text: "Tests from your suite's own building blocks: Gherkin scenarios and unit tests"
       status: implemented
     - label: "V5b"
       text: "Tests in your own tools for infrastructure changes"
-      status: planned
+      status: implemented
 - id: v6
   status: implemented
   stage: "V6 · Implemented; validating"
@@ -131,9 +138,8 @@
       text: "The plan for what no test covers"
       status: implemented
 - id: v7-5
-  status: in-development
-  stage: "V7.5 · Release gate in development"
-  current: true
+  status: implemented
+  stage: "V7.5 · Implemented; validating"
   title: "Distributed Continuous Certification"
   detail: "For vendors of on-premises software: your key customers receive pre-release builds, Fistron's agent installs and tests them in their staging environments with your suite and their checks, and each run ends with a signed attestation. What is shared with you is agreed per programme; you see each release by environment, with the regressions test by test, and certify the release for their environment. Your release pipeline waits for the release gate: the environments and upgrade paths a build must pass before it ships."
   parts:
@@ -145,7 +151,7 @@
       status: implemented
     - label: "V7.5c"
       text: "The release gate, with upgrades from earlier releases"
-      status: in-development
+      status: implemented
 - id: v7-6
   status: in-development
   stage: "V7.6 · Benchmark implemented; in development"
@@ -173,7 +179,12 @@
     - label: "V7.7c"
       text: "The vendor's matrix of migration paths"
       status: implemented
+- id: v7-8
+  status: implemented
+  stage: "V7.8 · Implemented; validating"
+  title: "The verification log of a release"
+  detail: "When a release is verified by hand, for example on a new client operating system, Fistron's agent logs what was done from the product's API and read-only commands, verbatim and with secrets redacted, checks it by rules and renders it in your team's own format as a draft a person confirms. The same verification automated from your suite's templates, and the manual marks checked against it. Not a condition of general availability."
 - id: ga
   stage: "GA · After V7, V5 and V7.7"
   title: "General availability"
-  detail: "The first release offered for sale, once V3 to V4.6 (with the guide), V5, V6, V7 and V7.7 meet their exit criteria. No date is committed."
+  detail: "The first release offered for sale, once V3 to V4.6 (with the guide and the Fast Feedback Loop), V5, V6, V7 and V7.7 meet their exit criteria. No date is committed."

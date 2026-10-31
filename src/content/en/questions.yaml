@@ -30,7 +30,7 @@
 - id: feedback-loop
   question: "Our full suite runs for hours. Can we know sooner?"
   answer: "Measure how long your team waits, run the fast checks and the tests the change needs first and the full suite at night, and move slow end-to-end tests that only check the API to API tests. Fistron proposes the tiers from your CI history with a reason for every test and, once you approve them, the change of your CI configuration as a pull or merge request; your CI runs them and your team decides who owns each."
-  status: in-development
+  status: available
 - id: change-risk
   question: "How risky is this change before we merge it?"
   answer: "A risk level with its factors, from the change's gaps, the history of the changed code and the tests that guard it, each citing its evidence and naming what is missing. Never blocking; from your own data only."

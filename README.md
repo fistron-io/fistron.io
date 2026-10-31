@@ -140,7 +140,13 @@ subscription includes, 10 or 40 person-days a year) and Fistron Sovereign
 (the rules and Fistron's own planned models, ADR 0102), and /pricing/ shows
 the tiers (Trial, Subscription from EUR 100,000 a year, Subscription Plus
 on request) with the programmes and services; `fistroneer.yaml`,
-`sovereign.yaml`, `pricing.yaml` and `pricing-extras.yaml` hold them.
+`sovereign.yaml`, `pricing.yaml` and `pricing-extras.yaml` hold them. On 2026-10-31 the roadmap, the solutions, the questions,
+the hero and the platforms were synced with the Fistron head: the Fast
+Feedback Loop (V3.7, ADR 0119) implemented and being validated, a condition
+of GA, and the current stage; tests in the customer's tools (V5b) and the
+release gate (V7.5c) implemented; the verification log of a release (V7.8,
+ADR 0117) added; Jenkins read-only (ADR 0074) with the tiers' change of a
+declarative Jenkinsfile.
 
 V1 functionality is implemented, with broader real-case validation ongoing.
 V2.1 change assessment, V2.2 test plans, V2.3 extension points and the V2.4
@@ -152,10 +158,13 @@ Evidence selection (V2.5), flaky quarantine (V1.5) and the Suite Health
 audit run in shadow mode on Fistron's own repositories: they record what
 they would do, nothing is skipped, quarantined or removed. The local
 interface and setup (V4a) are released and being validated; the control
-plane (V4b) runs on Fistron's staging, not for customers. Compliance in the
-tool (V4.5), Fištrónek with measurable outcomes (V4.6) and the change risk
-(V6a, shadow mode) are implemented and being validated; the repair of bad
-tests (V7a) is in development. Enforcement and commercial packaging remain
+plane (V4b) is in production for its first pilot. Compliance in the tool
+(V4.5), Fištrónek with measurable outcomes (V4.6), the Fast Feedback Loop
+(V3.7), test authoring (V5), predictive quality (V6, the change risk in
+shadow mode), the closed loop on existing tests (V7), Distributed Continuous
+Certification (V7.5), Migration Assurance (V7.7) and the verification log
+(V7.8) are implemented and being validated; Fistron Sovereign LLM (V7.6) is
+in development. Enforcement and commercial packaging remain
 planned. The proposed edition split is not a released offer or final
 licence commitment.
 

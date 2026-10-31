@@ -18,9 +18,9 @@
   name: "Jenkins"
   logo: "jenkins"
   support: limited
-  label: "Limited · console logs only"
+  label: "Limited · read-only, and CI changes"
   featured: true
-  detail: "Fistron can normalize supplied Jenkins console logs today. Live acquisition and Jenkins CI job integration are not implemented."
+  detail: "Read-only today, through the REST API or the Jenkins MCP Server plugin: the CI history with test reports and the case of a failed build. The test tiers' change of a declarative Jenkinsfile is proposed as a pull or merge request, checked by your Jenkins' own linter if you allow it. Running Fistron as a Jenkins job and re-running builds are not implemented."
 - id: azure-pipelines
   name: "Azure DevOps Pipelines"
   logo: "azuredevops"

@@ -2,7 +2,7 @@
 # and on /solutions/, and a page of its own at /solutions/<id>/.
 # Source: Fistron docs/design/value-proposition.md ("Customer problems Fistron
 # solves", "The offer"), go-to-market.md ("Positioning", "Messages by
-# audience") and target-audiences.md; state of 2026-10-29.
+# audience") and target-audiences.md; state of 2026-10-31.
 #
 # status: available when the solution's core works in the Fistron
 # repository today, also while it is being validated (decided with the
@@ -33,7 +33,7 @@
   group: quality
   short: "Explain failed pipelines from evidence, plan the tests a change needs, find what no test covers, quarantine flaky tests and repair the tests that work badly, with the tools you already run."
   status: available
-  stage: "CI failure analysis, change assessment, test plans and coverage gaps work today. Flaky quarantine, evidence selection and the Suite Health audit run in shadow mode; the repair of bad tests, the risk of each change with its measured accuracy, the value of end-to-end tests and Gherkin and unit tests written for your plan are implemented and being validated; tests in your own tools for infrastructure changes are planned. A quality audit of a project shows where to start."
+  stage: "CI failure analysis, change assessment, test plans and coverage gaps work today. Flaky quarantine, evidence selection and the Suite Health audit run in shadow mode; the repair of bad tests, the risk of each change with its measured accuracy, the value of end-to-end tests, Gherkin and unit tests written for your plan and tests in your own tools for infrastructure changes are implemented and being validated. A quality audit of a project shows where to start."
   problem: "Red pipelines nobody can explain, flaky re-runs, test plans assembled by hand, thousands of tests run for a one-line change, and suites full of tests that check nothing. Each tool answers its own question; nobody answers whether the change is good enough."
   gets:
     - "Why a pipeline failed, from evidence across CI, source, cluster and endpoints; what is missing is acquired read-only or named."
@@ -50,8 +50,8 @@
   for: "For teams whose full suite runs for hours"
   group: quality
   short: "Know within minutes, not tomorrow. Fistron measures how long your team waits for a test result, proposes test tiers from your own CI history, shows which slow end-to-end tests can move left and proposes the change of your CI configuration. Your CI runs the tiers; your team decides who owns each."
-  status: in-development
-  stage: "An optional extension of evidence selection and the Suite Health audit. The CI history, evidence selection of CI jobs and the Suite Health audit run today in shadow mode; the measurement of the loop, the tiers and the shift-left proposals are in development."
+  status: available
+  stage: "Implemented and being validated (V3.7): the loop measured from your CI history, the tiers proposed with their reasons, the selection within a tier in shadow mode, the change of your GitHub Actions, GitLab or Jenkins configuration proposed and validated, and the history replayed under the tiers as an estimate. No speed-up is claimed until your own CI runs the tiers. Next: a public end-to-end suite measured, its tiers reviewed by people who know it."
   problem: "The product is big, the components many, the full suite runs for twelve hours. A change pushed today shows its result tomorrow, the developer has moved on, and every failure costs a day. Some tests are slow because they test the API through the user interface; others run on every change though they add nothing."
   gets:
     - "Your feedback loop measured from your CI history: time to the first result and to the first failure, the baseline and the trend."
@@ -102,7 +102,7 @@
   group: certification
   short: "Your key customers validate your pre-release builds in their own staging environments, with your test suite and their checks. Each run ends with a signed attestation; what they share with you is agreed."
   status: available
-  stage: "Implemented and being validated (V7.5a and V7.5b): the validation kit with its five runners (script, container, Ansible playbook, Testkube, openQA), the build's digest and signature verified before anything is installed, staging-only targets, the run, its attestation and the sharing with export for air-gapped sites; programmes across customers in the control plane, builds published from your CI, results received and your view of each release by environment, with the regressions test by test. In development (V7.5c): the release gate your release pipeline waits for, with the upgrades from earlier releases a build must pass. Next: the first programme on production."
+  stage: "Implemented and being validated (V7.5a to V7.5c): the validation kit with its five runners (script, container, Ansible playbook, Testkube, openQA), the build's digest and signature verified before anything is installed, staging-only targets, the run, its attestation and the sharing with export for air-gapped sites; programmes across customers in the control plane, builds published from your CI, results received and your view of each release by environment, with the regressions test by test; the release gate your release pipeline waits for, with the upgrades from earlier releases a build must pass (V7.5c). Next: the first programme on production."
   problem: "On-premises software meets operating systems, networks, proxies, scale and air-gapped sites its vendor's lab never reproduces. Releases then fail only at customers, upgrades slow down, and customers must test every change before production anyway."
   gets:
     - "Your release installed and tested before general availability, in the environments you cannot reproduce: problems found where they would appear."
