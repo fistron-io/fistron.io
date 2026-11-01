@@ -97,5 +97,5 @@
   status: available
 - id: agile-transformation
   question: "We want to become more agile. Where do we start?"
-  answer: "With where you are, measured, and how agile you really need to be. Fistron assesses the current state from a checklist and your delivery data, your leadership chooses the target, and you get a plan in stages with actions and measurable success criteria for your project manager or a Fistroneer to run."
-  status: in-development
+  answer: "With where you are and how agile you really need to be. Today Fistron assesses the current state per area from its checklist, your leadership chooses and approves the target, and you get what lies between as Markdown and CSV for your project manager or a Fistroneer. Measured from your delivery data, with a plan of measurable success criteria, after general availability."
+  status: available

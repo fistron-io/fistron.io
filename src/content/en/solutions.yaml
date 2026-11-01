@@ -2,7 +2,7 @@
 # and on /solutions/, and a page of its own at /solutions/<id>/.
 # Source: Fistron docs/design/value-proposition.md ("Customer problems Fistron
 # solves", "The offer"), go-to-market.md ("Positioning", "Messages by
-# audience") and target-audiences.md; state of 2026-10-31.
+# audience") and target-audiences.md; state of 2026-11-01.
 #
 # status: available when the solution's core works in the Fistron
 # repository today, also while it is being validated (decided with the
@@ -150,8 +150,8 @@
   for: "For engineering leaders and project managers"
   group: quality
   short: "Know where your engineering organisation is and how agile it needs to be. Fistron assesses the current state from a checklist and from your own delivery data, helps leadership choose the target, and writes the plan your project manager runs: stages, actions and measurable success criteria."
-  status: in-development
-  stage: "Planned after general availability. It builds on what Fistron measures today: CI history, failures, flaky tests, coverage and outcomes from your evidence."
+  status: available
+  stage: "The assessment works today: the checklist of Fistron's own model, the current state per area, the target your leadership approves, and the export as Markdown and CSV (fistron journey). The current state measured from your issue tracker and CI, the plan with each success criterion's metric and the quarterly re-assessment follow after general availability."
   problem: "Transformations start with weeks of interviews and slides, aim at a level of agility nobody needs, and stall because no one can show progress. Teams are tired, dependencies block them, and the plan lives in a deck."
   gets:
     - "The current state per area, from a checklist answered by leadership and teams and from your issue tracker and CI, each statement with its source."
