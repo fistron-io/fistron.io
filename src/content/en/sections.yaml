@@ -6,7 +6,7 @@ hero:
   title: "The end-to-end autonomous assurance platform"
   intro: "Fistron is the **platform for autonomous quality and compliance assurance**. By orchestrating the tools you already run, it delivers an **end-to-end solution** for the quality your customers, auditors and regulators expect, including **ISO certification that supports NIS2 and EU DORA**, under your control and with the proof they accept. **Deterministic where it counts, AI where it helps.**"
   note: "CI failure analysis, change assessment, test plans, coverage gaps and the checks for code written with AI work today. Compliance in the tool, Fištrónek with measurable outcomes, the risk of each change, the repair of tests that work badly, new tests, the Fast Feedback Loop and Distributed Continuous Certification are implemented and being validated. People and guarantees are set per contract."
-  primaryCta: "Request a demo"
+  primaryCta: "Start a free trial"
   secondaryCta: "Explore the solutions"
   caption: "Target workflow with example data. In development."
 
@@ -134,15 +134,16 @@ about:
     - "Meet Fištrónek, our crow. Crows are among the cleverest animals: they use whatever tools are around them. He hands over the checkbox only once the evidence is in."
 
 demo:
-  title: "See Fistron on your toolchain"
-  intro: "Tell us about a quality decision or an audit that takes too much manual work today. We'll show you what Fistron finds and what it would need, starting with a readiness assessment of one project or service."
-  primaryCta: "Request a demo"
-  note: "Demo requests aren't connected yet. This form doesn't send anything."
+  title: "Start a free trial"
+  intro: "60 days on one project, with every feature. Give us your work e-mail: Fistron makes your organisation and sends you an e-mail to verify it and choose your password."
+  primaryCta: "Start my free trial"
+  demoCta: "Try the demo"
+  note: "Trials open soon. This form doesn't send anything yet."
   faxLabel: "Fax number"
   faxJoke: "Just kidding :-)"
-  successLabel: "Request received"
+  successLabel: "Trial requested"
   successTitle: "Evidence: 1. Confidence: high."
-  successText: "Thanks, we'll get back to you soon. Fištrónek is already reading it."
+  successText: "Check your e-mail: verify your address and choose your password, then sign in. Fištrónek is already setting up your organisation."
   errorText: "That didn't go through. Please try again in a moment."
 
 notFound:
@@ -219,6 +220,12 @@ pricingPage:
   intro: "The price follows your team: what you pay grows with the people who change your code, not with who reads the reports. Every tier includes a Fistroneer who sets Fistron up; from Business also the weekly hour, the person-days, outcomes reviewed every quarter and the proof your auditors accept."
   note: "Prices exclude VAT and are yearly, set in your contract. Features marked planned are not yet available."
   caption: "Add-ons and services"
+
+pricingCompare:
+  title: "What each plan includes"
+  intro: "The licence names your plan, and Fistron does what it includes: the table is the product's own. In the product, your organisation's page shows the same and lets an admin ask for more."
+  caption: "Feature"
+  note: "The Trial has every feature on one project for 60 days. Distributed Continuous Certification and Migration Assurance are add-ons to any plan."
 
 pricingHow:
   title: "How the price is calculated"

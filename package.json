@@ -6,7 +6,7 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "check": "astro check && node scripts/check-theme-tokens.mjs",
+    "check": "astro check && node scripts/check-theme-tokens.mjs && node scripts/check-plans.mjs",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",

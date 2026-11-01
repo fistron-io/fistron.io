@@ -38,6 +38,7 @@ const sections = defineCollection({
     caption: z.string().optional(),
     primaryCta: z.string().optional(),
     secondaryCta: z.string().optional(),
+    demoCta: z.string().optional(),
     linkLabel: z.string().optional(),
     quip: z.string().optional(),
     faxLabel: z.string().optional(),
@@ -81,6 +82,11 @@ const fistroneer = defineCollection({ loader: orderedList("fistroneer"), schema:
 const pricingExtras = defineCollection({ loader: orderedList("pricing-extras"), schema: simpleItem });
 /** Worked examples of the yearly price (Fistron ADR 0118 point 7). */
 const pricingExamples = defineCollection({ loader: orderedList("pricing-examples"), schema: simpleItem });
+/** The features of the plans in the product's words (Fistron ADR 0122), with plans.json. */
+const planFeatures = defineCollection({
+  loader: orderedList("plan-features"),
+  schema: z.object({ order, title: z.string() }),
+});
 
 /** The Fistron Sovereign variants: how Fistron decides (ADR 0102 of Fistron). */
 const sovereign = defineCollection({
@@ -228,6 +234,7 @@ export const collections = {
   pricing,
   pricingExtras,
   pricingExamples,
+  planFeatures,
   differentiators,
   dogfood,
   dogfoodStats,

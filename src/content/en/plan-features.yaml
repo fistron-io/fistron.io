@@ -1,0 +1,27 @@
+# The features of the plans in the words the product uses (Fistron's
+# organisation page, ADR 0122), in the order the pricing page lists them.
+# Every feature of plans.json has one; scripts/check-plans.mjs checks it.
+- id: core
+  title: "Root cause analysis, flaky tests, test plans and Suite Health"
+- id: predictive
+  title: "A change's risk before it is merged"
+- id: organisation
+  title: "The control plane for teams"
+- id: feedback-loop
+  title: "The Fast Feedback Loop's proposals: tiers, shift-left and the CI change"
+- id: repair
+  title: "The repair of tests that work badly"
+- id: authoring
+  title: "New tests for the test plan's gaps"
+- id: compliance
+  title: "Compliance: frameworks, readiness, remediation and the audit"
+- id: outcomes
+  title: "Outcomes as KPIs with a quarterly review"
+- id: assistant
+  title: "Fištrónek's conversation"
+- id: self-hosted
+  title: "Your own control plane, on-premises or air-gapped"
+- id: certification
+  title: "Distributed Continuous Certification (add-on)"
+- id: migration
+  title: "Migration Assurance (add-on)"

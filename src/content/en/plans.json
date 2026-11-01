@@ -1,0 +1,87 @@
+{
+  "source": "fistron-core's plans() (Fistron ADR 0122): what each plan includes; regenerated when the core's table changes. scripts/check-plans.mjs compares it with pricing.yaml and plan-features.yaml.",
+  "plans": [
+    {
+      "plan": "trial",
+      "tier": "free",
+      "features": [
+        "core",
+        "predictive",
+        "organisation",
+        "compliance",
+        "outcomes",
+        "assistant",
+        "feedback-loop",
+        "repair",
+        "authoring",
+        "certification",
+        "migration"
+      ],
+      "limits": {
+        "projects": 1,
+        "clusters": 1,
+        "frameworks": 1,
+        "environments": 2
+      }
+    },
+    {
+      "plan": "team",
+      "tier": "paid",
+      "features": [
+        "core",
+        "predictive"
+      ],
+      "limits": {
+        "projects": null,
+        "clusters": null,
+        "frameworks": null
+      }
+    },
+    {
+      "plan": "business",
+      "tier": "paid",
+      "features": [
+        "core",
+        "predictive",
+        "organisation",
+        "compliance",
+        "outcomes",
+        "assistant",
+        "feedback-loop",
+        "repair",
+        "authoring"
+      ],
+      "limits": {
+        "projects": null,
+        "clusters": null,
+        "frameworks": 1
+      }
+    },
+    {
+      "plan": "enterprise",
+      "tier": "paid",
+      "features": [
+        "core",
+        "predictive",
+        "organisation",
+        "compliance",
+        "outcomes",
+        "assistant",
+        "feedback-loop",
+        "repair",
+        "authoring",
+        "self-hosted"
+      ],
+      "limits": {
+        "projects": null,
+        "clusters": null,
+        "frameworks": null
+      }
+    }
+  ],
+  "add_ons": [
+    "certification",
+    "migration"
+  ],
+  "trial_days": 60
+}

@@ -296,21 +296,32 @@ the characters before launch.
 
 ## Services on other hosts
 
-app.fistron.io, docs.fistron.io, support.fistron.io and fistron.org are
-separate projects. `site.services` in `src/config/site.ts` lists them with a
-`live` flag. While a service is not live, `NavLink` shows its name with a
-"Coming soon" tag (a short "Soon" in the header) instead of a link, so no
-page points at a host that doesn't answer. Set `live: true` once the host is
-up.
+app.fistron.io, docs.fistron.io, support.fistron.io, fistron.org and the
+demo (demo.fistron.io) are separate projects. `site.services` in
+`src/config/site.ts` lists them with a `live` flag. While a service is not
+live, `NavLink` shows its name with a "Coming soon" tag (a short "Soon" in
+the header) instead of a link, so no page points at a host that doesn't
+answer; the trial's section shows "Try the demo" only once the demo is live.
+Set `live: true` once the host is up.
 
-## Demo form
+## Trial form
 
-The "Request a demo" form is not connected to anything yet. While
-`site.demoFormAction` in `src/config/site.ts` is unset, submitting the form
-shows a note instead of sending data. Once it is set, the form posts in the
-background and shows the success panel ("Evidence: 1. Confidence: high.") or
-an error. Connecting it needs an endpoint (for example a Cloudflare Worker or
-a form service) and a privacy notice.
+The "Start a free trial" form (`#trial`, Fistron ADR 0122) posts the name,
+the work e-mail and the company as JSON to the control plane's trials,
+`site.trialFormAction` (`https://app.fistron.io/api/v1/trials` once trials
+are on there). A hidden field `website` stays empty for people; robots fill
+it and get the same answer. While `trialFormAction` is unset, submitting
+shows a note instead of sending data; set, it shows the success panel
+("Evidence: 1. Confidence: high.": check your e-mail) or an error.
+Connecting it needs the privacy notice for the e-mail and the name.
+
+## The plans on /pricing/
+
+`src/content/en/plans.json` is the core's table of plans (fistron-core's
+`plans()`, Fistron ADR 0122), regenerated when it changes;
+`plan-features.yaml` has each feature in the product's words.
+`scripts/check-plans.mjs` (part of `npm run check`) fails when the tiers of
+`pricing.yaml` are not the core's plans or a feature has no words.
 
 ## Hosting
 

@@ -5,7 +5,8 @@ import Section from "../components/Section.astro";
 import Fistroneer from "../sections/Fistroneer.astro";
 import Sovereign from "../sections/Sovereign.astro";
 import CallToAction from "../components/CallToAction.astro";
-import { section, list } from "../lib/content";
+import { section, list, listWithIds } from "../lib/content";
+import plans from "../content/en/plans.json";
 
 const page = await section("pricingPage");
 const tiers = await list("pricing");
@@ -13,6 +14,10 @@ const extras = await list("pricingExtras");
 const how = await section("pricingHow");
 const examples = await list("pricingExamples");
 const days = await section("pricingDays");
+const compare = await section("pricingCompare");
+const features = await listWithIds("planFeatures");
+const has = (plan: string, feature: string) =>
+  plans.plans.find((p) => p.plan === plan)?.features.includes(feature) ?? false;
 ---
 
 <BaseLayout title="Pricing" description={page.intro}>
@@ -36,7 +41,7 @@ const days = await section("pricingDays");
                 <li>{f}</li>
               ))}
             </ul>
-            <a href="/#demo" class:list={["btn", t.featured ? "btn-primary" : "btn-secondary"]}>
+            <a href="/#trial" class:list={["btn", t.featured ? "btn-primary" : "btn-secondary"]}>
               {t.cta}
             </a>
           </li>
@@ -56,6 +61,34 @@ const days = await section("pricingDays");
       }
     </ul>
     <p class="note">{page.note}</p>
+  </Section>
+
+  <Section labelledby="compare-title">
+    <h2 id="compare-title" class="block-title">{compare.title}</h2>
+    {compare.intro && <p class="how-intro">{compare.intro}</p>}
+    <div class="compare-wrap">
+      <table class="compare">
+        <thead>
+          <tr>
+            <th scope="col">{compare.caption}</th>
+            {tiers.map((t) => <th scope="col">{t.name}</th>)}
+          </tr>
+        </thead>
+        <tbody>
+          {
+            features.map((f) => (
+              <tr>
+                <th scope="row">{f.title}</th>
+                {plans.plans.map((p) => (
+                  <td>{has(p.plan, f.id) ? <span aria-label="included">✓</span> : <span aria-label="not included">–</span>}</td>
+                ))}
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+    {compare.note && <p class="note">{compare.note}</p>}
   </Section>
 
   <Section labelledby="how-title">
@@ -97,7 +130,7 @@ const days = await section("pricingDays");
 
   <Fistroneer link={false} />
   <Sovereign />
-  <CallToAction title="Get a quote for your scope" primary="Request a quote" />
+  <CallToAction title="Try it on your own project" primary="Start a free trial" />
 </BaseLayout>
 
 <style>
@@ -108,6 +141,29 @@ const days = await section("pricingDays");
     overflow: hidden;
     clip: rect(0 0 0 0);
     white-space: nowrap;
+  }
+  .compare-wrap {
+    overflow-x: auto;
+  }
+  .compare {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9375rem;
+  }
+  .compare th,
+  .compare td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--color-line);
+    text-align: center;
+  }
+  .compare th[scope="row"],
+  .compare thead th:first-child {
+    text-align: left;
+    font-weight: 400;
+  }
+  .compare thead th {
+    font-weight: 600;
+    color: var(--color-heading);
   }
   .tiers {
     list-style: none;
