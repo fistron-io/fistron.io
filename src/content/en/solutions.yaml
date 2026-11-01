@@ -2,7 +2,7 @@
 # and on /solutions/, and a page of its own at /solutions/<id>/.
 # Source: Fistron docs/design/value-proposition.md ("Customer problems Fistron
 # solves", "The offer"), go-to-market.md ("Positioning", "Messages by
-# audience") and target-audiences.md; state of 2026-10-29.
+# audience") and target-audiences.md; state of 2026-11-01.
 #
 # status: available when the solution's core works in the Fistron
 # repository today, also while it is being validated (decided with the
@@ -23,7 +23,7 @@
     - "Design: quality policies, the evidence each change and service requires, the test and check strategy, the controls an auditor will look for."
     - "Deliver: Fistron set up in your toolchain, the missing capabilities enabled, the gaps closed through pull or merge requests you approve."
     - "Operate and prove: continuous assessment, signed reports per change and release, and preparation for external audits."
-    - "A Fistroneer, a named quality engineer from Fistron, who installs and sets Fistron up with you and works on your quality: 10 or 40 person-days a year and one hour every week, instead of one more hire."
+    - "A Fistroneer, a named quality engineer from Fistron, who installs and sets Fistron up with you and works on your quality: from Business, 10 or 40 person-days a year and one hour every week, instead of one more hire."
     - "Outcomes agreed as your KPIs and key results, and a quarterly review against the baseline."
   questions: [deadline, status, measurable-quality, release-decision]
   related: [offer, open-core]
@@ -33,7 +33,7 @@
   group: quality
   short: "Explain failed pipelines from evidence, plan the tests a change needs, find what no test covers, quarantine flaky tests and repair the tests that work badly, with the tools you already run."
   status: available
-  stage: "CI failure analysis, change assessment, test plans and coverage gaps work today. Flaky quarantine, evidence selection and the Suite Health audit run in shadow mode; the repair of bad tests, the risk of each change with its measured accuracy, the value of end-to-end tests and Gherkin and unit tests written for your plan are implemented and being validated; tests in your own tools for infrastructure changes are planned. A quality audit of a project shows where to start."
+  stage: "CI failure analysis, change assessment, test plans and coverage gaps work today. Flaky quarantine, evidence selection and the Suite Health audit run in shadow mode; the repair of bad tests, the risk of each change with its measured accuracy, the value of end-to-end tests, Gherkin and unit tests written for your plan and tests in your own tools for infrastructure changes are implemented and being validated. A quality audit of a project shows where to start."
   problem: "Red pipelines nobody can explain, flaky re-runs, test plans assembled by hand, thousands of tests run for a one-line change, and suites full of tests that check nothing. Each tool answers its own question; nobody answers whether the change is good enough."
   gets:
     - "Why a pipeline failed, from evidence across CI, source, cluster and endpoints; what is missing is acquired read-only or named."
@@ -44,6 +44,24 @@
     - "The risk of a change before it is merged, with its factors and the data that is missing; never blocking."
     - "A quality audit of your tests and CI from what you already have: a plan ordered by what costs your team most, and what the audit needs to say more."
   questions: [pipeline-failure, feature-evidence, test-coverage, test-plan, coverage-gap, necessary-work, suite-health, test-repair, change-risk]
+  related: [ci, outcomes]
+- id: fast-feedback-loop
+  title: "Fast Feedback Loop"
+  for: "For teams whose full suite runs for hours"
+  group: quality
+  short: "Know within minutes, not tomorrow. Fistron measures how long your team waits for a test result, proposes test tiers from your own CI history, shows which slow end-to-end tests can move left and proposes the change of your CI configuration. Your CI runs the tiers; your team decides who owns each."
+  status: available
+  stage: "Implemented and being validated (V3.7): the loop measured from your CI history, the tiers proposed with their reasons, the selection within a tier in shadow mode, the change of your GitHub Actions, GitLab or Jenkins configuration proposed and validated, and the history replayed under the tiers as an estimate. No speed-up is claimed until your own CI runs the tiers. Next: a public end-to-end suite measured, its tiers reviewed by people who know it."
+  problem: "The product is big, the components many, the full suite runs for twelve hours. A change pushed today shows its result tomorrow, the developer has moved on, and every failure costs a day. Some tests are slow because they test the API through the user interface; others run on every change though they add nothing."
+  gets:
+    - "Your feedback loop measured from your CI history: time to the first result and to the first failure, the baseline and the trend."
+    - "Test tiers proposed with the reason for every test: fast checks on every push, the tests a change needs on every pull or merge request, the full suite at night, release validation."
+    - "The tiers' owners set by your team: developers, developers and QE, or QE, in a policy reviewed like code."
+    - "Slow end-to-end tests that only check the API proposed as API tests, and tests that add nothing moved out of the fast tiers, only with proof."
+    - "Within a tier, the tests most likely to fail run first."
+    - "Once you approve the tiers, the change of your CI configuration proposed as a pull or merge request for GitHub Actions, GitLab or Jenkins; you review and merge it, your CI runs it. No new pipeline tool."
+    - "Failures that slipped to a later tier recorded, so the tiers improve with evidence."
+  questions: [feedback-loop, suite-health, necessary-work]
   related: [ci, outcomes]
 - id: ai-written-code
   title: "Verifying code written with AI"
@@ -84,7 +102,7 @@
   group: certification
   short: "Your key customers validate your pre-release builds in their own staging environments, with your test suite and their checks. Each run ends with a signed attestation; what they share with you is agreed."
   status: available
-  stage: "Implemented and being validated (V7.5a and V7.5b): the validation kit with its five runners (script, container, Ansible playbook, Testkube, openQA), the build's digest and signature verified before anything is installed, staging-only targets, the run, its attestation and the sharing with export for air-gapped sites; programmes across customers in the control plane, builds published from your CI, results received and your view of each release by environment, with the regressions test by test. In development (V7.5c): the release gate your release pipeline waits for, with the upgrades from earlier releases a build must pass. Next: the first programme on production."
+  stage: "Implemented and being validated (V7.5a to V7.5c): the validation kit with its five runners (script, container, Ansible playbook, Testkube, openQA), the build's digest and signature verified before anything is installed, staging-only targets, the run, its attestation and the sharing with export for air-gapped sites; programmes across customers in the control plane, builds published from your CI, results received and your view of each release by environment, with the regressions test by test; the release gate your release pipeline waits for, with the upgrades from earlier releases a build must pass (V7.5c). Next: the first programme on production."
   problem: "On-premises software meets operating systems, networks, proxies, scale and air-gapped sites its vendor's lab never reproduces. Releases then fail only at customers, upgrades slow down, and customers must test every change before production anyway."
   gets:
     - "Your release installed and tested before general availability, in the environments you cannot reproduce: problems found where they would appear."
@@ -126,6 +144,24 @@
     - "A saving counts only if quality holds: guardrail metrics next to every claim."
     - "Status reports on request or every week, each statement linked to its evidence."
   questions: [measurable-quality, status, release-decision]
+  related: [outcomes]
+- id: agile-transformation
+  title: "Agile Transformation Journey"
+  for: "For engineering leaders and project managers"
+  group: quality
+  short: "Know where your engineering organisation is and how agile it needs to be. Fistron assesses the current state from a checklist and from your own delivery data, helps leadership choose the target, and writes the plan your project manager runs: stages, actions and measurable success criteria."
+  status: available
+  stage: "The assessment works today: the checklist of Fistron's own model, the current state per area, the target your leadership approves, and the export as Markdown and CSV (fistron journey). The measured signals from your issue tracker and your delivery baseline (throughput, cycle time, work in progress, carry-over, deployment frequency and more, beside the answers) work with Fistron's core. The plan with each success criterion's metric and the quarterly re-assessment follow."
+  problem: "Transformations start with weeks of interviews and slides, aim at a level of agility nobody needs, and stall because no one can show progress. Teams are tired, dependencies block them, and the plan lives in a deck."
+  gets:
+    - "The current state per area, from a checklist answered by leadership and teams and from your issue tracker and CI, each statement with its source."
+    - "The target chosen by your leadership: how firm your commitments must be and how fast you must respond to change. Not every team needs the most agile model."
+    - "A plan in stages: for each area why, what, the actions and success criteria with a metric, a baseline and a target."
+    - "Ready for your project manager: the document in Markdown and the actions in CSV, to paste into Jira, GitLab, a wiki or a spreadsheet."
+    - "Progress measured again every quarter, from the same evidence."
+    - "Teams measured, never individuals."
+    - "Run by your project manager, or by a Fistroneer who manages the transformation with you."
+  questions: [agile-transformation, measurable-quality]
   related: [outcomes]
 - id: cyber-resilience-act
   title: "Cyber Resilience Act readiness"
@@ -190,7 +226,7 @@
   group: sovereignty
   short: "Choose how Fistron decides: rules only, with no AI at all, or a model you trust inside your network. Your code, logs and test data stay where your policy says."
   status: available
-  stage: "Fistron Sovereign Rules — Deterministic, on-premises and air-gapped installation, a local model and outbound-only agents work today, as does a benchmark of rules, commercial and open-weight models on cases from your own runs. Planned: Fistron Sovereign LLM with your own adaptation (V7.6), a ledger of where data went in every report, and a model policy by region and origin."
+  stage: "Fistron Sovereign Rules — Deterministic, on-premises and air-gapped installation, a local model and outbound-only agents work today, as does a benchmark of rules, commercial and open-weight models on cases from your own runs. Every run records where its data went (each model and platform contacted, where it is and under whose law, what it was sent and what was withheld), and a policy refuses a contact outside the jurisdictions you allow, or a model of an origin you do not accept, before anything is sent. Planned: Fistron Sovereign LLM with your own adaptation (V7.6)."
   problem: "\"We use an LLM\" does not say which endpoint receives which data, in which jurisdiction. Regulated teams and air-gapped networks may not send code and logs out at all, and some organisations forbid AI, or models of certain origins, by policy."
   gets:
     - "Fistron Sovereign Rules — Deterministic: no LLM, every decision comes from rules and evidence, the same evidence gives the same verdict."
@@ -198,6 +234,7 @@
     - "Fistron Sovereign LLM — Traceable (planned): the same on a base whose training data is documented, with Fistron's own training data, licences and consents documented too, for audits that ask what a model learned from."
     - "Your own adaptation (planned): trained on your data in your environment, also air-gapped, used only when it does better on your own benchmark; nothing leaves."
     - "A model receives evidence only up to the data class you allow; what it could not receive is reported as missing."
+    - "Where every run's data went, in its ledger: each model and platform contacted, where it is and under whose law, what it was sent and what was withheld; and a policy you set in Settings that refuses any other jurisdiction, or a model of another origin, before anything is sent."
     - "On-premises or without internet access: the licence verified offline, no telemetry, agents that connect outbound only."
     - "All variants keep Fistron's deterministic evidence and gates; the LLM variants add model reasoning on top."
   questions: [sovereignty]
@@ -206,17 +243,17 @@
   title: "Quality assurance without new headcount"
   for: "For teams that need quality engineering but can't hire"
   group: sovereignty
-  short: "A Fistroneer, a named quality engineer from Fistron, joins your team with the platform: Fistron set up and running, and 10 or 40 person-days a year of quality engineering, without recruiting, onboarding and keeping one more specialist."
+  short: "A Fistroneer, a named quality engineer from Fistron, joins your team with the platform: Fistron set up and running and, from Business, 10 or 40 person-days a year of quality engineering, without recruiting, onboarding and keeping one more specialist."
   status: in-development
-  stage: "Offered with every subscription to the first pilots; the person-days and on-site work are set in the contract. The platform parts the Fistroneer works with have their own state, on the pages of the solutions."
+  stage: "Offered to the first pilots: the setup in every tier, the person-days from Business; on-site work is set in the contract. The platform parts the Fistroneer works with have their own state, on the pages of the solutions."
   problem: "The work grows faster than the team: flaky tests, missing tests, test plans, audits. A new quality engineer needs approval for the headcount, months of hiring and onboarding, and when the person leaves, the knowledge leaves too."
   gets:
     - "Fistron installed and set up in your toolchain by your Fistroneer: hosted, hybrid, on-premises or air-gapped."
-    - "10 person-days a year of quality engineering in the Subscription, 40 in Subscription Plus: test strategy, flaky and weak tests, test plans, compliance gaps, audit preparation."
-    - "One hour every week with your team, and the quarterly review against your baseline."
+    - "10 person-days a year of quality engineering in Business, 40 in Enterprise: test strategy, flaky and weak tests, test plans, compliance gaps, audit preparation."
+    - "From Business, one hour every week with your team, and the quarterly review against your baseline."
     - "The repetitive work done by the platform: failure analysis, flaky quarantine, test selection, coverage gaps, reviews."
     - "The knowledge kept in your evidence, policies and goals, not in one person's head."
-    - "For about the yearly cost of one senior QE engineer, you get the platform, a Fistroneer and outcomes reviewed every quarter."
+    - "The price follows your team, per active committer; compare it with the yearly cost of one senior QE engineer."
     - "Capacity added to your team, not a replacement for it; more days as a package when you need them."
   questions: [headcount, deadline]
   related: [offer]

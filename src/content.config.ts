@@ -38,6 +38,7 @@ const sections = defineCollection({
     caption: z.string().optional(),
     primaryCta: z.string().optional(),
     secondaryCta: z.string().optional(),
+    demoCta: z.string().optional(),
     linkLabel: z.string().optional(),
     quip: z.string().optional(),
     faxLabel: z.string().optional(),
@@ -79,6 +80,21 @@ const simpleItem = z.object({
 const problems = defineCollection({ loader: orderedList("problems"), schema: simpleItem });
 const fistroneer = defineCollection({ loader: orderedList("fistroneer"), schema: simpleItem });
 const pricingExtras = defineCollection({ loader: orderedList("pricing-extras"), schema: simpleItem });
+/** Worked examples of the yearly price (Fistron ADR 0118 point 7). */
+const pricingExamples = defineCollection({
+  loader: orderedList("pricing-examples"),
+  schema: simpleItem.extend({
+    plan: z.string(),
+    committers: z.number().int().positive(),
+    lines: z.number().int().nonnegative().optional(),
+    yearly: z.number().int().positive(), // checked against the core's prices (check-plans.mjs)
+  }),
+});
+/** The features of the plans in the product's words (Fistron ADR 0122), with plans.json. */
+const planFeatures = defineCollection({
+  loader: orderedList("plan-features"),
+  schema: z.object({ order, title: z.string() }),
+});
 
 /** The Fistron Sovereign variants: how Fistron decides (ADR 0102 of Fistron). */
 const sovereign = defineCollection({
@@ -92,7 +108,7 @@ const sovereign = defineCollection({
   }),
 });
 
-/** The tiers on /pricing/; a price only where the founder set one. */
+/** The tiers on /pricing/ (Fistron ADR 0118); a price only where the founder set one. */
 const pricing = defineCollection({
   loader: orderedList("pricing"),
   schema: z.object({
@@ -100,6 +116,7 @@ const pricing = defineCollection({
     name: z.string(),
     price: z.string(),
     priceNote: z.string().optional(),
+    minimum: z.string().optional(), // the tier's yearly minimum
     for: z.string(),
     features: z.array(z.string()).min(1),
     cta: z.string(),
@@ -224,6 +241,8 @@ export const collections = {
   sovereign,
   pricing,
   pricingExtras,
+  pricingExamples,
+  planFeatures,
   differentiators,
   dogfood,
   dogfoodStats,

@@ -13,3 +13,6 @@
 - id: platform
   title: "On your platform"
   text: "As an add-on in your PaaS or SaaS provider's marketplace, or as the provider's own quality service."
+- id: one-command
+  title: "One command"
+  text: "The agent or the local UI installs with one command and takes its patch releases by itself; a new version is one more command."

@@ -5,8 +5,8 @@ hero:
   eyebrow: "Assured, not assumed."
   title: "The end-to-end autonomous assurance platform"
   intro: "Fistron is the **platform for autonomous quality and compliance assurance**. By orchestrating the tools you already run, it delivers an **end-to-end solution** for the quality your customers, auditors and regulators expect, including **ISO certification that supports NIS2 and EU DORA**, under your control and with the proof they accept. **Deterministic where it counts, AI where it helps.**"
-  note: "CI failure analysis, change assessment, test plans, coverage gaps and the checks for code written with AI work today. Compliance in the tool, Fištrónek with measurable outcomes, the risk of each change and the repair of tests that work badly are implemented and being validated; new tests and Distributed Continuous Certification are in development. People and guarantees are set per contract."
-  primaryCta: "Request a demo"
+  note: "CI failure analysis, change assessment, test plans, coverage gaps and the checks for code written with AI work today. Compliance in the tool, Fištrónek with measurable outcomes, the risk of each change, the repair of tests that work badly, new tests, the Fast Feedback Loop and Distributed Continuous Certification are implemented and being validated. People and guarantees are set per contract."
+  primaryCta: "Start a free trial"
   secondaryCta: "Explore the solutions"
   caption: "Target workflow with example data. In development."
 
@@ -52,8 +52,8 @@ offer:
   note: "Offered from the first pilots; terms are set per contract. Compliance in the tool is implemented and being validated on Fistron's own repositories; certification goes through accredited partners."
 
 included:
-  title: "Included in every subscription"
-  intro: "You pay for people and for results we stand behind, not for a licence. No premium add-ons."
+  title: "Included in Business and Enterprise"
+  intro: "You pay for people and for results we stand behind, not for a licence. No premium add-ons. In Team, your Fistroneer installs and sets Fistron up."
 
 ci:
   title: "Start where it hurts: CI failed. Tell me why."
@@ -80,7 +80,7 @@ dogfood:
 platforms:
   title: "Your CI. One quality control plane."
   intro: "Fistron is built around evidence, so teams can keep their CI platforms. GitLab CI and GitHub Actions are the implemented adapters. Here is exactly what works today and what is being considered next."
-  note: "GitLab CI and GitHub Actions have native CI adapters today; re-running a failed job works on GitLab only. A full Jenkins adapter and Azure DevOps are the likely next candidates; pilot needs determine the order."
+  note: "GitLab CI and GitHub Actions have native CI adapters today; re-running a failed job works on GitLab only. Jenkins is read today (the CI history and failed builds), and the test tiers' change of a Jenkinsfile is proposed as a request. Running in Jenkins and Azure DevOps are the likely next candidates; pilot needs determine the order."
   linkLabel: "Explore more platform candidates"
   caption: "These platforms are listed in the roadmap for evaluation. No native adapters or delivery dates are committed. Descriptions show the intended evidence sources."
   paragraphs:
@@ -116,7 +116,7 @@ partners:
 
 roadmap:
   title: "Where Fistron is heading"
-  intro: "V1 to V4.6 are implemented and being validated: flaky quarantine, evidence selection and the Suite Health audit in shadow mode on Fistron's own repositories, the local interface and setup released, and the control plane for teams in production for its first pilot. Fistron in your coding assistant (V3.6), the value of your end-to-end tests (V3.2c), Gherkin tests written for your plan (V5a), the risk of each change with its measured accuracy (V6), the closed loop on your tests (V7), certification by your customers across releases (V7.5a and V7.5b) and Migration Assurance (V7.7) are implemented and being validated. In development: the release gate (V7.5c) and Fistron Sovereign LLM (V7.6). General availability follows V7, V5 and V7.7. Green marks what is implemented; human review and broader validation continue."
+  intro: "V1 to V4.6 are implemented and being validated: flaky quarantine, evidence selection and the Suite Health audit in shadow mode on Fistron's own repositories, the local interface and setup released, and the control plane for teams in production for its first pilot. Fistron in your coding assistant (V3.6), the value of your end-to-end tests (V3.2c), the Fast Feedback Loop (V3.7), new tests written for your plan, also in your own tools (V5), the risk of each change with its measured accuracy (V6), the closed loop on your tests (V7), certification by your customers across releases with the release gate (V7.5), Migration Assurance (V7.7) and the verification log of a release (V7.8) are implemented and being validated. In development: Fistron Sovereign LLM (V7.6). General availability follows V7, V5 and V7.7. Green marks what is implemented; human review and broader validation continue."
   caption: "GA in sight. Fištrónek brought binoculars."
 
 openCore:
@@ -134,15 +134,16 @@ about:
     - "Meet Fištrónek, our crow. Crows are among the cleverest animals: they use whatever tools are around them. He hands over the checkbox only once the evidence is in."
 
 demo:
-  title: "See Fistron on your toolchain"
-  intro: "Tell us about a quality decision or an audit that takes too much manual work today. We'll show you what Fistron finds and what it would need, starting with a readiness assessment of one project or service."
-  primaryCta: "Request a demo"
-  note: "Demo requests aren't connected yet. This form doesn't send anything."
+  title: "Start a free trial"
+  intro: "60 days on one project, with every feature. Give us your work e-mail: Fistron makes your organisation and sends you an e-mail to verify it and choose your password."
+  primaryCta: "Start my free trial"
+  demoCta: "Try the demo"
+  note: "Trials open soon. This form doesn't send anything yet."
   faxLabel: "Fax number"
   faxJoke: "Just kidding :-)"
-  successLabel: "Request received"
+  successLabel: "Trial requested"
   successTitle: "Evidence: 1. Confidence: high."
-  successText: "Thanks, we'll get back to you soon. Fištrónek is already reading it."
+  successText: "Check your e-mail: verify your address and choose your password, then sign in. Fištrónek is already setting up your organisation."
   errorText: "That didn't go through. Please try again in a moment."
 
 notFound:
@@ -204,8 +205,8 @@ partnersPage:
 
 fistroneer:
   title: "A Fistroneer on your team, not one more hire"
-  intro: "Every subscription comes with a Fistroneer: a named quality engineer from Fistron who sets Fistron up with you and then works on your quality as part of your team. For about the yearly cost of one senior QE engineer, you get the platform, a Fistroneer and outcomes reviewed every quarter, without recruiting, onboarding and keeping one more specialist."
-  note: "Person-days and on-site work as your subscription and contract say."
+  intro: "Every subscription comes with a Fistroneer: a named quality engineer from Fistron who sets Fistron up with you. From Business, the Fistroneer then works on your quality as part of your team, every week and for set days a year, without recruiting, onboarding and keeping one more specialist."
+  note: "Person-days and on-site work as your tier and contract say."
   linkLabel: "See pricing"
 
 sovereign:
@@ -216,6 +217,33 @@ sovereign:
 
 pricingPage:
   title: "Pricing"
-  intro: "A subscription includes the platform and the people: a Fistroneer who sets Fistron up and works on your quality, outcomes reviewed every quarter, and the proof your auditors accept."
-  note: "Prices exclude VAT. The Subscription's price is where subscriptions start; the final price follows the scope, the deployment and the number of person-days, and is set in your contract. Features marked planned are not yet available."
-  caption: "Programmes and services"
+  intro: "The price follows your team: what you pay grows with the people who change your code, not with who reads the reports. Every tier includes a Fistroneer who sets Fistron up; from Business also the weekly hour, the person-days, outcomes reviewed every quarter and the proof your auditors accept."
+  note: "Prices exclude VAT and are yearly, set in your contract. Features marked planned are not yet available."
+  caption: "Add-ons and services"
+
+pricingCompare:
+  title: "What each plan includes"
+  intro: "The licence names your plan, and Fistron does what it includes: the table is the product's own. In the product, your organisation's page shows the same and lets an admin ask for more."
+  caption: "Feature"
+  note: "The Trial has every feature on one project for 60 days. Distributed Continuous Certification and Migration Assurance are add-ons to any plan."
+
+pricingHow:
+  title: "How the price is calculated"
+  paragraphs:
+    - "An active committer is a person with at least one commit, not a merge, in the last 90 days to the repositories in scope. One person with several identities counts once; bots and CI, build and translation accounts do not count. Counted when the contract is signed and once a year after; on-premises and air-gapped, counted on your side from git, offline. Fistron keeps the count, never the names."
+    - "50,000 lines of code are included per active committer: tracked files without blank lines and comments; generated and vendored code, translations and data files excluded; forks of the same code counted once. Above them, EUR 1,000 a year per started 100,000 lines."
+    - "The yearly price is the tier's monthly rate × active committers × 12, plus the lines above those included, and at least the tier's minimum."
+  caption: "Worked examples"
+  note: "Compare it with the yearly cost of one senior QE engineer."
+
+pricingDays:
+  title: "Estimating the Fistroneer's days"
+  intro: "How many person-days your setup and ongoing work take. The days of your tier count first; the rest at EUR 1,300 a day."
+  paragraphs:
+    - "Setup, hosted in the EU: 3 person-days"
+    - "Setup, hybrid: 5 person-days"
+    - "Setup, on-premises: 9 person-days"
+    - "Setup, air-gapped: 12 person-days"
+    - "Each additional CI system: 1 person-day"
+    - "Each test suite: 2 person-days"
+    - "Ongoing work: 1 person-day a month per team"

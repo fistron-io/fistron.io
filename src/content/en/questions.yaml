@@ -27,6 +27,10 @@
   question: "Which tests are flaky, and which ones add nothing?"
   answer: "Find flaky tests in your CI history and tests whose coverage another test already has, and propose them as a pull request you merge or reject. A test is recommended to merge or retire only when mutation results show nothing is lost. Both run in shadow mode today."
   status: available
+- id: feedback-loop
+  question: "Our full suite runs for hours. Can we know sooner?"
+  answer: "Measure how long your team waits, run the fast checks and the tests the change needs first and the full suite at night, and move slow end-to-end tests that only check the API to API tests. Fistron proposes the tiers from your CI history with a reason for every test and, once you approve them, the change of your CI configuration as a pull or merge request; your CI runs them and your team decides who owns each."
+  status: available
 - id: change-risk
   question: "How risky is this change before we merge it?"
   answer: "A risk level with its factors, from the change's gaps, the history of the changed code and the tests that guard it, each citing its evidence and naming what is missing. Never blocking; from your own data only."
@@ -37,7 +41,7 @@
   status: available
 - id: headcount
   question: "We can't hire more QE engineers. Who does the work?"
-  answer: "A Fistroneer, a named quality engineer from Fistron, with the platform: Fistron set up in your toolchain, 10 or 40 person-days a year of quality engineering and one hour every week, while the platform does the repetitive work. No recruiting, no onboarding, no gap when someone leaves."
+  answer: "A Fistroneer, a named quality engineer from Fistron, with the platform: Fistron set up in your toolchain and, from Business, 10 or 40 person-days a year of quality engineering and one hour every week, while the platform does the repetitive work. No recruiting, no onboarding, no gap when someone leaves."
   status: in-development
 - id: deadline
   question: "The deadline is close. Can we still ship in the quality we need?"
@@ -90,4 +94,8 @@
 - id: sovereignty
   question: "Can we use Fistron without sending our code and logs to an AI?"
   answer: "Yes: with Fistron Sovereign Rules — Deterministic no model is used, and gates, risk levels and attestations are computed by rules either way. Or keep a model you trust inside your network; it receives evidence only up to the data class you allow."
+  status: available
+- id: agile-transformation
+  question: "We want to become more agile. Where do we start?"
+  answer: "With where you are and how agile you really need to be. Today Fistron assesses the current state per area from its checklist, your leadership chooses and approves the target, and you get what lies between as Markdown and CSV for your project manager or a Fistroneer. Your issue tracker and CI add the measured signals beside the answers, for a team of five or more and never per person. The plan with measurable success criteria follows."
   status: available

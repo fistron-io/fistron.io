@@ -1,6 +1,6 @@
 /** Site-wide settings: names, URLs and navigation. */
 
-export type ServiceKey = "app" | "docs" | "support" | "openSource";
+export type ServiceKey = "app" | "docs" | "support" | "openSource" | "demo";
 
 /**
  * A link inside this site, or one of the separate services. `menu` makes it a
@@ -37,6 +37,8 @@ export const site = {
     docs: { url: "https://docs.fistron.io", live: true },
     support: { url: "https://support.fistron.io", live: false },
     openSource: { url: "https://fistron.org", live: false },
+    /** The demo (Fistron ADR 0122): every page with invented data, without an account. */
+    demo: { url: "https://demo.fistron.io", live: false },
   },
 
   nav: [
@@ -64,8 +66,10 @@ export const site = {
   indexable: import.meta.env.PUBLIC_INDEXABLE === "true",
 
   /**
-   * Endpoint that receives "Request a demo" submissions. Not connected yet:
-   * while undefined, the form says so instead of sending anything.
+   * The control plane's trials (Fistron ADR 0122): the form posts the name,
+   * the work e-mail and the company as JSON, e.g.
+   * "https://app.fistron.io/api/v1/trials". While undefined, the form says so
+   * instead of sending anything.
    */
-  demoFormAction: undefined as string | undefined,
+  trialFormAction: undefined as string | undefined,
 };

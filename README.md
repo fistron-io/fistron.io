@@ -140,7 +140,15 @@ subscription includes, 10 or 40 person-days a year) and Fistron Sovereign
 (the rules and Fistron's own planned models, ADR 0102), and /pricing/ shows
 the tiers (Trial, Subscription from EUR 100,000 a year, Subscription Plus
 on request) with the programmes and services; `fistroneer.yaml`,
-`sovereign.yaml`, `pricing.yaml` and `pricing-extras.yaml` hold them.
+`sovereign.yaml`, `pricing.yaml` and `pricing-extras.yaml` hold them. On 2026-10-31 the roadmap, the solutions, the questions,
+the hero and the platforms were synced with the Fistron head: the Fast
+Feedback Loop (V3.7, ADR 0119) implemented and being validated, a condition
+of GA, and the current stage; tests in the customer's tools (V5b) and the
+release gate (V7.5c) implemented; the verification log of a release (V7.8,
+ADR 0117) added; Jenkins read-only (ADR 0074) with the tiers' change of a
+declarative Jenkinsfile. Later that day the sovereignty solution gained the
+data-flow ledger of every run and the policy that refuses a contact before
+it is made (Fistron ADR 0121).
 
 V1 functionality is implemented, with broader real-case validation ongoing.
 V2.1 change assessment, V2.2 test plans, V2.3 extension points and the V2.4
@@ -152,10 +160,13 @@ Evidence selection (V2.5), flaky quarantine (V1.5) and the Suite Health
 audit run in shadow mode on Fistron's own repositories: they record what
 they would do, nothing is skipped, quarantined or removed. The local
 interface and setup (V4a) are released and being validated; the control
-plane (V4b) runs on Fistron's staging, not for customers. Compliance in the
-tool (V4.5), Fištrónek with measurable outcomes (V4.6) and the change risk
-(V6a, shadow mode) are implemented and being validated; the repair of bad
-tests (V7a) is in development. Enforcement and commercial packaging remain
+plane (V4b) is in production for its first pilot. Compliance in the tool
+(V4.5), Fištrónek with measurable outcomes (V4.6), the Fast Feedback Loop
+(V3.7), test authoring (V5), predictive quality (V6, the change risk in
+shadow mode), the closed loop on existing tests (V7), Distributed Continuous
+Certification (V7.5), Migration Assurance (V7.7) and the verification log
+(V7.8) are implemented and being validated; Fistron Sovereign LLM (V7.6) is
+in development. Enforcement and commercial packaging remain
 planned. The proposed edition split is not a released offer or final
 licence commitment.
 
@@ -285,21 +296,36 @@ the characters before launch.
 
 ## Services on other hosts
 
-app.fistron.io, docs.fistron.io, support.fistron.io and fistron.org are
-separate projects. `site.services` in `src/config/site.ts` lists them with a
-`live` flag. While a service is not live, `NavLink` shows its name with a
-"Coming soon" tag (a short "Soon" in the header) instead of a link, so no
-page points at a host that doesn't answer. Set `live: true` once the host is
-up.
+app.fistron.io, docs.fistron.io, support.fistron.io, fistron.org and the
+demo (demo.fistron.io) are separate projects. `site.services` in
+`src/config/site.ts` lists them with a `live` flag. While a service is not
+live, `NavLink` shows its name with a "Coming soon" tag (a short "Soon" in
+the header) instead of a link, so no page points at a host that doesn't
+answer; the trial's section shows "Try the demo" only once the demo is live.
+Set `live: true` once the host is up.
 
-## Demo form
+## Trial form
 
-The "Request a demo" form is not connected to anything yet. While
-`site.demoFormAction` in `src/config/site.ts` is unset, submitting the form
-shows a note instead of sending data. Once it is set, the form posts in the
-background and shows the success panel ("Evidence: 1. Confidence: high.") or
-an error. Connecting it needs an endpoint (for example a Cloudflare Worker or
-a form service) and a privacy notice.
+The "Start a free trial" form (`#trial`, Fistron ADR 0122) posts the name,
+the work e-mail and the company as JSON to the control plane's trials,
+`site.trialFormAction` (`https://app.fistron.io/api/v1/trials` once trials
+are on there). A hidden field `website` stays empty for people; robots fill
+it and get the same answer. While `trialFormAction` is unset, submitting
+shows a note instead of sending data; set, it shows the success panel
+("Evidence: 1. Confidence: high.": check your e-mail) or an error.
+Connecting it needs the privacy notice for the e-mail and the name.
+
+## The plans on /pricing/
+
+`src/content/en/plans.json` is the core's table of plans (fistron-core's
+`plans()`, Fistron ADR 0122), regenerated when it changes;
+`plan-features.yaml` has each feature in the product's words.
+`scripts/check-plans.mjs` (part of `npm run check`) fails when the tiers of
+`pricing.yaml` are not the core's plans or a feature has no words, and when
+a price differs from the core's (Fistron ADR 0118): a tier's price and
+minimum, the lines included and their price (`pricing-extras.yaml`), and
+each worked example's yearly price (`pricing-examples.yaml`: `plan`,
+`committers`, `lines`, `yearly`) by the formula.
 
 ## Hosting
 
@@ -317,6 +343,30 @@ Deployment runs on Cloudflare (Workers Builds) on every push to `main`:
 Manual deployment from a workstation: `npx wrangler login`, then
 `npm run deploy`. `npx wrangler deploy --dry-run` validates the
 configuration without deploying.
+
+## get.fistron.io
+
+The installer's address (Fistron ADR 0122 point 1):
+`curl -fsSL https://get.fistron.io | sh -s -- agent`. A Worker of its own,
+`get-fistron-io` (`get/worker.mjs`, `get/wrangler.jsonc`), with no assets:
+
+- `/` and `/install.sh` redirect (302, never cached) to the newest
+  release's asset, `https://github.com/<REPOSITORY>/releases/latest/download/install.sh`,
+  so what a host runs is the release's file byte for byte;
+- `/v1.2.3` redirects to that release's `install.sh`; any other path is a
+  404 that says how to get the installer.
+
+`REPOSITORY` (owner/name) is a variable of `get/wrangler.jsonc`. The custom
+domain makes its DNS record and its certificate at Cloudflare. It is never
+behind Cloudflare Access: hosts download the installer without a person.
+Until general availability the releases are private and the redirect ends
+in GitHub's 404.
+
+Deploy: `npm run deploy:get` (`wrangler deploy -c get/wrangler.jsonc`), or
+a second Workers Build with the deploy command
+`npx wrangler deploy -c get/wrangler.jsonc`. `npm run check` runs its tests
+(`node --test get/worker.test.mjs`). Fistron's release checks after each
+release that get.fistron.io serves the release's `install.sh`.
 
 ## Going public
 

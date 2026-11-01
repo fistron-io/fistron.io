@@ -5,11 +5,19 @@ import Section from "../components/Section.astro";
 import Fistroneer from "../sections/Fistroneer.astro";
 import Sovereign from "../sections/Sovereign.astro";
 import CallToAction from "../components/CallToAction.astro";
-import { section, list } from "../lib/content";
+import { section, list, listWithIds } from "../lib/content";
+import plans from "../content/en/plans.json";
 
 const page = await section("pricingPage");
 const tiers = await list("pricing");
 const extras = await list("pricingExtras");
+const how = await section("pricingHow");
+const examples = await list("pricingExamples");
+const days = await section("pricingDays");
+const compare = await section("pricingCompare");
+const features = await listWithIds("planFeatures");
+const has = (plan: string, feature: string) =>
+  plans.plans.find((p) => p.plan === plan)?.features.includes(feature) ?? false;
 ---
 
 <BaseLayout title="Pricing" description={page.intro}>
@@ -27,12 +35,13 @@ const extras = await list("pricingExtras");
               <span class="amount">{t.price}</span>
               {t.priceNote && <span class="per">{t.priceNote}</span>}
             </p>
+            {t.minimum && <p class="minimum">{t.minimum}</p>}
             <ul class="features">
               {t.features.map((f) => (
                 <li>{f}</li>
               ))}
             </ul>
-            <a href="/#demo" class:list={["btn", t.featured ? "btn-primary" : "btn-secondary"]}>
+            <a href="/#trial" class:list={["btn", t.featured ? "btn-primary" : "btn-secondary"]}>
               {t.cta}
             </a>
           </li>
@@ -54,9 +63,74 @@ const extras = await list("pricingExtras");
     <p class="note">{page.note}</p>
   </Section>
 
+  <Section labelledby="compare-title">
+    <h2 id="compare-title" class="block-title">{compare.title}</h2>
+    {compare.intro && <p class="how-intro">{compare.intro}</p>}
+    <div class="compare-wrap">
+      <table class="compare">
+        <thead>
+          <tr>
+            <th scope="col">{compare.caption}</th>
+            {tiers.map((t) => <th scope="col">{t.name}</th>)}
+          </tr>
+        </thead>
+        <tbody>
+          {
+            features.map((f) => (
+              <tr>
+                <th scope="row">{f.title}</th>
+                {plans.plans.map((p) => (
+                  <td>{has(p.plan, f.id) ? <span aria-label="included">✓</span> : <span aria-label="not included">–</span>}</td>
+                ))}
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+    {compare.note && <p class="note">{compare.note}</p>}
+  </Section>
+
+  <Section labelledby="how-title">
+    <h2 id="how-title" class="block-title">{how.title}</h2>
+    <div class="how">
+      {how.paragraphs?.map((p) => <p>{p}</p>)}
+    </div>
+    <h3 class="examples-title">{how.caption}</h3>
+    <ul class="examples">
+      {
+        examples.map((e) => (
+          <li>
+            <h4>{e.title}</h4>
+            <p>{e.text}</p>
+          </li>
+        ))
+      }
+    </ul>
+    <p class="note">{how.note}</p>
+  </Section>
+
+  <Section labelledby="days-title">
+    <h2 id="days-title" class="block-title">{days.title}</h2>
+    {days.intro && <p class="how-intro">{days.intro}</p>}
+    <ul class="days">
+      {
+        days.paragraphs?.map((d) => {
+          const [what, much] = d.split(": ");
+          return (
+            <li>
+              <span>{what}</span>
+              <span class="much">{much}</span>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </Section>
+
   <Fistroneer link={false} />
   <Sovereign />
-  <CallToAction title="Get a quote for your scope" primary="Request a quote" />
+  <CallToAction title="Try it on your own project" primary="Start a free trial" />
 </BaseLayout>
 
 <style>
@@ -67,6 +141,29 @@ const extras = await list("pricingExtras");
     overflow: hidden;
     clip: rect(0 0 0 0);
     white-space: nowrap;
+  }
+  .compare-wrap {
+    overflow-x: auto;
+  }
+  .compare {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9375rem;
+  }
+  .compare th,
+  .compare td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--color-line);
+    text-align: center;
+  }
+  .compare th[scope="row"],
+  .compare thead th:first-child {
+    text-align: left;
+    font-weight: 400;
+  }
+  .compare thead th {
+    font-weight: 600;
+    color: var(--color-heading);
   }
   .tiers {
     list-style: none;
@@ -140,6 +237,73 @@ const extras = await list("pricingExtras");
   }
   .tiers .btn {
     align-self: flex-start;
+  }
+  .minimum {
+    margin-top: 4px;
+    font-size: 0.875rem;
+    color: var(--color-muted);
+  }
+  .block-title {
+    font-size: var(--text-h3, 1.5rem);
+    font-weight: 600;
+    color: var(--color-heading);
+  }
+  .how {
+    margin-top: 16px;
+    display: grid;
+    gap: 12px;
+    max-width: 72ch;
+    color: var(--color-ink-2);
+  }
+  .how-intro {
+    margin-top: 12px;
+    max-width: 72ch;
+    color: var(--color-ink-2);
+  }
+  .examples-title {
+    margin-top: 40px;
+    font-weight: 600;
+    color: var(--color-heading);
+  }
+  .examples {
+    list-style: none;
+    padding: 0;
+    margin-top: 16px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px 32px;
+  }
+  .examples li {
+    border-top: 1px solid var(--color-line);
+    padding-top: 12px;
+  }
+  .examples h4 {
+    font-weight: 500;
+    color: var(--color-heading);
+  }
+  .examples p {
+    margin-top: 4px;
+    font-size: 0.9375rem;
+    color: var(--color-muted);
+  }
+  .days {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+    max-width: 560px;
+  }
+  .days li {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--color-line);
+    color: var(--color-ink-2);
+  }
+  .days .much {
+    color: var(--color-heading);
+    font-weight: 500;
+    white-space: nowrap;
   }
   .extras-title {
     margin-top: 72px;

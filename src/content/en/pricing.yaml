@@ -1,42 +1,60 @@
-# The tiers on /pricing/, shown in file order. Source: Fistron
-# business-model.md and ADR 0068 (as amended 2026-10-29). The only price
-# shown is the working assumption "from EUR 100,000 a year"; everything
-# else is on request. Never invent a price here.
+# The tiers on /pricing/, shown in file order. Source: Fistron ADR 0118
+# (pricing per active committer, 2026-10-30) and business-model.md, its
+# price list. Prices exclude VAT; each tier's minimum is a yearly price.
+# Never invent a price here.
 - id: trial
   name: "Trial"
   price: "Free"
   priceNote: "60 days"
   for: "To see the gap on one project"
   features:
-    - "One project or service"
+    - "Every feature, on one project or service"
     - "Readiness for one compliance framework: controls, state and gaps"
-    - "The commercial core on a limited scope"
+    - "Started on this website, without a call"
     - "Fistron Sovereign Rules — Deterministic, or the model you bring"
-  cta: "Start with a pilot"
-- id: subscription
-  name: "Subscription"
-  price: "from EUR 100,000"
-  priceNote: "a year"
-  for: "For about the yearly cost of one senior QE engineer"
+  cta: "Start a free trial"
+- id: team
+  name: "Team"
+  price: "EUR 25"
+  priceNote: "per active committer a month"
+  minimum: "At least EUR 5,000 a year"
+  for: "For a team that wants its failures explained and its tests in order"
   features:
-    - "The platform hosted in the EU, hybrid, on-premises or air-gapped"
-    - "A Fistroneer who installs and sets Fistron up, then one hour every week"
-    - "10 Fistroneer person-days a year of quality engineering"
-    - "Compliance in the tool for the frameworks in your scope"
-    - "Outcomes as your KPIs, a quarterly review, signed attestations"
-    - "Regulatory watch, audit-day support, RCA on call, training"
+    - "Hosted in the EU"
+    - "Root cause analysis, flaky tests, test plans, coverage gaps, Suite Health, PR/MR review, change risk"
+    - "Fast Feedback Loop: the loop measured"
     - "Fistron Sovereign Rules and Fistron Sovereign LLM (planned)"
-  cta: "Request a quote"
-  featured: true
-- id: plus
-  name: "Subscription Plus"
-  price: "On request"
-  priceNote: "a year"
-  for: "For large organisations and many teams"
+    - "A Fistroneer who installs and sets Fistron up with you"
+  cta: "Start with a free trial"
+- id: business
+  name: "Business"
+  price: "EUR 45"
+  priceNote: "per active committer a month"
+  minimum: "At least EUR 20,000 a year"
+  for: "For organisations that need the result, the people and the proof"
   features:
-    - "Everything in the Subscription"
-    - "40 Fistroneer person-days a year of quality engineering"
-    - "Ongoing work: upgrades, new projects and teams, new frameworks"
+    - "Hosted in the EU or hybrid"
+    - "Everything in Team"
+    - "The control plane for your teams, and Fištrónek"
+    - "Fast Feedback Loop: tiers, shift-left and the CI change proposed"
+    - "The repair of tests that work badly, and new tests for the test plan's gaps"
+    - "One compliance framework in the tool"
+    - "Outcomes as your KPIs, a quarterly review, signed attestations"
+    - "A Fistroneer who installs and sets up, then one hour every week and 10 person-days a year"
+    - "Regulatory watch, audit-day support, RCA on call, training"
+  cta: "Start with a free trial"
+  featured: true
+- id: enterprise
+  name: "Enterprise"
+  price: "EUR 65"
+  priceNote: "per active committer a month"
+  minimum: "At least EUR 80,000 a year"
+  for: "For large organisations, many teams and closed networks"
+  features:
+    - "Everything in Business"
+    - "Also on-premises and air-gapped"
+    - "The compliance frameworks in your scope"
+    - "40 Fistroneer person-days a year and the ongoing work: upgrades, new projects and teams, new frameworks"
     - "On site where your contract says so"
-    - "Fistron Sovereign LLM trained on your data, in your environment (planned)"
-  cta: "Request a quote"
+    - "Fistron Sovereign LLM adapted on your data, in your environment (planned)"
+  cta: "Start with a free trial"

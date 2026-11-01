@@ -1,0 +1,109 @@
+{
+  "source": "fistron-core's plans() (Fistron ADR 0122): what each plan includes; regenerated when the core's table changes. scripts/check-plans.mjs compares it with pricing.yaml, plan-features.yaml, pricing-extras.yaml and pricing-examples.yaml.",
+  "plans": [
+    {
+      "plan": "trial",
+      "tier": "free",
+      "features": [
+        "core",
+        "predictive",
+        "organisation",
+        "compliance",
+        "outcomes",
+        "assistant",
+        "feedback-loop",
+        "repair",
+        "authoring",
+        "transformation",
+        "certification",
+        "migration"
+      ],
+      "limits": {
+        "projects": 1,
+        "clusters": 1,
+        "frameworks": 1,
+        "environments": 2
+      },
+      "price": null
+    },
+    {
+      "plan": "team",
+      "tier": "paid",
+      "features": [
+        "core",
+        "predictive"
+      ],
+      "limits": {
+        "projects": null,
+        "clusters": null,
+        "frameworks": null
+      },
+      "price": {
+        "monthly_per_committer": 25,
+        "yearly_minimum": 5000
+      }
+    },
+    {
+      "plan": "business",
+      "tier": "paid",
+      "features": [
+        "core",
+        "predictive",
+        "organisation",
+        "compliance",
+        "outcomes",
+        "assistant",
+        "feedback-loop",
+        "repair",
+        "authoring",
+        "transformation"
+      ],
+      "limits": {
+        "projects": null,
+        "clusters": null,
+        "frameworks": 1
+      },
+      "price": {
+        "monthly_per_committer": 45,
+        "yearly_minimum": 20000
+      }
+    },
+    {
+      "plan": "enterprise",
+      "tier": "paid",
+      "features": [
+        "core",
+        "predictive",
+        "organisation",
+        "compliance",
+        "outcomes",
+        "assistant",
+        "feedback-loop",
+        "repair",
+        "authoring",
+        "transformation",
+        "self-hosted"
+      ],
+      "limits": {
+        "projects": null,
+        "clusters": null,
+        "frameworks": null
+      },
+      "price": {
+        "monthly_per_committer": 65,
+        "yearly_minimum": 80000
+      }
+    }
+  ],
+  "add_ons": [
+    "certification",
+    "migration"
+  ],
+  "trial_days": 60,
+  "currency": "EUR",
+  "lines": {
+    "included_per_committer": 50000,
+    "block": 100000,
+    "block_yearly": 1000
+  }
+}

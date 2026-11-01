@@ -1,9 +1,9 @@
-# What every subscription includes besides the software (offer section),
-# shown in file order (Fistron ADR 0068). Terms are set per contract; no
-# prices on the site.
+# What Business and Enterprise include besides the software (offer
+# section), shown in file order (Fistron ADR 0068, the tiers of ADR 0118).
+# Terms are set per contract; the prices are on /pricing/ only.
 - id: architect
   title: "A Fistroneer on your team"
-  text: "A named quality engineer from Fistron who installs and sets Fistron up with you and works on your quality: 10 person-days a year in the Subscription, 40 in Subscription Plus with the ongoing work, and one hour every week. On-site work as your contract says."
+  text: "A named quality engineer from Fistron who installs and sets Fistron up with you and works on your quality: 10 person-days a year in Business, 40 in Enterprise with the ongoing work, and one hour every week. On-site work as your contract says."
 - id: outcomes
   title: "Results you can measure"
   text: "Goals, signals and metrics agreed at the start, as the KPIs you report or key results under your OKRs, with a baseline and targets, measured from evidence."

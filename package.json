@@ -6,11 +6,12 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "check": "astro check && node scripts/check-theme-tokens.mjs",
+    "check": "astro check && node scripts/check-theme-tokens.mjs && node scripts/check-plans.mjs && node --test get/worker.test.mjs",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "deploy": "astro build && wrangler deploy"
+    "deploy": "astro build && wrangler deploy",
+    "deploy:get": "wrangler deploy -c get/wrangler.jsonc"
   },
   "dependencies": {
     "@fontsource/ibm-plex-mono": "^5.3.0",

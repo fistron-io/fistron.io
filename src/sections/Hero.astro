@@ -17,7 +17,7 @@ const introParts = (copy.intro ?? "").split("**").map((text, i) => ({ text, stro
       <h1 id="hero-title">{copy.title}</h1>
       <p class="intro">{introParts.map((part) => (part.strong ? <strong>{part.text}</strong> : part.text))}</p>
       <div class="ctas">
-        <a href="#demo" class="btn btn-primary">{copy.primaryCta}</a>
+        <a href="#trial" class="btn btn-primary">{copy.primaryCta}</a>
         <a href="#solutions" class="btn btn-secondary">{copy.secondaryCta}</a>
       </div>
     </div>
