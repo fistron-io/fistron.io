@@ -97,5 +97,5 @@
   status: available
 - id: agile-transformation
   question: "We want to become more agile. Where do we start?"
-  answer: "With where you are and how agile you really need to be. Today Fistron assesses the current state per area from its checklist, your leadership chooses and approves the target, and you get what lies between as Markdown and CSV for your project manager or a Fistroneer. Your issue tracker and CI add the measured signals beside the answers, for a team of five or more and never per person. The plan with measurable success criteria follows."
+  answer: "With where you are and how agile you really need to be. Today Fistron assesses the current state per area from its checklist, your leadership chooses and approves the target, and you get what lies between as Markdown and CSV for your project manager or a Fistroneer. Your issue tracker and CI add the measured signals beside the answers, for a team of five or more and never per person. Fistron's core then plans the way there: per statement the action and its success criterion with a metric, a baseline and a target."
   status: available
