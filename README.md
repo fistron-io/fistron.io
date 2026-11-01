@@ -344,6 +344,30 @@ Manual deployment from a workstation: `npx wrangler login`, then
 `npm run deploy`. `npx wrangler deploy --dry-run` validates the
 configuration without deploying.
 
+## get.fistron.io
+
+The installer's address (Fistron ADR 0122 point 1):
+`curl -fsSL https://get.fistron.io | sh -s -- agent`. A Worker of its own,
+`get-fistron-io` (`get/worker.mjs`, `get/wrangler.jsonc`), with no assets:
+
+- `/` and `/install.sh` redirect (302, never cached) to the newest
+  release's asset, `https://github.com/<REPOSITORY>/releases/latest/download/install.sh`,
+  so what a host runs is the release's file byte for byte;
+- `/v1.2.3` redirects to that release's `install.sh`; any other path is a
+  404 that says how to get the installer.
+
+`REPOSITORY` (owner/name) is a variable of `get/wrangler.jsonc`. The custom
+domain makes its DNS record and its certificate at Cloudflare. It is never
+behind Cloudflare Access: hosts download the installer without a person.
+Until general availability the releases are private and the redirect ends
+in GitHub's 404.
+
+Deploy: `npm run deploy:get` (`wrangler deploy -c get/wrangler.jsonc`), or
+a second Workers Build with the deploy command
+`npx wrangler deploy -c get/wrangler.jsonc`. `npm run check` runs its tests
+(`node --test get/worker.test.mjs`). Fistron's release checks after each
+release that get.fistron.io serves the release's `install.sh`.
+
 ## Going public
 
 1. Remove the Cloudflare Access application for fistron.io.
