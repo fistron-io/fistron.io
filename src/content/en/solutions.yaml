@@ -145,24 +145,6 @@
     - "Status reports on request or every week, each statement linked to its evidence."
   questions: [measurable-quality, status, release-decision]
   related: [outcomes]
-- id: agile-transformation
-  title: "Agile Transformation Journey"
-  for: "For engineering leaders and project managers"
-  group: quality
-  short: "Know where your engineering organisation is and how agile it needs to be. Fistron assesses the current state from a checklist and from your own delivery data, helps leadership choose the target, and writes the plan your project manager runs: stages, actions and measurable success criteria."
-  status: available
-  stage: "The assessment works today: the checklist of Fistron's own model, the current state per area, the target your leadership approves, and the export as Markdown and CSV (fistron journey). The measured signals from your issue tracker and your delivery baseline (throughput, cycle time, work in progress, carry-over, deployment frequency and more, beside the answers) work with Fistron's core. The plan with each success criterion's metric and the quarterly re-assessment follow."
-  problem: "Transformations start with weeks of interviews and slides, aim at a level of agility nobody needs, and stall because no one can show progress. Teams are tired, dependencies block them, and the plan lives in a deck."
-  gets:
-    - "The current state per area, from a checklist answered by leadership and teams and from your issue tracker and CI, each statement with its source."
-    - "The target chosen by your leadership: how firm your commitments must be and how fast you must respond to change. Not every team needs the most agile model."
-    - "A plan in stages: for each area why, what, the actions and success criteria with a metric, a baseline and a target."
-    - "Ready for your project manager: the document in Markdown and the actions in CSV, to paste into Jira, GitLab, a wiki or a spreadsheet."
-    - "Progress measured again every quarter, from the same evidence."
-    - "Teams measured, never individuals."
-    - "Run by your project manager, or by a Fistroneer who manages the transformation with you."
-  questions: [agile-transformation, measurable-quality]
-  related: [outcomes]
 - id: cyber-resilience-act
   title: "Cyber Resilience Act readiness"
   for: "For vendors selling software in the EU"
@@ -257,3 +239,21 @@
     - "Capacity added to your team, not a replacement for it; more days as a package when you need them."
   questions: [headcount, deadline]
   related: [offer]
+- id: agile-transformation
+  title: "Agile Transformation"
+  for: "For engineering leaders and project managers"
+  group: sovereignty
+  short: "Know where your engineering organisation is and how agile it needs to be. Fistron assesses the current state from a checklist and from your own delivery data, helps leadership choose the target, and writes the plan your project manager runs: stages, actions and measurable success criteria."
+  status: available
+  stage: "The assessment works today: the checklist of Fistron's own model, the current state per area, the target your leadership approves, and the export as Markdown and CSV (fistron journey). The measured signals from your issue tracker and your delivery baseline (throughput, cycle time, work in progress, carry-over, deployment frequency and more, beside the answers) work with Fistron's core. The plan with each success criterion's metric and the quarterly re-assessment follow."
+  problem: "Transformations start with weeks of interviews and slides, aim at a level of agility nobody needs, and stall because no one can show progress. Teams are tired, dependencies block them, and the plan lives in a deck."
+  gets:
+    - "The current state per area, from a checklist answered by leadership and teams and from your issue tracker and CI, each statement with its source."
+    - "The target chosen by your leadership: how firm your commitments must be and how fast you must respond to change. Not every team needs the most agile model."
+    - "A plan in stages: for each area why, what, the actions and success criteria with a metric, a baseline and a target."
+    - "Ready for your project manager: the document in Markdown and the actions in CSV, to paste into Jira, GitLab, a wiki or a spreadsheet."
+    - "Progress measured again every quarter, from the same evidence."
+    - "Teams measured, never individuals."
+    - "Run by your project manager, or by a Fistroneer who manages the transformation with you."
+  questions: [agile-transformation, measurable-quality]
+  related: [outcomes]
