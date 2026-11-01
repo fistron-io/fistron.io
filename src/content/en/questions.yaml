@@ -95,3 +95,7 @@
   question: "Can we use Fistron without sending our code and logs to an AI?"
   answer: "Yes: with Fistron Sovereign Rules — Deterministic no model is used, and gates, risk levels and attestations are computed by rules either way. Or keep a model you trust inside your network; it receives evidence only up to the data class you allow."
   status: available
+- id: agile-transformation
+  question: "We want to become more agile. Where do we start?"
+  answer: "With where you are, measured, and how agile you really need to be. Fistron assesses the current state from a checklist and your delivery data, your leadership chooses the target, and you get a plan in stages with actions and measurable success criteria for your project manager or a Fistroneer to run."
+  status: in-development
