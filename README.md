@@ -321,7 +321,11 @@ Connecting it needs the privacy notice for the e-mail and the name.
 `plans()`, Fistron ADR 0122), regenerated when it changes;
 `plan-features.yaml` has each feature in the product's words.
 `scripts/check-plans.mjs` (part of `npm run check`) fails when the tiers of
-`pricing.yaml` are not the core's plans or a feature has no words.
+`pricing.yaml` are not the core's plans or a feature has no words, and when
+a price differs from the core's (Fistron ADR 0118): a tier's price and
+minimum, the lines included and their price (`pricing-extras.yaml`), and
+each worked example's yearly price (`pricing-examples.yaml`: `plan`,
+`committers`, `lines`, `yearly`) by the formula.
 
 ## Hosting
 

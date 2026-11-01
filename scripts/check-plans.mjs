@@ -1,7 +1,10 @@
 // The plans on /pricing/ are the core's (Fistron ADR 0122): the tiers of
 // pricing.yaml are the plans of plans.json (fistron-core's plans()), in the
 // same order, and every feature of a plan has its words in
-// plan-features.yaml. This check fails when they differ.
+// plan-features.yaml. The prices too (Fistron ADR 0118): each tier's price
+// and minimum, the lines included and their price in pricing-extras.yaml,
+// and every worked example's yearly price by the formula. This check fails
+// when they differ.
 import { readFileSync } from "node:fs";
 import { parse } from "yaml";
 
@@ -22,8 +25,41 @@ for (const id of words) {
     problems.push(`plan-features.yaml names ${id}, which no plan has`);
   }
 }
+const eur = (n) => `EUR ${n.toLocaleString("en")}`;
+const byId = Object.fromEntries(plans.plans.map((p) => [p.plan, p]));
+for (const tier of parse(read("pricing.yaml"))) {
+  const price = byId[tier.id]?.price;
+  if (!price) continue;
+  if (tier.price !== eur(price.monthly_per_committer)) {
+    problems.push(`${tier.id}: pricing.yaml says ${tier.price}, the core ${eur(price.monthly_per_committer)}`);
+  }
+  if (tier.minimum !== `At least ${eur(price.yearly_minimum)} a year`) {
+    problems.push(`${tier.id}: pricing.yaml's minimum is not the core's ${eur(price.yearly_minimum)}`);
+  }
+}
+const lines = plans.lines;
+const extra = parse(read("pricing-extras.yaml")).find((e) => e.id === "lines");
+const said = `${lines.included_per_committer.toLocaleString("en")} lines of code are included per active committer. Above them, ${eur(lines.block_yearly)} a year per started ${lines.block.toLocaleString("en")} lines.`;
+if (!extra?.text.startsWith(said)) problems.push(`pricing-extras.yaml's lines do not say: ${said}`);
+for (const example of parse(read("pricing-examples.yaml"))) {
+  const price = byId[example.plan]?.price;
+  if (!price) {
+    problems.push(`${example.id}: no plan ${example.plan} with a price`);
+    continue;
+  }
+  const above = Math.max(0, (example.lines ?? 0) - example.committers * lines.included_per_committer);
+  const yearly = Math.max(
+    price.yearly_minimum,
+    example.committers * price.monthly_per_committer * 12 + Math.ceil(above / lines.block) * lines.block_yearly,
+  );
+  if (yearly !== example.yearly) {
+    problems.push(`${example.id}: the core's prices give ${eur(yearly)}, the example ${eur(example.yearly)}`);
+  } else if (!example.text.includes(eur(yearly))) {
+    problems.push(`${example.id}: its text does not say ${eur(yearly)}`);
+  }
+}
 if (problems.length > 0) {
   for (const p of problems) console.error(`check-plans: ${p}`);
   process.exit(1);
 }
-console.log(`The plans: ${ids.length} plans, ${words.size} features, as the core's.`);
+console.log(`The plans: ${ids.length} plans, ${words.size} features and the prices, as the core's.`);

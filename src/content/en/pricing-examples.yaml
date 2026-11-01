@@ -1,16 +1,30 @@
 # Worked examples of the yearly price on /pricing/, shown in file order.
 # Source: Fistron ADR 0118 point 7. Keep the arithmetic right:
 # committers × monthly rate × 12, plus lines above the included, at least
-# the tier's minimum.
+# the tier's minimum. plan, committers, lines and yearly are checked against
+# the core's prices in plans.json (scripts/check-plans.mjs).
 - id: team-10
+  plan: team
+  committers: 10
+  yearly: 5000
   title: "10 active committers, Team"
   text: "10 × EUR 25 × 12 = EUR 3,000, so the minimum: EUR 5,000 a year."
 - id: business-30
+  plan: business
+  committers: 30
+  yearly: 20000
   title: "30 active committers, Business"
   text: "30 × EUR 45 × 12 = EUR 16,200, so the minimum: EUR 20,000 a year."
 - id: business-60
+  plan: business
+  committers: 60
+  yearly: 32400
   title: "60 active committers, Business"
   text: "60 × EUR 45 × 12 = EUR 32,400 a year; with one more compliance framework EUR 42,400. Fistroneer days beyond the 10 included at EUR 1,300."
 - id: business-lines
+  plan: business
+  committers: 5
+  lines: 2000000
+  yearly: 20700
   title: "5 active committers, 2,000,000 lines of code, Business"
   text: "5 × EUR 45 × 12 = EUR 2,700, plus 18 started blocks of 100,000 lines above the included 250,000 = EUR 20,700 a year."

@@ -81,7 +81,15 @@ const problems = defineCollection({ loader: orderedList("problems"), schema: sim
 const fistroneer = defineCollection({ loader: orderedList("fistroneer"), schema: simpleItem });
 const pricingExtras = defineCollection({ loader: orderedList("pricing-extras"), schema: simpleItem });
 /** Worked examples of the yearly price (Fistron ADR 0118 point 7). */
-const pricingExamples = defineCollection({ loader: orderedList("pricing-examples"), schema: simpleItem });
+const pricingExamples = defineCollection({
+  loader: orderedList("pricing-examples"),
+  schema: simpleItem.extend({
+    plan: z.string(),
+    committers: z.number().int().positive(),
+    lines: z.number().int().nonnegative().optional(),
+    yearly: z.number().int().positive(), // checked against the core's prices (check-plans.mjs)
+  }),
+});
 /** The features of the plans in the product's words (Fistron ADR 0122), with plans.json. */
 const planFeatures = defineCollection({
   loader: orderedList("plan-features"),
