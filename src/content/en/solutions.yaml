@@ -151,7 +151,7 @@
   group: quality
   short: "Know where your engineering organisation is and how agile it needs to be. Fistron assesses the current state from a checklist and from your own delivery data, helps leadership choose the target, and writes the plan your project manager runs: stages, actions and measurable success criteria."
   status: available
-  stage: "The assessment works today: the checklist of Fistron's own model, the current state per area, the target your leadership approves, and the export as Markdown and CSV (fistron journey). The current state measured from your issue tracker and CI, the plan with each success criterion's metric and the quarterly re-assessment follow after general availability."
+  stage: "The assessment works today: the checklist of Fistron's own model, the current state per area, the target your leadership approves, and the export as Markdown and CSV (fistron journey). The measured signals from your issue tracker and your delivery baseline (throughput, cycle time, work in progress, carry-over, deployment frequency and more, beside the answers) work with Fistron's core. The plan with each success criterion's metric and the quarterly re-assessment follow."
   problem: "Transformations start with weeks of interviews and slides, aim at a level of agility nobody needs, and stall because no one can show progress. Teams are tired, dependencies block them, and the plan lives in a deck."
   gets:
     - "The current state per area, from a checklist answered by leadership and teams and from your issue tracker and CI, each statement with its source."
