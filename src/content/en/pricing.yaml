@@ -17,7 +17,7 @@
   name: "Team"
   price: "EUR 25"
   priceNote: "per active committer a month"
-  minimum: "At least EUR 5,000 a year"
+  minimum: "Minimum EUR 5,000 a year"
   for: "For a team that wants its failures explained and its tests in order"
   features:
     - "Hosted in the EU"
@@ -30,7 +30,7 @@
   name: "Business"
   price: "EUR 45"
   priceNote: "per active committer a month"
-  minimum: "At least EUR 20,000 a year"
+  minimum: "Minimum EUR 20,000 a year"
   for: "For organisations that need the result, the people and the proof"
   features:
     - "Hosted in the EU or hybrid"
@@ -48,7 +48,7 @@
   name: "Enterprise"
   price: "EUR 65"
   priceNote: "per active committer a month"
-  minimum: "At least EUR 80,000 a year"
+  minimum: "Minimum EUR 80,000 a year"
   for: "For large organisations, many teams and closed networks"
   features:
     - "Everything in Business"
