@@ -52,7 +52,9 @@
       "tier": "paid",
       "features": [
         "core",
-        "predictive"
+        "predictive",
+        "repair",
+        "authoring"
       ],
       "limits": {
         "projects": null,
