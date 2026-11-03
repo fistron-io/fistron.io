@@ -1,6 +1,7 @@
 # The tiers on /pricing/, shown in file order. Source: Fistron ADR 0118
 # (pricing per active committer, 2026-10-30), ADR 0139 (the trial's limits
-# and Individual, 2026-11-03) and business-model.md, its price list.
+# and Individual, 2026-11-03), ADR 0140 (the models and the model pool,
+# 2026-11-03) and business-model.md, its price list.
 # Prices exclude VAT; each tier's minimum is a yearly price. Never invent a
 # price here; scripts/check-plans.mjs compares them with the core's.
 - id: trial
@@ -28,6 +29,7 @@
     - "The test plan, coverage gaps and risk of your change; your feature's steps against the suite"
     - "A proposed test as a local patch, never pushed; a bad test's repair (in development)"
     - "Fistron Sovereign Rules — Deterministic, or your own model"
+    - "With a model: EUR 29 a month or EUR 279 a year, a model credit of EUR 12 a month (Fistron Managed, in development)"
   note: "No control plane, team history, compliance or Fistroneer; help through the guide and e-mail. Paying by card is coming: until then, leave your details and we set you up."
   cta: "Get Individual"
 - id: team
@@ -41,7 +43,8 @@
     - "Root cause analysis, flaky tests, test plans, coverage gaps, Suite Health, PR/MR review, change risk"
     - "Fast Feedback Loop: the loop measured"
     - "The repair of tests that work badly, and new tests for the test plan's gaps"
-    - "Fistron Sovereign Rules and Fistron Sovereign LLM (planned)"
+    - "Fistron Sovereign Rules — Deterministic, or your own model"
+    - "A model pool of EUR 5 per active committer a month: Fistron Managed (in development), Fistron Sovereign LLM hosted in the EU (planned)"
     - "A Fistroneer who installs and sets Fistron up with you"
   cta: "Start with a free trial"
 - id: business
@@ -56,6 +59,7 @@
     - "The control plane for your teams, and Fištrónek"
     - "Fast Feedback Loop: tiers, shift-left and the CI change proposed"
     - "One compliance framework in the tool"
+    - "A model pool of EUR 8 per active committer a month; Fistron Sovereign LLM in your environment as an add-on (planned)"
     - "Outcomes as your KPIs, a quarterly review, signed attestations"
     - "A Fistroneer who installs and sets up, then one hour every week and 10 person-days a year"
     - "Regulatory watch, audit-day support, RCA on call, training"
@@ -73,5 +77,6 @@
     - "The compliance frameworks in your scope"
     - "40 Fistroneer person-days a year and the ongoing work: upgrades, new projects and teams, new frameworks"
     - "On site where your contract says so"
-    - "Fistron Sovereign LLM adapted on your data, in your environment (planned)"
+    - "A model pool of EUR 12 per active committer a month"
+    - "Fistron Sovereign LLM in your environment, adapted on your data (planned)"
   cta: "Start with a free trial"

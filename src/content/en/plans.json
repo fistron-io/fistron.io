@@ -44,7 +44,13 @@
       "price": {
         "monthly_per_committer": 15,
         "yearly_minimum": 0,
-        "yearly_per_committer": 144
+        "yearly_per_committer": 144,
+        "with_model": {
+          "monthly": 29,
+          "yearly": 279,
+          "credit_monthly": 12,
+          "top_up": 10
+        }
       }
     },
     {
@@ -63,7 +69,8 @@
       },
       "price": {
         "monthly_per_committer": 25,
-        "yearly_minimum": 5000
+        "yearly_minimum": 5000,
+        "model_pool_monthly_per_committer": 5
       }
     },
     {
@@ -88,7 +95,8 @@
       },
       "price": {
         "monthly_per_committer": 45,
-        "yearly_minimum": 20000
+        "yearly_minimum": 20000,
+        "model_pool_monthly_per_committer": 8
       }
     },
     {
@@ -114,7 +122,8 @@
       },
       "price": {
         "monthly_per_committer": 65,
-        "yearly_minimum": 80000
+        "yearly_minimum": 80000,
+        "model_pool_monthly_per_committer": 12
       }
     }
   ],

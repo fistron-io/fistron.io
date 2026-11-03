@@ -14,6 +14,9 @@ const extras = await list("pricingExtras");
 const how = await section("pricingHow");
 const examples = await list("pricingExamples");
 const days = await section("pricingDays");
+const modelsCopy = await section("pricingModels");
+const models = await list("models");
+const stateLabel = { available: "Available now", "in-development": "In development", planned: "Planned" } as const;
 const compare = await section("pricingCompare");
 const features = await listWithIds("planFeatures");
 const has = (plan: string, feature: string) =>
@@ -92,6 +95,41 @@ const has = (plan: string, feature: string) =>
     {compare.note && <p class="note">{compare.note}</p>}
   </Section>
 
+  <Section labelledby="models-title">
+    <h2 id="models-title" class="block-title">{modelsCopy.title}</h2>
+    {modelsCopy.intro && <p class="how-intro">{modelsCopy.intro}</p>}
+    <div class="compare-wrap">
+      <table class="compare models">
+        <thead>
+          <tr>
+            <th scope="col">{modelsCopy.caption}</th>
+            <th scope="col">Sovereign</th>
+            <th scope="col">Where the model runs</th>
+            <th scope="col">Paid from</th>
+            <th scope="col">State</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            models.map((m) => (
+              <tr>
+                <th scope="row">{m.title}</th>
+                <td>{m.sovereign}</td>
+                <td>{m.where}</td>
+                <td>{m.paid}</td>
+                <td class:list={["state", m.state]}>{stateLabel[m.state]}</td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+    <div class="how">
+      {modelsCopy.paragraphs?.map((p) => <p>{p}</p>)}
+    </div>
+    {modelsCopy.note && <p class="note">{modelsCopy.note}</p>}
+  </Section>
+
   <Section labelledby="how-title">
     <h2 id="how-title" class="block-title">{how.title}</h2>
     <div class="how">
@@ -161,6 +199,18 @@ const has = (plan: string, feature: string) =>
   .compare thead th:first-child {
     text-align: left;
     font-weight: 400;
+  }
+  .models td,
+  .models th {
+    text-align: left;
+  }
+  .models .state {
+    white-space: nowrap;
+    color: var(--color-muted);
+  }
+  .models .state.available {
+    color: var(--color-leaf-text);
+    font-weight: 500;
   }
   .compare thead th {
     font-weight: 600;

@@ -4,7 +4,8 @@
 // plan-features.yaml. The prices too (Fistron ADR 0118): each tier's price
 // and minimum, the lines included and their price in pricing-extras.yaml,
 // and every worked example's yearly price by the formula; the trial's days
-// and Individual's yearly price (ADR 0139). This check fails when they
+// and Individual's yearly price (ADR 0139); the model pools and
+// Individual's variant with a model (ADR 0140). This check fails when they
 // differ.
 import { readFileSync } from "node:fs";
 import { parse } from "yaml";
@@ -41,6 +42,18 @@ for (const tier of parse(read("pricing.yaml"))) {
     problems.push(`${tier.id}: pricing.yaml's minimum is not the core's ${eur(price.yearly_minimum)}`);
   } else if (price.yearly_minimum === 0 && tier.minimum) {
     problems.push(`${tier.id}: pricing.yaml shows a minimum, the core none`);
+  }
+  // the model pool (Fistron ADR 0140) and Individual's variant with a model
+  const tierText = [tier.priceNote ?? "", ...tier.features].join(" | ");
+  const pool = price.model_pool_monthly_per_committer;
+  if (pool && !tierText.includes(`model pool of ${eur(pool)} per active committer a month`)) {
+    problems.push(`${tier.id}: pricing.yaml does not say the model pool of ${eur(pool)} per active committer a month`);
+  }
+  const model = price.with_model;
+  if (model) {
+    for (const said of [`${eur(model.monthly)} a month`, `${eur(model.yearly)} a year`, `credit of ${eur(model.credit_monthly)} a month`]) {
+      if (!tierText.includes(said)) problems.push(`${tier.id}: pricing.yaml does not say ${said} (the variant with a model)`);
+    }
   }
   // a year paid ahead (Individual, Fistron ADR 0139)
   if (price.yearly_per_committer && !tier.priceNote?.includes(`${eur(price.yearly_per_committer)} a year`)) {

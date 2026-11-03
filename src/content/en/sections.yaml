@@ -232,9 +232,18 @@ pricingHow:
   paragraphs:
     - "An active committer is a person with at least one commit, not a merge, in the last 90 days to the repositories in scope. One person with several identities counts once; bots and CI, build and translation accounts do not count. Counted when the contract is signed and once a year after; on-premises and air-gapped, counted on your side from git, offline. Fistron keeps the count, never the names."
     - "50,000 lines of code are included per active committer: tracked files without blank lines and comments; generated and vendored code, translations and data files excluded; forks of the same code counted once. Above them, EUR 1,000 a year per started 100,000 lines."
-    - "The yearly price is the tier's monthly rate × active committers × 12, plus the lines above those included, and at least the tier's minimum. Individual is one person's price instead: EUR 15 a month, or EUR 144 a year."
+    - "The yearly price is the tier's monthly rate × active committers × 12, plus the lines above those included, and at least the tier's minimum. Individual is one person's price instead: EUR 15 a month, or EUR 144 a year; with a model EUR 29 a month, or EUR 279 a year."
   caption: "Worked examples"
   note: "Compare it with the yearly cost of one senior QE engineer."
+
+pricingModels:
+  title: "Models: your choice"
+  intro: "For each project and role, within your data classes and your model policy. In every option the model proposes and phrases; verdicts and gates come from rules and evidence."
+  caption: "Option"
+  paragraphs:
+    - "Team, Business and Enterprise include a model pool per active committer a month: EUR 5, EUR 8 and EUR 12. Everyone and every role use it together, at the providers' list prices; an admin sets limits per project and role. When it is used up, Fistron falls back to the rules or your own key, or you pay the overage, as you chose. It does not roll over."
+    - "Individual with a model has a credit of EUR 12 a month, with top-ups of EUR 10; when it is used up, Fistron falls back to the rules or your own key."
+  note: "Fistron Managed is not sovereign: your code and logs go to the provider you choose, under Fistron's agreements with it. A project whose data may not leave your network cannot choose it."
 
 pricingDays:
   title: "Estimating the Fistroneer's days"

@@ -327,7 +327,10 @@ minimum, the lines included and their price (`pricing-extras.yaml`), and
 each worked example's yearly price (`pricing-examples.yaml`: `plan`,
 `committers`, `lines`, `yearly`) by the formula; the trial's days and
 Individual's yearly price (Fistron ADR 0139). A tier's `note` says what it
-does not include or what is coming. Every tier's button goes to the form
+does not include or what is coming. The model pool per active committer
+and Individual's variant with a model are checked against the core's
+prices too (Fistron ADR 0140); `models.yaml` holds the model options of
+"Models: your choice", each with its state today. Every tier's button goes to the form
 at `#trial` (the site's contact), also "Get Individual" until the card
 payment exists.
 
