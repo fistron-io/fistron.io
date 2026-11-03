@@ -1,18 +1,35 @@
 # The tiers on /pricing/, shown in file order. Source: Fistron ADR 0118
-# (pricing per active committer, 2026-10-30) and business-model.md, its
-# price list. Prices exclude VAT; each tier's minimum is a yearly price.
-# Never invent a price here.
+# (pricing per active committer, 2026-10-30), ADR 0139 (the trial's limits
+# and Individual, 2026-11-03) and business-model.md, its price list.
+# Prices exclude VAT; each tier's minimum is a yearly price. Never invent a
+# price here; scripts/check-plans.mjs compares them with the core's.
 - id: trial
   name: "Trial"
   price: "Free"
-  priceNote: "60 days"
-  for: "To see the gap on one project"
+  priceNote: "30 days"
+  for: "For your team or organisation, to see the gap on your own code"
   features:
     - "Every feature, on one project or service"
     - "Readiness for one compliance framework: controls, state and gaps"
-    - "Started on this website, without a call"
+    - "Started on this website, without a call and without a card"
     - "Fistron Sovereign Rules — Deterministic, or the model you bring"
-  cta: "Start a free trial"
+  note: "Coming: sign in with GitHub or GitLab, one trial per account and per repository. A pilot agreed with us lasts up to 60 days."
+  cta: "Start your trial"
+- id: individual
+  name: "Individual"
+  price: "EUR 15"
+  priceNote: "a month, or EUR 144 a year; no commitment"
+  for: "For one engineer, on your own machine"
+  features:
+    - "On your machine and in the CI of repositories you own"
+    - "Fistron in your coding assistant: fistron mcp"
+    - "Why your pull request or pipeline failed, and whether a test is flaky"
+    - "Your branch reviewed before the pull request: missing evidence, uncovered changed lines, new dependencies"
+    - "The test plan, coverage gaps and risk of your change; your feature's steps against the suite"
+    - "A proposed test as a local patch, never pushed; a bad test's repair (in development)"
+    - "Fistron Sovereign Rules — Deterministic, or your own model"
+  note: "No control plane, team history, compliance or Fistroneer; help through the guide and e-mail. Paying by card is coming: until then, leave your details and we set you up."
+  cta: "Get Individual"
 - id: team
   name: "Team"
   price: "EUR 25"

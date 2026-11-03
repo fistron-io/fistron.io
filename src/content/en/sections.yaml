@@ -135,7 +135,7 @@ about:
 
 demo:
   title: "Start a free trial"
-  intro: "60 days on one project, with every feature. Give us your work e-mail: Fistron makes your organisation and sends you an e-mail to verify it and choose your password."
+  intro: "30 days on one project, with every feature and without a card. Give us your work e-mail: Fistron makes your organisation and sends you an e-mail to verify it and choose your password."
   primaryCta: "Start my free trial"
   demoCta: "Try the demo"
   note: "Trials open soon. This form doesn't send anything yet."
@@ -205,7 +205,7 @@ partnersPage:
 
 fistroneer:
   title: "A Fistroneer on your team, not one more hire"
-  intro: "Every subscription comes with a Fistroneer: a named quality engineer from Fistron who sets Fistron up with you. From Business, the Fistroneer then works on your quality as part of your team, every week and for set days a year, without recruiting, onboarding and keeping one more specialist."
+  intro: "Every Team, Business and Enterprise subscription comes with a Fistroneer: a named quality engineer from Fistron who sets Fistron up with you. From Business, the Fistroneer then works on your quality as part of your team, every week and for set days a year, without recruiting, onboarding and keeping one more specialist."
   note: "Person-days and on-site work as your tier and contract say."
   linkLabel: "See pricing"
 
@@ -217,7 +217,7 @@ sovereign:
 
 pricingPage:
   title: "Pricing"
-  intro: "The price follows your team: what you pay grows with the people who change your code, not with who reads the reports. Every tier includes a Fistroneer who sets Fistron up; from Business also the weekly hour, the person-days, outcomes reviewed every quarter and the proof your auditors accept."
+  intro: "The price follows your team: what you pay grows with the people who change your code, not with who reads the reports. Team, Business and Enterprise include a Fistroneer who sets Fistron up; from Business also the weekly hour, the person-days, outcomes reviewed every quarter and the proof your auditors accept. One engineer on their own machine starts with Individual."
   note: "Prices exclude VAT and are yearly, set in your contract. Features marked planned are not yet available."
   caption: "Add-ons and services"
 
@@ -225,14 +225,14 @@ pricingCompare:
   title: "What each plan includes"
   intro: "The licence names your plan, and Fistron does what it includes: the table is the product's own. In the product, your organisation's page shows the same and lets an admin ask for more."
   caption: "Feature"
-  note: "The Trial has every feature on one project for 60 days. Distributed Continuous Certification and Migration Assurance are add-ons to any plan."
+  note: "The Trial has every feature on one project for 30 days. Individual is one person's, without a control plane. Distributed Continuous Certification and Migration Assurance are add-ons to Team, Business and Enterprise."
 
 pricingHow:
   title: "How the price is calculated"
   paragraphs:
     - "An active committer is a person with at least one commit, not a merge, in the last 90 days to the repositories in scope. One person with several identities counts once; bots and CI, build and translation accounts do not count. Counted when the contract is signed and once a year after; on-premises and air-gapped, counted on your side from git, offline. Fistron keeps the count, never the names."
     - "50,000 lines of code are included per active committer: tracked files without blank lines and comments; generated and vendored code, translations and data files excluded; forks of the same code counted once. Above them, EUR 1,000 a year per started 100,000 lines."
-    - "The yearly price is the tier's monthly rate × active committers × 12, plus the lines above those included, and at least the tier's minimum."
+    - "The yearly price is the tier's monthly rate × active committers × 12, plus the lines above those included, and at least the tier's minimum. Individual is one person's price instead: EUR 15 a month, or EUR 144 a year."
   caption: "Worked examples"
   note: "Compare it with the yearly cost of one senior QE engineer."
 

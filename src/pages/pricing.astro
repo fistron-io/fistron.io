@@ -41,6 +41,7 @@ const has = (plan: string, feature: string) =>
                 <li>{f}</li>
               ))}
             </ul>
+            {t.note && <p class="tier-note">{t.note}</p>}
             <a href="/#trial" class:list={["btn", t.featured ? "btn-primary" : "btn-secondary"]}>
               {t.cta}
             </a>
@@ -173,6 +174,20 @@ const has = (plan: string, feature: string) =>
     gap: 20px;
     align-items: stretch;
   }
+  /* Five tiers (Fistron ADR 0139): on a wide screen the self-service ones,
+     Trial and Individual, on a row of two, the organisation's three on the
+     next, so no tier stands alone. */
+  @media (min-width: 960px) {
+    .tiers {
+      grid-template-columns: repeat(6, 1fr);
+    }
+    .tiers > li {
+      grid-column: span 2;
+    }
+    .tiers > li:nth-child(-n + 2):nth-last-child(n + 4) {
+      grid-column: span 3;
+    }
+  }
   .tiers > li {
     display: flex;
     flex-direction: column;
@@ -237,6 +252,11 @@ const has = (plan: string, feature: string) =>
   }
   .tiers .btn {
     align-self: flex-start;
+  }
+  .tier-note {
+    margin: -12px 0 20px;
+    font-size: 0.875rem;
+    color: var(--color-muted);
   }
   .minimum {
     margin-top: 4px;

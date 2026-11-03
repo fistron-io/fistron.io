@@ -119,6 +119,7 @@ const pricing = defineCollection({
     minimum: z.string().optional(), // the tier's yearly minimum
     for: z.string(),
     features: z.array(z.string()).min(1),
+    note: z.string().optional(), // what it does not include or what is coming
     cta: z.string(),
     featured: z.boolean().default(false),
   }),

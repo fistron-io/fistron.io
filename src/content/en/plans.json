@@ -27,6 +27,27 @@
       "price": null
     },
     {
+      "plan": "individual",
+      "tier": "paid",
+      "features": [
+        "core",
+        "predictive",
+        "repair",
+        "authoring"
+      ],
+      "limits": {
+        "projects": null,
+        "clusters": null,
+        "frameworks": null,
+        "committers": 1
+      },
+      "price": {
+        "monthly_per_committer": 15,
+        "yearly_minimum": 0,
+        "yearly_per_committer": 144
+      }
+    },
+    {
       "plan": "team",
       "tier": "paid",
       "features": [
@@ -99,7 +120,8 @@
     "certification",
     "migration"
   ],
-  "trial_days": 60,
+  "trial_days": 30,
+  "pilot_days": 60,
   "currency": "EUR",
   "lines": {
     "included_per_committer": 50000,
