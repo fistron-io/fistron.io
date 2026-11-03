@@ -33,7 +33,7 @@ for (const tier of parse(read("pricing.yaml"))) {
   if (tier.price !== eur(price.monthly_per_committer)) {
     problems.push(`${tier.id}: pricing.yaml says ${tier.price}, the core ${eur(price.monthly_per_committer)}`);
   }
-  if (tier.minimum !== `At least ${eur(price.yearly_minimum)} a year`) {
+  if (tier.minimum !== `Minimum ${eur(price.yearly_minimum)} a year`) {
     problems.push(`${tier.id}: pricing.yaml's minimum is not the core's ${eur(price.yearly_minimum)}`);
   }
 }
