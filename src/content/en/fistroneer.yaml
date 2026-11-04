@@ -1,9 +1,10 @@
 # What a Fistroneer does in a subscription (homepage and /pricing/), shown
 # in file order. Source: Fistron ADR 0068 point 2 (as amended 2026-10-27,
-# 2026-10-29 and 2026-10-30) and ADR 0118: the setup in every tier, the
-# days and the weekly hour from Business. No prices here.
+# 2026-10-29, 2026-10-30 and 2026-11-03), ADR 0118 and ADR 0139: the setup
+# in Team, Business and Enterprise (not in Individual), the days and the
+# weekly hour from Business. No prices here.
 - id: setup
-  title: "Installs and sets Fistron up, in every tier"
+  title: "Installs and sets Fistron up, in Team, Business and Enterprise"
   text: "In the deployment you chose, hosted, hybrid, on-premises or air-gapped: the agent and its access, your projects, policies, models and CI templates."
 - id: capacity
   title: "Quality engineering days, without a new hire"

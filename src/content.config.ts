@@ -108,6 +108,19 @@ const sovereign = defineCollection({
   }),
 });
 
+/** The model options on /pricing/ (Fistron ADR 0140). */
+const models = defineCollection({
+  loader: orderedList("models"),
+  schema: z.object({
+    order,
+    title: z.string(),
+    sovereign: z.string(),
+    where: z.string(),
+    paid: z.string(),
+    state: z.enum(["available", "in-development", "planned"]),
+  }),
+});
+
 /** The tiers on /pricing/ (Fistron ADR 0118); a price only where the founder set one. */
 const pricing = defineCollection({
   loader: orderedList("pricing"),
@@ -119,6 +132,7 @@ const pricing = defineCollection({
     minimum: z.string().optional(), // the tier's yearly minimum
     for: z.string(),
     features: z.array(z.string()).min(1),
+    note: z.string().optional(), // what it does not include or what is coming
     cta: z.string(),
     featured: z.boolean().default(false),
   }),
@@ -243,6 +257,7 @@ export const collections = {
   pricingExtras,
   pricingExamples,
   planFeatures,
+  models,
   differentiators,
   dogfood,
   dogfoodStats,

@@ -1,7 +1,8 @@
 # The Fistron Sovereign variants (homepage and the sovereignty solution),
 # shown in file order. Source: Fistron ADR 0102 (proposed 2026-10-27; the
-# names and the two bases decided). status: available or in-development
-# (the LLM variants are planned, stage V7.6).
+# names and the two bases decided) and ADR 0140 (in your environment or
+# hosted by Fistron in the EU). status: available or in-development (the
+# LLM variants are planned, stage V7.6).
 - id: rules
   title: "Fistron Sovereign Rules — Deterministic"
   tagline: "No LLM: every decision comes from rules and evidence."
@@ -16,6 +17,11 @@
   title: "Fistron Sovereign LLM — Traceable"
   tagline: "The same, on a base whose training data is documented."
   text: "For audits that ask what a model learned from: the base model's training data is published, and Fistron documents its own training data, sources, licences and consents the same way, with the version on every adaptation."
+  status: in-development
+- id: hosted
+  title: "Hosted by Fistron in the EU"
+  tagline: "Fistron Sovereign LLM without a GPU of your own."
+  text: "The same models on GPUs Fistron rents in the EU, with no third-party AI provider: paid from your model pool. For teams that want Fistron's own model without running it; not for air-gapped installations."
   status: in-development
 - id: yours
   title: "Trained on your data, in your environment"

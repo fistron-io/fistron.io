@@ -14,6 +14,9 @@ const extras = await list("pricingExtras");
 const how = await section("pricingHow");
 const examples = await list("pricingExamples");
 const days = await section("pricingDays");
+const modelsCopy = await section("pricingModels");
+const models = await list("models");
+const stateLabel = { available: "Available now", "in-development": "In development", planned: "Planned" } as const;
 const compare = await section("pricingCompare");
 const features = await listWithIds("planFeatures");
 const has = (plan: string, feature: string) =>
@@ -41,6 +44,7 @@ const has = (plan: string, feature: string) =>
                 <li>{f}</li>
               ))}
             </ul>
+            {t.note && <p class="tier-note">{t.note}</p>}
             <a href="/#trial" class:list={["btn", t.featured ? "btn-primary" : "btn-secondary"]}>
               {t.cta}
             </a>
@@ -89,6 +93,41 @@ const has = (plan: string, feature: string) =>
       </table>
     </div>
     {compare.note && <p class="note">{compare.note}</p>}
+  </Section>
+
+  <Section labelledby="models-title">
+    <h2 id="models-title" class="block-title">{modelsCopy.title}</h2>
+    {modelsCopy.intro && <p class="how-intro">{modelsCopy.intro}</p>}
+    <div class="compare-wrap">
+      <table class="compare models">
+        <thead>
+          <tr>
+            <th scope="col">{modelsCopy.caption}</th>
+            <th scope="col">Sovereign</th>
+            <th scope="col">Where the model runs</th>
+            <th scope="col">Paid from</th>
+            <th scope="col">State</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            models.map((m) => (
+              <tr>
+                <th scope="row">{m.title}</th>
+                <td>{m.sovereign}</td>
+                <td>{m.where}</td>
+                <td>{m.paid}</td>
+                <td class:list={["state", m.state]}>{stateLabel[m.state]}</td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+    <div class="how">
+      {modelsCopy.paragraphs?.map((p) => <p>{p}</p>)}
+    </div>
+    {modelsCopy.note && <p class="note">{modelsCopy.note}</p>}
   </Section>
 
   <Section labelledby="how-title">
@@ -161,6 +200,18 @@ const has = (plan: string, feature: string) =>
     text-align: left;
     font-weight: 400;
   }
+  .models td,
+  .models th {
+    text-align: left;
+  }
+  .models .state {
+    white-space: nowrap;
+    color: var(--color-muted);
+  }
+  .models .state.available {
+    color: var(--color-leaf-text);
+    font-weight: 500;
+  }
   .compare thead th {
     font-weight: 600;
     color: var(--color-heading);
@@ -172,6 +223,20 @@ const has = (plan: string, feature: string) =>
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 20px;
     align-items: stretch;
+  }
+  /* Five tiers (Fistron ADR 0139): on a wide screen the self-service ones,
+     Trial and Individual, on a row of two, the organisation's three on the
+     next, so no tier stands alone. */
+  @media (min-width: 960px) {
+    .tiers {
+      grid-template-columns: repeat(6, 1fr);
+    }
+    .tiers > li {
+      grid-column: span 2;
+    }
+    .tiers > li:nth-child(-n + 2):nth-last-child(n + 4) {
+      grid-column: span 3;
+    }
   }
   .tiers > li {
     display: flex;
@@ -237,6 +302,11 @@ const has = (plan: string, feature: string) =>
   }
   .tiers .btn {
     align-self: flex-start;
+  }
+  .tier-note {
+    margin: -12px 0 20px;
+    font-size: 0.875rem;
+    color: var(--color-muted);
   }
   .minimum {
     margin-top: 4px;

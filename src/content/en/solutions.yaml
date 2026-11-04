@@ -227,7 +227,7 @@
   group: sovereignty
   short: "A Fistroneer, a named quality engineer from Fistron, joins your team with the platform: Fistron set up and running and, from Business, 10 or 40 person-days a year of quality engineering, without recruiting, onboarding and keeping one more specialist."
   status: in-development
-  stage: "Offered to the first pilots: the setup in every tier, the person-days from Business; on-site work is set in the contract. The platform parts the Fistroneer works with have their own state, on the pages of the solutions."
+  stage: "Offered to the first pilots: the setup in Team, Business and Enterprise, the person-days from Business; on-site work is set in the contract. The platform parts the Fistroneer works with have their own state, on the pages of the solutions."
   problem: "The work grows faster than the team: flaky tests, missing tests, test plans, audits. A new quality engineer needs approval for the headcount, months of hiring and onboarding, and when the person leaves, the knowledge leaves too."
   gets:
     - "Fistron installed and set up in your toolchain by your Fistroneer: hosted, hybrid, on-premises or air-gapped."

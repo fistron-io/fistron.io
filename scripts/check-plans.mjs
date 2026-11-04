@@ -3,8 +3,10 @@
 // same order, and every feature of a plan has its words in
 // plan-features.yaml. The prices too (Fistron ADR 0118): each tier's price
 // and minimum, the lines included and their price in pricing-extras.yaml,
-// and every worked example's yearly price by the formula. This check fails
-// when they differ.
+// and every worked example's yearly price by the formula; the trial's days
+// and Individual's yearly price (ADR 0139); the model pools and
+// Individual's variant with a model (ADR 0140). This check fails when they
+// differ.
 import { readFileSync } from "node:fs";
 import { parse } from "yaml";
 
@@ -29,12 +31,33 @@ const eur = (n) => `EUR ${n.toLocaleString("en")}`;
 const byId = Object.fromEntries(plans.plans.map((p) => [p.plan, p]));
 for (const tier of parse(read("pricing.yaml"))) {
   const price = byId[tier.id]?.price;
+  if (tier.id === "trial" && tier.priceNote !== `${plans.trial_days} days`) {
+    problems.push(`trial: pricing.yaml says ${tier.priceNote}, the core ${plans.trial_days} days`);
+  }
   if (!price) continue;
   if (tier.price !== eur(price.monthly_per_committer)) {
     problems.push(`${tier.id}: pricing.yaml says ${tier.price}, the core ${eur(price.monthly_per_committer)}`);
   }
-  if (tier.minimum !== `Minimum ${eur(price.yearly_minimum)} a year`) {
+  if (price.yearly_minimum > 0 && tier.minimum !== `Minimum ${eur(price.yearly_minimum)} a year`) {
     problems.push(`${tier.id}: pricing.yaml's minimum is not the core's ${eur(price.yearly_minimum)}`);
+  } else if (price.yearly_minimum === 0 && tier.minimum) {
+    problems.push(`${tier.id}: pricing.yaml shows a minimum, the core none`);
+  }
+  // the model pool (Fistron ADR 0140) and Individual's variant with a model
+  const tierText = [tier.priceNote ?? "", ...tier.features].join(" | ");
+  const pool = price.model_pool_monthly_per_committer;
+  if (pool && !tierText.includes(`model pool of ${eur(pool)} per active committer a month`)) {
+    problems.push(`${tier.id}: pricing.yaml does not say the model pool of ${eur(pool)} per active committer a month`);
+  }
+  const model = price.with_model;
+  if (model) {
+    for (const said of [`${eur(model.monthly)} a month`, `${eur(model.yearly)} a year`, `credit of ${eur(model.credit_monthly)} a month`]) {
+      if (!tierText.includes(said)) problems.push(`${tier.id}: pricing.yaml does not say ${said} (the variant with a model)`);
+    }
+  }
+  // a year paid ahead (Individual, Fistron ADR 0139)
+  if (price.yearly_per_committer && !tier.priceNote?.includes(`${eur(price.yearly_per_committer)} a year`)) {
+    problems.push(`${tier.id}: pricing.yaml's note does not say ${eur(price.yearly_per_committer)} a year`);
   }
 }
 const lines = plans.lines;

@@ -1,0 +1,34 @@
+# The model options on /pricing/ ("Models: your choice"), in file order.
+# Source: Fistron ADR 0140 (2026-11-03). state: available, in-development or
+# planned, as Fistron is today. No claims about a model's quality or cost
+# until Fistron's benchmark has results.
+- id: rules
+  title: "Fistron Sovereign Rules — Deterministic"
+  sovereign: "Yes"
+  where: "No model: rules and evidence decide"
+  paid: "In every plan"
+  state: available
+- id: in-your-environment
+  title: "Fistron Sovereign LLM in your environment"
+  sovereign: "Yes"
+  where: "Your GPU, also air-gapped"
+  paid: "Included in Enterprise; an add-on in Business"
+  state: planned
+- id: hosted
+  title: "Fistron Sovereign LLM hosted by Fistron in the EU"
+  sovereign: "Yes: Fistron's model, no third-party AI provider"
+  where: "Fistron's GPUs in the EU"
+  paid: "Your model pool or Individual's credit"
+  state: planned
+- id: managed
+  title: "Fistron Managed: Claude, GPT and Gemini through Fistron"
+  sovereign: "No"
+  where: "The providers' APIs"
+  paid: "Your model pool or Individual's credit"
+  state: in-development
+- id: yours
+  title: "Your own model: your key or endpoint"
+  sovereign: "As you decide"
+  where: "Wherever you run it"
+  paid: "Your provider"
+  state: available
