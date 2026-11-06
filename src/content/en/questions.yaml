@@ -42,7 +42,7 @@
 - id: headcount
   question: "We can't hire more QE engineers. Who does the work?"
   answer: "A Fistroneer, a named quality engineer from Fistron, with the platform: Fistron set up in your toolchain and, from Business, 10 or 40 person-days a year of quality engineering and one hour every week, while the platform does the repetitive work. No recruiting, no onboarding, no gap when someone leaves."
-  status: in-development
+  status: available
 - id: deadline
   question: "The deadline is close. Can we still ship in the quality we need?"
   answer: "Know what each change needs instead of running everything: a test plan from the change, failures explained from evidence in minutes, the tests no change needs and the flaky ones recorded instead of blocking, and the release decision with its evidence. Measured against your quality, schedule and cost baselines."
