@@ -12,6 +12,7 @@ import CiFailure from "../../sections/CiFailure.astro";
 import Outcomes from "../../sections/Outcomes.astro";
 import Trust from "../../sections/Trust.astro";
 import Governance from "../../sections/Governance.astro";
+import SeeIt from "../../sections/SeeIt.astro";
 import { section, listWithIds } from "../../lib/content";
 
 export const getStaticPaths = (async () => {
@@ -106,6 +107,8 @@ const related = { offer: Offer, "open-core": OpenCore, ci: CiFailure, outcomes: 
       )
     }
   </Section>
+
+  <SeeIt id={solution.id} />
 
   {
     solution.related.map((key) => {
