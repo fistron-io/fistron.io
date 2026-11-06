@@ -1,0 +1,236 @@
+{
+  "solutions": [
+    {
+      "id": "developer-assistant",
+      "you_do": "Install Fistron, connect it to your coding assistant and ask it about your branch, a failed job or a file.",
+      "fistron_does": "Your assistant calls Fistron's tools on your working copy: the review your pull request would get, the RCA of the job, the plan's missing tests.",
+      "you_get": "Findings with their file and line, the failure's cause and the tests a file lacks, each from Fistron's own analysis.",
+      "guide": "use-your-assistant",
+      "pictures": []
+    },
+    {
+      "id": "end-to-end",
+      "you_do": "Tell Fistron's people the quality problem to solve and connect your CI, repositories and tests.",
+      "fistron_does": "Fistron's people design and run the solution with the platform: a test plan per change, analyses of each failure, the gaps closed through requests you approve.",
+      "you_get": "A solved problem with its evidence: the plan of what each change needs, and reports you can show management, customers and auditors.",
+      "guide": "solution-end-to-end",
+      "pictures": [
+        {
+          "name": "test-plan",
+          "alt": "Fistron's test plan of a change: the checks it needs, each with its outcome and the evidence that decides it.",
+          "caption": "A test plan of a synthetic change (examples/change/change-pool-settings), made by fistron plan."
+        }
+      ]
+    },
+    {
+      "id": "quality-improvement",
+      "you_do": "Connect your CI history and your suite.",
+      "fistron_does": "Fistron audits the suite's health: flaky, slow, redundant and weak tests, each with its evidence and a recommendation.",
+      "you_get": "A ranked list of what to fix first, and repairs proposed as pull requests you review.",
+      "guide": "solution-quality-improvement",
+      "pictures": [
+        {
+          "name": "suite-health",
+          "alt": "Fistron's Suite Health audit: the tests that work badly and the recommendations, each with its evidence.",
+          "caption": "A Suite Health audit of a synthetic suite (the demo's document)."
+        }
+      ]
+    },
+    {
+      "id": "fast-feedback-loop",
+      "you_do": "Connect your CI history.",
+      "fistron_does": "Fistron measures how long the team waits for a verdict and proposes tiers of tests that catch the same failures sooner.",
+      "you_get": "The wait measured, tiers proposed and replayed on your history, and the failures each tier would have caught.",
+      "guide": "solution-fast-feedback-loop",
+      "pictures": [
+        {
+          "name": "feedback-loop",
+          "alt": "Fistron's Fast Feedback Loop: how long the team waits for a verdict, by stage.",
+          "caption": "The feedback loop of a synthetic team (the demo's document)."
+        }
+      ]
+    },
+    {
+      "id": "ai-written-code",
+      "you_do": "Let Fistron review your pull and merge requests.",
+      "fistron_does": "Fistron checks each change with evidence: tests, coverage of the changed lines, scanners, the AI review, each finding with its file and line.",
+      "you_get": "A review that says what is not proven, before a person approves the change.",
+      "guide": "solution-ai-written-code",
+      "pictures": [
+        {
+          "name": "review",
+          "alt": "Fistron's review of a pull request: the findings by level and by rule, each with its evidence.",
+          "caption": "The review of a synthetic pull request (the demo's document)."
+        }
+      ]
+    },
+    {
+      "id": "become-a-developer",
+      "you_do": "Ask Fistron to explain your change or a module of the codebase.",
+      "fistron_does": "Fistron explains it from the code's evidence: its callers, its tests and its coverage; a model's words held to those facts.",
+      "you_get": "An explanation you can trust, a check that you understood your change, and your own learning path, private to you.",
+      "guide": "use-become-a-developer",
+      "pictures": [
+        {
+          "name": "private-space",
+          "alt": "Fistron's Become a developer page: your private space, the changes explained and your learning path.",
+          "caption": "The local UI's Become a developer page, before anything is explained."
+        }
+      ]
+    },
+    {
+      "id": "compliance",
+      "you_do": "Choose the framework and connect your tools.",
+      "fistron_does": "Fistron assesses each control from the evidence your tools hold and says which are met, which are not and why.",
+      "you_get": "A control assessment with its gaps, the evidence of each control, and an audit package for your auditor.",
+      "guide": "solution-compliance",
+      "pictures": [
+        {
+          "name": "control-assessment",
+          "alt": "Fistron's control assessment: each control met or not, with its evidence and its gaps.",
+          "caption": "A control assessment of a synthetic organisation (the demo's document)."
+        }
+      ]
+    },
+    {
+      "id": "continuous-certification",
+      "you_do": "Name the programme's requirements and let its participants run the vendor's validation kit.",
+      "fistron_does": "Fistron runs the kit on each participant's agent and gathers the results into the programme's release gate.",
+      "you_get": "A release gate with each requirement's state from every participant's builds.",
+      "guide": "solution-continuous-certification",
+      "pictures": [
+        {
+          "name": "release-gate",
+          "alt": "Fistron's release gate of a programme: each requirement with its state from the participants' builds.",
+          "caption": "The release gate of a synthetic programme (the demo's document)."
+        }
+      ]
+    },
+    {
+      "id": "measurable-quality",
+      "you_do": "Set your quality goals.",
+      "fistron_does": "Fistron measures each goal from your CI, your tests and your changes, every quarter against the baseline.",
+      "you_get": "Metrics with their evidence, and a quarterly review of where you stand.",
+      "guide": "solution-measurable-quality",
+      "pictures": [
+        {
+          "name": "outcomes",
+          "alt": "Fistron's outcome values: each quality metric with its value and the evidence it comes from.",
+          "caption": "The outcome values of a synthetic project (the demo's document)."
+        }
+      ]
+    },
+    {
+      "id": "cyber-resilience-act",
+      "you_do": "Choose the Cyber Resilience Act's requirements and connect your repositories.",
+      "fistron_does": "Fistron assesses each requirement from your repositories' evidence: dependencies, vulnerabilities handled, the update process.",
+      "you_get": "What is ready and what is not, with the evidence of each requirement.",
+      "guide": "solution-cyber-resilience-act",
+      "pictures": [
+        {
+          "name": "status-report",
+          "alt": "Fistron's status report: the requirements met and the gaps, each with its evidence.",
+          "caption": "The status report of a synthetic project (the demo's document)."
+        }
+      ]
+    },
+    {
+      "id": "supplier-acceptance",
+      "you_do": "Name what a supplier's delivery must pass.",
+      "fistron_does": "Fistron runs the acceptance on your agent and judges the delivery by its evidence.",
+      "you_get": "An acceptance record of each delivery, with what passed and what did not.",
+      "guide": "solution-supplier-acceptance",
+      "pictures": [
+        {
+          "name": "validation-run",
+          "alt": "Fistron's validation run of a delivery: each check of the kit with its outcome.",
+          "caption": "The validation run of a synthetic delivery (the demo's document)."
+        }
+      ]
+    },
+    {
+      "id": "migration-assurance",
+      "you_do": "Name the installation to migrate and its rehearsal targets.",
+      "fistron_does": "Fistron inventories them before and after the migration, read-only, and compares what changed.",
+      "you_get": "The regressions of a rehearsal, the requirements checked and an attestation that a rollback is safe.",
+      "guide": "solution-migration-assurance",
+      "pictures": [
+        {
+          "name": "comparison",
+          "alt": "Fistron's comparison of an installation before and after its migration: what changed, the regressions first.",
+          "caption": "The comparison of a synthetic rehearsal (the demo's document)."
+        }
+      ]
+    },
+    {
+      "id": "resilience",
+      "you_do": "Run your recovery or rollback rehearsal.",
+      "fistron_does": "Fistron checks with evidence that the installation came back as it was.",
+      "you_get": "An attestation of the recovery, signed, for your auditor.",
+      "guide": "solution-resilience",
+      "pictures": [
+        {
+          "name": "attestation",
+          "alt": "Fistron's attestation: a rollback proven safe, with the evidence of each check.",
+          "caption": "The attestation of a synthetic rehearsal (the demo's document)."
+        }
+      ]
+    },
+    {
+      "id": "code-review-rules",
+      "you_do": "Write your team's rules, or start from a pack.",
+      "fistron_does": "Fistron audits the repository by them and reviews each change by them: tools, evidence and a model, each finding with its rule.",
+      "you_get": "The places that break your rules, a trend, credit to a change that removes them, and rules learned from your reviewers.",
+      "guide": "use-review-rules",
+      "pictures": [
+        {
+          "name": "audit",
+          "alt": "Fistron's audit of a repository by the team's rules: the places that break them, by rule and file.",
+          "caption": "The audit of a synthetic repository (the demo's document)."
+        }
+      ]
+    },
+    {
+      "id": "sovereignty",
+      "you_do": "Set your data-flow policy and choose your models.",
+      "fistron_does": "Fistron records every contact of a run, and refuses one the policy does not allow before it is made.",
+      "you_get": "A data-flow ledger of each run: where your data went, to which model and with which class.",
+      "guide": "solution-sovereignty",
+      "pictures": [
+        {
+          "name": "data-flow",
+          "alt": "Fistron's data-flow ledger of a run: each contact, its place and what the policy refused.",
+          "caption": "The data-flow ledger of a synthetic run (the demo's document)."
+        }
+      ]
+    },
+    {
+      "id": "without-headcount",
+      "you_do": "Name the CI jobs your team reviews every morning.",
+      "fistron_does": "Fistron reviews them each night: each failure analysed, the known ones recognised, the new ones with their cause.",
+      "you_get": "The Daily CI review ready before the team starts, in the words of your team's report.",
+      "guide": "use-daily-ci-review",
+      "pictures": [
+        {
+          "name": "daily-ci-review",
+          "alt": "Fistron's Daily CI review: the night's failures, the known ones and the new ones with their cause.",
+          "caption": "A Daily CI review of a public project's synthetic run (the demo's document)."
+        }
+      ]
+    },
+    {
+      "id": "agile-transformation",
+      "you_do": "Answer the checklist of your team's practices.",
+      "fistron_does": "Fistron compares your answers with the signals of your CI and your issues.",
+      "you_get": "Where your team stands, the answers the signals do not agree with, and the next steps.",
+      "guide": "solution-agile-transformation",
+      "pictures": [
+        {
+          "name": "journey",
+          "alt": "Fistron's Agile Transformation record: the team's practices, the answers the signals do not agree with.",
+          "caption": "The record of a synthetic team (the demo's document)."
+        }
+      ]
+    }
+  ]
+}

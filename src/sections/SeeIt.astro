@@ -1,0 +1,124 @@
+---
+/**
+ * A solution's showcase: Fistron's own GUI on the demo's documents, taken at
+ * each release (showcase.json and public/showcase/, synced from Fistron), in
+ * the theme the visitor reads in, with what you do, what Fistron does and
+ * what you get.
+ */
+import Section from "../components/Section.astro";
+import showcase from "../content/en/showcase.json";
+import { site } from "../config/site";
+
+interface Props {
+  id: string;
+}
+const found = showcase.solutions.find((s) => s.id === Astro.props.id);
+const picture = found?.pictures[0];
+const base = picture ? `/showcase/${found!.id}/${picture.name}` : "";
+const steps = found
+  ? [
+      { label: "You do", text: found.you_do },
+      { label: "Fistron does", text: found.fistron_does },
+      { label: "You get", text: found.you_get },
+    ]
+  : [];
+---
+
+{
+  found && picture && (
+    <Section labelledby="see-it-title" tone="mist">
+      <h2 id="see-it-title">See it</h2>
+      <figure>
+        <picture>
+          <source media="(max-width: 600px)" srcset={`${base}-phone.png`} />
+          <img class="light" src={`${base}-light.png`} alt={picture.alt} width="1440" height="900" loading="lazy" />
+        </picture>
+        <img class="dark" src={`${base}-dark.png`} alt={picture.alt} width="1440" height="900" loading="lazy" />
+        <figcaption>
+          {picture.caption} Taken from Fistron's GUI at its release, never drawn. More in{" "}
+          <a href={`${site.services.docs.url}/${found.guide}/`}>the guide</a>.
+        </figcaption>
+      </figure>
+      <ol class="steps">
+        {
+          steps.map((step) => (
+            <li>
+              <h3>{step.label}</h3>
+              <p>{step.text}</p>
+            </li>
+          ))
+        }
+      </ol>
+    </Section>
+  )
+}
+
+<style>
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-heading);
+  }
+  figure {
+    margin: 24px 0 0;
+  }
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--color-line-soft);
+    border-radius: 8px;
+  }
+  .dark {
+    display: none;
+  }
+  :root[data-theme="dark"] .light {
+    display: none;
+  }
+  :root[data-theme="dark"] .dark {
+    display: block;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .light {
+      display: none;
+    }
+    :root:not([data-theme="light"]) .dark {
+      display: block;
+    }
+  }
+  @media (max-width: 600px) {
+    .dark {
+      display: none !important;
+    }
+    .light {
+      display: block !important;
+    }
+  }
+  figcaption {
+    margin-top: 12px;
+    font-size: 0.95rem;
+    color: var(--color-ink-2);
+  }
+  .steps {
+    list-style: none;
+    padding: 0;
+    margin: 32px 0 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+  }
+  .steps h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-heading);
+  }
+  .steps p {
+    margin-top: 8px;
+    color: var(--color-ink-2);
+  }
+  @media (max-width: 800px) {
+    .steps {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+</style>
