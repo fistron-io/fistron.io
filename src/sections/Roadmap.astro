@@ -95,7 +95,8 @@ const STATE = { implemented: "implemented", "in-development": "in development", 
     border-radius: var(--radius-card);
   }
   /* Several stages can be in development at once: equal cells keep the order readable. */
-  .current {
+  /* An implemented stage stays green (StatusBadge), even when marked current. */
+  .current:not(.implemented) {
     border-color: var(--color-indigo);
     background: var(--color-paper);
   }
@@ -118,7 +119,7 @@ const STATE = { implemented: "implemented", "in-development": "in development", 
     font-weight: 500;
     color: var(--color-leaf-text);
   }
-  .current .stage {
+  .current:not(.implemented) .stage {
     font-weight: 500;
     color: var(--color-indigo);
   }

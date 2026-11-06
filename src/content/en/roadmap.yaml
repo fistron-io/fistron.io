@@ -90,7 +90,6 @@
 - id: v3-7
   status: implemented
   stage: "V3.7 · Implemented; validating"
-  current: true
   title: "Know within minutes, not tomorrow"
   detail: "The Fast Feedback Loop: how long your team waits for a test result, measured from your CI history; test tiers proposed with the reason for every test, owned by your team in a policy reviewed like code; slow end-to-end scenarios that only call the API proposed to run earlier (never those that set up or clean up for others); within a tier, the tests a change needs and those most likely to fail first; the change of your GitHub Actions, GitLab or Jenkins configuration proposed as a pull or merge request, validated before it is opened; your history replayed under the tiers as an estimate, never a claimed speed-up. Next: a public end-to-end suite measured, its tiers reviewed by people who know it."
 - id: v4a

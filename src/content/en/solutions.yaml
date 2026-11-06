@@ -6,8 +6,10 @@
 #
 # status: available when the solution's core works in the Fistron
 # repository today, also while it is being validated (decided with the
-# founder 2026-10-29); everything else is in-development. `stage` says exactly
-# what works, what is being validated and what is planned.
+# founder 2026-10-29); everything else is in-development. A service of
+# Fistron's people (end-to-end, without-headcount) is available once it is
+# offered with the platform (decided 2026-11-06). `stage` says exactly what
+# works, what is being validated and what is planned.
 # group: the column of the Solutions menu (labels in src/config/site.ts).
 # questions: ids from questions.yaml, shown with their own status.
 - id: end-to-end
@@ -15,8 +17,8 @@
   for: "For organisations that want the result, not one more tool"
   group: quality
   short: "Fistron's people design, deliver and run the solution to your quality problem with the Fistron platform, and prove it with evidence. The certificate, if you need one, through an accredited partner."
-  status: in-development
-  stage: "Offered to the first pilots; people and guarantees are set per contract. The platform parts are in the roadmap with their own state."
+  status: available
+  stage: "Available now: offered with the platform, starting with the first pilots; people and guarantees are set per contract. The platform parts the solution uses have their own state, on the pages of the solutions and in the roadmap."
   problem: "Most organisations don't want to buy a quality tool and build the solution themselves. They want a solved problem: someone who designs it for their software or service, runs it, and hands them proof they can show to management, customers, auditors and regulators."
   gets:
     - "Assess: a baseline of your quality, delivery and compliance from your own tools, and the gaps against the standard or policy you need."
@@ -271,8 +273,8 @@
   for: "For teams that need quality engineering but can't hire"
   group: sovereignty
   short: "A Fistroneer, a named quality engineer from Fistron, joins your team with the platform: Fistron set up and running and, from Business, 10 or 40 person-days a year of quality engineering, without recruiting, onboarding and keeping one more specialist."
-  status: in-development
-  stage: "Offered to the first pilots: the setup in Team, Business and Enterprise, the person-days from Business; on-site work is set in the contract. The platform parts the Fistroneer works with have their own state, on the pages of the solutions."
+  status: available
+  stage: "Available now, starting with the first pilots: the setup in Team, Business and Enterprise, the person-days from Business; on-site work is set in the contract. The platform parts the Fistroneer works with have their own state, on the pages of the solutions."
   problem: "The work grows faster than the team: flaky tests, missing tests, test plans, audits. A new quality engineer needs approval for the headcount, months of hiring and onboarding, and when the person leaves, the knowledge leaves too."
   gets:
     - "Fistron installed and set up in your toolchain by your Fistroneer: hosted, hybrid, on-premises or air-gapped."
