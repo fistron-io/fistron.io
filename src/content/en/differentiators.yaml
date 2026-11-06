@@ -7,6 +7,11 @@
   instead: "Tools built only on AI"
   others: "A model's answer: fluent, plausible, different on the next run, and checked by nobody. Without the model there is no product."
   fistron: "Gates, control states, test selection, risk levels, metrics and attestations are computed by rules from recorded evidence: the same evidence gives the same verdict, recomputable offline by you or your auditor. A model only adds findings that cite their evidence and are recorded for replay; “insufficient evidence” is an answer, not a guess. Works with no model at all."
+- id: evidence-not-logs
+  title: "The evidence that matters, not your whole log"
+  instead: "Pasting the log into a model with your own key"
+  others: "Each failure copied by hand, the whole log paid for in tokens every time, and an answer nobody can trace to its lines."
+  fistron: "Fistron sends a model only the evidence that matters, not your whole log; many answers need no model at all. Each run says what its model calls used, and every statement cites the evidence it rests on."
 - id: solution
   title: "A solution, not one more tool"
   instead: "Tools you integrate yourself, consultancies that deliver documents"

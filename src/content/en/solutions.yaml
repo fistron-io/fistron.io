@@ -2,7 +2,7 @@
 # and on /solutions/, and a page of its own at /solutions/<id>/.
 # Source: Fistron docs/design/value-proposition.md ("Customer problems Fistron
 # solves", "The offer"), go-to-market.md ("Positioning", "Messages by
-# audience") and target-audiences.md; state of 2026-11-01.
+# audience") and target-audiences.md; state of 2026-11-06.
 #
 # status: available when the solution's core works in the Fistron
 # repository today, also while it is being validated (decided with the
@@ -33,7 +33,7 @@
   group: quality
   short: "Explain failed pipelines from evidence, plan the tests a change needs, find what no test covers, quarantine flaky tests and repair the tests that work badly, with the tools you already run."
   status: available
-  stage: "CI failure analysis, change assessment, test plans and coverage gaps work today. Flaky quarantine, evidence selection and the Suite Health audit run in shadow mode; the repair of bad tests, the risk of each change with its measured accuracy, the value of end-to-end tests, Gherkin and unit tests written for your plan and tests in your own tools for infrastructure changes are implemented and being validated. A quality audit of a project shows where to start."
+  stage: "CI failure analysis, change assessment, test plans and coverage gaps work today. Flaky quarantine, evidence selection and the Suite Health audit run in shadow mode; the repair of bad tests, the risk of each change with its measured accuracy, the value of end-to-end tests, Gherkin and unit tests written for your plan and tests in your own tools for infrastructure changes are implemented and being validated. A quality audit of a project shows where to start. An analysis may also read evidence from your own MCP servers (a product, monitoring, ticketing), through the tools you allow that only read."
   problem: "Red pipelines nobody can explain, flaky re-runs, test plans assembled by hand, thousands of tests run for a one-line change, and suites full of tests that check nothing. Each tool answers its own question; nobody answers whether the change is good enough."
   gets:
     - "Why a pipeline failed, from evidence across CI, source, cluster and endpoints; what is missing is acquired read-only or named."
@@ -87,8 +87,8 @@
   for: "For engineers who write code with assistants, and the teams they join"
   group: quality
   short: "Own your code. Understand every change before you submit it, even when AI wrote it. Fistron explains what your change does, what it affects and what really tests it, and teaches you your team's rules, privately to you."
-  status: in-development
-  stage: "In development. It builds on what Fistron reviews today: the intent of a change, its tests and coverage, its risk and dependencies."
+  status: available
+  stage: "Implemented and being validated: your change explained from evidence (what it does and why, what it affects, what really tests it), Line by line, the check of your understanding with the confirmation your team may require, your private learning path and any module explained for newcomers; in your coding assistant, the CLI, the local UI and the control plane. Its synthetic exit is recorded; next: the changes of a real team."
   problem: "You are responsible for what you push, also when an assistant wrote it. Code that works but that nobody on the team understands becomes the next incident, the next reviewer cannot ask the assistant why, and the knowledge of the code leaves with the model instead of staying with people."
   gets:
     - "What your change does, per file and function, and why: tied to what you were asked to do, with unexplained parts highlighted."
@@ -231,8 +231,8 @@
   for: "For tech leads and architects reviewing code written by people and AI"
   group: compliance
   short: "Every pull or merge request reviewed against Google's code review practices, your own rules, or both. Tools and evidence check what they can; a model judges only the rest, and blocks only if you allow it."
-  status: in-development
-  stage: "The review of pull and merge requests with Fistron's findings and an AI review works today. The review rules, the language packs for Python, Go and Java and the repository audit are implemented and being validated on real pull requests."
+  status: available
+  stage: "Implemented and being validated: the review of pull and merge requests with Fistron's findings and an AI review; the review rules with Google's practices as the default pack, the language packs for Python, Go and Java, the evidence rules, the model's rules, the same rules in your coding assistant, the repository audit and repeated reviewer comments proposed as rules. Its synthetic exit is recorded; next: real pull requests of an open-source project."
   note: "The default rules follow Google's Engineering Practices documentation, published by Google under CC-BY 3.0. Fistron is not affiliated with Google."
   problem: "Coding assistants write code that runs but ignores how your team writes code: needless abstractions, a new helper where the project already has one, tests without real assertions, names nobody would choose. Reviewers spend their time writing the same comments again and again."
   gets:

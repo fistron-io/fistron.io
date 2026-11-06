@@ -122,15 +122,15 @@
     },
     {
       "id": "cyber-resilience-act",
-      "you_do": "Choose the Cyber Resilience Act's requirements and connect your repositories.",
-      "fistron_does": "Fistron assesses each requirement from your repositories' evidence: dependencies, vulnerabilities handled, the update process.",
-      "you_get": "What is ready and what is not, with the evidence of each requirement.",
+      "you_do": "Let Fistron review your changes and releases, with your scanners' results.",
+      "fistron_does": "Fistron checks each change's dependencies against their registries and your approved list, and reads your scanners' findings, each with its line; the act's framework profile is planned.",
+      "you_get": "Release evidence the act asks for today: what each change adds, what was found and how it was handled.",
       "guide": "solution-cyber-resilience-act",
       "pictures": [
         {
-          "name": "status-report",
-          "alt": "Fistron's status report: the requirements met and the gaps, each with its evidence.",
-          "caption": "The status report of a synthetic project (the demo's document)."
+          "name": "dependencies",
+          "alt": "Fistron's review of a change: a package its lock file adds that no registry has, on the lock file's line.",
+          "caption": "The review of a synthetic change (examples/change-ai/ai-nonexistent-package), made by fistron review findings. The act's own framework profile is planned; this is what works today."
         }
       ]
     },

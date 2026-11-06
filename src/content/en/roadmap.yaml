@@ -1,9 +1,15 @@
-# State of 2026-11-06 (Fistron docs/design/roadmap.md). V3.4 (the review of
-# pull and merge requests, ADR 0076, ADR 0087) is implemented; its real
-# review on an open-source project's requests is next. The team's code review
-# rules (ADR 0146) are implemented and being validated (shown in development
-# until their exit); Become a developer (the change explained to its author)
-# is in development. The dashboard (ADR 0145), the summary of chosen
+# State of 2026-11-06, later (Fistron docs/design/roadmap.md). V3.4 (the
+# review of pull and merge requests, ADR 0076, ADR 0087) is implemented; its
+# real review on an open-source project's requests is next. The team's code
+# review rules (ADR 0146) and Become a developer (ADR 0147) are implemented,
+# their synthetic exits recorded, being validated. A customer's MCP server as
+# a source of evidence (ADR 0144) is implemented. Fewer tokens by design
+# (ADR 0148) is in development: no numbers until the benchmark has them.
+# Reporting a problem in Fistron (ADR 0149) is planned. V7.5d (an
+# installation per pull request, ADR 0141) is implemented, its operations
+# next. V8 (Agile Transformation, ADR 0123) is implemented, its synthetic
+# exit next. V4.7 (Fistron Memory) is not shown until it works (its plan,
+# step 1). The dashboard (ADR 0145), the summary of chosen
 # assessments (ADR 0130) and the GUI led by solutions (ADR 0143) are part of
 # V4b. Earlier state of 2026-10-31: V1 to V4.6 are
 # implemented and being validated (V1.5, V2.5 and the Suite Health audit in
@@ -27,6 +33,13 @@
   stage: "V1 · Implemented; validating"
   title: "CI failed. Tell me why."
   detail: "Evidence-backed RCA, live reads, replay, CI reports and policy-controlled job re-runs. Broader real-case validation continues."
+  parts:
+    - label: "MCP sources"
+      text: "Evidence read from your own MCP servers (a product, monitoring, ticketing, a database): only the tools you allow that only read"
+      status: implemented
+    - label: "Fewer tokens"
+      text: "A model gets only the evidence that matters, not your whole log; each run says what its model calls used. Numbers once Fistron's benchmark has them"
+      status: in-development
 - id: v1-5
   status: implemented
   stage: "V1.5 · Implemented; shadow mode"
@@ -60,10 +73,10 @@
       status: implemented
     - label: "Review rules"
       text: "Code review by Google's practices, your own rules, or both; the same rules in your coding assistant, and the audit of a repository"
-      status: in-development
+      status: implemented
     - label: "Become a developer"
       text: "Own your code: your change explained to you before you submit it, line by line if you want, a private learning path, and the codebase explained to newcomers"
-      status: in-development
+      status: implemented
 - id: v3-5
   status: implemented
   stage: "V3.5 · Implemented; validating"
@@ -90,6 +103,10 @@
   stage: "V4b · Implemented; validating"
   title: "One control plane for your teams"
   detail: "The same interface for organisations: history across teams and projects, sign-in through your identity provider, roles and audit, with agents inside your network that connect outbound only. A GUI led by your solutions, with the first audit guided step by step; a dashboard for each project and for the organisation; one summary of chosen audits and daily CI reviews across projects, with a model's interpretation checked against its facts when you allow it. On-premises, air-gapped, hybrid or as Fistron Cloud. In production on Fistron Cloud for its first pilot; the remaining exit checks continue."
+  parts:
+    - label: "Report a problem"
+      text: "A problem in Fistron reported from any page or the command line, with what Fistron needs to find it and nothing of your evidence unless you attach it"
+      status: planned
 - id: v4-5
   status: implemented
   stage: "V4.5 · Implemented; validating"
@@ -168,6 +185,9 @@
     - label: "V7.5c"
       text: "The release gate, with upgrades from earlier releases"
       status: implemented
+    - label: "V7.5d"
+      text: "An installation per pull request: the change's build installed the way a user installs it, on machines made for the run, and validated; next: the first project's own pipeline"
+      status: implemented
 - id: v7-6
   status: in-development
   stage: "V7.6 · Benchmark implemented; in development"
@@ -200,7 +220,12 @@
   stage: "V7.8 · Implemented; validating"
   title: "The verification log of a release"
   detail: "When a release is verified by hand, for example on a new client operating system, Fistron's agent logs what was done from the product's API and read-only commands, verbatim and with secrets redacted, checks it by rules and renders it in your team's own format as a draft a person confirms. The same verification automated from your suite's templates, and the manual marks checked against it. Not a condition of general availability."
+- id: v8
+  status: implemented
+  stage: "V8 · Implemented; validating"
+  title: "Agile Transformation"
+  detail: "Where your engineering organisation is and how agile it needs to be: the current state per area from Fistron's checklist and your own delivery data (teams of five or more, never people), the target your leadership approves, and the plan in stages with actions and measurable success criteria for your project manager or a Fistroneer, as Markdown and CSV; progress measured again every quarter. Next: its exit on a synthetic organisation."
 - id: ga
-  stage: "GA · After V7, V5 and V7.7"
+  stage: "GA · After V7, V5, V7.7 and V8"
   title: "General availability"
-  detail: "The first release offered for sale, once V3 to V4.6 (with the guide and the Fast Feedback Loop), V5, V6, V7 and V7.7 meet their exit criteria. No date is committed."
+  detail: "The first release offered for sale, once V3 to V4.6 (with the guide and the Fast Feedback Loop), V5, V6, V7, V7.7 and V8 meet their exit criteria. No date is committed."
