@@ -85,6 +85,22 @@ const corners = [
               <li>{line}</li>
             ))}
           </ul>
+          {m.pillar && (
+            <div class="pillar-promise">
+              <p class="promise">{m.pillar.title}</p>
+              <p>{m.pillar.text}</p>
+              {m.pillar.links.length > 0 && (
+                <p class="links">
+                  {m.pillar.links.map((l, i) => (
+                    <>
+                      {i > 0 && " · "}
+                      <a href={l.href}>{l.label}</a>
+                    </>
+                  ))}
+                </p>
+              )}
+            </div>
+          )}
         </div>
       ))
     }
@@ -172,6 +188,20 @@ const corners = [
   }
   .pillar .text {
     margin-top: 8px;
+    color: var(--color-muted);
+  }
+  .pillar-promise {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--color-line-soft);
+  }
+  .pillar-promise .promise {
+    font-weight: 600;
+    color: var(--color-heading);
+  }
+  .pillar-promise p + p {
+    margin-top: 6px;
+    font-size: 0.9375rem;
     color: var(--color-muted);
   }
   .messages {

@@ -27,7 +27,13 @@ const questions = solution.questions.map((id) => {
   if (!found) throw new Error(`solutions.yaml ${solution.id}: no question "${id}" in questions.yaml`);
   return found;
 });
-const others = (await listWithIds("solutions")).filter((s) => s.id !== solution.id);
+const all = await listWithIds("solutions");
+const others = all.filter((s) => s.id !== solution.id);
+const see = solution.see.map((id) => {
+  const found = all.find((s) => s.id === id);
+  if (!found) throw new Error(`solutions.yaml ${solution.id}: no solution "${id}" to see`);
+  return found;
+});
 const related = { offer: Offer, "open-core": OpenCore, ci: CiFailure, outcomes: Outcomes, trust: Trust, governance: Governance };
 ---
 
@@ -53,6 +59,7 @@ const related = { offer: Offer, "open-core": OpenCore, ci: CiFailure, outcomes: 
           </h3>
           <p>{solution.stage}</p>
         </div>
+        {solution.note && <p class="note">{solution.note}</p>}
       </div>
       <div class="gets">
         <h2>{page.intro}</h2>
@@ -66,6 +73,19 @@ const related = { offer: Offer, "open-core": OpenCore, ci: CiFailure, outcomes: 
             ))
           }
         </ul>
+        {
+          see.length > 0 && (
+            <p class="see">
+              See also:{" "}
+              {see.map((s, i) => (
+                <>
+                  {i > 0 && ", "}
+                  <a href={`/solutions/${s.id}/`}>{s.title}</a>
+                </>
+              ))}
+            </p>
+          )
+        }
       </div>
     </div>
 
@@ -143,6 +163,16 @@ const related = { offer: Offer, "open-core": OpenCore, ci: CiFailure, outcomes: 
   }
   .stage p {
     margin-top: 8px;
+    font-size: 0.9375rem;
+    color: var(--color-muted);
+  }
+  .problem .note {
+    margin-top: 16px;
+    font-size: 0.8125rem;
+    color: var(--color-muted);
+  }
+  .see {
+    margin-top: 16px;
     font-size: 0.9375rem;
     color: var(--color-muted);
   }

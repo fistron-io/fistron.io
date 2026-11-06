@@ -78,8 +78,51 @@
     - "New dependencies checked to exist and to be approved, with your security scanners' results as evidence."
     - "A different verifier than the author: another model, or Fistron Sovereign Rules — Deterministic, with no model at all."
     - "The result on the pull request, blocking by policy, kept as a signed report."
+    - "AI-written changes reviewed in the same review against your team's rules, stricter by policy."
   questions: [ai-code, test-coverage, feature-evidence]
   related: [trust]
+  see: [code-review-rules, become-a-developer]
+- id: code-review-rules
+  title: "Code and MR/PR review by your team's rules"
+  for: "For tech leads and architects reviewing code written by people and AI"
+  group: quality
+  short: "Every pull or merge request reviewed against Google's code review practices, your own rules, or both. Tools and evidence check what they can; a model judges only the rest, and blocks only if you allow it."
+  status: in-development
+  stage: "The review of pull and merge requests with Fistron's findings and an AI review works today. The review rules, the language packs for Python, Go and Java and the repository audit are implemented and being validated on real pull requests."
+  note: "The default rules follow Google's Engineering Practices documentation, published by Google under CC-BY 3.0. Fistron is not affiliated with Google."
+  problem: "Coding assistants write code that runs but ignores how your team writes code: needless abstractions, a new helper where the project already has one, tests without real assertions, names nobody would choose. Reviewers spend their time writing the same comments again and again."
+  gets:
+    - "Google's engineering practices for code review as the default rules, your own rules beside them, or only yours."
+    - "Each rule checked the cheapest reliable way: linters and patterns, Fistron's evidence (tests for the changed lines, weak tests, invented dependencies, unexplained changes), a model only for design and naming."
+    - "One review on the pull or merge request together with the checks of AI-written code: every finding names its rule and its evidence."
+    - "Findings of a model never block unless you turn it on, rule by rule."
+    - "Stricter levels for AI-written changes, by policy."
+    - "The same rules given to your coding assistant before it writes, and its branch reviewed before the pull request."
+    - "An audit of the whole repository: how far the existing code is from your rules, and the trend."
+    - "Repeated reviewer comments proposed as new team rules, confirmed by a person."
+  questions: [review-rules, ai-code]
+  related: [trust]
+  see: [ai-written-code, become-a-developer, developer-assistant]
+- id: become-a-developer
+  title: "Become a developer"
+  for: "For engineers who write code with assistants, and the teams they join"
+  group: quality
+  short: "Own your code. Understand every change before you submit it, even when AI wrote it. Fistron explains what your change does, what it affects and what really tests it, and teaches you your team's rules, privately to you."
+  status: in-development
+  stage: "In development. It builds on what Fistron reviews today: the intent of a change, its tests and coverage, its risk and dependencies."
+  problem: "You are responsible for what you push, also when an assistant wrote it. Code that works but that nobody on the team understands becomes the next incident, the next reviewer cannot ask the assistant why, and the knowledge of the code leaves with the model instead of staying with people."
+  gets:
+    - "What your change does, per file and function, and why: tied to what you were asked to do, with unexplained parts highlighted."
+    - "What it affects: callers, side effects, changed behaviour, configuration and dependencies, from evidence."
+    - "What really tests it: the tests that execute your changed lines, and the lines no test checks."
+    - "Line by line: switch on a deeper mode that explains the lines in detail, the language and the project's own helpers."
+    - "A private learning path: what to learn next, from what you keep needing explained. Only you see it."
+    - "New in the team? Any module or service explained the same way, so you are productive sooner."
+    - "An optional check of your understanding before you submit; your team may require the confirmation, your answers stay yours."
+    - "Private to you, in your coding assistant, the CLI and Fistron's GUI: it reaches your pull or merge request only if you publish it."
+  questions: [become-a-developer, ai-code]
+  related: [trust]
+  see: [developer-assistant, ai-written-code, code-review-rules]
 - id: compliance
   title: "End-to-end solution for NIS2, EU DORA and ISO 27001"
   for: "For security, compliance and risk leaders"
@@ -126,9 +169,11 @@
     - "A review of your branch before you open the pull request: the evidence the change needs, what is missing, tests that don't check what changed."
     - "Your feature's steps checked against the suite: undefined or ambiguous steps, a feature outside every run set, a step without an assertion."
     - "A test proposed for an item of the plan, as a change you review, never pushed for you."
+    - "Your team's review rules given to the assistant before it writes, and its branch reviewed before the pull request."
     - "The same tools for any assistant that speaks MCP; answers cite the reports they come from, and your data classes and model policy apply."
   questions: [dev-assistant, ai-code]
   related: [trust]
+  see: [become-a-developer, code-review-rules]
 - id: measurable-quality
   title: "Measurable quality and velocity"
   for: "For leaders who must show the return"

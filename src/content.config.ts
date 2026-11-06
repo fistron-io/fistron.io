@@ -154,7 +154,19 @@ const outcomes = defineCollection({
 
 const messages = defineCollection({
   loader: orderedList("messages"),
-  schema: z.object({ order, title: z.string(), lines: z.array(z.string()).min(1) }),
+  schema: z.object({
+    order,
+    title: z.string(),
+    lines: z.array(z.string()).min(1),
+    // a pillar under the lines: a promise, its line and the solutions it links to
+    pillar: z
+      .object({
+        title: z.string(),
+        text: z.string(),
+        links: z.array(z.object({ label: z.string(), href: z.string().startsWith("/") })).default([]),
+      })
+      .optional(),
+  }),
 });
 
 const signals = defineCollection({
@@ -229,6 +241,10 @@ const solutions = defineCollection({
     questions: z.array(z.string()).default([]),
     // homepage sections shown on the solution's page
     related: z.array(z.enum(["offer", "open-core", "ci", "outcomes", "trust", "governance"])).default([]),
+    // ids of other solutions it links to, checked when the page is built
+    see: z.array(z.string()).default([]),
+    // a note under the solution's state, e.g. an attribution
+    note: z.string().optional(),
   }),
 });
 

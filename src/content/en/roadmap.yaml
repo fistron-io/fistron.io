@@ -1,4 +1,11 @@
-# State of 2026-10-31 (Fistron docs/design/roadmap.md). V1 to V4.6 are
+# State of 2026-11-06 (Fistron docs/design/roadmap.md). V3.4 (the review of
+# pull and merge requests, ADR 0076, ADR 0087) is implemented; its real
+# review on an open-source project's requests is next. The team's code review
+# rules (ADR 0146) are implemented and being validated (shown in development
+# until their exit); Become a developer (the change explained to its author)
+# is in development. The dashboard (ADR 0145), the summary of chosen
+# assessments (ADR 0130) and the GUI led by solutions (ADR 0143) are part of
+# V4b. Earlier state of 2026-10-31: V1 to V4.6 are
 # implemented and being validated (V1.5, V2.5 and the Suite Health audit in
 # shadow mode; V4b in production for its first pilot). V3.6 (the engineer's
 # loop, ADR 0115, with the daily CI review, ADR 0120), V3.2c (ADR 0113) and
@@ -34,7 +41,7 @@
   status: implemented
   stage: "V3 · Implemented; validating"
   title: "Coverage gaps, Suite Health and AI-written changes"
-  detail: "Changed lines no test executes, from your coverage tools. The Suite Health audit, which recommends retiring a test only when mutation results show nothing is lost, and for end-to-end suites without coverage the scenarios that repeat another's steps, check nothing, are slow without a function of their own or never detected a product failure. An evidence gate for AI-written changes, with velocity in the delivery baseline. In shadow mode and pilots on Fistron's own repositories."
+  detail: "Changed lines no test executes, from your coverage tools. Pull and merge requests reviewed with Fistron's findings on the lines they are about and an AI review beside them, never approved by Fistron. The Suite Health audit, which recommends retiring a test only when mutation results show nothing is lost, and for end-to-end suites without coverage the scenarios that repeat another's steps, check nothing, are slow without a function of their own or never detected a product failure. An evidence gate for AI-written changes, with velocity in the delivery baseline. In shadow mode and pilots on Fistron's own repositories."
   parts:
     - label: "V3.1"
       text: "Coverage gaps from your coverage tools"
@@ -48,6 +55,15 @@
     - label: "V3.3"
       text: "The evidence gate for AI-written changes"
       status: implemented
+    - label: "V3.4"
+      text: "The review of pull and merge requests: Fistron's findings on the diff's lines and an AI review, by your project's agent or in your CI"
+      status: implemented
+    - label: "Review rules"
+      text: "Code review by Google's practices, your own rules, or both; the same rules in your coding assistant, and the audit of a repository"
+      status: in-development
+    - label: "Become a developer"
+      text: "Own your code: your change explained to you before you submit it, line by line if you want, a private learning path, and the codebase explained to newcomers"
+      status: in-development
 - id: v3-5
   status: implemented
   stage: "V3.5 · Implemented; validating"
@@ -73,7 +89,7 @@
   status: implemented
   stage: "V4b · Implemented; validating"
   title: "One control plane for your teams"
-  detail: "The same interface for organisations: history across teams and projects, sign-in through your identity provider, roles and audit, with agents inside your network that connect outbound only. On-premises, air-gapped, hybrid or as Fistron Cloud. In production on Fistron Cloud for its first pilot; the remaining exit checks continue."
+  detail: "The same interface for organisations: history across teams and projects, sign-in through your identity provider, roles and audit, with agents inside your network that connect outbound only. A GUI led by your solutions, with the first audit guided step by step; a dashboard for each project and for the organisation; one summary of chosen audits and daily CI reviews across projects, with a model's interpretation checked against its facts when you allow it. On-premises, air-gapped, hybrid or as Fistron Cloud. In production on Fistron Cloud for its first pilot; the remaining exit checks continue."
 - id: v4-5
   status: implemented
   stage: "V4.5 · Implemented; validating"
