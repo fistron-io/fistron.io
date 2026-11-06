@@ -11,3 +11,10 @@
     - "Your CI failed. Fistron tells you why."
     - "You changed one file. You don't wait for the whole suite."
     - "Flaky tests stop blocking you. Someone owns them, and they get fixed."
+    - "Code review by Google's practices, your own rules, or both. In development."
+  pillar:
+    title: "AI that makes you a better developer, not a replaceable one."
+    text: "Like fire, AI is a good servant and a bad master. Your code stays in human hands: reviewed by your team's rules, understood by its author, cleaner thanks to AI."
+    links:
+      - { label: "Become a developer", href: "/solutions/become-a-developer/" }
+      - { label: "Code and MR/PR review by your team's rules", href: "/solutions/code-review-rules/" }

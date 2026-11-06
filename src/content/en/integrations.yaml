@@ -9,6 +9,8 @@
 - { id: coverage-py, name: "coverage.py with test contexts", status: available }
 - { id: cobertura-lcov, name: "Cobertura and LCOV", status: available }
 - { id: mutation, name: "Mutation testing (mutmut, Stryker)", status: available }
+- { id: sarif, name: "SARIF from your linters and scanners", status: available }
+- { id: review-rules, name: "Code review by Google's practices, your own rules, or both", status: in-development }
 - { id: testkube, name: "Testkube", status: in-development }
 - { id: openqa, name: "openQA", status: in-development }
 - { id: prometheus, name: "Prometheus", status: in-development }
