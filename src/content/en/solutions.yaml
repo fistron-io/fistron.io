@@ -232,12 +232,13 @@
   title: "Code and MR/PR review by your team's rules"
   for: "For tech leads and architects reviewing code written by people and AI"
   group: compliance
-  short: "Every pull or merge request reviewed against Google's code review practices, your own rules, or both. Tools and evidence check what they can; a model judges only the rest, and blocks only if you allow it."
+  short: "Every pull or merge request reviewed against Google's code review practices, your own rules, or both, and you choose what the review does: the code explained, the AI review, your conventions. Tools and evidence check what they can; a model judges only the rest, and blocks only if you allow it."
   status: available
   stage: "Implemented and being validated: the review of pull and merge requests with Fistron's findings and an AI review; the review rules with Google's practices as the default pack, the language packs for Python, Go and Java, the evidence rules, the model's rules, the same rules in your coding assistant, the repository audit and repeated reviewer comments proposed as rules. Its synthetic exit is recorded; next: real pull requests of an open-source project."
   note: "The default rules follow Google's Engineering Practices documentation, published by Google under CC-BY 3.0. Fistron is not affiliated with Google."
   problem: "Coding assistants write code that runs but ignores how your team writes code: needless abstractions, a new helper where the project already has one, tests without real assertions, names nobody would choose. Reviewers spend their time writing the same comments again and again."
   gets:
+    - "You choose what the review does, in any combination and in every plan: the code explained (what the change does, with its functions and methods), the AI review, and your conventions (the team's rules)."
     - "Google's engineering practices for code review as the default rules, your own rules beside them, or only yours."
     - "Each rule checked the cheapest reliable way: linters and patterns, Fistron's evidence (tests for the changed lines, weak tests, invented dependencies, unexplained changes), a model only for design and naming."
     - "One review on the pull or merge request together with the checks of AI-written code: every finding names its rule and its evidence."

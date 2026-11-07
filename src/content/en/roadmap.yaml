@@ -5,7 +5,10 @@
 # their synthetic exits recorded, being validated. A customer's MCP server as
 # a source of evidence (ADR 0144) is implemented. Fewer tokens by design
 # (ADR 0148) is in development: no numbers until the benchmark has them.
-# Reporting a problem in Fistron (ADR 0149) is planned. V7.5d (an
+# Reporting a problem in Fistron (ADR 0149) is implemented. Settings in
+# Fistron (ADR 0150) are implemented, their synthetic exit next; a request's
+# review with its options and the code explained (ADR 0151) is implemented.
+# V7.5d (an
 # installation per pull request, ADR 0141) is implemented, its operations
 # next. V8 (Agile Transformation, ADR 0123) is implemented, its synthetic
 # exit next. V4.7 (Fistron Memory) is not shown until it works (its plan,
@@ -105,7 +108,13 @@
   parts:
     - label: "Report a problem"
       text: "A problem in Fistron reported from any page or the command line, with what Fistron needs to find it and nothing of your evidence unless you attach it"
-      status: planned
+      status: implemented
+    - label: "Settings in Fistron"
+      text: "The code review rules, the change policy, the quarantine and the rest set in the GUI once for all your repositories and changed for one, never in a repository; what Fistron proposes of them waits in Fistron for a person to confirm; a setup wizard for the organisation (its repositories found and grouped into projects, each one's CI found and kept) and for one person"
+      status: implemented
+    - label: "Review options"
+      text: "A pull or merge request reviewed with the team's rules or without them, with the AI review or without it, and the code explained; you choose which comments go on the request"
+      status: implemented
 - id: v4-5
   status: implemented
   stage: "V4.5 · Implemented; validating"
