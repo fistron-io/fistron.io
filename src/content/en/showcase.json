@@ -72,9 +72,9 @@
       "guide": "use-become-a-developer",
       "pictures": [
         {
-          "name": "private-space",
-          "alt": "Fistron's Become a developer page: your private space, the changes explained and your learning path.",
-          "caption": "The local UI's Become a developer page, before anything is explained."
+          "name": "annotated-code",
+          "alt": "Fistron's Become a developer page: a branch of a small shop shown as its code, beside each changed function what it affects and which tests name it.",
+          "caption": "A branch of a fictional shop (examples/showcase-shop) explained for real from the code's evidence alone, beside the lines it explains. With a model, its words come labelled and held to these facts."
         }
       ]
     },
