@@ -69,7 +69,8 @@
       },
       "price": {
         "monthly_per_committer": 25,
-        "yearly_minimum": 5000,
+        "yearly_minimum": 0,
+        "minimum_committers": 3,
         "model_pool_monthly_per_committer": 5
       }
     },

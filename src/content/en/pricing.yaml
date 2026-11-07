@@ -1,7 +1,8 @@
 # The tiers on /pricing/, shown in file order. Source: Fistron ADR 0118
 # (pricing per active committer, 2026-10-30), ADR 0139 (the trial's limits
 # and Individual, 2026-11-03), ADR 0140 (the models and the model pool,
-# 2026-11-03) and business-model.md, its price list.
+# 2026-11-03), ADR 0152 (self-service, Team without a minimum, 2026-11-07)
+# and business-model.md, its price list.
 # Prices exclude VAT; each tier's minimum is a yearly price. Never invent a
 # price here; scripts/check-plans.mjs compares them with the core's.
 - id: trial
@@ -22,26 +23,31 @@
   priceNote: "a month, or EUR 144 a year; no commitment"
   for: "For one engineer, on your own machine"
   features:
-    - "On your machine and in the CI of repositories you own"
+    - "On your machine, on any code, also your employer's; in the CI of repositories you own"
     - "Fistron in your coding assistant: fistron mcp"
     - "Why your pull request or pipeline failed, and whether a test is flaky"
     - "Your branch reviewed before the pull request: missing evidence, uncovered changed lines, new dependencies"
     - "Your team's code review rules on your branch and in your coding assistant"
     - "Become a developer: your change explained to you before you submit it, line by line if you want"
+    - "Your review, your choice: the code explained, the AI review, your team's conventions, in any combination"
     - "The test plan, coverage gaps and risk of your change; your feature's steps against the suite"
     - "A proposed test as a local patch, never pushed; a bad test's repair"
     - "Fistron Sovereign Rules — Deterministic, or your own model"
     - "With a model: EUR 29 a month or EUR 279 a year, a model credit of EUR 12 a month (Fistron Managed, in development)"
-  note: "No control plane, team history, compliance or Fistroneer; help through the guide and e-mail. Paying by card is coming: until then, leave your details and we set you up."
+    - "A personal history of your own runs and flaky tests, kept on your machine (in development)"
+    - "Share an analysis or a review as a comment or a report, \"Analysed by Fistron\" beneath it unless you turn it off (in development)"
+    - "Invite your team: a Team trial that starts with your history (in development)"
+  note: "No team GUI, team history, compliance or Fistroneer; help through the guide and e-mail. Not for an organisation to buy for its people: they get the organisation's licence with Team. Paying by card is coming: until then, leave your details and we set you up."
   cta: "Get Individual"
 - id: team
   name: "Team"
   price: "EUR 25"
   priceNote: "per active committer a month"
-  minimum: "Minimum EUR 5,000 a year"
+  minimum: "From 3 active committers, no minimum"
   for: "For a team that wants its failures explained and its tests in order"
   features:
-    - "Hosted in the EU"
+    - "Hosted in the EU, monthly or yearly"
+    - "Fistron's GUI with your team's overviews and its shared history"
     - "Root cause analysis, flaky tests, test plans, coverage gaps, Suite Health, PR/MR review, change risk"
     - "Code review by Google's practices, your own rules, or both, on every pull or merge request"
     - "Become a developer: each engineer's changes explained privately to them, and the codebase to newcomers"
@@ -49,8 +55,10 @@
     - "The repair of tests that work badly, and new tests for the test plan's gaps"
     - "Fistron Sovereign Rules — Deterministic, or your own model"
     - "A model pool of EUR 5 per active committer a month: Fistron Managed (in development), Fistron Sovereign LLM hosted in the EU (planned)"
-    - "A Fistroneer who installs and sets Fistron up with you"
-  cta: "Start with a free trial"
+    - "Every member's command line and every fork of your code under the team's licence"
+    - "A Fistroneer who installs and sets Fistron up with you, from 10 active committers; for a smaller team by the day"
+  note: "Paying by card is coming: until then, leave your details and we set your team up."
+  cta: "Buy Team"
 - id: business
   name: "Business"
   price: "EUR 45"

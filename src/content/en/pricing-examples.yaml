@@ -1,14 +1,14 @@
 # Worked examples of the yearly price on /pricing/, shown in file order.
-# Source: Fistron ADR 0118 point 7. Keep the arithmetic right:
-# committers × monthly rate × 12, plus lines above the included, at least
-# the tier's minimum. plan, committers, lines and yearly are checked against
+# Source: Fistron ADR 0118 point 7 and ADR 0152. Keep the arithmetic right:
+# committers (Team at least 3) × monthly rate × 12, plus lines above the
+# included, at least the tier's minimum. plan, committers, lines and yearly are checked against
 # the core's prices in plans.json (scripts/check-plans.mjs).
 - id: team-10
   plan: team
   committers: 10
-  yearly: 5000
+  yearly: 3000
   title: "10 active committers, Team"
-  text: "10 × EUR 25 × 12 = EUR 3,000, so the minimum: EUR 5,000 a year."
+  text: "10 × EUR 25 × 12 = EUR 3,000 a year, no minimum. A Fistroneer installs and sets Fistron up with you."
 - id: business-30
   plan: business
   committers: 30

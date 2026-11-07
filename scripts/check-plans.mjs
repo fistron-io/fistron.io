@@ -3,7 +3,8 @@
 // same order, and every feature of a plan has its words in
 // plan-features.yaml. The prices too (Fistron ADR 0118): each tier's price
 // and minimum, the lines included and their price in pricing-extras.yaml,
-// and every worked example's yearly price by the formula; the trial's days
+// and every worked example's yearly price by the formula (at least the
+// plan's fewest active committers, Fistron ADR 0152); the trial's days
 // and Individual's yearly price (ADR 0139); the model pools and
 // Individual's variant with a model (ADR 0140). This check fails when they
 // differ.
@@ -40,6 +41,10 @@ for (const tier of parse(read("pricing.yaml"))) {
   }
   if (price.yearly_minimum > 0 && tier.minimum !== `Minimum ${eur(price.yearly_minimum)} a year`) {
     problems.push(`${tier.id}: pricing.yaml's minimum is not the core's ${eur(price.yearly_minimum)}`);
+  } else if (price.yearly_minimum === 0 && price.minimum_committers) {
+    // no minimum, but the fewest active committers priced (Fistron ADR 0152)
+    const from = `From ${price.minimum_committers} active committers, no minimum`;
+    if (tier.minimum !== from) problems.push(`${tier.id}: pricing.yaml's minimum does not say: ${from}`);
   } else if (price.yearly_minimum === 0 && tier.minimum) {
     problems.push(`${tier.id}: pricing.yaml shows a minimum, the core none`);
   }
@@ -71,9 +76,10 @@ for (const example of parse(read("pricing-examples.yaml"))) {
     continue;
   }
   const above = Math.max(0, (example.lines ?? 0) - example.committers * lines.included_per_committer);
+  const priced = Math.max(example.committers, price.minimum_committers ?? 0);
   const yearly = Math.max(
     price.yearly_minimum,
-    example.committers * price.monthly_per_committer * 12 + Math.ceil(above / lines.block) * lines.block_yearly,
+    priced * price.monthly_per_committer * 12 + Math.ceil(above / lines.block) * lines.block_yearly,
   );
   if (yearly !== example.yearly) {
     problems.push(`${example.id}: the core's prices give ${eur(yearly)}, the example ${eur(example.yearly)}`);
