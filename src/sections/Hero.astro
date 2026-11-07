@@ -16,6 +16,19 @@ const introParts = (copy.intro ?? "").split("**").map((text, i) => ({ text, stro
       {copy.eyebrow && <p class="eyebrow">{copy.eyebrow}</p>}
       <h1 id="hero-title">{copy.title}</h1>
       <p class="intro">{introParts.map((part) => (part.strong ? <strong>{part.text}</strong> : part.text))}</p>
+      {
+        copy.promise && (
+          <p class="promise">
+            {copy.promise}
+            {copy.promiseLink && (
+              <>
+                {" "}
+                <a href={copy.promiseLink}>How</a>
+              </>
+            )}
+          </p>
+        )
+      }
       <div class="ctas">
         <a href="#trial" class="btn btn-primary">{copy.primaryCta}</a>
         <a href="#solutions" class="btn btn-secondary">{copy.secondaryCta}</a>
@@ -89,6 +102,15 @@ const introParts = (copy.intro ?? "").split("**").map((text, i) => ({ text, stro
     line-height: 1.55;
     color: var(--color-ink-2);
     max-width: 34em;
+  }
+  .promise {
+    margin-top: 20px;
+    padding-left: 14px;
+    border-left: 3px solid var(--color-leaf-text);
+    font-size: 1.0625rem;
+    line-height: 1.5;
+    color: var(--color-ink-2);
+    max-width: 38em;
   }
   .intro strong {
     font-weight: 600;
