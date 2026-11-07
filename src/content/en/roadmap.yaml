@@ -110,7 +110,7 @@
       text: "A problem in Fistron reported from any page or the command line, with what Fistron needs to find it and nothing of your evidence unless you attach it"
       status: implemented
     - label: "Settings in Fistron"
-      text: "The code review rules, the change policy, the quarantine and the rest set in the GUI once for all your repositories and changed for one, never in a repository; what Fistron proposes of them waits in Fistron for a person to confirm; a setup wizard for the organisation and for one person"
+      text: "The code review rules, the change policy, the quarantine and the rest set in the GUI once for all your repositories and changed for one, never in a repository; what Fistron proposes of them waits in Fistron for a person to confirm; a setup wizard for the organisation (its repositories found and grouped into projects, each one's CI found and kept) and for one person"
       status: implemented
     - label: "Review options"
       text: "A pull or merge request reviewed with the team's rules or without them, with the AI review or without it, and the code explained; you choose which comments go on the request"

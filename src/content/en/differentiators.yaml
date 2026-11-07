@@ -41,7 +41,7 @@
   title: "Autonomous, under your control"
   instead: "Agents that act on their own"
   others: "Changes made for you, explained afterwards."
-  fistron: "Fistron proposes every change as a pull or merge request or a recorded action, at the autonomy level you allow. A person approves."
+  fistron: "Fistron proposes every change of your code and CI as a pull or merge request or a recorded action, at the autonomy level you allow; a change of its settings waits in Fistron's GUI, never in your repository. A person approves."
 - id: measured
   title: "Measured, not promised"
   instead: "Claimed savings"
