@@ -75,6 +75,11 @@
           "name": "annotated-code",
           "alt": "Fistron's Become a developer page: a branch of a small shop shown as its code, beside each changed function what it affects and which tests name it.",
           "caption": "A branch of a fictional shop (examples/showcase-shop) explained for real from the code's evidence alone, beside the lines it explains. With a model, its words come labelled and held to these facts."
+        },
+        {
+          "name": "line-by-line",
+          "alt": "Fistron's Become a developer page, line by line: the shop's changed code, beside its lines what each does in a model's words, labelled, with links to the language's documentation.",
+          "caption": "The same branch line by line: a real model's words as the role explainer, recorded once (examples/showcase-shop/recorded), labelled and checked against Fistron's facts beside the lines they explain."
         }
       ]
     },
