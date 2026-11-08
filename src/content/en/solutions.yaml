@@ -155,6 +155,27 @@
   questions: [dev-assistant, ai-code]
   related: [trust]
   see: [become-a-developer, code-review-rules]
+- id: manual-verification
+  title: "Manual verification"
+  for: "For QA engineers and teams who verify tickets and releases by hand"
+  group: quality
+  short: "Fistron turns a manual test into a verified, repeatable record with the ticket's comment ready to post, and step by step into an automated test."
+  status: available
+  stage: "Implemented and being validated (V7.8): the record and its rounds, the checks by rules, the cross-check with the automated run, the ticket's comment in your team's own format and the manual steps as gaps of the test plan; the guided setup, in which you say what you verify and where, and Fistron proposes the checklist from the ticket, finds each system, checks its access and writes the configuration itself, in the GUI and from the command line. Its synthetic exit is recorded; next: a real team's tickets."
+  problem: "A manual verification is slow and error-prone around the test itself: outputs copied from terminals and web pages, a checklist marked by impression, the ticket's comment written by hand, the same work repeated on the next release, and none of it turning into automation."
+  gets:
+    - "The evidence collected: after each step the agent reads the state from the product's API and read-only commands on the hosts, verbatim and timestamped, with secrets redacted."
+    - "Checked by rules, not by impression: each step has explicit checks, and a failed read stays in the history."
+    - "The ticket's comment written in your team's own format: rounds, the checklist with its marks, every output in collapsed details."
+    - "Cross-checked against automation: a manual pass that the automated run of the same test contradicts becomes a question."
+    - "Rounds and history: a resubmission or the next release is a new round, compared with the previous one."
+    - "Manual work turned into automated tests: a manual step your suite does not cover is a gap of the test plan, and Fistron can propose the missing test."
+    - "Fistron does not click through the UI or run the test: a person does, and evidence no API gives is pasted or uploaded."
+    - "Set up in minutes: give the ticket and each system's address; Fistron proposes the checklist, gives you the fingerprints to compare and one line for each host, then checks what it will read."
+    - "On your own machine from the command line; in Fistron's GUI with checklists shared in your organisation, from Team."
+  questions: [manual-verification, test-plan]
+  related: [trust]
+  see: [measurable-quality, developer-assistant]
 - id: measurable-quality
   title: "Measurable quality and velocity"
   for: "For leaders who must show the return"

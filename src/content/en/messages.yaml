@@ -5,6 +5,7 @@
     - "Meet your quality, schedule and cost baselines, and prove it."
     - "Know where your release stands on quality, with evidence instead of status meetings."
     - "Your engineers ship more of what your customers pay for."
+    - "Your people grow with every change: Fistron explains each change to its author, and shows you what your team should learn next, as a team, never a person's score. The team's view is in development."
 - id: engineers
   title: "For engineers"
   lines:
@@ -14,7 +15,7 @@
     - "Code review by Google's practices, your own rules, or both. In development."
   pillar:
     title: "AI that makes you a better developer, not a replaceable one."
-    text: "Like fire, AI is a good servant and a bad master. Your code stays in human hands: reviewed by your team's rules, understood by its author, cleaner thanks to AI."
+    text: "Like fire, AI is a good servant and a bad master. Fistron makes your work faster and helps you grow: it explains, checks and proposes, and you decide. Every model's word is labelled and held to the evidence, never trusted blindly. Your code stays in human hands: reviewed by your team's rules, understood by its author, cleaner thanks to AI."
     links:
       - { label: "Become a developer", href: "/solutions/become-a-developer/" }
       - { label: "Code and MR/PR review by your team's rules", href: "/solutions/code-review-rules/" }
