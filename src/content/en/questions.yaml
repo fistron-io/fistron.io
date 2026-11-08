@@ -83,6 +83,10 @@
   question: "AI wrote most of my change. How do I make sure I understand it?"
   answer: "Ask Fistron to explain it before you submit: what it does and why, what it affects, what really tests it, and line by line if you want. It is private to you, it shows you what to learn next, and you can confirm that you understand your change before the review."
   status: available
+- id: manual-verification
+  question: "We verify tickets by hand. Can the record be trusted and the work become automated?"
+  answer: "A person still does the test. Fistron collects the evidence from your product's API and read-only commands, checks each step by rules, writes the ticket's comment in your team's format and compares it with the automated run of the same test. The manual steps no test covers become the gaps of your test plan."
+  status: available
 - id: compliance
   question: "Can we pass NIS2, EU DORA or ISO 27001 without months of manual evidence?"
   answer: "Monitor the controls from the tools you already run, close the gaps through them and prepare the audit; the certificate through an accredited partner."

@@ -226,8 +226,8 @@
 - id: v7-8
   status: implemented
   stage: "V7.8 · Implemented; validating"
-  title: "The verification log of a release"
-  detail: "When a release is verified by hand, for example on a new client operating system, Fistron's agent logs what was done from the product's API and read-only commands, verbatim and with secrets redacted, checks it by rules and renders it in your team's own format as a draft a person confirms. The same verification automated from your suite's templates, and the manual marks checked against it. Not a condition of general availability."
+  title: "Manual verification"
+  detail: "Fistron turns a manual test into a verified, repeatable record with the ticket's comment ready to post, and step by step into an automated test. When a release is verified by hand, for example on a new client operating system, Fistron's agent logs what was done from the product's API and read-only commands, verbatim and with secrets redacted, checks it by rules and renders it in your team's own format as a draft a person confirms. The same verification automated from your suite's templates, and the manual marks checked against it. In development: the guided setup, in which you say what you verify and where and Fistron writes the configuration itself (ADR 0154). Not a condition of general availability."
 - id: v8
   status: implemented
   stage: "V8 · Implemented; validating"

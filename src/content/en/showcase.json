@@ -79,6 +79,20 @@
       ]
     },
     {
+      "id": "manual-verification",
+      "you_do": "Do the manual test; after each step, tell the agent it is done.",
+      "fistron_does": "Fistron's agent reads the evidence from the product's API and read-only commands, checks each step by rules and compares it with the automated run of the same test.",
+      "you_get": "A verified record with its rounds, the ticket's comment ready to post, and the manual steps no test covers as gaps of your test plan.",
+      "guide": "solution-manual-verification",
+      "pictures": [
+        {
+          "name": "verification-log",
+          "alt": "Fistron's Manual verification record: a ticket's rounds, each step's checks with their evidence, and a question left for the person.",
+          "caption": "The record of a synthetic ticket (the demo's document): a fictional operating system verified by hand, its evidence read by the agent."
+        }
+      ]
+    },
+    {
       "id": "compliance",
       "you_do": "Choose the framework and connect your tools.",
       "fistron_does": "Fistron assesses each control from the evidence your tools hold and says which are met, which are not and why.",
