@@ -36,8 +36,21 @@ const steps = found
   found && (pictures.length > 0 || found.pending) && (
     <Section labelledby="see-it-title" tone="mist">
       <h2 id="see-it-title">See it</h2>
-      {pictures.map((picture) => (
-        <figure>
+      <div class="slides" data-slides aria-roledescription="carousel" aria-label="Pictures of the solution">
+      {pictures.length > 1 && (
+        <div class="controls" data-controls hidden>
+          <button type="button" class="arrow" data-previous aria-label="The previous picture">‹</button>
+          <div class="dots">
+            {pictures.map((picture, index) => (
+              <button type="button" class="dot" data-dot={index} aria-label={`Picture ${index + 1}: ${picture.alt}`} />
+            ))}
+          </div>
+          <span class="count" data-count aria-live="polite">1 of {pictures.length}</span>
+          <button type="button" class="arrow" data-next aria-label="The next picture">›</button>
+        </div>
+      )}
+      {pictures.map((picture, index) => (
+        <figure class="slide" data-slide aria-roledescription="slide" aria-label={`${index + 1} of ${pictures.length}`}>
           <button type="button" class="zoom" data-zoom aria-label={`Enlarge: ${picture.alt}`}>
             <picture>
               <source media="(max-width: 600px)" srcset={`${base(picture)}-phone.png`} />
@@ -51,6 +64,7 @@ const steps = found
           </figcaption>
         </figure>
       ))}
+      </div>
       {pictures.length === 0 && found.pending && (
         <p class="pending">
           No picture yet: {found.pending} Until then, <a href={`${site.services.docs.url}/${found.guide}/`}>the guide</a>{" "}
@@ -76,6 +90,32 @@ const steps = found
 }
 
 <script>
+  // several pictures: one at a time, the others a click (or an arrow key) away; without
+  // scripts every picture stays shown, one under another
+  for (const slides of document.querySelectorAll<HTMLElement>("[data-slides]")) {
+    const figures = [...slides.querySelectorAll<HTMLElement>("[data-slide]")];
+    const controls = slides.querySelector<HTMLElement>("[data-controls]");
+    if (figures.length < 2 || !controls) continue;
+    const dots = [...controls.querySelectorAll<HTMLButtonElement>("[data-dot]")];
+    const count = controls.querySelector<HTMLElement>("[data-count]");
+    let at = 0;
+    const show = (index: number) => {
+      at = (index + figures.length) % figures.length;
+      figures.forEach((figure, i) => (figure.hidden = i !== at));
+      dots.forEach((dot, i) => dot.setAttribute("aria-current", String(i === at)));
+      if (count) count.textContent = `${at + 1} of ${figures.length}`;
+    };
+    controls.hidden = false;
+    controls.querySelector("[data-previous]")?.addEventListener("click", () => show(at - 1));
+    controls.querySelector("[data-next]")?.addEventListener("click", () => show(at + 1));
+    dots.forEach((dot, i) => dot.addEventListener("click", () => show(i)));
+    slides.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowLeft") show(at - 1);
+      if (event.key === "ArrowRight") show(at + 1);
+    });
+    show(0);
+  }
+
   // a picture opens enlarged: the one the visitor sees (its theme, its size), closed by a click or Escape
   for (const button of document.querySelectorAll<HTMLButtonElement>("[data-zoom]")) {
     button.addEventListener("click", () => {
@@ -101,6 +141,51 @@ const steps = found
   }
   figure {
     margin: 24px 0 0;
+  }
+  .controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 16px;
+    justify-content: flex-start;
+  }
+  .controls[hidden] {
+    display: none;
+  }
+  .arrow {
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--color-line);
+    border-radius: 20px;
+    font-size: 1.5rem;
+    line-height: 1;
+    color: var(--color-heading);
+    background: var(--color-paper);
+    cursor: pointer;
+  }
+  .dots {
+    display: flex;
+    gap: 8px;
+  }
+  .dot {
+    width: 12px;
+    height: 12px;
+    padding: 0;
+    border: 1px solid var(--color-heading);
+    border-radius: 6px;
+    background: transparent;
+    cursor: pointer;
+  }
+  .dot[aria-current="true"] {
+    background: var(--color-heading);
+  }
+  .count {
+    font-size: 0.9rem;
+    color: var(--color-ink-2);
+  }
+  .slide[hidden] {
+    display: none;
   }
   .zoom {
     display: block;
