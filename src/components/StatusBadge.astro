@@ -1,19 +1,24 @@
 ---
 import CheckIcon from "./CheckIcon.astro";
 
-/** "Available now" (filled checkbox, green) or "In development" (empty checkbox). */
+/** "Available now" (filled checkbox, green) or "In development" (empty checkbox).
+ * With ``href``, a link: to where the feature is described (its page of the guide). */
 interface Props {
   status: "available" | "in-development";
   tone?: "light" | "dark";
+  href?: string;
+  title?: string; // what the link opens
 }
-const { status, tone = "light" } = Astro.props;
+const { status, tone = "light", href, title } = Astro.props;
 const available = status === "available";
+const label = available ? "Available now" : "In development";
+const Tag = href ? "a" : "span";
 ---
 
-<span class:list={["badge", tone, available ? "available" : "pending"]}>
+<Tag class:list={["badge", tone, available ? "available" : "pending"]} href={href} title={title}>
   <CheckIcon filled={available} size={14} />
-  {available ? "Available now" : "In development"}
-</span>
+  {label}
+</Tag>
 
 <style>
   .badge {
@@ -23,6 +28,14 @@ const available = status === "available";
     font-size: 0.8125rem;
     font-weight: 500;
     white-space: nowrap;
+  }
+  a.badge {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+  }
+  a.badge:hover {
+    text-decoration-thickness: 2px;
   }
   .light.available {
     color: var(--color-leaf-text);

@@ -39,6 +39,7 @@ const see = solution.see.map((id) => {
 });
 // the solution's page of the guide (docs.fistron.io), as Fistron's showcase names it
 const guide = showcase.solutions.find((s) => s.id === solution.id)?.guide;
+const guideUrl = guide ? `${site.services.docs.url}/${guide}/` : undefined;
 const related = { offer: Offer, "open-core": OpenCore, ci: CiFailure, outcomes: Outcomes, trust: Trust, governance: Governance };
 ---
 
@@ -49,7 +50,7 @@ const related = { offer: Offer, "open-core": OpenCore, ci: CiFailure, outcomes: 
     kicker={solution.for}
     parent={{ label: "Solutions", href: "/solutions/" }}
   >
-    <StatusBadge status={solution.status} />
+    <StatusBadge status={solution.status} href={guideUrl} title={guideUrl && "How to set it up, in the guide"} />
   </PageHeader>
 
   <Section labelledby="problem-title">
@@ -67,7 +68,7 @@ const related = { offer: Offer, "open-core": OpenCore, ci: CiFailure, outcomes: 
         {
           guide && (
             <p class="guide">
-              <a href={`${site.services.docs.url}/${guide}/`}>Read how to set it up in the guide</a>
+              <a href={guideUrl}>Read how to set it up in the guide</a>
             </p>
           )
         }
