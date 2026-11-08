@@ -4,7 +4,7 @@
 # review rules (ADR 0146) and Become a developer (ADR 0147) are implemented,
 # their synthetic exits recorded, being validated. A customer's MCP server as
 # a source of evidence (ADR 0144) is implemented. Fewer tokens by design
-# (ADR 0148) is in development: no numbers until the benchmark has them.
+# (ADR 0148) is implemented: no numbers until the benchmark has them.
 # Reporting a problem in Fistron (ADR 0149) is implemented. Settings in
 # Fistron (ADR 0150) are implemented, their synthetic exit next; a request's
 # review with its options and the code explained (ADR 0151) is implemented.
@@ -41,8 +41,8 @@
       text: "Evidence read from your own MCP servers (a product, monitoring, ticketing, a database): only the tools you allow that only read"
       status: implemented
     - label: "Fewer tokens"
-      text: "A model gets only the evidence that matters, not your whole log; each run says what its model calls used. Numbers once Fistron's benchmark has them"
-      status: in-development
+      text: "A model gets only the evidence that matters, not your whole log; each run says what its model calls used against the whole case. Numbers once Fistron's benchmark has them"
+      status: implemented
 - id: v1-5
   status: implemented
   stage: "V1.5 · Implemented; shadow mode"

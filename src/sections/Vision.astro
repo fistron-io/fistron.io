@@ -1,0 +1,60 @@
+---
+/** Fistron's vision and mission: the category it defines, Assurance as a Platform (AaaP). */
+import { section } from "../lib/content";
+import Section from "../components/Section.astro";
+
+const copy = await section("vision");
+const [mission] = copy.paragraphs ?? [];
+---
+
+<Section tone="indigo" labelledby="vision-title">
+  <div class="vision">
+    {copy.eyebrow && <p class="eyebrow">{copy.eyebrow}</p>}
+    <h2 id="vision-title">{copy.title}</h2>
+    {copy.intro && <p class="lead">{copy.intro}</p>}
+    {
+      mission && (
+        <>
+          <h3>{copy.linkLabel ?? "Our mission"}</h3>
+          <p class="mission">{mission}</p>
+        </>
+      )
+    }
+  </div>
+</Section>
+
+<style>
+  .vision {
+    max-width: 54rem;
+  }
+  .eyebrow {
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--color-leaf-light);
+  }
+  h2 {
+    margin-top: 8px;
+    font-size: var(--text-h2);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--color-white);
+  }
+  .lead {
+    margin-top: 16px;
+    font-size: var(--text-lead);
+    color: var(--color-on-dark);
+  }
+  h3 {
+    margin-top: 32px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--color-leaf-light);
+  }
+  .mission {
+    margin-top: 8px;
+    font-size: var(--text-lead);
+    color: var(--color-on-dark);
+  }
+</style>

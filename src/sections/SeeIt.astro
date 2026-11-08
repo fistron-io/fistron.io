@@ -3,7 +3,8 @@
  * A solution's showcase: Fistron's own GUI on the demo's documents, taken at
  * each release (showcase.json and public/showcase/, synced from Fistron), in
  * the theme the visitor reads in, with what you do, what Fistron does and
- * what you get.
+ * what you get. Each picture opens enlarged on a click; a solution with
+ * nothing real to show yet says why (pending).
  */
 import Section from "../components/Section.astro";
 import showcase from "../content/en/showcase.json";
@@ -12,9 +13,16 @@ import { site } from "../config/site";
 interface Props {
   id: string;
 }
-const found = showcase.solutions.find((s) => s.id === Astro.props.id);
-const picture = found?.pictures[0];
-const base = picture ? `/showcase/${found!.id}/${picture.name}` : "";
+interface Picture {
+  name: string;
+  alt: string;
+  caption: string;
+}
+const found = showcase.solutions.find((s) => s.id === Astro.props.id) as
+  | { id: string; you_do: string; fistron_does: string; you_get: string; guide: string; pictures: Picture[]; pending?: string }
+  | undefined;
+const pictures = found?.pictures ?? [];
+const base = (picture: Picture) => `/showcase/${found!.id}/${picture.name}`;
 const steps = found
   ? [
       { label: "You do", text: found.you_do },
@@ -25,20 +33,30 @@ const steps = found
 ---
 
 {
-  found && picture && (
+  found && (pictures.length > 0 || found.pending) && (
     <Section labelledby="see-it-title" tone="mist">
       <h2 id="see-it-title">See it</h2>
-      <figure>
-        <picture>
-          <source media="(max-width: 600px)" srcset={`${base}-phone.png`} />
-          <img class="light" src={`${base}-light.png`} alt={picture.alt} width="1440" height="900" loading="lazy" />
-        </picture>
-        <img class="dark" src={`${base}-dark.png`} alt={picture.alt} width="1440" height="900" loading="lazy" />
-        <figcaption>
-          {picture.caption} Taken from Fistron's GUI at its release, never drawn. More in{" "}
-          <a href={`${site.services.docs.url}/${found.guide}/`}>the guide</a>.
-        </figcaption>
-      </figure>
+      {pictures.map((picture) => (
+        <figure>
+          <button type="button" class="zoom" data-zoom aria-label={`Enlarge: ${picture.alt}`}>
+            <picture>
+              <source media="(max-width: 600px)" srcset={`${base(picture)}-phone.png`} />
+              <img class="light" src={`${base(picture)}-light.png`} alt={picture.alt} width="1440" height="900" loading="lazy" />
+            </picture>
+            <img class="dark" src={`${base(picture)}-dark.png`} alt={picture.alt} width="1440" height="900" loading="lazy" />
+          </button>
+          <figcaption>
+            {picture.caption} Taken from Fistron's GUI at its release, never drawn. Click to enlarge. More in{" "}
+            <a href={`${site.services.docs.url}/${found.guide}/`}>the guide</a>.
+          </figcaption>
+        </figure>
+      ))}
+      {pictures.length === 0 && found.pending && (
+        <p class="pending">
+          No picture yet: {found.pending} Until then, <a href={`${site.services.docs.url}/${found.guide}/`}>the guide</a>{" "}
+          says what works today.
+        </p>
+      )}
       <ol class="steps">
         {
           steps.map((step) => (
@@ -49,9 +67,31 @@ const steps = found
           ))
         }
       </ol>
+      <dialog class="enlarged" aria-label="The picture enlarged">
+        <button type="button" class="close" aria-label="Close">×</button>
+        <img alt="" />
+      </dialog>
     </Section>
   )
 }
+
+<script>
+  // a picture opens enlarged: the one the visitor sees (its theme, its size), closed by a click or Escape
+  for (const button of document.querySelectorAll<HTMLButtonElement>("[data-zoom]")) {
+    button.addEventListener("click", () => {
+      const dialog = button.closest("section")?.querySelector<HTMLDialogElement>("dialog.enlarged");
+      const shown = [...button.querySelectorAll<HTMLImageElement>("img")].find((img) => img.offsetParent !== null);
+      const large = dialog?.querySelector("img");
+      if (!dialog || !shown || !large) return;
+      large.src = shown.currentSrc || shown.src;
+      large.alt = shown.alt;
+      dialog.showModal();
+    });
+  }
+  for (const dialog of document.querySelectorAll<HTMLDialogElement>("dialog.enlarged")) {
+    dialog.addEventListener("click", () => dialog.close());
+  }
+</script>
 
 <style>
   h2 {
@@ -61,6 +101,55 @@ const steps = found
   }
   figure {
     margin: 24px 0 0;
+  }
+  .zoom {
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: zoom-in;
+  }
+  .zoom:focus-visible {
+    outline: 2px solid var(--color-leaf);
+    outline-offset: 4px;
+    border-radius: 8px;
+  }
+  .pending {
+    margin-top: 16px;
+    color: var(--color-ink-2);
+  }
+  .enlarged {
+    max-width: 96vw;
+    max-height: 96vh;
+    padding: 0;
+    border: 0;
+    border-radius: 8px;
+    background: var(--color-paper);
+    cursor: zoom-out;
+  }
+  .enlarged::backdrop {
+    background: rgb(0 0 0 / 0.75);
+  }
+  .enlarged img {
+    width: auto;
+    max-width: 96vw;
+    max-height: 96vh;
+    border: 0;
+  }
+  .enlarged .close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 40px;
+    height: 40px;
+    border: 0;
+    border-radius: 20px;
+    font-size: 1.5rem;
+    line-height: 1;
+    color: var(--color-white);
+    background: var(--color-night);
+    cursor: pointer;
   }
   img {
     display: block;

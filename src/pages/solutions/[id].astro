@@ -14,6 +14,8 @@ import Trust from "../../sections/Trust.astro";
 import Governance from "../../sections/Governance.astro";
 import SeeIt from "../../sections/SeeIt.astro";
 import { section, listWithIds } from "../../lib/content";
+import showcase from "../../content/en/showcase.json";
+import { site } from "../../config/site";
 
 export const getStaticPaths = (async () => {
   const solutions = await listWithIds("solutions");
@@ -35,6 +37,8 @@ const see = solution.see.map((id) => {
   if (!found) throw new Error(`solutions.yaml ${solution.id}: no solution "${id}" to see`);
   return found;
 });
+// the solution's page of the guide (docs.fistron.io), as Fistron's showcase names it
+const guide = showcase.solutions.find((s) => s.id === solution.id)?.guide;
 const related = { offer: Offer, "open-core": OpenCore, ci: CiFailure, outcomes: Outcomes, trust: Trust, governance: Governance };
 ---
 
@@ -60,6 +64,13 @@ const related = { offer: Offer, "open-core": OpenCore, ci: CiFailure, outcomes: 
           </h3>
           <p>{solution.stage}</p>
         </div>
+        {
+          guide && (
+            <p class="guide">
+              <a href={`${site.services.docs.url}/${guide}/`}>Read how to set it up in the guide</a>
+            </p>
+          )
+        }
         {solution.note && <p class="note">{solution.note}</p>}
       </div>
       <div class="gets">
@@ -135,6 +146,10 @@ const related = { offer: Offer, "open-core": OpenCore, ci: CiFailure, outcomes: 
 </BaseLayout>
 
 <style>
+  .guide {
+    margin-top: 16px;
+    font-weight: 600;
+  }
   .body {
     display: grid;
     grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);

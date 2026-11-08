@@ -10,11 +10,13 @@
 - { id: cobertura-lcov, name: "Cobertura and LCOV", status: available }
 - { id: mutation, name: "Mutation testing (mutmut, Stryker)", status: available }
 - { id: sarif, name: "SARIF from your linters and scanners", status: available }
-- { id: review-rules, name: "Code review by Google's practices, your own rules, or both", status: in-development }
-- { id: testkube, name: "Testkube", status: in-development }
-- { id: openqa, name: "openQA", status: in-development }
+- { id: review-rules, name: "Code review by Google's practices, your own rules, or both", status: available }
+- { id: testkube, name: "Testkube", status: available }
+- { id: openqa, name: "openQA", status: available }
+- { id: jira, name: "Jira", status: available }
+- { id: mcp-sources, name: "Your own MCP servers, read-only", status: available }
+- { id: bugzilla, name: "Bugzilla", status: available }
 - { id: prometheus, name: "Prometheus", status: in-development }
 - { id: opentelemetry, name: "OpenTelemetry", status: in-development }
-- { id: jira, name: "Jira", status: in-development }
 - { id: tcms, name: "Test management systems", status: in-development }
 - { id: opa, name: "OPA policies", status: in-development }

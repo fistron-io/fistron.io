@@ -93,6 +93,24 @@
       ]
     },
     {
+      "id": "fewer-tokens",
+      "you_do": "Choose the models your policy allows, with their prices.",
+      "fistron_does": "Fistron decides by rules where it can and sends a model only the evidence that matters, then counts what each run sent against the whole case.",
+      "you_get": "Answers that cite their evidence, each run's model calls and cost, and a benchmark against the whole log on your own failures.",
+      "guide": "solution-fewer-tokens",
+      "pictures": [],
+      "pending": "Shown with Fistron's own benchmark figures, once measured."
+    },
+    {
+      "id": "platform-partners",
+      "you_do": "Offer Fistron inside your platform's services.",
+      "fistron_does": "Fistron runs each of your customers in its own tenant and region, with usage records for your billing.",
+      "you_get": "Quality and compliance for your customers where they already deploy and pay.",
+      "guide": "solution-platform-partners",
+      "pictures": [],
+      "pending": "Built with the first partner."
+    },
+    {
       "id": "compliance",
       "you_do": "Choose the framework and connect your tools.",
       "fistron_does": "Fistron assesses each control from the evidence your tools hold and says which are met, which are not and why.",
