@@ -3,8 +3,8 @@
 
 hero:
   eyebrow: "Assured, not assumed."
-  title: "The end-to-end autonomous assurance platform"
-  intro: "Fistron is the **platform for autonomous quality and compliance assurance**. By orchestrating the tools you already run, it delivers an **end-to-end solution** for the quality your customers, auditors and regulators expect, including **ISO certification that supports NIS2 and EU DORA**, under your control and with the proof they accept. **Deterministic where it counts, AI where it helps.**"
+  title: "End-to-end autonomous Assurance as a Platform"
+  intro: "Fistron defines **Assurance as a Platform (AaaP)**: autonomous quality and compliance assurance, end to end, with engineers who grow along the way. By orchestrating the tools you already run, it delivers an **end-to-end solution** for the quality your customers, auditors and regulators expect, including **ISO certification that supports NIS2 and EU DORA**, under your control and with the proof they accept. **Deterministic where it counts, AI where it helps.**"
   note: "CI failure analysis, change assessment, test plans, coverage gaps and the checks for code written with AI work today. Compliance in the tool, Fištrónek with measurable outcomes, the risk of each change, the repair of tests that work badly, new tests, the Fast Feedback Loop and Distributed Continuous Certification are implemented and being validated. People and guarantees are set per contract."
   promise: "AI that serves your people and never replaces them: faster work, engineers who grow, and every model's word labelled and held to the evidence, never trusted blindly."
   promiseLink: "/solutions/become-a-developer/"
@@ -12,8 +12,16 @@ hero:
   secondaryCta: "Explore the solutions"
   caption: "Target workflow with example data. In development."
 
+vision:
+  eyebrow: "Our vision"
+  title: "Assurance as a Platform (AaaP)"
+  intro: "Infrastructure became a platform, software became a service. Assurance is next: software that is assured, not assumed, where every change, release and service ships with proof anyone can check."
+  linkLabel: "Our mission"
+  paragraphs:
+    - "Fistron, the end-to-end autonomous AaaP, turns the tools teams already run into one autonomous assurance platform. It finds what is missing, proves quality and compliance with evidence, and does the repetitive work, so people decide and grow, under their own control."
+
 problem:
-  title: "Your tools each answer their own question. Nobody answers yours."
+  title: "Why assurance needs a platform"
   intro: "CI knows whether a job passed. The test manager knows which tests exist. Observability knows what happened in production. Whether a change, a release or a service actually meets its quality objective is still assembled by hand, across tools and teams."
   note: "Your pipeline is green. Your release manager is not."
   caption: "Passed on retry. Again. Fištrónek has questions."
@@ -118,7 +126,7 @@ partners:
 
 roadmap:
   title: "Where Fistron is heading"
-  intro: "V1 to V4.6 are implemented and being validated: flaky quarantine, evidence selection and the Suite Health audit in shadow mode on Fistron's own repositories, the local interface and setup released, and the control plane for teams in production for its first pilot. Fistron in your coding assistant (V3.6), the value of your end-to-end tests (V3.2c), the Fast Feedback Loop (V3.7), new tests written for your plan, also in your own tools (V5), the risk of each change with its measured accuracy (V6), the closed loop on your tests (V7), certification by your customers across releases with the release gate (V7.5), Migration Assurance (V7.7), Manual verification (V7.8), Agile Transformation (V8), the review of pull and merge requests (V3.4) with code review by your team's rules, Become a developer and evidence from your own MCP servers are implemented and being validated. In development: Fistron Sovereign LLM (V7.6) and fewer tokens by design. General availability follows V7, V5, V7.7 and V8. Green marks what is implemented; human review and broader validation continue."
+  intro: "V1 to V4.6 are implemented and being validated: flaky quarantine, evidence selection and the Suite Health audit in shadow mode on Fistron's own repositories, the local interface and setup released, and the control plane for teams in production for its first pilot. Fistron in your coding assistant (V3.6), the value of your end-to-end tests (V3.2c), the Fast Feedback Loop (V3.7), new tests written for your plan, also in your own tools (V5), the risk of each change with its measured accuracy (V6), the closed loop on your tests (V7), certification by your customers across releases with the release gate (V7.5), Migration Assurance (V7.7), Manual verification (V7.8), Agile Transformation (V8), the review of pull and merge requests (V3.4) with code review by your team's rules, Become a developer, evidence from your own MCP servers and fewer tokens by design are implemented and being validated. In development: Fistron Sovereign LLM (V7.6). General availability follows V7, V5, V7.7 and V8. Green marks what is implemented; human review and broader validation continue."
   caption: "GA in sight. Fištrónek brought binoculars."
 
 openCore:
@@ -251,10 +259,11 @@ pricingDays:
   title: "Estimating the Fistroneer's days"
   intro: "How many person-days your setup and ongoing work take. The days of your tier count first; the rest at EUR 1,300 a day."
   paragraphs:
-    - "Setup, hosted in the EU: 3 person-days"
+    - "Setup, hosted by Fistron: 3 person-days"
     - "Setup, hybrid: 5 person-days"
     - "Setup, on-premises: 9 person-days"
     - "Setup, air-gapped: 12 person-days"
     - "Each additional CI system: 1 person-day"
     - "Each test suite: 2 person-days"
     - "Ongoing work: 1 person-day a month per team"
+    - "On site: in Central Europe (Czechia) and Italy at the day rate; elsewhere (farther in Europe, the US, Australia) travel and accommodation at cost, estimated in the offer and agreed beforehand"

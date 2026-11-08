@@ -103,6 +103,14 @@
   question: "Where do we stand, and what is still missing?"
   answer: "Fištrónek, Fistron's assistant, reports on request or every week: what is met, what is missing and why, what changed, the next steps. Every statement links to its evidence; missing data is named, never filled in."
   status: available
+- id: model-cost
+  question: "Why not paste the log into a model with our own key?"
+  answer: "Because Fistron sends a model only the evidence that matters, decides many cases with no model at all, and says what each run cost against pasting the whole case. The answer cites its evidence, in CI and on the request, without anyone copying logs."
+  status: available
+- id: platform
+  question: "Can we offer quality and compliance to our platform's customers?"
+  answer: "Yes, with Fistron inside your services: each customer in its own tenant and region, signing in from your console, usage records for your billing. Built with the first partner."
+  status: in-development
 - id: sovereignty
   question: "Can we use Fistron without sending our code and logs to an AI?"
   answer: "Yes: with Fistron Sovereign Rules — Deterministic no model is used, and gates, risk levels and attestations are computed by rules either way. Or keep a model you trust inside your network; it receives evidence only up to the data class you allow."

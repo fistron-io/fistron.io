@@ -50,7 +50,7 @@
 - id: fast-feedback-loop
   title: "Fast Feedback Loop"
   for: "For teams whose full suite runs for hours"
-  group: quality
+  group: compliance
   short: "Know within minutes, not tomorrow. Fistron measures how long your team waits for a test result, proposes test tiers from your own CI history, shows which slow end-to-end tests can move left and proposes the change of your CI configuration. Your CI runs the tiers; your team decides who owns each."
   status: available
   stage: "Implemented and being validated (V3.7): the loop measured from your CI history, the tiers proposed with their reasons, the selection within a tier in shadow mode, the change of your GitHub Actions, GitLab or Jenkins configuration proposed and validated, and the history replayed under the tiers as an estimate. No speed-up is claimed until your own CI runs the tiers. Next: a public end-to-end suite measured, its tiers reviewed by people who know it."
@@ -87,7 +87,7 @@
 - id: become-a-developer
   title: "Become a developer"
   for: "For engineers who write code with assistants, and the teams they join"
-  group: quality
+  group: sovereignty
   short: "Own your code. Understand every change before you submit it, even when AI wrote it. Fistron explains what your change does, what it affects and what really tests it, and teaches you your team's rules, privately to you."
   status: available
   stage: "Implemented and being validated: your change explained from evidence (what it does and why, what it affects, what really tests it), Line by line, the check of your understanding with the confirmation your team may require, your private learning path and any module explained for newcomers; in your coding assistant, the CLI, the local UI and the control plane. Its synthetic exit is recorded; next: the changes of a real team."
@@ -179,7 +179,7 @@
 - id: measurable-quality
   title: "Measurable quality and velocity"
   for: "For leaders who must show the return"
-  group: quality
+  group: sovereignty
   short: "Quality, schedule and cost baselines from your own tools, outcomes agreed as your KPIs and key results, and velocity measured against guardrails, never promised."
   status: available
   stage: "The delivery baseline, velocity included, works today. Outcomes as KPIs and key results and Fištrónek's status reports are implemented and being validated; the Product Quality Index is planned. No savings figures until pilots measure them."
@@ -271,6 +271,21 @@
   questions: [review-rules, ai-code]
   related: [trust]
   see: [ai-written-code, become-a-developer, developer-assistant]
+- id: platform-partners
+  title: "Quality for your platform's customers"
+  for: "For PaaS and SaaS providers"
+  group: certification
+  short: "Offer Fistron inside your own services: quality and compliance where your customers already deploy and pay, built on the evidence your platform already holds."
+  status: in-development
+  stage: "Planned with the first partner. The control plane for teams already keeps each organisation in its own tenant; the integration with a partner's console and billing is built together with the first partner, and the commercial terms are agreed per partner."
+  problem: "Your customers deploy on your platform and then buy quality, testing and compliance somewhere else, with their evidence copied out of your platform by hand."
+  gets:
+    - "Each customer in its own tenant, in the region you promise, with nothing shared across customers."
+    - "Your customers sign in from your console; usage records feed your billing."
+    - "Fistron's services (solution packages, certification through a partner, the Fistroneer) for your customers too, directly or through you."
+  questions: [platform]
+  related: []
+  see: [end-to-end, compliance]
 - id: sovereignty
   title: "Sovereignty: your data, your choice of AI"
   for: "For regulated organisations, air-gapped networks and no-AI policies"
@@ -290,6 +305,24 @@
     - "All variants keep Fistron's deterministic evidence and gates; the LLM variants add model reasoning on top."
   questions: [sovereignty]
   related: []
+- id: fewer-tokens
+  title: "Fewer tokens, lower model costs"
+  for: "For teams paying for AI by the token"
+  group: sovereignty
+  short: "Fistron sends a model only the evidence that matters, not your whole log, and answers many questions with no model at all. Each run says what it cost against pasting the whole case."
+  status: available
+  stage: "Implemented and being validated: rules first, evidence excerpts, repeated log lines and passing tests folded, more evidence only when the model asks, cache-friendly prompts, an analysis reused by the failure's signature, and every run's model calls measured against the whole case; the benchmark against the whole log pasted into a model. Fistron's own figures are published once its benchmark has measured them; no saving is claimed before."
+  problem: "Pasting a failed job's log into a frontier model works, and costs the whole log in tokens every time, for every engineer and every rerun. The answer cites nothing, and nobody knows what the team spends or what it saved."
+  gets:
+    - "Rules first: many failures, flaky tests and checks are decided with no model at all."
+    - "Only the evidence that matters: the lines around an error, the tests that failed, a run of alike lines shown once with its count; a line with an error is never folded."
+    - "More only when needed: the model asks for a folded excerpt by its reference and gets just that."
+    - "Prompts a provider's cache serves, and an analysis reused when the same failure comes back."
+    - "Measured: each run's tokens in, cached and out and its cost, against what the whole case would have sent."
+    - "A benchmark on your own failures: the whole log pasted into your model against Fistron, tokens, cost and correctness side by side."
+  questions: [model-cost, sovereignty]
+  related: [trust]
+  see: [sovereignty, without-headcount]
 - id: without-headcount
   title: "Quality assurance without new headcount"
   for: "For teams that need quality engineering but can't hire"

@@ -8,10 +8,10 @@
   others: "A model's answer: fluent, plausible, different on the next run, and checked by nobody. Without the model there is no product."
   fistron: "Gates, control states, test selection, risk levels, metrics and attestations are computed by rules from recorded evidence: the same evidence gives the same verdict, recomputable offline by you or your auditor. A model only adds findings that cite their evidence and are recorded for replay; “insufficient evidence” is an answer, not a guess. Works with no model at all."
 - id: evidence-not-logs
-  title: "The evidence that matters, not your whole log"
+  title: "Fewer tokens, lower model costs"
   instead: "Pasting the log into a model with your own key"
   others: "Each failure copied by hand, the whole log paid for in tokens every time, and an answer nobody can trace to its lines."
-  fistron: "Fistron sends a model only the evidence that matters, not your whole log; many answers need no model at all. Each run says what its model calls used, and every statement cites the evidence it rests on."
+  fistron: "Fistron sends a model only the evidence that matters, not your whole log, and many answers need no model at all: rules first, repeated lines folded, prompts the provider's cache serves, an analysis reused when the same failure comes back. Each run says what its model calls used and cost against pasting the whole case, and every statement cites the evidence it rests on."
 - id: solution
   title: "A solution, not one more tool"
   instead: "Tools you integrate yourself, consultancies that deliver documents"
@@ -36,7 +36,7 @@
   title: "Sovereign by design"
   instead: "Cloud-only services"
   others: "Your code, logs and test data sent to someone else's cloud."
-  fistron: "On-premises, air-gapped, hybrid or in the EU; agents that connect outbound only; Fistron Sovereign Rules — Deterministic, with no AI at all; a ledger of where data went."
+  fistron: "On-premises, air-gapped, hybrid, or hosted in the EU or in your region; agents that connect outbound only; Fistron Sovereign Rules — Deterministic, with no AI at all; a ledger of where data went."
 - id: control
   title: "Autonomous, under your control"
   instead: "Agents that act on their own"

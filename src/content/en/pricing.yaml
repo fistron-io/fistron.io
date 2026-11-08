@@ -47,7 +47,7 @@
   minimum: "From 3 active committers, no minimum"
   for: "For a team that wants its failures explained and its tests in order"
   features:
-    - "Hosted in the EU, monthly or yearly"
+    - "Hosted in the EU, or in your region on request; monthly or yearly"
     - "Fistron's GUI with your team's overviews and its shared history"
     - "Root cause analysis, flaky tests, test plans, coverage gaps, Suite Health, PR/MR review, change risk"
     - "Code review by Google's practices, your own rules, or both, on every pull or merge request"
@@ -69,8 +69,8 @@
   minimum: "Minimum EUR 20,000 a year"
   for: "For organisations that need the result, the people and the proof"
   features:
-    - "Hosted in the EU or hybrid"
     - "Everything in Team"
+    - "Hosted in the EU or in your region, or hybrid"
     - "The control plane for your teams, and Fištrónek"
     - "Fast Feedback Loop: tiers, shift-left and the CI change proposed"
     - "One compliance framework in the tool"

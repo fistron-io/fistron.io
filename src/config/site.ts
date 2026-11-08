@@ -12,11 +12,11 @@ export const site = {
   name: "Fistron",
   url: "https://fistron.io",
   description:
-    "Fistron, the end-to-end autonomous assurance platform: it orchestrates the tools you already run to deliver quality and compliance, under your control, with proof auditors accept. Assured, not assumed.",
+    "Fistron, the end-to-end autonomous Assurance as a Platform (AaaP): it orchestrates the tools you already run to deliver quality and compliance, under your control, with proof auditors accept. Assured, not assumed.",
   /** The motto, shown under the category in the footer. */
   slogan: "Assured, not assumed.",
   /** The category: the page title and the footer lead with it. */
-  category: "The end-to-end autonomous assurance platform",
+  category: "End-to-end autonomous Assurance as a Platform (AaaP)",
 
   /** Small jokes outside the main story. */
   footerNote: "No flaky tests were harmed in the making of this website. A few were caught.",
