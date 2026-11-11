@@ -65,6 +65,7 @@
     - "Failures that slipped to a later tier recorded, so the tiers improve with evidence."
   questions: [feedback-loop, suite-health, necessary-work]
   related: [ci, outcomes]
+  see: [pr-installation]
 - id: ai-written-code
   title: "Verifying code written with AI"
   for: "For teams that merge code written by assistants and agents"
@@ -235,6 +236,23 @@
     - "For vendors: the supported paths without a test found and covered through your own tools, the paths your customers really use first; a migration that fails in the field becomes a test of that path."
   questions: [migration]
   related: [trust]
+- id: pr-installation
+  title: "Install each pull request"
+  for: "For teams whose CI never installs the product"
+  group: certification
+  short: "A label on a pull request installs its build the way your users install it, upgrades it from the last release and runs the tests the change needs, through your own pipeline or Fistron's agent, and answers on the pull request before the merge."
+  status: in-development
+  stage: "Implemented and being validated (V7.5d): the installation, the upgrade and the tests run by Fistron's agent with a kit on a clean target, the answer on the pull request with the cause of a failed path. In development until its exit (V7.5e): your own Jenkins, GitHub Actions or GitLab CI pipeline as the one that installs, set up in Fistron with a trial run."
+  problem: "Your CI tests the code, but it never installs the product the way a user does. A change of the installer, of the server's setup or of an upgrade path shows itself only after the merge, by hand or in a nightly environment, when it is costly to find what broke it."
+  gets:
+    - "A label on the pull request asks for it: its build installed on a clean target, by your own pipeline or by Fistron's agent."
+    - "The upgrade from the last release, and the tests the change needs."
+    - "One comment on the pull request with each path's verdict and, when one fails, where it stopped, the step that failed and the cause."
+    - "Never a production target: Fistron starts only a pipeline you confirmed as a test or staging one, and passes it only the build and the pull request's number and commit."
+    - "Set up in Fistron, never in the pull request, with a trial run on a chosen pull request before it is on."
+  questions: [pr-installation]
+  related: [ci]
+  see: [code-review-rules, fast-feedback-loop, migration-assurance]
 - id: resilience
   title: "Proof of recovery and resilience"
   for: "For teams that run IT services"
@@ -270,7 +288,7 @@
     - "Repeated reviewer comments proposed as new team rules, confirmed by a person."
   questions: [review-rules, ai-code]
   related: [trust]
-  see: [ai-written-code, become-a-developer, developer-assistant]
+  see: [ai-written-code, become-a-developer, developer-assistant, pr-installation]
 - id: platform-partners
   title: "Quality for your platform's customers"
   for: "For PaaS and SaaS providers"
