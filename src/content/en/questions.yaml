@@ -40,8 +40,8 @@
   answer: "Find weak, flaky and slow tests with proof, propose the repair as a pull or merge request, run it on your CI and check that it really is better. A person merges."
   status: available
 - id: headcount
-  question: "We can't hire more QE engineers. Who does the work?"
-  answer: "A Fistroneer, a named quality engineer from Fistron, with the platform: Fistron set up in your toolchain and, from Business, 10 or 40 person-days a year of quality engineering and one hour every week, while the platform does the repetitive work. No recruiting, no onboarding, no gap when someone leaves."
+  question: "Quality work grows faster than our team. How do we keep up and still grow?"
+  answer: "A Fistroneer, a named quality engineer from Fistron, adds QE capacity now, with the platform: Fistron set up in your toolchain and, from Business, 10 or 40 person-days a year of quality engineering and one hour every week, while the platform does the repetitive work. Your engineers spend their time on growing the business; hire to deliver more and expand, not to catch up."
   status: available
 - id: deadline
   question: "The deadline is close. Can we still ship in the quality we need?"

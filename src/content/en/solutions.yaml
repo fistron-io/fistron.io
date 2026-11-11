@@ -25,7 +25,7 @@
     - "Design: quality policies, the evidence each change and service requires, the test and check strategy, the controls an auditor will look for."
     - "Deliver: Fistron set up in your toolchain, the missing capabilities enabled, the gaps closed through pull or merge requests you approve."
     - "Operate and prove: continuous assessment, signed reports per change and release, and preparation for external audits."
-    - "A Fistroneer, a named quality engineer from Fistron, who installs and sets Fistron up with you and works on your quality: from Business, 10 or 40 person-days a year and one hour every week, instead of one more hire."
+    - "A Fistroneer, a named quality engineer from Fistron, who installs and sets Fistron up with you and works on your quality: from Business, 10 or 40 person-days a year and one hour every week, as QE capacity on top of your team."
     - "Outcomes agreed as your KPIs and key results, and a quarterly review against the baseline."
   questions: [deadline, status, measurable-quality, release-decision]
   related: [offer, open-core]
@@ -324,21 +324,22 @@
   related: [trust]
   see: [sovereignty, without-headcount]
 - id: without-headcount
-  title: "Quality assurance without new headcount"
-  for: "For teams that need quality engineering but can't hire"
+  title: "QE capacity now, so your people can grow the business"
+  for: "For teams whose quality work grows faster than they can hire"
   group: sovereignty
-  short: "A Fistroneer, a named quality engineer from Fistron, joins your team with the platform: Fistron set up and running and, from Business, 10 or 40 person-days a year of quality engineering, without recruiting, onboarding and keeping one more specialist."
+  short: "A Fistroneer, a named quality engineer from Fistron, adds QE capacity to your team at once, with the platform: Fistron set up and running and, from Business, 10 or 40 person-days a year of quality engineering, so your people spend their time on growing the business."
   status: available
   stage: "Available now, starting with the first pilots: the setup in Team, Business and Enterprise, the person-days from Business; on-site work is set in the contract. The platform parts the Fistroneer works with have their own state, on the pages of the solutions."
-  problem: "The work grows faster than the team: flaky tests, missing tests, test plans, audits. A new quality engineer needs approval for the headcount, months of hiring and onboarding, and when the person leaves, the knowledge leaves too."
+  problem: "Quality work grows faster than the team: flaky tests, missing tests, test plans, audits. Your engineers spend their week on it instead of on what grows the business, and a new hire takes months to find and to onboard."
   gets:
     - "Fistron installed and set up in your toolchain by your Fistroneer: hosted, hybrid, on-premises or air-gapped."
     - "10 person-days a year of quality engineering in Business, 40 in Enterprise: test strategy, flaky and weak tests, test plans, compliance gaps, audit preparation."
     - "From Business, one hour every week with your team, and the quarterly review against your baseline."
     - "The repetitive work done by the platform: failure analysis, flaky quarantine, test selection, coverage gaps, reviews."
     - "The knowledge kept in your evidence, policies and goals, not in one person's head."
-    - "The price follows your team, per active committer; compare it with the yearly cost of one senior QE engineer."
-    - "Capacity added to your team, not a replacement for it; more days as a package when you need them."
+    - "Your team freed for growth, and the growth measured against your baseline: the changes delivered in the same time, the lead time and the failures."
+    - "The price follows your team, per active committer: extra QE capacity for less than the cost of one hire."
+    - "Capacity on top of your team, never a replacement for anyone in it; more days as a package when you need them."
   questions: [headcount, deadline]
   related: [offer]
 - id: agile-transformation

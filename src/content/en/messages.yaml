@@ -6,6 +6,13 @@
     - "Know where your release stands on quality, with evidence instead of status meetings."
     - "Your engineers ship more of what your customers pay for."
     - "Your people grow with every change: Fistron explains each change to its author, and shows you what your team should learn next, as a team, never a person's score. The team's view is in development."
+  # the leadership counterpart of the engineers' pillar (Fistron's founder, 2026-11-11)
+  pillar:
+    title: "Expand and grow with Fistron. Don't cut."
+    text: "Keep your engineers, give them Fistron and deliver more. Cutting people saves once; delivering more pays every year. Hire to deliver more and expand, not to catch up. You see it in what Fistron measures against your baseline: the changes delivered in the same time, the lead time and the failures."
+    links:
+      - { label: "QE capacity now, so your people can grow the business", href: "/solutions/without-headcount/" }
+      - { label: "Measurable quality", href: "/solutions/measurable-quality/" }
 - id: engineers
   title: "For engineers"
   lines:
