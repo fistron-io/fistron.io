@@ -48,6 +48,24 @@
     - "A quality audit of your tests and CI from what you already have: a plan ordered by what costs your team most, and what the audit needs to say more."
   questions: [pipeline-failure, feature-evidence, test-coverage, test-plan, coverage-gap, necessary-work, suite-health, test-repair, change-risk]
   related: [ci, outcomes]
+- id: failed-build
+  title: "Every cause of a failed build, and its fix"
+  for: "For QE and platform teams with large end-to-end suites"
+  group: quality
+  short: "A nightly build with forty failed tests rarely has forty causes, and seldom one. Fistron finds every cause: the failures in groups, the tests that only followed another, a cause for each with the layer it is fixed in and the evidence it rests on, and asks you what it cannot read itself."
+  status: in-development
+  stage: "Implemented and being validated: the groups and cascades, a cause for each, the history of the files a cause cites, the open pull requests that already touch it, the questions to you on the command line, in your coding assistant and on the page Investigate a failed build, and the Daily CI review by causes. In development: the fixes by repository and their verification plan, and the benchmark with several causes."
+  problem: "One analysis of a build with many failed tests explains one of its causes and hides the others. Tests that failed only because an earlier one did look like failures of their own, a change made on purpose looks like a product bug, and the evidence a cause needs is often where only a person can reach it."
+  gets:
+    - "The failed tests in groups by their error and failed step; the tests that only followed an earlier failure folded under it."
+    - "A cause for each group, with the layer it is fixed in (the test, CI and deployment, infrastructure, the product, documentation), static or verified, and the evidence it cites."
+    - "The history of the files a cause cites: a change made on purpose is said to be one, never a product bug to revert."
+    - "The open pull requests and issues that already touch a cause, so nobody fixes it twice."
+    - "One concrete question at a time where the evidence is out of reach: a read-only command to run, a file, a run again. Your answer is evidence with your name; the cause that rests on it says so."
+    - "The same report on the command line, in your coding assistant, on the page and in the Daily CI review, a line per cause."
+  questions: [pipeline-failure]
+  related: [ci]
+  see: [quality-improvement, continuous-verification]
 - id: pr-installation
   title: "Quality for your PR/MR"
   for: "For teams whose CI never installs the product"

@@ -38,7 +38,14 @@ const ICON = { implemented: "passed", "in-development": "running", planned: "pen
                 <li class={p.status}>
                   <StatusIcon state={ICON[p.status]} size={12} />
                   <span>
-                    <span class="label">{p.label}</span> {p.text}
+                    {p.href ? (
+                      <a class="label" href={p.href}>
+                        {p.label}
+                      </a>
+                    ) : (
+                      <span class="label">{p.label}</span>
+                    )}{" "}
+                    {p.text}
                     <span class="sr-only"> ({STATE[p.status]})</span>
                   </span>
                 </li>

@@ -37,6 +37,10 @@
   title: "CI failed. Tell me why."
   detail: "Evidence-backed RCA, live reads, replay, CI reports and policy-controlled job re-runs. Broader real-case validation continues."
   parts:
+    - label: "Every cause of a failed build"
+      text: "A build with many failed tests: its failures in groups, the cascades, a cause for each with the layer it is fixed in, and the questions it asks you; the fixes by repository follow"
+      status: in-development
+      href: "/solutions/failed-build/"
     - label: "MCP sources"
       text: "Evidence read from your own MCP servers (a product, monitoring, ticketing, a database): only the tools you allow that only read"
       status: implemented

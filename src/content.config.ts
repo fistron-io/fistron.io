@@ -220,7 +220,14 @@ const roadmap = defineCollection({
     current: z.boolean().default(false),
     // the stage's milestones (V5a, V5b, ...), each with its own state
     parts: z
-      .array(z.object({ label: z.string(), text: z.string(), status: stageStatus }))
+      .array(
+        z.object({
+          label: z.string(),
+          text: z.string(),
+          status: stageStatus,
+          href: z.string().startsWith("/").optional(), // a solution's page, when it is one
+        }),
+      )
       .default([]),
   }),
 });
