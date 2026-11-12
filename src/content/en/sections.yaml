@@ -5,7 +5,7 @@ hero:
   eyebrow: "Assured, not assumed."
   title: "End-to-end autonomous Assurance as a Platform"
   intro: "Fistron defines **Assurance as a Platform (AaaP)**: autonomous quality and compliance assurance, end to end, with engineers who grow along the way. By orchestrating the tools you already run, it delivers an **end-to-end solution** for the quality your customers, auditors and regulators expect, including **ISO certification that supports NIS2 and EU DORA**, under your control and with the proof they accept. **Deterministic where it counts, AI where it helps.**"
-  note: "CI failure analysis, change assessment, test plans, coverage gaps and the checks for code written with AI work today. Compliance in the tool, Fištrónek with measurable outcomes, the risk of each change, the repair of tests that work badly, new tests, the Fast Feedback Loop and Distributed Continuous Certification are implemented and being validated. People and guarantees are set per contract."
+  note: "CI failure analysis, change assessment, test plans, coverage gaps and the checks for code written with AI work today. Compliance in the tool, Fištrónek with measurable outcomes, the risk of each change, the repair of tests that work badly, new tests, the Fast Feedback Loop and Distributed Continuous Verification are implemented and being validated. People and guarantees are set per contract."
   promise: "AI that serves your people and never replaces them: faster work, engineers who grow, and every model's word labelled and held to the evidence, never trusted blindly."
   promiseLink: "/solutions/become-a-developer/"
   primaryCta: "Start a free trial"
@@ -235,7 +235,7 @@ pricingCompare:
   title: "What each plan includes"
   intro: "The licence names your plan, and Fistron does what it includes: the table is the product's own. In the product, your organisation's page shows the same and lets an admin ask for more."
   caption: "Feature"
-  note: "The Trial has every feature on one project for 30 days. Individual is one person's, without a control plane. Distributed Continuous Certification and Migration Assurance are add-ons to Team, Business and Enterprise."
+  note: "The Trial has every feature on one project for 30 days. Individual is one person's, without a control plane. Distributed Continuous Verification and Software Migration Assurance are add-ons to Team, Business and Enterprise."
 
 pricingHow:
   title: "How the price is calculated"

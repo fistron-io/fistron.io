@@ -11,7 +11,7 @@
     title: "Expand and grow with Fistron. Don't cut."
     text: "Keep your engineers, give them Fistron and deliver more. Cutting people saves once; delivering more pays every year. Hire to deliver more and expand, not to catch up. You see it in what Fistron measures against your baseline: the changes delivered in the same time, the lead time and the failures."
     links:
-      - { label: "QE capacity now, so your people can grow the business", href: "/solutions/without-headcount/" }
+      - { label: "Expand and grow your business", href: "/solutions/expand-and-grow/" }
       - { label: "Measurable quality", href: "/solutions/measurable-quality/" }
 - id: engineers
   title: "For engineers"
@@ -24,5 +24,5 @@
     title: "AI that makes you a better developer, not a replaceable one."
     text: "Like fire, AI is a good servant and a bad master. Fistron makes your work faster and helps you grow: it explains, checks and proposes, and you decide. Every model's word is labelled and held to the evidence, never trusted blindly. Your code stays in human hands: reviewed by your team's rules, understood by its author, cleaner thanks to AI."
     links:
-      - { label: "Become a developer", href: "/solutions/become-a-developer/" }
-      - { label: "Code and MR/PR review by your team's rules", href: "/solutions/code-review-rules/" }
+      - { label: "Grow your capacity and become a developer", href: "/solutions/become-a-developer/" }
+      - { label: "Control your code and MR/PR review by your team's rules", href: "/solutions/code-review-rules/" }

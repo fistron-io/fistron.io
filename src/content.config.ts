@@ -233,12 +233,22 @@ const solutions = defineCollection({
     title: z.string(),
     for: z.string(),
     // the column of the Solutions menu, labelled in src/config/site.ts
-    group: z.enum(["quality", "compliance", "certification", "sovereignty"]),
+    group: z.enum(["quality", "compliance", "control", "growth"]),
     short: z.string(),
     status,
     stage: z.string(),
     problem: z.string(),
     gets: z.array(z.string()).min(1),
+    // a way in steps, each with what Fistron does and the solutions that do it
+    steps: z
+      .array(
+        z.object({
+          step: z.string(),
+          does: z.string(),
+          links: z.array(z.object({ label: z.string(), href: z.string().startsWith("/") })).default([]),
+        }),
+      )
+      .default([]),
     // ids from questions.yaml, checked when the page is built
     questions: z.array(z.string()).default([]),
     // homepage sections shown on the solution's page
