@@ -2,7 +2,8 @@
 # (pricing per active committer, 2026-10-30), ADR 0139 (the trial's limits
 # and Individual, 2026-11-03), ADR 0140 (the models and the model pool,
 # 2026-11-03), ADR 0152 (self-service, Team without a minimum, 2026-11-07)
-# and business-model.md, its price list.
+# and business-model.md, its price list; ADR 0160 (new versions and fixes by plan,
+# 2026-11-12).
 # Prices exclude VAT; each tier's minimum is a yearly price. Never invent a
 # price here; scripts/check-plans.mjs compares them with the core's.
 - id: trial
@@ -38,6 +39,7 @@
     - "A personal history of your own runs and flaky tests, kept on your machine (in development)"
     - "Share an analysis or a review as a comment or a report, \"Analysed by Fistron\" beneath it unless you turn it off (in development)"
     - "Invite your team: a Team trial that starts with your history (in development)"
+    - "Every new version and fix while your licence is valid; a fix in the newest version, one command away"
   note: "No team GUI, team history, compliance or Fistroneer; help through the guide and e-mail. Not for an organisation to buy for its people: they get the organisation's licence with Team. Paying by card is coming: until then, leave your details and we set you up."
   cta: "Get Individual"
 - id: team
@@ -60,6 +62,7 @@
     - "Every member's command line and every fork of your code under the team's licence"
     - "Your team's growth: what it should learn next, as a team, never a person's score (in development)"
     - "A Fistroneer who installs and sets Fistron up with you, from 10 active committers; for a smaller team by the day"
+    - "Every new version and fix while your licence is valid; from Fistron 1.0, fixes in the previous minor version too"
   note: "Paying by card is coming: until then, leave your details and we set your team up."
   cta: "Buy Team"
 - id: business
@@ -79,6 +82,7 @@
     - "Your repositories audited by your code review rules, and the trend"
     - "A Fistroneer who installs and sets up, then one hour every week and 10 person-days a year"
     - "Regulatory watch, audit-day support, RCA on call, training"
+    - "From Fistron 1.0, security fixes in an older minor version for 12 months more"
   cta: "Start with a free trial"
   featured: true
 - id: enterprise
@@ -95,4 +99,5 @@
     - "On site where your contract says so"
     - "A model pool of EUR 12 per active committer a month"
     - "Fistron Sovereign LLM in your environment, adapted on your data (planned)"
+    - "From Fistron 1.0, a long-term version each year with fixes for 24 months, and a fix backported on request"
   cta: "Start with a free trial"
