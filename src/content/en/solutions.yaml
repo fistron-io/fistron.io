@@ -217,7 +217,7 @@
   questions: [sovereignty]
   related: []
 - id: developer-assistant
-  title: "Fistron for your coding assistant"
+  title: "Control your coding assistant with Fistron"
   for: "For developers who work with a coding assistant"
   group: control
   short: "Your coding assistant asks Fistron while you work: why your pull request failed, what your branch still needs, whether your feature's steps exist, a test for an item of the plan. Answers cite their evidence."
@@ -235,7 +235,7 @@
   related: [trust]
   see: [become-a-developer, code-review-rules]
 - id: code-review-rules
-  title: "Code and MR/PR review by your team's rules"
+  title: "Control your code and MR/PR review by your team's rules"
   for: "For tech leads and architects reviewing code written by people and AI"
   group: control
   short: "Every pull or merge request reviewed against Google's code review practices, your own rules, or both, and you choose what the review does: the code explained, the AI review, your conventions. Tools and evidence check what they can; a model judges only the rest, and blocks only if you allow it."
@@ -257,7 +257,7 @@
   related: [trust]
   see: [ai-written-code, become-a-developer, developer-assistant, pr-installation]
 - id: become-a-developer
-  title: "Become a developer"
+  title: "Grow your capacity and become a developer"
   for: "For engineers who write code with assistants, and the teams they join"
   group: control
   short: "Own your code. Understand every change before you submit it, even when AI wrote it. Fistron explains what your change does, what it affects and what really tests it, and teaches you your team's rules, privately to you."
@@ -380,9 +380,9 @@
     - step: "Engineers use AI well"
       does: "Become a developer; code and MR/PR review by the team's rules; the team's rules given to the coding assistant."
       links:
-        - { label: "Become a developer", href: "/solutions/become-a-developer/" }
-        - { label: "Code and MR/PR review by your team's rules", href: "/solutions/code-review-rules/" }
-        - { label: "Fistron for your coding assistant", href: "/solutions/developer-assistant/" }
+        - { label: "Grow your capacity and become a developer", href: "/solutions/become-a-developer/" }
+        - { label: "Control your code and MR/PR review by your team's rules", href: "/solutions/code-review-rules/" }
+        - { label: "Control your coding assistant with Fistron", href: "/solutions/developer-assistant/" }
     - step: "They deliver faster"
       does: "The cause of a failure in minutes, flaky test quarantine, the Fast Feedback Loop, fewer tokens."
       links:
