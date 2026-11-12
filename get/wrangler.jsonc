@@ -1,7 +1,8 @@
-// get.fistron.io: a Worker that redirects to the newest release's install.sh
-// (worker.mjs). No assets, no *.workers.dev address, no preview URLs; never
-// behind Cloudflare Access, since hosts download the installer without a
-// person. Deployed apart from the website: `npx wrangler deploy -c get/wrangler.jsonc`.
+// get.fistron.io and dl.fistron.io (Fistron ADR 0155 point 1): one Worker
+// (worker.mjs) on both addresses, serving Fistron's R2 bucket. No assets, no
+// *.workers.dev address, no preview URLs; never behind Cloudflare Access,
+// since hosts download without a person. Deployed apart from the website:
+// `npx wrangler deploy -c get/wrangler.jsonc`.
 {
   "$schema": "../node_modules/wrangler/config-schema.json",
   "name": "get-fistron-io",
@@ -9,7 +10,16 @@
   "compatibility_date": "2026-10-03",
   "workers_dev": false,
   "preview_urls": false,
-  "routes": [{ "pattern": "get.fistron.io", "custom_domain": true }],
-  // the repository whose releases carry install.sh (public from general availability)
-  "vars": { "REPOSITORY": "fistron-io/Fistron" }
+  "routes": [
+    { "pattern": "get.fistron.io", "custom_domain": true },
+    { "pattern": "dl.fistron.io", "custom_domain": true }
+  ],
+  // the bucket the release workflows fill (their variable R2_BUCKET); read only here
+  "r2_buckets": [{ "binding": "DL", "bucket_name": "fistron-dl" }],
+  "vars": {
+    // the keys a licence for the core is signed with (fistron-core's
+    // keys/release/ and keys/trial/): a new key is added here before it signs
+    "LICENCE_KEYS": ["k4.public.ENRswBMS45wKfG-P3y2yS-aVjTtDBY5GPBi5NMUVtlo"],
+    "TRIAL_KEYS": []
+  }
 }

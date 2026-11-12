@@ -25,7 +25,7 @@
     - "Design: quality policies, the evidence each change and service requires, the test and check strategy, the controls an auditor will look for."
     - "Deliver: Fistron set up in your toolchain, the missing capabilities enabled, the gaps closed through pull or merge requests you approve."
     - "Operate and prove: continuous assessment, signed reports per change and release, and preparation for external audits."
-    - "A Fistroneer, a named quality engineer from Fistron, who installs and sets Fistron up with you and works on your quality: from Business, 10 or 40 person-days a year and one hour every week, instead of one more hire."
+    - "A Fistroneer, a named quality engineer from Fistron, who installs and sets Fistron up with you and works on your quality: from Business, 10 or 40 person-days a year and one hour every week, as QE capacity on top of your team."
     - "Outcomes agreed as your KPIs and key results, and a quarterly review against the baseline."
   questions: [deadline, status, measurable-quality, release-decision]
   related: [offer, open-core]
@@ -65,6 +65,7 @@
     - "Failures that slipped to a later tier recorded, so the tiers improve with evidence."
   questions: [feedback-loop, suite-health, necessary-work]
   related: [ci, outcomes]
+  see: [pr-installation]
 - id: ai-written-code
   title: "Verifying code written with AI"
   for: "For teams that merge code written by assistants and agents"
@@ -235,6 +236,23 @@
     - "For vendors: the supported paths without a test found and covered through your own tools, the paths your customers really use first; a migration that fails in the field becomes a test of that path."
   questions: [migration]
   related: [trust]
+- id: pr-installation
+  title: "Install each pull request"
+  for: "For teams whose CI never installs the product"
+  group: certification
+  short: "A label on a pull request installs its build the way your users install it, upgrades it from the last release and runs the tests the change needs, through your own pipeline or Fistron's agent, and answers on the pull request before the merge."
+  status: in-development
+  stage: "Implemented and being validated (V7.5d): the installation, the upgrade and the tests run by Fistron's agent with a kit on a clean target, the answer on the pull request with the cause of a failed path. In development until its exit (V7.5e): your own Jenkins, GitHub Actions or GitLab CI pipeline as the one that installs, set up in Fistron with a trial run."
+  problem: "Your CI tests the code, but it never installs the product the way a user does. A change of the installer, of the server's setup or of an upgrade path shows itself only after the merge, by hand or in a nightly environment, when it is costly to find what broke it."
+  gets:
+    - "A label on the pull request asks for it: its build installed on a clean target, by your own pipeline or by Fistron's agent."
+    - "The upgrade from the last release, and the tests the change needs."
+    - "One comment on the pull request with each path's verdict and, when one fails, where it stopped, the step that failed and the cause."
+    - "Never a production target: Fistron starts only a pipeline you confirmed as a test or staging one, and passes it only the build and the pull request's number and commit."
+    - "Set up in Fistron, never in the pull request, with a trial run on a chosen pull request before it is on."
+  questions: [pr-installation]
+  related: [ci]
+  see: [code-review-rules, fast-feedback-loop, migration-assurance]
 - id: resilience
   title: "Proof of recovery and resilience"
   for: "For teams that run IT services"
@@ -270,7 +288,7 @@
     - "Repeated reviewer comments proposed as new team rules, confirmed by a person."
   questions: [review-rules, ai-code]
   related: [trust]
-  see: [ai-written-code, become-a-developer, developer-assistant]
+  see: [ai-written-code, become-a-developer, developer-assistant, pr-installation]
 - id: platform-partners
   title: "Quality for your platform's customers"
   for: "For PaaS and SaaS providers"
@@ -324,21 +342,22 @@
   related: [trust]
   see: [sovereignty, without-headcount]
 - id: without-headcount
-  title: "Quality assurance without new headcount"
-  for: "For teams that need quality engineering but can't hire"
+  title: "QE capacity now, so your people can grow the business"
+  for: "For teams whose quality work grows faster than they can hire"
   group: sovereignty
-  short: "A Fistroneer, a named quality engineer from Fistron, joins your team with the platform: Fistron set up and running and, from Business, 10 or 40 person-days a year of quality engineering, without recruiting, onboarding and keeping one more specialist."
+  short: "A Fistroneer, a named quality engineer from Fistron, adds QE capacity to your team at once, with the platform: Fistron set up and running and, from Business, 10 or 40 person-days a year of quality engineering, so your people spend their time on growing the business."
   status: available
   stage: "Available now, starting with the first pilots: the setup in Team, Business and Enterprise, the person-days from Business; on-site work is set in the contract. The platform parts the Fistroneer works with have their own state, on the pages of the solutions."
-  problem: "The work grows faster than the team: flaky tests, missing tests, test plans, audits. A new quality engineer needs approval for the headcount, months of hiring and onboarding, and when the person leaves, the knowledge leaves too."
+  problem: "Quality work grows faster than the team: flaky tests, missing tests, test plans, audits. Your engineers spend their week on it instead of on what grows the business, and a new hire takes months to find and to onboard."
   gets:
     - "Fistron installed and set up in your toolchain by your Fistroneer: hosted, hybrid, on-premises or air-gapped."
     - "10 person-days a year of quality engineering in Business, 40 in Enterprise: test strategy, flaky and weak tests, test plans, compliance gaps, audit preparation."
     - "From Business, one hour every week with your team, and the quarterly review against your baseline."
     - "The repetitive work done by the platform: failure analysis, flaky quarantine, test selection, coverage gaps, reviews."
     - "The knowledge kept in your evidence, policies and goals, not in one person's head."
-    - "The price follows your team, per active committer; compare it with the yearly cost of one senior QE engineer."
-    - "Capacity added to your team, not a replacement for it; more days as a package when you need them."
+    - "Your team freed for growth, and the growth measured against your baseline: the changes delivered in the same time, the lead time and the failures."
+    - "The price follows your team, per active committer: extra QE capacity for less than the cost of one hire."
+    - "Capacity on top of your team, never a replacement for anyone in it; more days as a package when you need them."
   questions: [headcount, deadline]
   related: [offer]
 - id: agile-transformation

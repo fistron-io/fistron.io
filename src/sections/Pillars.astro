@@ -1,0 +1,119 @@
+---
+import { listWithIds } from "../lib/content";
+import Section from "../components/Section.astro";
+
+/**
+ * The homepage pillars, one story (Fistron's founder): the engineers' (2026-11-06,
+ * "AI that makes you a better developer, not a replaceable one") and its
+ * leadership counterpart (2026-11-11, "Expand and grow with Fistron. Don't
+ * cut."): people grow, so the company grows. Each from the entry of
+ * messages.yaml with a pillar, its lines beside it and the solutions it links
+ * to; the engineers' first. No claim of results until they are measured.
+ */
+const messages = await listWithIds("messages");
+const pillars = messages.flatMap((m) => (m.pillar ? [{ ...m, pillar: m.pillar }] : []));
+const order = ["engineers", "leadership"];
+pillars.sort((a, b) => order.indexOf(a.id) - order.indexOf(b.id));
+if (pillars.length === 0) throw new Error("messages.yaml: no entry with a pillar for the homepage");
+---
+
+<Section id="engineers" tone="mist" labelledby={`${pillars[0].id}-title`}>
+  {
+    pillars.map((m) => (
+      <div class="body" id={m.id === "engineers" ? undefined : m.id}>
+        <div class="promise">
+          <p class="kicker">{m.title}</p>
+          <h2 id={`${m.id}-title`}>{m.pillar.title}</h2>
+          <p class="lead">{m.pillar.text}</p>
+          {m.pillar.links.length > 0 && (
+            <ul class="links">
+              {m.pillar.links.map((l) => (
+                <li>
+                  <a href={l.href}>{l.label} →</a>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+        <ul class="lines">
+          {m.lines.map((line) => (
+            <li>
+              <span class="dot" aria-hidden="true" />
+              <span>{line}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))
+  }
+</Section>
+
+<style>
+  .body + .body {
+    margin-top: 56px;
+    padding-top: 56px;
+    border-top: 1px solid var(--color-line-soft);
+  }
+  .body {
+    display: grid;
+    grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
+    gap: 48px;
+    align-items: start;
+  }
+  .kicker {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--color-indigo);
+  }
+  h2 {
+    margin-top: 12px;
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--color-heading);
+  }
+  .lead {
+    margin-top: 16px;
+    font-size: var(--text-lead);
+    color: var(--color-ink-2);
+  }
+  .links {
+    list-style: none;
+    padding: 0;
+    margin-top: 24px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 24px;
+  }
+  .links a {
+    font-weight: 500;
+  }
+  .lines {
+    list-style: none;
+    padding: 0;
+  }
+  .lines li {
+    display: flex;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--color-line-soft);
+  }
+  .lines li:first-child {
+    padding-top: 0;
+  }
+  .dot {
+    flex: 0 0 8px;
+    height: 8px;
+    margin-top: 0.6em;
+    border-radius: 50%;
+    background: var(--color-leaf);
+  }
+  @media (max-width: 900px) {
+    .body {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+  }
+</style>

@@ -40,9 +40,13 @@
   answer: "Find weak, flaky and slow tests with proof, propose the repair as a pull or merge request, run it on your CI and check that it really is better. A person merges."
   status: available
 - id: headcount
-  question: "We can't hire more QE engineers. Who does the work?"
-  answer: "A Fistroneer, a named quality engineer from Fistron, with the platform: Fistron set up in your toolchain and, from Business, 10 or 40 person-days a year of quality engineering and one hour every week, while the platform does the repetitive work. No recruiting, no onboarding, no gap when someone leaves."
+  question: "Quality work grows faster than our team. How do we keep up and still grow?"
+  answer: "A Fistroneer, a named quality engineer from Fistron, adds QE capacity now, with the platform: Fistron set up in your toolchain and, from Business, 10 or 40 person-days a year of quality engineering and one hour every week, while the platform does the repetitive work. Your engineers spend their time on growing the business; hire to deliver more and expand, not to catch up."
   status: available
+- id: pr-installation
+  question: "Our CI never installs the product. Can each pull request be installed before the merge?"
+  answer: "Put a label on the pull request: its build is installed the way your users install it, upgraded from the last release and tested, by your own pipeline or Fistron's agent, and the pull request gets one comment with each path's verdict and the cause when one fails. Never on a production target."
+  status: in-development
 - id: deadline
   question: "The deadline is close. Can we still ship in the quality we need?"
   answer: "Know what each change needs instead of running everything: a test plan from the change, failures explained from evidence in minutes, the tests no change needs and the flaky ones recorded instead of blocking, and the release decision with its evidence. Measured against your quality, schedule and cost baselines."

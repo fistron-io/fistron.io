@@ -107,6 +107,15 @@
       "pending": "Shown with Fistron's own benchmark figures, once measured."
     },
     {
+      "id": "pr-installation",
+      "you_do": "Put a label on a pull request, and name the pipeline that installs your product.",
+      "fistron_does": "Fistron has the pull request's build installed by your own pipeline or its agent, upgraded from the last release and tested, and reads where it failed.",
+      "you_get": "One comment on the pull request with each path's verdict and the cause when one fails, before the merge.",
+      "guide": "use-pr-installation",
+      "pictures": [],
+      "pending": "Shown with the synthetic product of two repositories, once its pipeline runs (V7.5e)."
+    },
+    {
       "id": "platform-partners",
       "you_do": "Offer Fistron inside your platform's services.",
       "fistron_does": "Fistron runs each of your customers in its own tenant and region, with usage records for your billing.",

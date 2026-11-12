@@ -1,0 +1,30 @@
+// registry.fistron.io (Fistron ADR 0155 point 1): a pull-only proxy of
+// ghcr.io (worker.mjs). No assets, no *.workers.dev address, no preview URLs;
+// never behind Cloudflare Access. Deployed apart from the website:
+// `npx wrangler deploy -c registry/wrangler.jsonc`.
+//
+// Secrets (`npx wrangler secret put <NAME> -c registry/wrangler.jsonc`):
+//   GHCR_TOKEN    a token with read:packages for UPSTREAM_OWNER's packages
+//   TOKEN_SECRET  random, 32 bytes or more: signs this registry's own tokens
+{
+  "$schema": "../node_modules/wrangler/config-schema.json",
+  "name": "registry-fistron-io",
+  "main": "worker.mjs",
+  "compatibility_date": "2026-10-03",
+  "workers_dev": false,
+  "preview_urls": false,
+  "routes": [{ "pattern": "registry.fistron.io", "custom_domain": true }],
+  "vars": {
+    "UPSTREAM_OWNER": "fistron-io",
+    // open: anyone pulls; licence: a valid licence or trial as the password
+    "REPOSITORIES": {
+      "fistron": "open",
+      "charts/fistron": "open",
+      "fistron-core": "licence",
+      "fistron-control-plane": "licence"
+    },
+    // as get/wrangler.jsonc: the keys a licence for the core is signed with
+    "LICENCE_KEYS": ["k4.public.ENRswBMS45wKfG-P3y2yS-aVjTtDBY5GPBi5NMUVtlo"],
+    "TRIAL_KEYS": []
+  }
+}

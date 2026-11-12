@@ -1,0 +1,25 @@
+# Keeps the SHA-pinned actions and the npm dependencies of the website and get.fistron.io's workers current, as in
+# Fistron's repository: once a month, one grouped pull request each, minor and
+# patch versions; a major (Astro, TypeScript, Wrangler) is decided apart, in an
+# issue. Security updates come at once, whatever the schedule. The rule for
+# these pull requests: Fistron's docs/dependency-updates.md.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    groups:
+      actions:
+        patterns: ["*"]
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: monthly
+    groups:
+      npm:
+        patterns: ["*"]
+    ignore:
+      # a major sets the pace of the site's build: decided separately
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
