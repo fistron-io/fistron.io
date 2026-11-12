@@ -106,6 +106,38 @@ test("dl.fistron.io: the core only with a valid licence or trial", async () => {
   }
 });
 
+test("dl.fistron.io: the source only to the plans that have it (Fistron ADR 0161)", async () => {
+  const files = {
+    ...FILES,
+    "source/fistron/0.5.0/fistron-source-0.5.0.tar.gz": "fistron's source",
+    "source/control-plane/0.5.0/fistron-control-plane-source-0.5.0.tar.gz": "the control plane's",
+  };
+  const fistron = "/source/fistron/0.5.0/fistron-source-0.5.0.tar.gz";
+  const plane = "/source/control-plane/0.5.0/fistron-control-plane-source-0.5.0.tar.gz";
+  const get = async (path, claims, which = {}) =>
+    fetchAt("dl.fistron.io", path, { headers: { Authorization: `Bearer ${await licence(claims, which)}` } }, files);
+  assert.equal((await fetchAt("dl.fistron.io", fistron, {}, files)).status, 401);
+  const business = await get(fistron, { plan: "business", tier: "paid" });
+  assert.equal(business.status, 200);
+  assert.equal(await business.text(), "fistron's source");
+  assert.equal(business.headers.get("Cache-Control"), "private, no-store");
+  const notPlane = await get(plane, { plan: "business", tier: "paid" });
+  assert.equal(notPlane.status, 403);
+  assert.match(await notPlane.text(), /comes with enterprise, not with your plan business/);
+  assert.equal((await get(plane, { plan: "enterprise", tier: "paid" })).status, 200);
+  for (const [claims, which] of [
+    [{ plan: "team", tier: "paid" }, {}],
+    [{ plan: "individual", tier: "paid" }, {}],
+    [{ plan: "trial", tier: "free" }, { trial: true }],
+  ]) {
+    assert.equal((await get(fistron, claims, which)).status, 403, claims.plan);
+  }
+  assert.deepEqual(fileOf(fistron), { key: fistron.slice(1), licence: true, plans: ["business", "enterprise"] });
+  for (const path of ["/source/core/0.5.0/x", "/source/fistron/x", "/source/fistron/0.5.0/a/b", "/source/x.tar"]) {
+    assert.equal(fileOf(path), null, path);
+  }
+});
+
 test("dl.fistron.io: only its files", () => {
   assert.deepEqual(fileOf("/core/0.1.0-dev.2/x.whl"), { key: "core/0.1.0-dev.2/x.whl", licence: true });
   assert.deepEqual(fileOf("/bundle/0.1.0-dev.20/fistron-0.1.0-dev.20.tar.zst.001"), {

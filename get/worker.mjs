@@ -16,6 +16,12 @@
 //   /bundle/<version>/<file>    the air-gapped bundle (the control plane's
 //                               chart and its images, the core's among them):
 //                               only with a licence, as the core
+//   /source/<part>/<version>/<file>
+//                               the source of Fistron (fistron) and of its
+//                               control plane (control-plane) for the
+//                               customers who build Fistron's images (Fistron
+//                               ADR 0161 point 3): only with a licence of a
+//                               plan that has it (SOURCE)
 // The bucket is the binding DL; the trusted licence keys the variables
 // LICENCE_KEYS and TRIAL_KEYS (lists of PASERK k4.public).
 
@@ -25,6 +31,9 @@ const TEXT = { "Content-Type": "text/plain; charset=utf-8" };
 const CHANNELS = ["stable", "staging"];
 const OPEN = ["fistron", "channels"];
 const LICENSED = ["core", "bundle"];
+// the source by plan (Fistron ADR 0161 point 1): Business builds the agent's images
+// (Fistron's), Enterprise every image (the control plane's too); a trial, never
+export const SOURCE = { fistron: ["business", "enterprise"], "control-plane": ["enterprise"] };
 // a version as the release workflows write it: PEP 440 (Fistron) or SemVer (the core)
 const VERSION = /^\d+\.\d+\.\d+(?:[-.+][0-9A-Za-z.+-]+)?$/;
 const NAME = /^[0-9A-Za-z][0-9A-Za-z._+-]*$/;
@@ -38,6 +47,10 @@ export function fileOf(path) {
   const parts = path.split("/").slice(1);
   if (parts.some((p) => !NAME.test(p))) return null;
   const [top, ...rest] = parts;
+  if (top === "source") {
+    if (rest.length !== 3 || !(rest[0] in SOURCE) || !VERSION.test(rest[1])) return null;
+    return { key: parts.join("/"), licence: true, plans: SOURCE[rest[0]] };
+  }
   if (LICENSED.includes(top)) {
     if (rest.length !== 2 || !VERSION.test(rest[0])) return null;
     return { key: parts.join("/"), licence: true };
@@ -108,11 +121,16 @@ async function dl(request, env, url) {
     const given = request.headers.get("Authorization") ?? "";
     const token = given.startsWith("Bearer ") ? given.slice("Bearer ".length) : null;
     const challenge = { "WWW-Authenticate": 'Bearer realm="dl.fistron.io"', "Cache-Control": "no-store" };
+    const what = file.plans ? "Fistron's source" : "Fistron's core";
     if (token === null) {
-      return say(401, "Fistron's core needs your licence or trial: Authorization: Bearer <licence>", challenge);
+      return say(401, `${what} needs your licence or trial: Authorization: Bearer <licence>`, challenge);
     }
     const checked = await checkLicence(token, keysOf(env));
-    if (!checked.ok) return say(403, `Fistron's core is not downloaded: ${checked.reason}.`, challenge);
+    if (!checked.ok) return say(403, `${what} is not downloaded: ${checked.reason}.`, challenge);
+    if (file.plans && !file.plans.includes(checked.licence.plan)) {
+      const plans = file.plans.join(" and ");
+      return say(403, `This source comes with ${plans}, not with your plan ${checked.licence.plan}.`, challenge);
+    }
     headers["Cache-Control"] = "private, no-store";
   } else {
     headers["Cache-Control"] = file.key.startsWith("channels/") ? "public, max-age=60" : "public, max-age=86400";
