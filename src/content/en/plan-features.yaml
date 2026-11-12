@@ -2,7 +2,7 @@
 # organisation page, ADR 0122), in the order the pricing page lists them.
 # Every feature of plans.json has one; scripts/check-plans.mjs checks it.
 - id: core
-  title: "Root cause analysis, flaky tests, test plans and Suite Health; pull and merge requests reviewed by your team's rules; Become a developer; Manual verification"
+  title: "Root cause analysis, flaky tests, test plans and Suite Health; pull and merge requests reviewed by your team's rules; Become a developer; Manual Quality Verification"
 - id: predictive
   title: "A change's risk before it is merged"
 - id: organisation
@@ -24,6 +24,6 @@
 - id: self-hosted
   title: "Your own control plane, on-premises or air-gapped"
 - id: certification
-  title: "Distributed Continuous Certification (add-on)"
+  title: "Distributed Continuous Verification (add-on)"
 - id: migration
-  title: "Migration Assurance (add-on)"
+  title: "Software Migration Assurance (add-on)"

@@ -54,9 +54,9 @@ export const site = {
   /** The columns of the Solutions menu, in order; each solution names its group. */
   solutionGroups: [
     { id: "quality", label: "Quality and delivery" },
-    { id: "compliance", label: "Compliance and resilience" },
-    { id: "certification", label: "Certification and acceptance" },
-    { id: "sovereignty", label: "Sovereignty, control and capacity" },
+    { id: "compliance", label: "Compliance, certifications and sovereignty" },
+    { id: "control", label: "Control and capacity" },
+    { id: "growth", label: "Readiness and growth" },
   ],
 
   /**

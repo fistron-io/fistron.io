@@ -115,7 +115,7 @@ hero until 2026-10-25, when it was removed. On 2026-10-18 the roadmap, the quest
 the hero note and the offer note were synced with the Fistron head (V4.5,
 V4.6 and V6a implemented and being validated, V7a in development, V5 after
 general availability; ADRs 0069–0073). On 2026-10-21 Distributed
-Continuous Certification (ADR 0075, V7.5) was added to the roadmap, the
+Continuous Verification (ADR 0075, V7.5) was added to the roadmap, the
 audiences and the questions. On 2026-10-23 the roadmap and its intro
 followed ADRs 0082 and 0083: authoring new tests (V5) in development and
 before general availability, and the guide on every page (V4.6c) in
@@ -164,7 +164,7 @@ plane (V4b) is in production for its first pilot. Compliance in the tool
 (V4.5), Fištrónek with measurable outcomes (V4.6), the Fast Feedback Loop
 (V3.7), test authoring (V5), predictive quality (V6, the change risk in
 shadow mode), the closed loop on existing tests (V7), Distributed Continuous
-Certification (V7.5), Migration Assurance (V7.7) and the verification log
+Verification (V7.5), Migration Assurance (V7.7) and the verification log
 (V7.8) are implemented and being validated; Fistron Sovereign LLM (V7.6) is
 in development. Enforcement and commercial packaging remain
 planned. The proposed edition split is not a released offer or final

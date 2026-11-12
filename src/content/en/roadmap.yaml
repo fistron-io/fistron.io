@@ -181,8 +181,8 @@
 - id: v7-5
   status: implemented
   stage: "V7.5 · Implemented; validating"
-  title: "Distributed Continuous Certification"
-  detail: "For vendors of on-premises software: your key customers receive pre-release builds, Fistron's agent installs and tests them in their staging environments with your suite and their checks, and each run ends with a signed attestation. What is shared with you is agreed per programme; you see each release by environment, with the regressions test by test, and certify the release for their environment. Your release pipeline waits for the release gate: the environments and upgrade paths a build must pass before it ships."
+  title: "Distributed Continuous Verification"
+  detail: "For vendors of on-premises software: your key customers receive pre-release builds, Fistron's agent installs and tests them in their staging environments with your suite and their checks, and each run ends with a signed attestation. What is shared with you is agreed per programme; you see each release by environment, with the regressions test by test, and verify the release for their environment. Your release pipeline waits for the release gate: the environments and upgrade paths a build must pass before it ships."
   parts:
     - label: "V7.5a"
       text: "Validation in a customer's environment: the kit with five runners, verified builds, staging-only targets, attestations, export for air-gapped sites"

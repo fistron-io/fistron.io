@@ -139,11 +139,11 @@
       ]
     },
     {
-      "id": "continuous-certification",
+      "id": "continuous-verification",
       "you_do": "Name the programme's requirements and let its participants run the vendor's validation kit.",
       "fistron_does": "Fistron runs the kit on each participant's agent and gathers the results into the programme's release gate.",
       "you_get": "A release gate with each requirement's state from every participant's builds.",
-      "guide": "solution-continuous-certification",
+      "guide": "solution-continuous-verification",
       "pictures": [
         {
           "name": "release-gate",
@@ -251,11 +251,11 @@
       ]
     },
     {
-      "id": "without-headcount",
-      "you_do": "Name the CI jobs your team reviews every morning.",
-      "fistron_does": "Fistron reviews them each night: each failure analysed, the known ones recognised, the new ones with their cause.",
-      "you_get": "The Daily CI review ready before the team starts, in the words of your team's report.",
-      "guide": "use-daily-ci-review",
+      "id": "expand-and-grow",
+      "you_do": "Keep your engineers, connect your CI and set the goal Deliver more with the same team.",
+      "fistron_does": "Fistron takes the routine off them: each night's failures analysed in the Daily CI review, the known ones recognised, the new ones with their cause.",
+      "you_get": "Your people's time back for new work, and what the team delivered on top, measured against its own baseline.",
+      "guide": "solution-expand-and-grow",
       "pictures": [
         {
           "name": "daily-ci-review",

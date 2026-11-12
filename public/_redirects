@@ -2,3 +2,9 @@
 # The logo mark of the brand repository (fistron-io/brand) replaced the F mark.
 /brand/logo-mark.svg /brand/fistron-mark.svg 301
 /brand/logo-mark-on-dark.svg /brand/fistron-mark-on-dark.svg 301
+# The solutions renamed on 2026-11-12 (Fistron: solution groups, Distributed Continuous
+# Verification, Expand and grow your business).
+/solutions/continuous-certification/ /solutions/continuous-verification/ 301
+/solutions/continuous-certification /solutions/continuous-verification/ 301
+/solutions/without-headcount/ /solutions/expand-and-grow/ 301
+/solutions/without-headcount /solutions/expand-and-grow/ 301

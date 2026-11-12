@@ -20,5 +20,5 @@
   example: "Example: before the surveillance audit, see which change-management controls lack evidence this quarter, and the pull requests that fix them."
 - id: software-vendors
   title: "For vendors of on-premises software"
-  text: "The planned Distributed Continuous Certification lets your key customers validate your pre-release builds in their own staging environments, with your test suite and their checks, and a signed attestation per release and environment. You offer it to them as your certification."
+  text: "The planned Distributed Continuous Verification lets your key customers verify your pre-release builds in their own staging environments, with your test suite and their checks, and a signed attestation per release and environment. You offer it to them as your verification, never an accredited certificate."
   example: "Example: before general availability, see that the release installs and passes in customer environments your lab never had, and exactly what failed where it did not."
