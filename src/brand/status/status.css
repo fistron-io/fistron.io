@@ -1,0 +1,14 @@
+.st-spin{animation:st-spin 1s linear infinite}
+@keyframes st-spin{to{transform:rotate(360deg)}}
+.st-dot{animation:st-dot 1.2s ease-in-out infinite}
+.st-dot.d2{animation-delay:.2s}.st-dot.d3{animation-delay:.4s}
+@keyframes st-dot{0%,60%,100%{opacity:.25}30%{opacity:1}}
+.st-wobble{animation:st-wobble 1.4s ease-in-out infinite}
+@keyframes st-wobble{0%,100%{transform:rotate(0)}20%{transform:rotate(-9deg)}40%{transform:rotate(7deg)}60%{transform:rotate(-4deg)}80%{transform:rotate(0)}}
+.st-flip{animation:st-flip 2.8s steps(1) infinite}
+.st-stripe{animation:st-stripe 3s linear infinite}
+@keyframes st-stripe{from{transform:translateX(0)}to{transform:translateX(7px)}}
+@keyframes st-flip{0%{transform:translateX(0)}50%{transform:translateX(12px)}}
+@media (prefers-reduced-motion: reduce) {
+  .st-spin, .st-dot, .st-wobble, .st-flip, .st-stripe { animation: none !important; }
+}

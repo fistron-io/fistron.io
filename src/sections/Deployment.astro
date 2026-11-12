@@ -2,7 +2,7 @@
 import { section, list } from "../lib/content";
 import Section from "../components/Section.astro";
 import HeadingWithArt from "../components/HeadingWithArt.astro";
-import CheckIcon from "../components/CheckIcon.astro";
+import StatusIcon from "../components/StatusIcon.astro";
 
 const copy = await section("deployment");
 const options = await list("deployment");
@@ -28,8 +28,8 @@ const options = await list("deployment");
     }
   </div>
   <p class="status">
-    <span><CheckIcon size={14} />{copy.note}</span>
-    <span><CheckIcon filled={false} size={14} />{copy.caption}</span>
+    <span><StatusIcon state="passed" size={14} />{copy.note}</span>
+    <span><StatusIcon state="running" size={14} />{copy.caption}</span>
   </p>
 </Section>
 

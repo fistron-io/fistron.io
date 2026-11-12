@@ -246,17 +246,30 @@ script in `BaseLayout.astro` applies it before the page paints.
 - Dark bands (CI, demo, footer) look the same in both themes.
 - Vendor logos sit on a white tile in the dark theme, because they are drawn
   for light backgrounds.
-- In the dark theme Fištrónek works nights: a light rim keeps him visible
-  and he wears a headlamp.
+- In the dark theme Fištrónek works nights: his outline turns light
+  (`--crow-outline`, `--crow-leg`) and he wears a headlamp.
 
-- **Wordmark:** "Fistron" with a small filled checkbox at the top right. Used
+- **Brand files** come from the brand repository (`fistron-io/brand`), copied
+  unchanged with their names, so an update is a plain copy: `public/favicon.svg`,
+  `favicon-32.png`, `apple-touch-icon.png` and `public/brand/` from its
+  `logo/`; `src/brand/mascot/` and `src/brand/status/` from its `mascot/`
+  and `status/`. `src/lib/brand-svg.mjs` inlines them: the ids unique on the
+  page, the animation classes scoped (BaseLayout adds them once).
+  `public/_redirects` keeps the old addresses of the F mark
+  (`/brand/logo-mark*.svg`) working.
+- **Wordmark:** "Fistron" with the brand checkbox above the "s", its bottom
+  edge level with the bottom of the dot on the "i". Used
   in the header and footer (`Wordmark.astro`). In running text, write the
   name as plain "Fistron".
-- **Logo mark:** an F with a filled green checkbox beside it. Used where space
-  is small or the mark stands alone: favicon, app icon, avatars. Files in
-  `public/brand/` (`logo-mark.svg`, `logo-mark-on-dark.svg`,
-  `app-icon-512.png`) and `public/favicon.svg`. Don't place the mark and the
-  wordmark side by side.
+- **Logo mark:** Fištrónek's head in one colour holding the green checkbox.
+  Used where space is small or the mark stands alone: favicon, app icon,
+  avatars. Files in `public/brand/` (`fistron-mark.svg`,
+  `fistron-mark-on-dark.svg`, `app-icon-512.png`) and `public/favicon.svg`,
+  which follows the system theme.
+- **Status icons:** the brand checkbox in the state's colour and shape
+  (`StatusIcon.astro`): passed for what works today, running for what is in
+  development, pending for what is planned, warning for limited support.
+  Only states that can still change move; always next to a text.
 - **Contour lines:** concentric ellipses on dark bands and light-grey bands
   only, never on white ones. The green signal ring appears only on the dark
   CI band and the demo band.
@@ -267,8 +280,9 @@ script in `BaseLayout.astro` applies it before the page paints.
 
 **Fištrónek** is the Fistron crow: crows are clever and use the tools around
 them, as Fistron does. **Flaky** is his opponent, the half-red, half-green
-gremlin of flaky tests. Both are inline SVG in `src/components/Fistronek.astro`
-with eleven poses: `main` (checkbox in the beak), `investigating`
+gremlin of flaky tests. Both are the brand's drawings in style C, inline
+through `src/components/Fistronek.astro`, with eleven poses, each moving one
+part (still under `prefers-reduced-motion`): `main` (checkbox in the beak), `investigating`
 (magnifier), `skeptical` (with Flaky), `chase` (chasing Flaky), `telescope`
 (looking ahead), `broom` (sweeping out tests that add no evidence), `stamp`
 (approving a report), `conductor` (baton), `chef` (tasting Fistron's own

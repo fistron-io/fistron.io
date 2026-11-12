@@ -3,12 +3,13 @@ import { section, list } from "../lib/content";
 import Section from "../components/Section.astro";
 import SectionHeading from "../components/SectionHeading.astro";
 import Fistronek from "../components/Fistronek.astro";
-import CheckIcon from "../components/CheckIcon.astro";
+import StatusIcon from "../components/StatusIcon.astro";
 
 const copy = await section("roadmap");
 const stages = await list("roadmap");
 /** A milestone's state, for screen readers (the checkbox says it visually). */
 const STATE = { implemented: "implemented", "in-development": "in development", planned: "planned" };
+const ICON = { implemented: "passed", "in-development": "running", planned: "pending" } as const;
 ---
 
 <Section id="roadmap" labelledby="roadmap-title">
@@ -26,7 +27,7 @@ const STATE = { implemented: "implemented", "in-development": "in development", 
       stages.map((s) => (
         <li class:list={[s.status, { current: s.current }]} aria-current={s.current ? "step" : undefined}>
           <span class="stage">
-            {s.status !== "planned" && <CheckIcon filled={s.status === "implemented"} size={14} />}
+            <StatusIcon state={ICON[s.status]} size={14} />
             {s.stage}
           </span>
           <span class="title">{s.title}</span>
@@ -35,11 +36,7 @@ const STATE = { implemented: "implemented", "in-development": "in development", 
             <ul class="parts">
               {s.parts.map((p) => (
                 <li class={p.status}>
-                  {p.status === "planned" ? (
-                    <span class="box" aria-hidden="true" />
-                  ) : (
-                    <CheckIcon filled={p.status === "implemented"} size={12} />
-                  )}
+                  <StatusIcon state={ICON[p.status]} size={12} />
                   <span>
                     <span class="label">{p.label}</span> {p.text}
                     <span class="sr-only"> ({STATE[p.status]})</span>
@@ -137,14 +134,9 @@ const STATE = { implemented: "implemented", "in-development": "in development", 
     align-items: flex-start;
     gap: 6px;
   }
-  .parts :global(svg),
-  .parts .box {
+  .parts :global(svg) {
     flex: none;
     margin-top: 0.25em;
-  }
-  .parts .box {
-    width: 12px;
-    height: 12px;
   }
   .parts .label {
     font-weight: 500;

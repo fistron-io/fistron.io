@@ -1,7 +1,7 @@
 ---
-import CheckIcon from "./CheckIcon.astro";
+import StatusIcon from "./StatusIcon.astro";
 
-/** "Available now" (filled checkbox, green) or "In development" (empty checkbox).
+/** "Available now" (the status icon passed) or "In development" (running).
  * With ``href``, a link: to where the feature is described (its page of the guide). */
 interface Props {
   status: "available" | "in-development";
@@ -16,7 +16,7 @@ const Tag = href ? "a" : "span";
 ---
 
 <Tag class:list={["badge", tone, available ? "available" : "pending"]} href={href} title={title}>
-  <CheckIcon filled={available} size={14} />
+  <StatusIcon state={available ? "passed" : "running"} size={14} />
   {label}
 </Tag>
 

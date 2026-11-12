@@ -2,7 +2,7 @@
 import { getEntry } from "astro:content";
 import { section } from "../lib/content";
 import Section from "../components/Section.astro";
-import CheckIcon from "../components/CheckIcon.astro";
+import StatusIcon from "../components/StatusIcon.astro";
 
 const copy = await section("hero");
 const panel = (await getEntry("objective", "hero"))!.data;
@@ -45,7 +45,7 @@ const introParts = (copy.intro ?? "").split("**").map((text, i) => ({ text, stro
           {
             panel.requirements.map((req) => (
               <li>
-                <CheckIcon filled={req.supported} size={20} class="state" />
+                <StatusIcon state={req.supported ? "passed" : "pending"} size={20} class="state" />
                 <div class="req">
                   <p class="req-title">{req.title}</p>
                   <p class="req-detail">{req.detail}</p>
@@ -61,7 +61,7 @@ const introParts = (copy.intro ?? "").split("**").map((text, i) => ({ text, stro
         </div>
       </div>
       <figcaption>
-        <CheckIcon filled={false} size={14} />
+        <StatusIcon state="running" size={14} />
         {copy.caption}
       </figcaption>
     </figure>

@@ -136,12 +136,8 @@ main > section:first-child {
   border-top: 0;
 }
 
-/* Fištrónek works nights: in the dark theme a rim keeps him visible and he
- * wears his headlamp (see Fistronek.astro). */
-.fistronek {
-  filter: var(--crow-rim);
-}
-
+/* Fištrónek works nights: in the dark theme his outline is light
+ * (--crow-outline) and he wears his headlamp (see Fistronek.astro). */
 .fistronek .headlamp {
   display: none;
 }

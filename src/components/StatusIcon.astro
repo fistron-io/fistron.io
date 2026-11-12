@@ -1,0 +1,59 @@
+---
+/**
+ * A status icon of the brand (src/brand/status/, copied unchanged from the
+ * fistron-io/brand repository): the brand checkbox in the state's colour and
+ * shape, so it reads without colour too. Only states that can still change
+ * move (running, pending, flaky, quarantined); the animation (status.css,
+ * added once by BaseLayout) stops under prefers-reduced-motion.
+ *
+ * Always next to a text that says the state: the icon is hidden from screen
+ * readers.
+ */
+import { inlineSvg, uniqueId } from "../lib/brand-svg.mjs";
+
+export type State =
+  | "passed"
+  | "failed"
+  | "flaky"
+  | "quarantined"
+  | "running"
+  | "pending"
+  | "skipped"
+  | "manual"
+  | "warning";
+
+interface Props {
+  state: State;
+  /** 16, 20 or 24 in rows and chips, 32 in legends. */
+  size?: number;
+  class?: string;
+}
+const { state, size = 16, class: className } = Astro.props;
+
+const files = import.meta.glob<string>("../brand/status/status-*.svg", {
+  query: "?raw",
+  import: "default",
+  eager: true,
+});
+const source = files[`../brand/status/status-${state}.svg`];
+if (!source) throw new Error(`no status icon "${state}"`);
+const drawing = inlineSvg(source, uniqueId("status"));
+---
+
+<svg
+  width={size}
+  height={size}
+  viewBox={drawing.viewBox}
+  aria-hidden="true"
+  class:list={["status-icon", className]}
+  data-state={state}
+  set:html={drawing.body}
+/>
+
+<style>
+  .status-icon {
+    flex: none;
+    /* the arc of "running" */
+    color: var(--color-indigo);
+  }
+</style>

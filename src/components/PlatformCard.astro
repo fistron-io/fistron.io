@@ -1,11 +1,13 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import CheckIcon from "./CheckIcon.astro";
+import StatusIcon from "./StatusIcon.astro";
 
 interface Props {
   platform: CollectionEntry<"platforms">["data"];
 }
 const { platform } = Astro.props;
+/** Supported, supported with limits, or a candidate not yet tried. */
+const STATE = { available: "passed", limited: "warning", candidate: "pending" } as const;
 ---
 
 <li class:list={["platform", platform.support]}>
@@ -16,7 +18,7 @@ const { platform } = Astro.props;
     <h3>{platform.name}</h3>
   </div>
   <p class="support">
-    <CheckIcon filled={platform.support === "available"} size={14} />
+    <StatusIcon state={STATE[platform.support]} size={14} />
     {platform.label}
   </p>
   <p class="detail">{platform.detail}</p>
