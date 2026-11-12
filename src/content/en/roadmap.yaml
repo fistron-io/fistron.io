@@ -143,6 +143,9 @@
     - label: "V4.6b"
       text: "The conversation, and the same tools as an MCP server"
       status: implemented
+    - label: "Your engineering work"
+      text: "Ask Fištrónek about your logs, tests and code: Fistron sends the model only what matters"
+      status: implemented
     - label: "V4.6c"
       text: "The guide on every page that acts as you after you confirm"
       status: implemented

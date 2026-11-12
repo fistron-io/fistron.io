@@ -249,6 +249,7 @@
     - "A test proposed for an item of the plan, as a change you review, never pushed for you."
     - "Your team's review rules given to the assistant before it writes, and its branch reviewed before the pull request."
     - "The same tools for any assistant that speaks MCP; answers cite the reports they come from, and your data classes and model policy apply."
+    - "Ask Fištrónek about your logs, tests and code: Fistron sends the model only what matters."
   questions: [dev-assistant, ai-code]
   related: [trust]
   see: [become-a-developer, code-review-rules]
