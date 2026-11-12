@@ -4,7 +4,7 @@ import { site } from "../config/site";
 import Section from "../components/Section.astro";
 import SectionHeading from "../components/SectionHeading.astro";
 import Fistronek from "../components/Fistronek.astro";
-import CheckIcon from "../components/CheckIcon.astro";
+import StatusIcon from "../components/StatusIcon.astro";
 
 const copy = await section("demo");
 const action = site.trialFormAction;
@@ -55,7 +55,7 @@ const demo = site.services.demo;
     <div class="success" role="status" tabindex="-1" hidden>
       <div class="success-crow"><Fistronek pose="main" /></div>
       <div>
-        <p class="success-label"><CheckIcon size={16} />{copy.successLabel}</p>
+        <p class="success-label"><StatusIcon state="passed" size={16} />{copy.successLabel}</p>
         <p class="success-title">{copy.successTitle}</p>
         <p class="success-text">{copy.successText}</p>
       </div>

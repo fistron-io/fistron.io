@@ -320,6 +320,7 @@
     - "A model receives evidence only up to the data class you allow; what it could not receive is reported as missing."
     - "Where every run's data went, in its ledger: each model and platform contacted, where it is and under whose law, what it was sent and what was withheld; and a policy you set in Settings that refuses any other jurisdiction, or a model of another origin, before anything is sent."
     - "On-premises or without internet access: the licence verified offline, no telemetry, agents that connect outbound only."
+    - "Build Fistron's images yourself (Business and Enterprise, in development): from Fistron's source on your own base image, with the closed core as signed wheels verified before they are installed and built reproducibly, and fistron doctor saying whether what you run is a release's."
     - "All variants keep Fistron's deterministic evidence and gates; the LLM variants add model reasoning on top."
   questions: [sovereignty]
   related: []

@@ -83,6 +83,7 @@
     - "A Fistroneer who installs and sets up, then one hour every week and 10 person-days a year"
     - "Regulatory watch, audit-day support, RCA on call, training"
     - "From Fistron 1.0, security fixes in an older minor version for 12 months more"
+    - "Build the agent's images yourself from Fistron's source, the signed core included (in development)"
   cta: "Start with a free trial"
   featured: true
 - id: enterprise
@@ -100,4 +101,6 @@
     - "A model pool of EUR 12 per active committer a month"
     - "Fistron Sovereign LLM in your environment, adapted on your data (planned)"
     - "From Fistron 1.0, a long-term version each year with fixes for 24 months, and a fix backported on request"
+    - "Build every image yourself from the source, the signed core included (in development)"
+    - "Regulated edition, an add-on: the closed core's source under NDA or escrow, its build reproducible (in development)"
   cta: "Start with a free trial"

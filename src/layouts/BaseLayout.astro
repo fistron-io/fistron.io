@@ -7,6 +7,9 @@ import "../styles/global.css";
 import { site } from "../config/site";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import { scopeCss } from "../lib/brand-svg.mjs";
+import mascotCss from "../brand/mascot/fistronek.css?raw";
+import statusCss from "../brand/status/status.css?raw";
 
 interface Props {
   title?: string;
@@ -48,6 +51,7 @@ const canonical = new URL(Astro.url.pathname, site.url).toString();
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
+    <style is:inline set:html={scopeCss(mascotCss, ".fistronek") + scopeCss(statusCss, ".status-icon")} />
   </head>
   <body>
     <a href="#main" class="skip-link">Skip to content</a>

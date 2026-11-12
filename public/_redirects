@@ -1,0 +1,4 @@
+# Cloudflare Workers static assets: old addresses that others may link to.
+# The logo mark of the brand repository (fistron-io/brand) replaced the F mark.
+/brand/logo-mark.svg /brand/fistron-mark.svg 301
+/brand/logo-mark-on-dark.svg /brand/fistron-mark-on-dark.svg 301

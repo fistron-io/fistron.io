@@ -4,7 +4,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import PageHeader from "../../components/PageHeader.astro";
 import Section from "../../components/Section.astro";
 import StatusBadge from "../../components/StatusBadge.astro";
-import CheckIcon from "../../components/CheckIcon.astro";
+import StatusIcon from "../../components/StatusIcon.astro";
 import CallToAction from "../../components/CallToAction.astro";
 import Offer from "../../sections/Offer.astro";
 import OpenCore from "../../sections/OpenCore.astro";
@@ -60,7 +60,7 @@ const related = { offer: Offer, "open-core": OpenCore, ci: CiFailure, outcomes: 
         <p>{solution.problem}</p>
         <div class="stage">
           <h3>
-            <CheckIcon filled={solution.status === "available"} size={16} />
+            <StatusIcon state={solution.status === "available" ? "passed" : "running"} size={16} />
             {page.caption}
           </h3>
           <p>{solution.stage}</p>

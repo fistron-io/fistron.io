@@ -43,7 +43,20 @@
   --color-danger-text: #b42318;
   --color-dashed: #b4bacb; /* outline of things in development */
   --logo-tile: transparent; /* behind third-party logos */
-  --crow-rim: none; /* outline that keeps Fištrónek visible on dark pages */
+
+  /* Status icons (src/brand/status/): only inside an icon, always with its shape */
+  --status-passed: var(--color-leaf);
+  --status-failed: #d64545;
+  --status-quarantined: #f2c94c;
+  --status-warning: #e8a33a;
+  --status-skipped: var(--color-control);
+
+  /* Fištrónek (src/brand/mascot/): his outline and legs turn light on dark pages */
+  --crow-body: #24305e;
+  --crow-wing: #1a2347;
+  --crow-beak: #4a5170;
+  --crow-leg: #3a415a;
+  --crow-outline: #1b2033;
 
   /* Type */
   --font-sans: "IBM Plex Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -57,6 +70,7 @@
   --radius: 8px;
   --radius-card: 12px;
   --radius-panel: 14px;
+  --radius-checkbox: 22.5%; /* the brand checkbox: corner 22.5% of the side */
   --container: 1200px;
   --gutter: 32px;
   --section-pad: 104px;
@@ -96,7 +110,8 @@
   --color-danger-text: #ff9c94;
   --color-dashed: #4a5590;
   --logo-tile: #ffffff;
-  --crow-rim: drop-shadow(0 0 0.6px #c3cae0) drop-shadow(0 0 10px rgba(160, 175, 230, 0.16));
+  --crow-leg: #8a93b8;
+  --crow-outline: #c3cae0;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -125,6 +140,7 @@
     --color-danger-text: #ff9c94;
     --color-dashed: #4a5590;
     --logo-tile: #ffffff;
-    --crow-rim: drop-shadow(0 0 0.6px #c3cae0) drop-shadow(0 0 10px rgba(160, 175, 230, 0.16));
+    --crow-leg: #8a93b8;
+    --crow-outline: #c3cae0;
   }
 }

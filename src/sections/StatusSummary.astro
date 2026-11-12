@@ -2,15 +2,16 @@
 import { section, listWithIds } from "../lib/content";
 import Section from "../components/Section.astro";
 import SectionHeading from "../components/SectionHeading.astro";
-import CheckIcon from "../components/CheckIcon.astro";
+import StatusIcon from "../components/StatusIcon.astro";
 
 /** Where Fistron is today, from roadmap.yaml, in three columns; the whole roadmap on /roadmap/. */
 const copy = await section("status");
+const STATE = { implemented: "passed", "in-development": "running", planned: "pending" } as const;
 const stages = await listWithIds("roadmap");
 const columns = [
-  { label: copy.paragraphs?.[0] ?? "Works today", status: "implemented" },
-  { label: copy.paragraphs?.[1] ?? "In development", status: "in-development" },
-  { label: copy.paragraphs?.[2] ?? "Planned", status: "planned" },
+  { label: copy.paragraphs?.[0] ?? "Works today", status: "implemented" as const },
+  { label: copy.paragraphs?.[1] ?? "In development", status: "in-development" as const },
+  { label: copy.paragraphs?.[2] ?? "Planned", status: "planned" as const },
 ].map((c) => ({ ...c, stages: stages.filter((s) => s.status === c.status) }));
 ---
 
@@ -23,7 +24,7 @@ const columns = [
         .map((c) => (
           <div class:list={["column", c.status]}>
             <h3>
-              {c.status !== "planned" && <CheckIcon filled={c.status === "implemented"} size={16} />}
+              <StatusIcon state={STATE[c.status]} size={16} />
               {c.label}
             </h3>
             <ul>
