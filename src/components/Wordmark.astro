@@ -52,7 +52,10 @@ const { tone = "light", size = 26, egg = false } = Astro.props;
   svg {
     position: absolute;
     left: 50%;
-    top: -0.058em;
+    /* the box's bottom edge on the bottom of the i's dot (0.613em above the
+     * baseline in IBM Plex Sans 500): the content area of the span starts
+     * 1.0385em above the baseline, so 1.0385 - 0.613 - 0.32 = 0.105em */
+    top: 0.105em;
     width: 0.32em;
     height: 0.32em;
     transform: translateX(-50%);
