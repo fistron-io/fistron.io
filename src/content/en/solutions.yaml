@@ -317,11 +317,12 @@
   group: control
   short: "Fistron sends a model only the evidence that matters, not your whole log, and answers many questions with no model at all. Each run says what it cost against pasting the whole case."
   status: available
-  stage: "Implemented and being validated: rules first, evidence excerpts, repeated log lines and passing tests folded, more evidence only when the model asks, cache-friendly prompts, an analysis reused by the failure's signature, and every run's model calls measured against the whole case; the benchmark against the whole log pasted into a model. Fistron's own figures are published once its benchmark has measured them; no saving is claimed before."
+  stage: "Implemented and being validated: rules first, evidence excerpts, repeated log lines, passing tests and a tool's alike results folded, brief answers asked for, more evidence only when the model asks, cache-friendly prompts, an analysis reused by the failure's signature, and every run's model calls measured against the whole case; the benchmark against the whole log pasted into a model. Fistron's own figures are published once its benchmark has measured them; no saving is claimed before."
   problem: "Pasting a failed job's log into a frontier model works, and costs the whole log in tokens every time, for every engineer and every rerun. The answer cites nothing, and nobody knows what the team spends or what it saved."
   gets:
     - "Rules first: many failures, flaky tests and checks are decided with no model at all."
-    - "Only the evidence that matters: the lines around an error, the tests that failed, a run of alike lines shown once with its count; a line with an error is never folded."
+    - "Only the evidence that matters: the lines around an error, the tests that failed, a run of alike lines shown once with its count, a tool's many alike results as their count; a line with an error is never folded."
+    - "Brief answers: the model is asked for no preamble and nothing restated, so fewer tokens come back too."
     - "More only when needed: the model asks for a folded excerpt by its reference and gets just that."
     - "Prompts a provider's cache serves, and an analysis reused when the same failure comes back."
     - "Measured: each run's tokens in, cached and out and its cost, against what the whole case would have sent."
