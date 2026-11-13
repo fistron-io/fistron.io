@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import PageHeader from "../components/PageHeader.astro";
+import Aaap from "../sections/Aaap.astro";
 import HowItWorks from "../sections/HowItWorks.astro";
 import Platforms from "../sections/Platforms.astro";
 import Integrations from "../sections/Integrations.astro";
@@ -11,8 +12,9 @@ import { section } from "../lib/content";
 const page = await section("platformPage");
 ---
 
-<BaseLayout title="The platform" description={page.intro}>
+<BaseLayout title={page.title} description={page.intro}>
   <PageHeader title={page.title} intro={page.intro} />
+  <Aaap />
   <HowItWorks />
   <Platforms />
   <Integrations />

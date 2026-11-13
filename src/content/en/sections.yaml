@@ -117,7 +117,7 @@ deployment:
 
 partners:
   title: "Run a platform? Offer quality to your customers"
-  intro: "PaaS and SaaS providers can offer Fistron inside their own services. Your customers get quality and compliance where they already deploy and pay, built on the evidence your platform already holds."
+  intro: "PaaS and SaaS providers can offer Fistron's AaaP, Assurance as a Platform, inside their own services. Your customers get quality and compliance where they already deploy and pay, built on the evidence your platform already holds."
   paragraphs:
     - "Each customer gets its own tenant, in the region you promise, with nothing shared across customers. Your customers sign in from your console; usage records feed your billing."
     - "Fistron's services (solution packages, certification through a partner, the Fistroneer) are available to your customers too, directly or through you."
@@ -202,8 +202,19 @@ whyPage:
   intro: "Assurance is a claim you have to prove. Fistron is built so that every claim it makes points back to evidence, and so that the proof holds without trusting Fistron."
 
 platformPage:
-  title: "The platform"
+  title: "AaaP – Assurance as a Platform"
   intro: "How Fistron works, the CI platforms and integrations it uses, and where it runs. One set of artifacts for Fistron Cloud, on-premises, air-gapped and hybrid."
+
+aaap:
+  eyebrow: "Definition"
+  title: "Assurance as a Platform (AaaP)"
+  intro: "Assurance as a Platform (AaaP) is a way of delivering software assurance, the evidence that a change works as intended and complies with what applies to it, as a platform that runs continuously over an organisation's own engineering tools: not a one-off project, not a team's manual effort and not one more tool to operate."
+  paragraphs:
+    - "The name follows the cloud's models. Infrastructure as a Service gives you the machines, Platform as a Service a place to run your code, Software as a Service an application ready to use. Assurance as a Platform gives you the answer the tests and the tools exist for: is this change ready, and can we prove it."
+    - "It is a platform, not a service you hand your code to: it runs on your CI, your repositories, your trackers and your model, in Fistron Cloud or in your own environment, and others build on it. Your teams add their own rules; platform partners offer it inside their own services."
+    - "Fistron is end-to-end autonomous AaaP: from a change's intent to its signed proof, at the level of autonomy you choose for each action. Rules and evidence decide; a model, when you use one, proposes and phrases."
+  caption: "How it works"
+  note: "The reconciliation in detail: the loop below."
 
 roadmapPage:
   title: "Roadmap"
@@ -211,7 +222,7 @@ roadmapPage:
 
 partnersPage:
   title: "Platform partners"
-  intro: "PaaS and SaaS providers can offer Fistron's quality and compliance inside their own services."
+  intro: "PaaS and SaaS providers can offer Fistron's AaaP for quality and compliance inside their own services."
 
 fistroneer:
   title: "A Fistroneer on your team: QE capacity now"

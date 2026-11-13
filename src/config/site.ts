@@ -44,7 +44,7 @@ export const site = {
   nav: [
     { label: "Solutions", href: "/solutions/", menu: "solutions" },
     { label: "Why Fistron", href: "/why-fistron/" },
-    { label: "Platform", href: "/platform/" },
+    { label: "AaaP", href: "/platform/" },
     { label: "Roadmap", href: "/roadmap/" },
     { label: "Partners", href: "/partners/" },
     { label: "Pricing", href: "/pricing/" },

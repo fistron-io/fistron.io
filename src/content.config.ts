@@ -106,6 +106,18 @@ const planInterfaces = defineCollection({
   schema: z.object({ order, title: z.string(), plans: z.array(z.string()) }),
 });
 
+/** The cloud's models AaaP's name follows (the AaaP definition on /platform/). */
+const aaapModels = defineCollection({
+  loader: orderedList("aaap-models"),
+  schema: z.object({ order, term: z.string(), name: z.string(), delivers: z.string() }),
+});
+
+/** How AaaP works in Fistron (the AaaP definition on /platform/). */
+const aaapSteps = defineCollection({
+  loader: orderedList("aaap-steps"),
+  schema: simpleItem,
+});
+
 /** The Fistron Sovereign variants: how Fistron decides (ADR 0102 of Fistron). */
 const sovereign = defineCollection({
   loader: orderedList("sovereign"),
@@ -301,6 +313,8 @@ export const collections = {
   pricingExamples,
   planFeatures,
   planInterfaces,
+  aaapModels,
+  aaapSteps,
   models,
   differentiators,
   dogfood,

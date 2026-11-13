@@ -5,7 +5,8 @@ import { listWithIds } from "../lib/content";
 /**
  * The Solutions drop-down: the solutions in the columns of their group
  * (site.solutionGroups), each with whom it is for, and the overview.
- * `bar` is the header's menu (opens on hover, focus or click); `list` is the
+ * `bar` is the header's menu: its label is a link to the overview, the
+ * chevron beside it opens the menu (and hover or focus); `list` is the
  * small screens' menu, folded under one summary.
  */
 interface Props {
@@ -25,14 +26,17 @@ const current = Astro.url.pathname.startsWith(href);
 {
   variant === "bar" ? (
     <div class="dropdown" data-dropdown>
+      <a class:list={["trigger", { current }]} href={href}>
+        {label}
+      </a>
       <button
         type="button"
-        class:list={["trigger", { current }]}
+        class:list={["toggle", { current }]}
+        aria-label={`The ${label.toLowerCase()} by group`}
         aria-expanded="false"
         aria-controls="solutions-menu"
         data-dropdown-trigger
       >
-        {label}
         <svg class="chevron" width="10" height="10" viewBox="0 0 10 10" aria-hidden="true">
           <path d="M1.5 3.5 5 7l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" />
         </svg>
@@ -127,11 +131,19 @@ const current = Astro.url.pathname.startsWith(href);
   .dropdown {
     position: relative;
   }
-  .trigger {
+  .dropdown {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    padding: 0;
+    gap: 2px;
+  }
+  .trigger {
+    color: var(--color-ink-2);
+    text-decoration: none;
+  }
+  .toggle {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px;
     border: 0;
     background: none;
     font: inherit;
@@ -140,7 +152,10 @@ const current = Astro.url.pathname.startsWith(href);
   }
   .trigger:hover,
   .trigger.current,
-  .dropdown.open .trigger {
+  .toggle:hover,
+  .toggle.current,
+  .dropdown.open .trigger,
+  .dropdown.open .toggle {
     color: var(--color-indigo);
   }
   .chevron {
