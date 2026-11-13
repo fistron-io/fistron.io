@@ -107,6 +107,15 @@
       "pending": "Shown with Fistron's own benchmark figures, once measured."
     },
     {
+      "id": "failed-build",
+      "you_do": "Paste a failed build's link on Investigate a failed build, and answer what Fistron asks.",
+      "fistron_does": "Fistron groups the failed tests by their error, folds the cascades, looks for a cause of each group and reads the history of the files it cites.",
+      "you_get": "Every cause with the layer it is fixed in and the evidence it rests on, and the open pull requests that already touch it.",
+      "guide": "use-investigate-a-failed-build",
+      "pictures": [],
+      "pending": "Shown once the fixes by repository are implemented, on a synthetic build with several causes."
+    },
+    {
       "id": "pr-installation",
       "you_do": "Put a label on a pull request, and name the pipeline that installs your product.",
       "fistron_does": "Fistron has the pull request's build installed by your own pipeline or its agent, upgraded from the last release and tested, and reads where it failed.",

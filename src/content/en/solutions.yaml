@@ -48,6 +48,24 @@
     - "A quality audit of your tests and CI from what you already have: a plan ordered by what costs your team most, and what the audit needs to say more."
   questions: [pipeline-failure, feature-evidence, test-coverage, test-plan, coverage-gap, necessary-work, suite-health, test-repair, change-risk]
   related: [ci, outcomes]
+- id: failed-build
+  title: "Every cause of a failed build, and its fix"
+  for: "For QE and platform teams with large end-to-end suites"
+  group: quality
+  short: "A nightly build with forty failed tests rarely has forty causes, and seldom one. Fistron finds every cause: the failures in groups, the tests that only followed another, a cause for each with the layer it is fixed in and the evidence it rests on, and asks you what it cannot read itself."
+  status: in-development
+  stage: "Implemented and being validated: the groups and cascades, a cause for each, the history of the files a cause cites, the open pull requests that already touch it, the questions to you on the command line, in your coding assistant and on the page Investigate a failed build, and the Daily CI review by causes. In development: the fixes by repository and their verification plan, and the benchmark with several causes."
+  problem: "One analysis of a build with many failed tests explains one of its causes and hides the others. Tests that failed only because an earlier one did look like failures of their own, a change made on purpose looks like a product bug, and the evidence a cause needs is often where only a person can reach it."
+  gets:
+    - "The failed tests in groups by their error and failed step; the tests that only followed an earlier failure folded under it."
+    - "A cause for each group, with the layer it is fixed in (the test, CI and deployment, infrastructure, the product, documentation), static or verified, and the evidence it cites."
+    - "The history of the files a cause cites: a change made on purpose is said to be one, never a product bug to revert."
+    - "The open pull requests and issues that already touch a cause, so nobody fixes it twice."
+    - "One concrete question at a time where the evidence is out of reach: a read-only command to run, a file, a run again. Your answer is evidence with your name; the cause that rests on it says so."
+    - "The same report on the command line, in your coding assistant, on the page and in the Daily CI review, a line per cause."
+  questions: [pipeline-failure]
+  related: [ci]
+  see: [quality-improvement, continuous-verification]
 - id: pr-installation
   title: "Quality for your PR/MR"
   for: "For teams whose CI never installs the product"
@@ -231,6 +249,7 @@
     - "A test proposed for an item of the plan, as a change you review, never pushed for you."
     - "Your team's review rules given to the assistant before it writes, and its branch reviewed before the pull request."
     - "The same tools for any assistant that speaks MCP; answers cite the reports they come from, and your data classes and model policy apply."
+    - "Ask Fištrónek about your logs, tests and code: Fistron sends the model only what matters."
   questions: [dev-assistant, ai-code]
   related: [trust]
   see: [become-a-developer, code-review-rules]
@@ -298,11 +317,12 @@
   group: control
   short: "Fistron sends a model only the evidence that matters, not your whole log, and answers many questions with no model at all. Each run says what it cost against pasting the whole case."
   status: available
-  stage: "Implemented and being validated: rules first, evidence excerpts, repeated log lines and passing tests folded, more evidence only when the model asks, cache-friendly prompts, an analysis reused by the failure's signature, and every run's model calls measured against the whole case; the benchmark against the whole log pasted into a model. Fistron's own figures are published once its benchmark has measured them; no saving is claimed before."
+  stage: "Implemented and being validated: rules first, evidence excerpts, repeated log lines, passing tests and a tool's alike results folded, brief answers asked for, more evidence only when the model asks, cache-friendly prompts, an analysis reused by the failure's signature, and every run's model calls measured against the whole case; the benchmark against the whole log pasted into a model. Fistron's own figures are published once its benchmark has measured them; no saving is claimed before."
   problem: "Pasting a failed job's log into a frontier model works, and costs the whole log in tokens every time, for every engineer and every rerun. The answer cites nothing, and nobody knows what the team spends or what it saved."
   gets:
     - "Rules first: many failures, flaky tests and checks are decided with no model at all."
-    - "Only the evidence that matters: the lines around an error, the tests that failed, a run of alike lines shown once with its count; a line with an error is never folded."
+    - "Only the evidence that matters: the lines around an error, the tests that failed, a run of alike lines shown once with its count, a tool's many alike results as their count; a line with an error is never folded."
+    - "Brief answers: the model is asked for no preamble and nothing restated, so fewer tokens come back too."
     - "More only when needed: the model asks for a folded excerpt by its reference and gets just that."
     - "Prompts a provider's cache serves, and an analysis reused when the same failure comes back."
     - "Measured: each run's tokens in, cached and out and its cost, against what the whole case would have sent."
