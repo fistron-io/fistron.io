@@ -1,0 +1,191 @@
+---
+import { section, list } from "../lib/content";
+import Section from "../components/Section.astro";
+
+/**
+ * AaaP, Assurance as a Platform, defined as a reference work would: what it
+ * is, why it is called so (the cloud's "as a Service" models beside it) and
+ * how it works in Fistron. The page's sections below it give the details.
+ */
+const copy = await section("aaap");
+const models = await list("aaapModels");
+const steps = await list("aaapSteps");
+const [term, ...definition] = copy.intro?.split(" is ") ?? [];
+---
+
+<Section id="aaap" labelledby="aaap-title">
+  {copy.eyebrow && <p class="eyebrow">{copy.eyebrow}</p>}
+  <h2 id="aaap-title">{copy.title}</h2>
+  <div class="grid">
+    <div class="text">
+      <p class="lead"><dfn>{term}</dfn> is {definition.join(" is ")}</p>
+      {copy.paragraphs?.map((p) => <p>{p}</p>)}
+    </div>
+    <table class="models">
+      <caption>The models the name follows</caption>
+      <tbody>
+        {
+          models.map((m, i) => (
+            <tr class:list={{ ours: i === models.length - 1 }}>
+              <th scope="row">
+                <abbr title={m.name}>{m.term}</abbr>
+                <span class="name">{m.name}</span>
+              </th>
+              <td>{m.delivers}</td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+  </div>
+  <h3 class="how">{copy.caption}</h3>
+  <ol class="steps">
+    {
+      steps.map((s) => (
+        <li>
+          <h4>{s.title}</h4>
+          <p>{s.text}</p>
+        </li>
+      ))
+    }
+  </ol>
+  {copy.note && <p class="note">{copy.note}</p>}
+</Section>
+
+<style>
+  .eyebrow {
+    margin: 0 0 8px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+  }
+  h2 {
+    margin: 0;
+    font-size: var(--text-h2);
+    line-height: 1.15;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--color-heading);
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+    gap: 40px;
+    margin-top: 24px;
+    align-items: start;
+  }
+  @media (max-width: 860px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  .text p {
+    margin: 0 0 16px;
+    color: var(--color-ink-2);
+  }
+  .text .lead {
+    font-size: 1.125rem;
+    color: var(--color-ink);
+  }
+  dfn {
+    font-style: normal;
+    font-weight: 600;
+    color: var(--color-heading);
+  }
+  .models {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9375rem;
+    background: var(--surface-card);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-card);
+  }
+  .models caption {
+    text-align: left;
+    padding: 0 0 8px;
+    font-size: 0.8125rem;
+    color: var(--color-muted);
+  }
+  .models th,
+  .models td {
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--color-line-soft);
+    text-align: left;
+    vertical-align: top;
+  }
+  .models tr:last-child th,
+  .models tr:last-child td {
+    border-bottom: 0;
+  }
+  .models th {
+    font-weight: 400;
+    white-space: nowrap;
+  }
+  abbr {
+    display: block;
+    text-decoration: none;
+    font-weight: 600;
+    color: var(--color-heading);
+  }
+  .name {
+    font-size: 0.8125rem;
+    color: var(--color-muted);
+  }
+  .ours th,
+  .ours td {
+    background: var(--color-paper);
+  }
+  .ours abbr {
+    color: var(--color-indigo);
+  }
+  .how {
+    margin: 48px 0 0;
+    font-size: 1.25rem;
+    color: var(--color-heading);
+  }
+  .steps {
+    list-style: none;
+    counter-reset: step;
+    padding: 0;
+    margin: 20px 0 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 16px;
+  }
+  .steps li {
+    counter-increment: step;
+    background: var(--surface-card);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-card);
+    padding: 20px;
+  }
+  .steps li::before {
+    content: counter(step);
+    display: inline-grid;
+    place-items: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--color-paper);
+    color: var(--color-indigo);
+    font-weight: 600;
+    font-size: 0.875rem;
+  }
+  h4 {
+    margin: 10px 0 6px;
+    font-size: 1rem;
+    color: var(--color-heading);
+  }
+  .steps p {
+    margin: 0;
+    font-size: 0.9375rem;
+    color: var(--color-ink-2);
+  }
+  .note {
+    margin-top: 16px;
+    font-size: 0.875rem;
+    color: var(--color-muted);
+  }
+</style>

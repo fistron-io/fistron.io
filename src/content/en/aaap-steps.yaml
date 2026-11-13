@@ -1,0 +1,15 @@
+# How AaaP works in Fistron, in order (the AaaP definition on /platform/).
+# Each step is one Fistron does today; the details are in the sections below
+# it and in Fistron's guide.
+- id: connect
+  title: "Connects to what you run"
+  text: "Your CI (GitHub Actions, GitLab CI, Jenkins), your repositories and trackers, your MCP servers and your model, or no model at all."
+- id: reconcile
+  title: "Reconciles"
+  text: "Compares the quality a change needs with the evidence you have, and names exactly what is missing."
+- id: act
+  title: "Acts within your autonomy"
+  text: "Explains failures, quarantines flaky tests, reviews pull and merge requests, proposes and repairs tests; what changes your code is proposed for approval unless you allow more."
+- id: prove
+  title: "Proves"
+  text: "Every verdict keeps its evidence: reports, signed attestations and audit packages your auditors accept."

@@ -1,0 +1,14 @@
+# How each plan is used, in the order the pricing page lists them, as
+# Fistron's install-overview.md and install-by-plan.md say: the command line
+# and the GUI on your machine in every plan; the team's GUI in the browser,
+# the control plane, from Team up and in the trial. scripts/check-plans.mjs
+# checks that every plan named is one of the core's.
+- id: cli
+  title: "The command line, in your CI, and in your coding assistant (fistron mcp)"
+  plans: [trial, individual, team, business, enterprise]
+- id: local-gui
+  title: "The GUI on your own machine (fistron ui)"
+  plans: [trial, individual, team, business, enterprise]
+- id: web-gui
+  title: "The team's GUI in the browser, with its shared history: on Fistron Cloud, hybrid or your own"
+  plans: [trial, team, business, enterprise]

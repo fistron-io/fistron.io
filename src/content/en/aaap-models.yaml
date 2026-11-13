@@ -1,0 +1,18 @@
+# The "as a Service" models AaaP's name follows, and what each delivers
+# (the AaaP definition on /platform/). AaaP is last and highlighted.
+- id: iaas
+  term: "IaaS"
+  name: "Infrastructure as a Service"
+  delivers: "Machines, networks and storage"
+- id: paas
+  term: "PaaS"
+  name: "Platform as a Service"
+  delivers: "A place to run your code"
+- id: saas
+  term: "SaaS"
+  name: "Software as a Service"
+  delivers: "An application, ready to use"
+- id: aaap
+  term: "AaaP"
+  name: "Assurance as a Platform"
+  delivers: "Proof that your software works and complies, continuously, over the tools you run"
