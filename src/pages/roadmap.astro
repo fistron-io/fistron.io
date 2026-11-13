@@ -9,7 +9,11 @@ const page = await section("roadmapPage");
 ---
 
 <BaseLayout title="Roadmap" description={page.intro}>
-  <PageHeader title={page.title} intro={page.intro} />
+  <PageHeader
+    title={page.title}
+    intro={page.intro}
+    art={{ pose: "journey", label: "Fištrónek on the road with his bundle, a signpost with a checkbox ahead" }}
+  />
   <Roadmap />
   <CallToAction secondary={{ label: "Explore the solutions", href: "/solutions/" }} />
 </BaseLayout>

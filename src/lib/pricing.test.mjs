@@ -28,3 +28,10 @@ test("the pricing page's table has the prices in its head and the ways it is use
   assert.match(page, /<span class="th-price">\{t\.price\}<\/span>/);
   assert.match(page, /interfaces\.map\(/);
 });
+
+test("a tier's line in development has Fištrónek at work beside it, a planned one not", async () => {
+  const { inDevelopment } = await import("./pricing.mjs");
+  assert.ok(inDevelopment("A personal history of your own runs (in development)"));
+  assert.ok(!inDevelopment("Fistron Sovereign LLM in your environment (planned)"));
+  assert.ok(!inDevelopment("Every new version and fix while your licence is valid"));
+});

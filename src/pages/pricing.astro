@@ -5,8 +5,10 @@ import Section from "../components/Section.astro";
 import Fistroneer from "../sections/Fistroneer.astro";
 import Sovereign from "../sections/Sovereign.astro";
 import CallToAction from "../components/CallToAction.astro";
+import Fistronek from "../components/Fistronek.astro";
+import Working from "../components/Working.astro";
 import { section, list, listWithIds } from "../lib/content";
-import { shortPriceNote } from "../lib/pricing.mjs";
+import { shortPriceNote, inDevelopment } from "../lib/pricing.mjs";
 import plans from "../content/en/plans.json";
 
 const page = await section("pricingPage");
@@ -27,7 +29,11 @@ const has = (plan: string, feature: string) =>
 ---
 
 <BaseLayout title="Pricing" description={page.intro}>
-  <PageHeader title={page.title} intro={page.intro} />
+  <PageHeader
+    title={page.title}
+    intro={page.intro}
+    art={{ pose: "abacus", label: "Fištrónek counting active committers on an abacus" }}
+  />
 
   <Section labelledby="tiers-title">
     <h2 id="tiers-title" class="visually-hidden">Tiers</h2>
@@ -44,7 +50,10 @@ const has = (plan: string, feature: string) =>
             {t.minimum && <p class="minimum">{t.minimum}</p>}
             <ul class="features">
               {t.features.map((f) => (
-                <li>{f}</li>
+                <li>
+                  {f}
+                  {inDevelopment(f) && <Working size={24} />}
+                </li>
               ))}
             </ul>
             {t.note && <p class="tier-note">{t.note}</p>}
@@ -71,8 +80,15 @@ const has = (plan: string, feature: string) =>
   </Section>
 
   <Section labelledby="compare-title">
-    <h2 id="compare-title" class="block-title">{compare.title}</h2>
-    {compare.intro && <p class="how-intro">{compare.intro}</p>}
+    <div class="compare-top">
+      <div>
+        <h2 id="compare-title" class="block-title">{compare.title}</h2>
+        {compare.intro && <p class="how-intro">{compare.intro}</p>}
+      </div>
+      <div class="compare-art">
+        <Fistronek pose="clipboard" label="Fištrónek ticking off a plan's list on his clipboard" />
+      </div>
+    </div>
     <div class="compare-wrap">
       <table class="compare">
         <thead>
@@ -144,7 +160,10 @@ const has = (plan: string, feature: string) =>
                 <td>{m.sovereign}</td>
                 <td>{m.where}</td>
                 <td>{m.paid}</td>
-                <td class:list={["state", m.state]}>{stateLabel[m.state]}</td>
+                <td class:list={["state", m.state]}>
+                  {stateLabel[m.state]}
+                  {m.state === "in-development" && <Working size={26} />}
+                </td>
               </tr>
             ))
           }
@@ -207,6 +226,22 @@ const has = (plan: string, feature: string) =>
     overflow: hidden;
     clip: rect(0 0 0 0);
     white-space: nowrap;
+  }
+  .compare-top {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px 40px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .compare-top > div:first-child {
+    flex: 1 1 520px;
+    min-width: 0;
+  }
+  .compare-art {
+    flex: 0 0 150px;
+    width: 150px;
+    margin: 0 auto;
   }
   .compare-wrap {
     overflow-x: auto;

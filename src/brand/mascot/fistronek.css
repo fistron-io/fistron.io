@@ -34,3 +34,11 @@
 @keyframes shake{from{transform:rotate(-6deg)}to{transform:rotate(6deg)}}
 .pulse{animation:pulse 1.6s ease-in-out infinite}
 @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.15)}}
+.hammer{animation:hammer 1.2s ease-in infinite}
+@keyframes hammer{0%,30%{transform:rotate(-26deg)}45%{transform:rotate(0)}52%{transform:rotate(-5deg)}60%,100%{transform:rotate(-26deg)}}
+.glow{animation:glow 2.8s ease-in-out infinite}
+@keyframes glow{0%,35%{opacity:0}45%{opacity:1}52%{opacity:.4}60%,92%{opacity:1}100%{opacity:0}}
+.slide{animation:slide 2.4s ease-in-out infinite}
+@keyframes slide{0%,25%{transform:translateX(0)}50%,85%{transform:translateX(-18px)}100%{transform:translateX(0)}}
+.road{animation:road .8s linear infinite}
+@keyframes road{from{transform:translateX(0)}to{transform:translateX(-20px)}}

@@ -3,22 +3,10 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync, readdirSync } from "node:fs";
 import { inlineSvg, scopeCss } from "./brand-svg.mjs";
+import { POSES } from "./poses.mjs";
 
 const brand = new URL("../brand/", import.meta.url);
 const read = (path) => readFileSync(new URL(path, brand), "utf8");
-const POSES = [
-  "main",
-  "investigating",
-  "skeptical",
-  "chase",
-  "telescope",
-  "broom",
-  "stamp",
-  "conductor",
-  "chef",
-  "desk",
-  "quarantine",
-];
 const STATES = ["passed", "failed", "flaky", "quarantined", "running", "pending", "skipped", "manual", "warning"];
 
 test("every pose and every status icon of the brand is here", () => {

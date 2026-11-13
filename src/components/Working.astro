@@ -1,0 +1,26 @@
+---
+import Fistronek from "./Fistronek.astro";
+import { IN_DEVELOPMENT } from "../lib/poses.mjs";
+
+/**
+ * Fištrónek at work beside everything "In development" (Martin's feedback of
+ * 2026-11-13): small, decorative, his hammer the one moving part. The words
+ * beside him say the state; he never replaces them or the status icon.
+ */
+interface Props {
+  size?: number;
+}
+const { size = 30 } = Astro.props;
+---
+
+<span class="working" style={`--working-size:${size}px`}><Fistronek pose={IN_DEVELOPMENT} /></span>
+
+<style>
+  .working {
+    display: inline-block;
+    flex: none;
+    width: var(--working-size);
+    margin: calc(var(--working-size) * -0.3) 0 calc(var(--working-size) * -0.3) 4px;
+    vertical-align: middle;
+  }
+</style>

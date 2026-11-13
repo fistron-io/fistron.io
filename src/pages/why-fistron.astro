@@ -12,7 +12,11 @@ const page = await section("whyPage");
 ---
 
 <BaseLayout title="Why Fistron" description={page.intro}>
-  <PageHeader title={page.title} intro={page.intro} />
+  <PageHeader
+    title={page.title}
+    intro={page.intro}
+    art={{ pose: "lightbulb", label: "Fištrónek with an idea lighting up above his head" }}
+  />
   <Differentiators detailed />
   <WhyNow />
   <Dogfood />

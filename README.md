@@ -281,14 +281,23 @@ script in `BaseLayout.astro` applies it before the page paints.
 **Fištrónek** is the Fistron crow: crows are clever and use the tools around
 them, as Fistron does. **Flaky** is his opponent, the half-red, half-green
 gremlin of flaky tests. Both are the brand's drawings in style C, inline
-through `src/components/Fistronek.astro`, with eleven poses, each moving one
+through `src/components/Fistronek.astro`, with seventeen poses
+(`src/lib/poses.mjs`), each moving one
 part (still under `prefers-reduced-motion`): `main` (checkbox in the beak), `investigating`
 (magnifier), `skeptical` (with Flaky), `chase` (chasing Flaky), `telescope`
 (looking ahead), `broom` (sweeping out tests that add no evidence), `stamp`
 (approving a report), `conductor` (baton), `chef` (tasting Fistron's own
-cooking), `desk` (at the local interface) and `quarantine` (Flaky behind
-tape, still running). `HeadingWithArt.astro` puts one beside a section
-heading with a caption.
+cooking), `desk` (at the local interface), `quarantine` (Flaky behind
+tape, still running), `working` (hammering a checkbox not finished yet),
+`lightbulb` (an idea: Why Fistron), `cloud` (on a platform's cloud:
+partners), `abacus` (counting active committers: pricing), `journey` (on
+the road: the roadmap) and `clipboard` (what each plan includes).
+`HeadingWithArt.astro` puts one beside a section heading with a caption;
+`PageHeader.astro`'s `art` beside a page's title. `Working.astro` is the
+small working crow beside everything in development (every "In
+development" badge, the roadmap's stages and parts, the pricing's models
+and tiers' lines). Each group of solutions has its pose (`GROUP_POSES`),
+on /solutions/ and in the Solutions menu, the same as in Fistron's GUI.
 
 The tone is serious where it carries the message (hero, how it works, CI
 failure analysis, deployment) and playful around it:

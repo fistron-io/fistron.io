@@ -4,12 +4,15 @@ import Section from "../components/Section.astro";
 import SectionHeading from "../components/SectionHeading.astro";
 import StatusBadge from "../components/StatusBadge.astro";
 import { site } from "../config/site";
+import Fistronek from "../components/Fistronek.astro";
+import { GROUP_POSES } from "../lib/poses.mjs";
 
 /**
  * The solutions as cards, each linking to its page. On the homepage with
  * the section's heading, in the order of their groups; on /solutions/
  * without it (the page has its own), under the heading of each group
- * (site.solutionGroups), as the Solutions menu shows them.
+ * (site.solutionGroups), as the Solutions menu shows them, each with
+ * Fištrónek in the group's pose (the same in Fistron's GUI).
  */
 interface Props {
   heading?: boolean;
@@ -39,6 +42,9 @@ const groups = heading
       <>
         {group.label && (
           <h2 class="group" id={group.id}>
+            <span class="group-art">
+              <Fistronek pose={GROUP_POSES[group.id as keyof typeof GROUP_POSES]} />
+            </span>
             {group.label}
           </h2>
         )}
@@ -68,6 +74,12 @@ const groups = heading
 </Section>
 
 <style>
+  .group-art {
+    display: inline-block;
+    width: 64px;
+    margin: -12px 12px -12px 0;
+    vertical-align: middle;
+  }
   .legend {
     display: flex;
     gap: 20px;

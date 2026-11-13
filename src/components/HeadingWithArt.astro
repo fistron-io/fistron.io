@@ -1,6 +1,7 @@
 ---
 import SectionHeading from "./SectionHeading.astro";
 import Fistronek from "./Fistronek.astro";
+import type { POSES } from "../lib/poses.mjs";
 
 /**
  * A section heading with Fištrónek beside it and an optional caption under
@@ -11,7 +12,7 @@ interface Props {
   id: string;
   title: string;
   intro?: string;
-  pose: "main" | "investigating" | "skeptical" | "chase" | "telescope" | "broom" | "stamp" | "conductor" | "chef" | "desk" | "quarantine";
+  pose: (typeof POSES)[number];
   label: string;
   caption?: string;
 }

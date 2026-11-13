@@ -4,6 +4,7 @@ import Section from "../components/Section.astro";
 import SectionHeading from "../components/SectionHeading.astro";
 import Fistronek from "../components/Fistronek.astro";
 import StatusIcon from "../components/StatusIcon.astro";
+import Working from "../components/Working.astro";
 
 const copy = await section("roadmap");
 const stages = await list("roadmap");
@@ -29,6 +30,7 @@ const ICON = { implemented: "passed", "in-development": "running", planned: "pen
           <span class="stage">
             <StatusIcon state={ICON[s.status]} size={14} />
             {s.stage}
+            {s.status === "in-development" && <Working size={26} />}
           </span>
           <span class="title">{s.title}</span>
           <p class="detail">{s.detail}</p>
@@ -47,6 +49,7 @@ const ICON = { implemented: "passed", "in-development": "running", planned: "pen
                     )}{" "}
                     {p.text}
                     <span class="sr-only"> ({STATE[p.status]})</span>
+                    {p.status === "in-development" && <Working size={22} />}
                   </span>
                 </li>
               ))}

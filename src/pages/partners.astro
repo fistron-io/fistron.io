@@ -9,7 +9,11 @@ const page = await section("partnersPage");
 ---
 
 <BaseLayout title="Platform partners" description={page.intro}>
-  <PageHeader title={page.title} intro={page.intro} />
+  <PageHeader
+    title={page.title}
+    intro={page.intro}
+    art={{ pose: "cloud", label: "Fištrónek on a platform's cloud, offering a checkbox" }}
+  />
   <Partners />
   <CallToAction title="Offer quality to your customers" primary="Become a platform partner" />
 </BaseLayout>

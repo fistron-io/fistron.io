@@ -1,10 +1,12 @@
 ---
 import Section from "./Section.astro";
+import Fistronek from "./Fistronek.astro";
+import type { POSES } from "../lib/poses.mjs";
 
 /**
  * The header band of a page other than the homepage: a trail back to its
  * parent, the page's title (h1) and its lead, with an optional slot on the
- * right (a status badge, a call to action).
+ * right (a status badge, a call to action), or Fištrónek there in a pose.
  */
 interface Props {
   title: string;
@@ -12,8 +14,10 @@ interface Props {
   /** The page above this one, e.g. Solutions for a solution's page. */
   parent?: { label: string; href: string };
   kicker?: string;
+  /** Fištrónek beside the title, with what he does for screen readers. */
+  art?: { pose: (typeof POSES)[number]; label: string };
 }
-const { title, intro, parent, kicker } = Astro.props;
+const { title, intro, parent, kicker, art } = Astro.props;
 ---
 
 <Section tone="mist" contours={{ cx: 1180, cy: 120 }} labelledby="page-title">
@@ -38,6 +42,13 @@ const { title, intro, parent, kicker } = Astro.props;
       Astro.slots.has("default") && (
         <div class="aside">
           <slot />
+        </div>
+      )
+    }
+    {
+      art && (
+        <div class="art">
+          <Fistronek pose={art.pose} label={art.label} />
         </div>
       )
     }
@@ -86,5 +97,10 @@ const { title, intro, parent, kicker } = Astro.props;
   }
   .aside {
     flex: 0 0 auto;
+  }
+  .art {
+    flex: 0 0 190px;
+    width: 190px;
+    margin: 0 auto;
   }
 </style>

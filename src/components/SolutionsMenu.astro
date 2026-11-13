@@ -1,6 +1,8 @@
 ---
 import { site } from "../config/site";
 import { listWithIds } from "../lib/content";
+import Fistronek from "./Fistronek.astro";
+import { GROUP_POSES } from "../lib/poses.mjs";
 
 /**
  * The Solutions drop-down: the solutions in the columns of their group
@@ -18,6 +20,7 @@ const { label, href, variant = "bar" } = Astro.props;
 const solutions = await listWithIds("solutions");
 const groups = site.solutionGroups.map((group) => ({
   ...group,
+  pose: GROUP_POSES[group.id as keyof typeof GROUP_POSES],
   solutions: solutions.filter((s) => s.group === group.id),
 }));
 const current = Astro.url.pathname.startsWith(href);
@@ -46,7 +49,12 @@ const current = Astro.url.pathname.startsWith(href);
           <div class="columns">
             {groups.map((group) => (
               <div class="group">
-                <p class="group-label">{group.label}</p>
+                <p class="group-label">
+                  <span class="group-art">
+                    <Fistronek pose={group.pose} />
+                  </span>
+                  {group.label}
+                </p>
                 <ul>
                   {group.solutions.map((s) => (
                     <li>
@@ -195,6 +203,12 @@ const current = Astro.url.pathname.startsWith(href);
     grid-template-columns: repeat(4, 220px);
     gap: 8px 20px;
     padding: 20px 20px 12px;
+  }
+  .group-art {
+    display: inline-block;
+    width: 30px;
+    margin: -8px 6px -8px 0;
+    vertical-align: middle;
   }
   .group-label {
     margin: 0 0 6px;

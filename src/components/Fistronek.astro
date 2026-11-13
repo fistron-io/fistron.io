@@ -1,6 +1,6 @@
 ---
 /**
- * Fištrónek, the Fistron crow, in one of eleven poses. The "skeptical",
+ * Fištrónek, the Fistron crow, in one of the brand's poses (src/lib/poses.mjs). The "skeptical",
  * "chase" and "quarantine" poses include Flaky, the flaky-test gremlin.
  *
  * The drawings are the brand's (src/brand/mascot/, copied unchanged from the
@@ -11,20 +11,12 @@
  * Give `label` for meaningful illustrations; leave it empty for decorative ones.
  */
 import { inlineSvg, uniqueId } from "../lib/brand-svg.mjs";
+import type { POSES } from "../lib/poses.mjs";
+
+type Pose = (typeof POSES)[number];
 
 interface Props {
-  pose:
-    | "main"
-    | "investigating"
-    | "skeptical"
-    | "chase"
-    | "telescope"
-    | "broom"
-    | "stamp"
-    | "conductor"
-    | "chef"
-    | "desk"
-    | "quarantine";
+  pose: Pose;
   /** Accessible description. Empty means decorative (hidden from screen readers). */
   label?: string;
   class?: string;

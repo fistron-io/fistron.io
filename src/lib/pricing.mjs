@@ -10,3 +10,13 @@
 export function shortPriceNote(note) {
   return note.split(";")[0].trim();
 }
+
+/**
+ * Whether a tier's line names something in development: Fištrónek works
+ * beside it (the brand's pose "working").
+ * @param {string} line
+ * @returns {boolean}
+ */
+export function inDevelopment(line) {
+  return /\bin development\b/i.test(line);
+}
