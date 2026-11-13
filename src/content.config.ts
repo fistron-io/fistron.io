@@ -36,6 +36,7 @@ const sections = defineCollection({
     paragraphs: z.array(z.string()).optional(),
     note: z.string().optional(),
     caption: z.string().optional(),
+    groups: z.array(z.string()).optional(),
     primaryCta: z.string().optional(),
     secondaryCta: z.string().optional(),
     demoCta: z.string().optional(),
@@ -96,6 +97,13 @@ const pricingExamples = defineCollection({
 const planFeatures = defineCollection({
   loader: orderedList("plan-features"),
   schema: z.object({ order, title: z.string() }),
+});
+
+/** How each plan is used: the command line, the GUI on your machine, the team's GUI
+ * (Fistron's install-overview.md); scripts/check-plans.mjs checks the plans named. */
+const planInterfaces = defineCollection({
+  loader: orderedList("plan-interfaces"),
+  schema: z.object({ order, title: z.string(), plans: z.array(z.string()) }),
 });
 
 /** The Fistron Sovereign variants: how Fistron decides (ADR 0102 of Fistron). */
@@ -292,6 +300,7 @@ export const collections = {
   pricingExtras,
   pricingExamples,
   planFeatures,
+  planInterfaces,
   models,
   differentiators,
   dogfood,

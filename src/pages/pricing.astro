@@ -6,6 +6,7 @@ import Fistroneer from "../sections/Fistroneer.astro";
 import Sovereign from "../sections/Sovereign.astro";
 import CallToAction from "../components/CallToAction.astro";
 import { section, list, listWithIds } from "../lib/content";
+import { shortPriceNote } from "../lib/pricing.mjs";
 import plans from "../content/en/plans.json";
 
 const page = await section("pricingPage");
@@ -19,6 +20,8 @@ const models = await list("models");
 const stateLabel = { available: "Available now", "in-development": "In development", planned: "Planned" } as const;
 const compare = await section("pricingCompare");
 const features = await listWithIds("planFeatures");
+const interfaces = await list("planInterfaces");
+const [usedLabel, doesLabel] = compare.groups ?? ["How you use it", "What it does"];
 const has = (plan: string, feature: string) =>
   plans.plans.find((p) => p.plan === plan)?.features.includes(feature) ?? false;
 ---
@@ -75,10 +78,34 @@ const has = (plan: string, feature: string) =>
         <thead>
           <tr>
             <th scope="col">{compare.caption}</th>
-            {tiers.map((t) => <th scope="col">{t.name}</th>)}
+            {
+              tiers.map((t) => (
+                <th scope="col">
+                  {t.name}
+                  <span class="th-price">{t.price}</span>
+                  {t.priceNote && <span class="th-per">{shortPriceNote(t.priceNote)}</span>}
+                </th>
+              ))
+            }
           </tr>
         </thead>
         <tbody>
+          <tr class="group">
+            <th scope="colgroup" colspan={tiers.length + 1}>{usedLabel}</th>
+          </tr>
+          {
+            interfaces.map((u) => (
+              <tr>
+                <th scope="row">{u.title}</th>
+                {plans.plans.map((p) => (
+                  <td>{u.plans.includes(p.plan) ? <span aria-label="included">✓</span> : <span aria-label="not included">–</span>}</td>
+                ))}
+              </tr>
+            ))
+          }
+          <tr class="group">
+            <th scope="colgroup" colspan={tiers.length + 1}>{doesLabel}</th>
+          </tr>
           {
             features.map((f) => (
               <tr>
@@ -215,6 +242,30 @@ const has = (plan: string, feature: string) =>
   .compare thead th {
     font-weight: 600;
     color: var(--color-heading);
+  }
+  .compare thead th {
+    vertical-align: bottom;
+  }
+  .compare thead th:not(:first-child) {
+    min-width: 128px;
+  }
+  .compare .th-price {
+    display: block;
+    margin-top: 4px;
+    font-size: 1rem;
+    color: var(--color-heading);
+  }
+  .compare .th-per {
+    display: block;
+    font-size: 0.8125rem;
+    font-weight: 400;
+    color: var(--color-muted);
+  }
+  .compare .group th {
+    text-align: left;
+    font-weight: 600;
+    color: var(--color-heading);
+    padding-top: 20px;
   }
   .tiers {
     list-style: none;

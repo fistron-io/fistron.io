@@ -28,6 +28,12 @@ for (const id of words) {
     problems.push(`plan-features.yaml names ${id}, which no plan has`);
   }
 }
+// how each plan is used (plan-interfaces.yaml): only the core's plans
+for (const way of parse(read("plan-interfaces.yaml"))) {
+  for (const plan of way.plans) {
+    if (!ids.includes(plan)) problems.push(`plan-interfaces.yaml: ${way.id} names ${plan}, not one of the core's plans`);
+  }
+}
 const eur = (n) => `EUR ${n.toLocaleString("en")}`;
 const byId = Object.fromEntries(plans.plans.map((p) => [p.plan, p]));
 for (const tier of parse(read("pricing.yaml"))) {

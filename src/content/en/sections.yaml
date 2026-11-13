@@ -235,6 +235,7 @@ pricingCompare:
   title: "What each plan includes"
   intro: "The licence names your plan, and Fistron does what it includes: the table is the product's own. In the product, your organisation's page shows the same and lets an admin ask for more."
   caption: "Feature"
+  groups: ["How you use it", "What it does"]
   note: "The Trial has every feature on one project for 30 days. Individual is one person's, without a control plane. Distributed Continuous Verification and Software Migration Assurance are add-ons to Team, Business and Enterprise."
 
 pricingHow:
