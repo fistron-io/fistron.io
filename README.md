@@ -412,7 +412,15 @@ fistron-io's packages; it never leaves the Worker) and `TOKEN_SECRET`
 (signs its own five-minute tokens): `npx wrangler secret put GHCR_TOKEN -c
 registry/wrangler.jsonc`.
 
-Deploy: `npm run deploy:get` and `npm run deploy:registry`. `npm run check`
+Deploy: `npm run deploy:get` and `npm run deploy:registry`. The binding of
+`get-fistron-io` names the bucket and its **jurisdiction** (`"jurisdiction":
+"eu"`), which must be the bucket's that Fistron's workflows write through
+`R2_ENDPOINT` (`https://<account>.eu.r2.cloudflarestorage.com`): a bucket of
+the same name in another jurisdiction is another, empty one (2026-11-13:
+404 and 503 on get. and dl.fistron.io while R2 had every release).
+`npm run deploy:get` checks it first (`get/check-binding.mjs`; with
+`R2_ENDPOINT` set, against it too); Fistron's `channel.sh` and `release.sh`
+read back from dl.fistron.io what they wrote. `npm run check`
 runs their tests (`node --test get/*.test.mjs registry/*.test.mjs`).
 
 ## Going public

@@ -14,8 +14,11 @@
     { "pattern": "get.fistron.io", "custom_domain": true },
     { "pattern": "dl.fistron.io", "custom_domain": true }
   ],
-  // the bucket the release workflows fill (their variable R2_BUCKET); read only here
-  "r2_buckets": [{ "binding": "DL", "bucket_name": "fistron-dl" }],
+  // the bucket the release workflows fill (their variable R2_BUCKET); read only here.
+  // Its jurisdiction is the bucket's, as their R2_ENDPOINT says (…eu.r2.cloudflarestorage.com):
+  // a bucket of the same name in another jurisdiction is another, empty bucket
+  // (2026-11-13). get/check-binding.mjs checks it before every deploy.
+  "r2_buckets": [{ "binding": "DL", "bucket_name": "fistron-dl", "jurisdiction": "eu" }],
   "vars": {
     // the keys a licence for the core is signed with (fistron-core's
     // keys/release/ and keys/trial/): a new key is added here before it signs
