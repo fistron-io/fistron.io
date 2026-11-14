@@ -6,6 +6,7 @@ import Fistroneer from "../sections/Fistroneer.astro";
 import Sovereign from "../sections/Sovereign.astro";
 import CallToAction from "../components/CallToAction.astro";
 import Fistronek from "../components/Fistronek.astro";
+import Coffee from "../components/Coffee.astro";
 import Working from "../components/Working.astro";
 import { section, list, listWithIds } from "../lib/content";
 import { shortPriceNote, inDevelopment } from "../lib/pricing.mjs";
@@ -163,6 +164,7 @@ const has = (plan: string, feature: string) =>
                 <td class:list={["state", m.state]}>
                   {stateLabel[m.state]}
                   {m.state === "in-development" && <Working size={26} />}
+                  {m.state === "available" && <Coffee size={26} />}
                 </td>
               </tr>
             ))

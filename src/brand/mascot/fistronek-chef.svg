@@ -42,4 +42,32 @@
 @keyframes slide{0%,25%{transform:translateX(0)}50%,85%{transform:translateX(-18px)}100%{transform:translateX(0)}}
 .road{animation:road .8s linear infinite}
 @keyframes road{from{transform:translateX(0)}to{transform:translateX(-20px)}}
+
+.sip{animation:sip 3.2s ease-in-out infinite}
+@keyframes sip{0%,55%,100%{transform:rotate(0)}68%,84%{transform:rotate(-13deg)}}
+.scribble{animation:scribble .4s ease-in-out infinite alternate}
+@keyframes scribble{from{transform:translate(-3px,0)}to{transform:translate(5px,1px)}}
+.flutter{animation:flutter 2.2s ease-in-out infinite alternate}
+@keyframes flutter{from{transform:translate(-4px,4px) rotate(-10deg)}to{transform:translate(6px,-14px) rotate(12deg)}}
+.drain{animation:drain 3s linear infinite}
+@keyframes drain{from{transform:scaleY(1)}to{transform:scaleY(0)}}
+.pile{animation:pile 3s linear infinite}
+@keyframes pile{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+.wave{animation:wave 1.2s ease-out infinite}
+@keyframes wave{0%{opacity:0;transform:translateX(-5px)}40%{opacity:1}100%{opacity:0;transform:translateX(5px)}}
+.late2{animation-delay:.5s}
+.drawer{animation:drawer 2.8s ease-in-out infinite}
+@keyframes drawer{0%,25%,100%{transform:translateX(0)}45%,80%{transform:translateX(-10px)}}
+.tilt{animation:tilt 2.6s ease-in-out infinite alternate}
+@keyframes tilt{from{transform:rotate(-7deg)}to{transform:rotate(7deg)}}
+.patrol{animation:patrol 1.8s ease-in-out infinite alternate}
+@keyframes patrol{from{transform:translateX(-6px)}to{transform:translateX(8px)}}
+.drop{animation:drop 2.2s ease-in infinite}
+@keyframes drop{0%,20%{transform:translateY(-10px);opacity:1}55%{transform:translateY(16px);opacity:1}60%,100%{transform:translateY(18px);opacity:0}}
+.glide{animation:glide 2.4s ease-in-out infinite alternate}
+@keyframes glide{from{transform:translate(-6px,5px)}to{transform:translate(4px,-6px)}}
+.rise{animation:rise 3s ease-in-out infinite alternate}
+@keyframes rise{from{transform:translateY(16px)}to{transform:translateY(-4px)}}
+.sprout{animation:sprout 3s ease-in-out infinite alternate}
+@keyframes sprout{from{transform:scale(.62)}to{transform:scale(1)}}
 </style><ellipse cx="96" cy="172" rx="60" ry="5" fill="#24305e" opacity="0.12"/><path d="M62 116 L20 130 L28 108 Z" fill="#1a2347" stroke="var(--crow-outline, #1b2033)" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M86 151 L84 168 M102 151 L104 168 M76 168 H92 M98 168 H112" stroke="var(--crow-leg, #3a415a)" stroke-width="5" stroke-linecap="round" fill="none"/><circle cx="92" cy="118" r="36" fill="#24305e" stroke="var(--crow-outline, #1b2033)" stroke-width="3"/><path d="M108 53 L114 38 L122 51 Z" fill="#24305e" stroke="var(--crow-outline, #1b2033)" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><circle cx="120" cy="76" r="27" fill="#24305e" stroke="var(--crow-outline, #1b2033)" stroke-width="3"/><path d="M143 66 L174 79 L143 90 Z" fill="#4a5170" stroke="var(--crow-outline, #1b2033)" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><g class="blink" style="transform-origin:126px 72px"><circle cx="126" cy="72" r="9" fill="#fff"/><circle cx="131" cy="75" r="4.5" fill="#1b2033"/></g><path d="M112 58 Q124 54 136 60" stroke="var(--crow-outline, #1b2033)" stroke-width="4.5" stroke-linecap="round" fill="none"/><g class="stir" style="transform-origin:150px 118px"><path d="M94 112 Q122 100 146 98 L148 108 Q124 116 100 126 Z" fill="#1a2347" stroke="var(--crow-outline, #1b2033)" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M146 102 L156 118" stroke="var(--crow-leg, #3a415a)" stroke-width="4" stroke-linecap="round"/></g><g transform="translate(6 3)"><path d="M100 50 Q92 30 106 28 Q110 14 122 20 Q134 14 138 30 Q150 34 134 52 Z" fill="#fff" stroke="var(--crow-outline, #1b2033)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><path d="M101 50 L134 52 L133 58 L102 56 Z" fill="#fff" stroke="var(--crow-outline, #1b2033)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></g><path class="steam" d="M160 108 q-6 -8 0 -14 q6 -6 0 -14 M174 108 q-6 -8 0 -14 q6 -6 0 -14" stroke="#a9b1cc" stroke-width="2.5" stroke-linecap="round" fill="none"/><rect x="138" y="122" width="58" height="46" rx="8" fill="#3a415a" stroke="var(--crow-outline, #1b2033)" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><rect x="134" y="116" width="66" height="9" rx="4" fill="#1b2033" stroke="var(--crow-outline, #1b2033)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><path d="M138 134 h-7 M196 134 h7" stroke="var(--crow-outline, #1b2033)" stroke-width="5" stroke-linecap="round"/><g class="" style="transform-origin:167.0px 145.0px"><rect x="158" y="136" width="18" height="18" rx="4.05" fill="#3fa66b" stroke="var(--crow-outline, #1b2033)" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/><path d="M162.05 145.0 L165.65 148.6 L171.95 141.4" stroke="#fff" stroke-width="2.52" stroke-linecap="round" stroke-linejoin="round" fill="none"/></g></svg>

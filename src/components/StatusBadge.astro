@@ -1,9 +1,11 @@
 ---
 import StatusIcon from "./StatusIcon.astro";
+import Coffee from "./Coffee.astro";
 import Working from "./Working.astro";
 
-/** "Available now" (the status icon passed) or "In development" (running, and
- * Fištrónek at work beside it).
+/** "Available now" (the status icon passed, and Fištrónek having his coffee
+ * beside it) or "In development" (running, and Fištrónek at work beside it).
+ * The status icon stays and does not move; only the crow does.
  * With ``href``, a link: to where the feature is described (its page of the guide). */
 interface Props {
   status: "available" | "in-development";
@@ -20,7 +22,7 @@ const Tag = href ? "a" : "span";
 <Tag class:list={["badge", tone, available ? "available" : "pending"]} href={href} title={title}>
   <StatusIcon state={available ? "passed" : "running"} size={14} />
   {label}
-  {!available && <Working size={28} />}
+  {available ? <Coffee size={28} /> : <Working size={28} />}
 </Tag>
 
 <style>

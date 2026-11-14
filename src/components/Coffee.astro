@@ -1,0 +1,27 @@
+---
+import Fistronek from "./Fistronek.astro";
+import { AVAILABLE_NOW } from "../lib/poses.mjs";
+
+/**
+ * Fištrónek having his coffee beside everything "Available now" (decided
+ * 2026-11-14): the pair of Working beside "In development", the same size and
+ * place, decorative. He leans on the finished checkbox, the hammer put away,
+ * and sips; the words and the status icon beside him say the state.
+ */
+interface Props {
+  size?: number;
+}
+const { size = 30 } = Astro.props;
+---
+
+<span class="coffee" style={`--coffee-size:${size}px`}><Fistronek pose={AVAILABLE_NOW} /></span>
+
+<style>
+  .coffee {
+    display: inline-block;
+    flex: none;
+    width: var(--coffee-size);
+    margin: calc(var(--coffee-size) * -0.3) 0 calc(var(--coffee-size) * -0.3) 4px;
+    vertical-align: middle;
+  }
+</style>
