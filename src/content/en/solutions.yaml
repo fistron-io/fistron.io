@@ -33,7 +33,7 @@
   part:
     id: pipeline
     title: "Fistron in your pipeline"
-    status: in-development
+    status: available
     intro: "Fistron in your own CI works on every change by itself: proactive, where the analysis of a failed build or the fix of a test asked for in Fistron's GUI comes after somebody noticed. One entry in Fistron's GUI and a guide of three steps, each with a default, set it up in one pull or merge request."
     gets:
       - "What Fistron does there: the review of each pull or merge request, as a summary or also as comments on it, never an approval; the change's assessment and risk; the analysis of a failed build while its environment still exists."
