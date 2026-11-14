@@ -23,6 +23,14 @@
   title: "Fištrónek's conversation"
 - id: self-hosted
   title: "Your own control plane, on-premises or air-gapped"
+- id: brand-logo
+  title: "Your logo beside Fistron's in the GUI"
+- id: brand-colours
+  title: "Your colours in the GUI"
+- id: brand-outputs
+  title: "Your logo on printed documents and PDFs, your name on exported reports"
+- id: brand-everywhere
+  title: "Your brand on attestations' pages, e-mails, chat messages and the organisation's dashboard"
 - id: certification
   title: "Distributed Continuous Verification (add-on)"
 - id: migration

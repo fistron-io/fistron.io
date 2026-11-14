@@ -60,7 +60,8 @@
         "core",
         "predictive",
         "repair",
-        "authoring"
+        "authoring",
+        "brand-logo"
       ],
       "limits": {
         "projects": null,
@@ -87,7 +88,10 @@
         "feedback-loop",
         "repair",
         "authoring",
-        "transformation"
+        "transformation",
+        "brand-logo",
+        "brand-colours",
+        "brand-outputs"
       ],
       "limits": {
         "projects": null,
@@ -114,7 +118,11 @@
         "repair",
         "authoring",
         "transformation",
-        "self-hosted"
+        "self-hosted",
+        "brand-logo",
+        "brand-colours",
+        "brand-outputs",
+        "brand-everywhere"
       ],
       "limits": {
         "projects": null,
