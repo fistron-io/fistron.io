@@ -1,0 +1,76 @@
+---
+import { section } from "../lib/content";
+import Section from "../components/Section.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import StatusBadge from "../components/StatusBadge.astro";
+
+/** Fistron in the team's own CI (Fistron ADR 0170): the homepage's band,
+ * proactive on every change, set up in one pull or merge request, with the
+ * three CI tools; its details in the End-to-end quality solution's part. */
+const copy = await section("pipeline");
+---
+
+<Section id="pipeline" tone="mist" labelledby="pipeline-title">
+  <div class="heading">
+    <StatusBadge status="in-development" />
+    <SectionHeading id="pipeline-title" title={copy.title} intro={copy.intro} />
+  </div>
+  <ul class="tools">
+    {copy.paragraphs?.map((p) => {
+      const [tool, ...rest] = p.split(": ");
+      const text = rest.join(": ");
+      return (
+        <li>
+          <h3>{tool}</h3>
+          <p>{text.charAt(0).toUpperCase() + text.slice(1)}</p>
+        </li>
+      );
+    })}
+  </ul>
+  <p class="note">
+    {copy.note}
+    {copy.linkLabel && <a href="/solutions/end-to-end/#pipeline">{copy.linkLabel} →</a>}
+  </p>
+</Section>
+
+<style>
+  .heading {
+    display: grid;
+    gap: 16px;
+    justify-items: start;
+  }
+  .tools {
+    list-style: none;
+    padding: 0;
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 16px;
+  }
+  .tools li {
+    background: var(--surface-card);
+    border: 1px solid var(--color-line);
+    border-top: 3px solid var(--color-leaf);
+    border-radius: var(--radius-card);
+    padding: 24px;
+  }
+  .tools h3 {
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: var(--color-heading);
+  }
+  .tools p {
+    margin-top: 8px;
+    font-size: 0.9375rem;
+    color: var(--color-muted);
+  }
+  .note {
+    margin-top: 28px;
+    font-size: 0.9375rem;
+    color: var(--color-muted);
+  }
+  .note a {
+    margin-left: 8px;
+    font-weight: 500;
+  }
+</style>

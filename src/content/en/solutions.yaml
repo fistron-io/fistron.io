@@ -30,10 +30,26 @@
     - "Outcomes agreed as your KPIs and key results, and a quarterly review against the baseline."
   questions: [deadline, status, measurable-quality, release-decision]
   related: [offer, open-core]
+  part:
+    id: pipeline
+    title: "Fistron in your pipeline"
+    status: in-development
+    intro: "Fistron in your own CI works on every change by itself: proactive, where the analysis of a failed build or the fix of a test asked for in Fistron's GUI comes after somebody noticed. One entry in Fistron's GUI and a guide of three steps, each with a default, set it up in one pull or merge request."
+    gets:
+      - "What Fistron does there: the review of each pull or merge request, as a summary or also as comments on it, never an approval; the change's assessment and risk; the analysis of a failed build while its environment still exists."
+      - "Your CI found and named for you: GitHub Actions and their workflows, GitLab CI and its stages, Jenkins and its jobs, read only."
+      - "One pull or merge request with the files, and a guide for your repository: every variable, secret and credential, the token's permissions and where they are set. Fistron never edits your .gitlab-ci.yml or Jenkinsfile."
+      - "The reports back in your control plane by default, and per repository whether the pipeline reports: the last upload, what came, what is missing."
+      - "The project's token shown once, or set in your repository by Fistron's agent where your organisation allows it."
+      - "Fistron never fails your build: what fails is said in the log."
+    cta:
+      label: "Add Fistron to your CI"
+      href: "/#trial"
 - id: quality-improvement
   title: "Quality improvement"
   for: "For engineering, QE and platform teams"
   group: quality
+  ci: true
   short: "Explain failed pipelines from evidence, plan the tests a change needs, find what no test covers, quarantine flaky tests and repair the tests that work badly, with the tools you already run."
   status: available
   stage: "CI failure analysis, change assessment, test plans and coverage gaps work today. Flaky quarantine, evidence selection and the Suite Health audit run in shadow mode; the repair of bad tests, the risk of each change with its measured accuracy, the value of end-to-end tests, Gherkin and unit tests written for your plan and tests in your own tools for infrastructure changes are implemented and being validated. A quality audit of a project shows where to start. An analysis may also read evidence from your own MCP servers (a product, monitoring, ticketing), through the tools you allow that only read."
@@ -52,6 +68,7 @@
   title: "Every cause of a failed build, and its fix"
   for: "For QE and platform teams with large end-to-end suites"
   group: quality
+  ci: true
   short: "A nightly build with forty failed tests rarely has forty causes, and seldom one. Fistron finds every cause: the failures in groups, the tests that only followed another, a cause for each with the layer it is fixed in and the evidence it rests on, and asks you what it cannot read itself."
   status: in-development
   stage: "Implemented and being validated: the groups and cascades, a cause for each, the history of the files a cause cites, the open pull requests that already touch it, the questions to you on the command line, in your coding assistant and on the page Investigate a failed build, and the Daily CI review by causes. In development: the fixes by repository and their verification plan, and the benchmark with several causes."
@@ -155,6 +172,7 @@
   title: "Verifying code written with AI"
   for: "For teams that merge code written by assistants and agents"
   group: compliance
+  ci: true
   short: "An evidence gate on every change, whoever wrote it: does it do what was asked, do the tests really check it, would they fail without it, are its new dependencies real."
   status: available
   stage: "The checks of a change and the evidence gate on pull requests work today; stricter rules for AI-authored changes are set by policy. Broader validation continues."
@@ -257,6 +275,7 @@
   title: "Control your code and MR/PR review by your team's rules"
   for: "For tech leads and architects reviewing code written by people and AI"
   group: control
+  ci: true
   short: "Every pull or merge request reviewed against Google's code review practices, your own rules, or both, and you choose what the review does: the code explained, the AI review, your conventions. Tools and evidence check what they can; a model judges only the rest, and blocks only if you allow it."
   status: available
   stage: "Implemented and being validated: the review of pull and merge requests with Fistron's findings and an AI review; the review rules with Google's practices as the default pack, the language packs for Python, Go and Java, the evidence rules, the model's rules, the same rules in your coding assistant, the repository audit and repeated reviewer comments proposed as rules. Its synthetic exit is recorded; next: real pull requests of an open-source project."

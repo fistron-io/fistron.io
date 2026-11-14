@@ -284,6 +284,8 @@ const solutions = defineCollection({
     see: z.array(z.string()).default([]),
     // a note under the solution's state, e.g. an attribution
     note: z.string().optional(),
+    // it runs in the team's own CI: the step Add it to your CI (Fistron ADR 0170)
+    ci: z.boolean().default(false),
     // a distinct part of the solution with its own anchor and call to action
     // (Fistron ADR 0169: the code audit on request), also named on /solutions/
     part: z

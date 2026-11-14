@@ -40,6 +40,8 @@ const see = solution.see.map((id) => {
 // the solution's page of the guide (docs.fistron.io), as Fistron's showcase names it
 const guide = showcase.solutions.find((s) => s.id === solution.id)?.guide;
 const guideUrl = guide ? `${site.services.docs.url}/${guide}/` : undefined;
+// it runs in the team's own CI (Fistron ADR 0170): the step Add it to your CI
+const ciStep = solution.ci ? await section("pipelineStep") : undefined;
 const related = { offer: Offer, "open-core": OpenCore, ci: CiFailure, outcomes: Outcomes, trust: Trust, governance: Governance };
 ---
 
@@ -152,6 +154,20 @@ const related = { offer: Offer, "open-core": OpenCore, ci: CiFailure, outcomes: 
   </Section>
 
   {
+    ciStep && (
+      <Section tone="mist" labelledby="ci-step-title">
+        <div class="ci-step">
+          <h2 id="ci-step-title">{ciStep.title}</h2>
+          <p>{ciStep.intro}</p>
+          <p>
+            <a href="/solutions/end-to-end/#pipeline">{ciStep.linkLabel} →</a>
+          </p>
+        </div>
+      </Section>
+    )
+  }
+
+  {
     solution.part && (
       <Section labelledby={`${solution.part.id}-title`}>
         <div class="part" id={solution.part.id}>
@@ -260,6 +276,16 @@ const related = { offer: Offer, "open-core": OpenCore, ci: CiFailure, outcomes: 
   .part {
     max-width: 760px;
     scroll-margin-top: 96px;
+  }
+  .ci-step {
+    max-width: 760px;
+  }
+  .ci-step p {
+    margin-top: 12px;
+    color: var(--color-ink-2);
+  }
+  .ci-step a {
+    font-weight: 600;
   }
   .part h2 {
     margin-bottom: 12px;

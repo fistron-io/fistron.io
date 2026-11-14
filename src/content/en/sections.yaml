@@ -169,6 +169,21 @@ solutions:
   linkLabel: "All solutions"
   note: "Each card says where the solution stands today. Nothing is shown as available before it works in Fistron's own repositories."
 
+pipeline:
+  title: "Add Fistron to your CI in one pull request"
+  intro: "In your own pipeline, Fistron works on every change by itself: each pull or merge request reviewed by your team's rules and its change assessed, each failed build analysed while its environment still exists, the reports back in your control plane. Nobody switches anything on in Fistron, and nobody has to notice a failure first."
+  paragraphs:
+    - "GitHub Actions: two workflows that run after yours."
+    - "GitLab CI: hidden jobs your .gitlab-ci.yml includes."
+    - "Jenkins: stages your Jenkinsfile loads, for multibranch and pull request builds."
+  note: "Fistron finds your CI and its names, opens one pull or merge request with the files and a guide for your repository, and never edits your .gitlab-ci.yml or Jenkinsfile. It never fails your build."
+  linkLabel: "Fistron in your pipeline"
+
+pipelineStep:
+  title: "Add it to your CI"
+  intro: "In your own pipeline it runs on every pull request and every build, automatically: GitHub Actions, GitLab CI or Jenkins, set up in one pull request."
+  linkLabel: "Fistron in your pipeline"
+
 differentiators:
   title: "What makes Fistron different"
   intro: "Not one more AI test tool, not another dashboard, not a consultancy that leaves a report. Here is how Fistron compares with the kinds of alternatives you may be weighing."
