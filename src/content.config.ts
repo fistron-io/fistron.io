@@ -284,6 +284,18 @@ const solutions = defineCollection({
     see: z.array(z.string()).default([]),
     // a note under the solution's state, e.g. an attribution
     note: z.string().optional(),
+    // a distinct part of the solution with its own anchor and call to action
+    // (Fistron ADR 0169: the code audit on request), also named on /solutions/
+    part: z
+      .object({
+        id: z.string().regex(/^[a-z][a-z0-9-]*$/),
+        title: z.string(),
+        status,
+        intro: z.string(),
+        gets: z.array(z.string()).min(1),
+        cta: z.object({ label: z.string(), href: z.string().startsWith("/") }),
+      })
+      .optional(),
   }),
 });
 

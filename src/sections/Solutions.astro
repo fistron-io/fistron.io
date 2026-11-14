@@ -63,6 +63,11 @@ const groups = heading
                     </span>
                   </span>
                 </a>
+                {s.part && (
+                  <a href={`/solutions/${s.id}/#${s.part.id}`} class="part">
+                    {s.part.title} →
+                  </a>
+                )}
               </li>
             ))
           }
@@ -150,6 +155,13 @@ const groups = heading
     align-items: center;
     justify-content: space-between;
     gap: 12px;
+  }
+  .part {
+    display: inline-block;
+    margin: 8px 0 0 4px;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--color-indigo);
   }
   .more {
     font-size: 0.9375rem;

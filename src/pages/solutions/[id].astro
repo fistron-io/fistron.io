@@ -151,6 +151,31 @@ const related = { offer: Offer, "open-core": OpenCore, ci: CiFailure, outcomes: 
     }
   </Section>
 
+  {
+    solution.part && (
+      <Section labelledby={`${solution.part.id}-title`}>
+        <div class="part" id={solution.part.id}>
+          <h2 id={`${solution.part.id}-title`}>{solution.part.title}</h2>
+          <StatusBadge status={solution.part.status} />
+          <p>{solution.part.intro}</p>
+          <ul>
+            {solution.part.gets.map((item) => (
+              <li>
+                <span class="dot" aria-hidden="true" />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+          <p>
+            <a href={solution.part.cta.href} class="btn btn-secondary">
+              {solution.part.cta.label}
+            </a>
+          </p>
+        </div>
+      </Section>
+    )
+  }
+
   <SeeIt id={solution.id} />
 
   {
@@ -226,11 +251,23 @@ const related = { offer: Offer, "open-core": OpenCore, ci: CiFailure, outcomes: 
     font-size: 0.9375rem;
     color: var(--color-muted);
   }
-  .gets ul {
+  .gets ul,
+  .part ul {
     list-style: none;
     padding: 0;
     margin-top: 16px;
   }
+  .part {
+    max-width: 760px;
+    scroll-margin-top: 96px;
+  }
+  .part h2 {
+    margin-bottom: 12px;
+  }
+  .part p {
+    margin-top: 16px;
+  }
+  .part li,
   .gets li {
     display: flex;
     gap: 12px;

@@ -270,8 +270,23 @@
     - "Findings of a model never block unless you turn it on, rule by rule."
     - "Stricter levels for AI-written changes, by policy."
     - "The same rules given to your coding assistant before it writes, and its branch reviewed before the pull request."
-    - "An audit of the whole repository: how far the existing code is from your rules, and the trend."
+    - "An audit of your code on request, by your rules: see Code audit by your rules below."
     - "Repeated reviewer comments proposed as new team rules, confirmed by a person."
+  part:
+    id: code-audit
+    title: "Code audit by your rules"
+    status: in-development
+    intro: "Have your code audited, a repository or a part of it rather than one pull request, and choose what, how deep, by what and what you get: when you take code over from a supplier, before an acquisition or an audit, after a wave of AI-written code, or as the baseline before your rules. One entry in Fistron's GUI and a guide of three steps, each with a default."
+    gets:
+      - "What: the whole repository, chosen paths, what changed since a date or a commit, or only the AI-written code where your change policy's signals mark it, never guessed; several repositories at once."
+      - "How deep: the rules tools check, Fistron's evidence, and a model only within a budget you see and confirm first."
+      - "By what: your team's rules, Google's practices by default; categories left out of one audit without changing your rules."
+      - "What you get: the places by rule and file with the trend, as proposed issues, a report for management, and an attestation of the audit signed by your installation."
+      - "A Fistroneer's review of the result, from your subscription's person-days."
+      - "Business and Enterprise. Nothing is posted on a pull or merge request."
+    cta:
+      label: "Audit your code"
+      href: "/#trial"
   questions: [review-rules, ai-code]
   related: [trust]
   see: [ai-written-code, become-a-developer, developer-assistant, pr-installation]
