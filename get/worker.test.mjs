@@ -138,6 +138,33 @@ test("dl.fistron.io: the source only to the plans that have it (Fistron ADR 0161
   }
 });
 
+test("dl.fistron.io: the index of releases, its notes, advisories and feeds, without anything (Fistron ADR 0160)", async () => {
+  const files = {
+    ...FILES,
+    "releases.json": '{"format": "fistron-releases/1"}',
+    "releases.json.sig": "-----BEGIN SSH SIGNATURE-----",
+    "notes/0.4.0.dev39.md": "# 0.4.0.dev39",
+    "advisories/FISTRON-2026-0001.json": "{}",
+    "releases.atom": "<feed/>",
+  };
+  const index = await fetchAt("dl.fistron.io", "/releases.json", {}, files);
+  assert.equal(index.status, 200);
+  assert.equal(JSON.parse(await index.text()).format, "fistron-releases/1");
+  assert.equal(index.headers.get("Cache-Control"), "public, max-age=300");
+  for (const path of [
+    "/releases.json.sig",
+    "/notes/0.4.0.dev39.md",
+    "/advisories/FISTRON-2026-0001.json",
+    "/releases.atom",
+  ]) {
+    assert.equal((await fetchAt("dl.fistron.io", path, {}, files)).status, 200, path);
+  }
+  assert.equal((await fetchAt("dl.fistron.io", "/releases.md", {}, files)).status, 404); // not published yet
+  for (const path of ["/notes/latest.md", "/notes/0.4.0.dev39.md/x", "/advisories/x.txt", "/releases.yaml"]) {
+    assert.equal(fileOf(path), null, path);
+  }
+});
+
 test("dl.fistron.io: only its files", () => {
   assert.deepEqual(fileOf("/core/0.1.0-dev.2/x.whl"), { key: "core/0.1.0-dev.2/x.whl", licence: true });
   assert.deepEqual(fileOf("/bundle/0.1.0-dev.20/fistron-0.1.0-dev.20.tar.zst.001"), {

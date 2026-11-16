@@ -11,6 +11,12 @@
 // dl.fistron.io: the files, each beside its SHA256SUMS and its signature:
 //   /fistron/<version>/<file>   open Fistron (the wheel, install.sh, ...)
 //   /channels/<channel>.json    which versions a channel names
+//   /releases.json(.sig), /releases.md(.sig), /releases.atom, /advisories.atom,
+//   /notes/<version>.md, /advisories/<id>.json
+//                               the signed index of releases, their notes, the
+//                               security advisories and their feeds (Fistron ADR
+//                               0160), which every installation reads to learn
+//                               of a new version
 //   /core/<version>/<file>      the closed core: only with a valid licence or
 //                               trial as the bearer token (licence.mjs)
 //   /bundle/<version>/<file>    the air-gapped bundle (the control plane's
@@ -30,6 +36,17 @@ import { checkLicence, keysOf } from "./licence.mjs";
 const TEXT = { "Content-Type": "text/plain; charset=utf-8" };
 const CHANNELS = ["stable", "staging"];
 const OPEN = ["fistron", "channels"];
+// the index of releases and what it names (Fistron ADR 0160): open, a short cache
+const INDEX = [
+  "releases.json",
+  "releases.json.sig",
+  "releases.md",
+  "releases.md.sig",
+  "releases.atom",
+  "advisories.atom",
+];
+const NOTES = /^\d+\.\d+\.\d+(?:[-.+][0-9A-Za-z.+-]+)?\.md$/;
+const ADVISORY = /^[0-9A-Za-z][0-9A-Za-z._-]*\.json$/;
 const LICENSED = ["core", "bundle"];
 // the source by plan (Fistron ADR 0161 point 1): Business builds the agent's images
 // (Fistron's), Enterprise every image (the control plane's too); a trial, never
@@ -47,6 +64,13 @@ export function fileOf(path) {
   const parts = path.split("/").slice(1);
   if (parts.some((p) => !NAME.test(p))) return null;
   const [top, ...rest] = parts;
+  if (rest.length === 0 && INDEX.includes(top)) return { key: top, licence: false, index: true };
+  if (top === "notes" && rest.length === 1 && NOTES.test(rest[0])) {
+    return { key: parts.join("/"), licence: false, index: true };
+  }
+  if (top === "advisories" && rest.length === 1 && ADVISORY.test(rest[0])) {
+    return { key: parts.join("/"), licence: false, index: true };
+  }
   if (top === "source") {
     if (rest.length !== 3 || !(rest[0] in SOURCE) || !VERSION.test(rest[1])) return null;
     return { key: parts.join("/"), licence: true, plans: SOURCE[rest[0]] };
@@ -133,7 +157,9 @@ async function dl(request, env, url) {
     }
     headers["Cache-Control"] = "private, no-store";
   } else {
-    headers["Cache-Control"] = file.key.startsWith("channels/") ? "public, max-age=60" : "public, max-age=86400";
+    // a channel moves within a minute, the index of releases within five; a version's file never changes
+    const age = file.key.startsWith("channels/") ? 60 : file.index ? 300 : 86400;
+    headers["Cache-Control"] = `public, max-age=${age}`;
   }
   const object = await env.DL.get(file.key);
   if (object === null) return say(404, "Not a file of Fistron's downloads.", headers);
