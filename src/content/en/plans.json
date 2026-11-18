@@ -15,6 +15,7 @@
         "repair",
         "authoring",
         "transformation",
+        "health-audit",
         "certification",
         "migration"
       ],
@@ -24,7 +25,8 @@
         "frameworks": 1,
         "environments": 2
       },
-      "price": null
+      "price": null,
+      "fistroneer_days": 0
     },
     {
       "plan": "individual",
@@ -51,7 +53,8 @@
           "credit_monthly": 12,
           "top_up": 10
         }
-      }
+      },
+      "fistroneer_days": 0
     },
     {
       "plan": "team",
@@ -73,7 +76,8 @@
         "yearly_minimum": 0,
         "minimum_committers": 3,
         "model_pool_monthly_per_committer": 5
-      }
+      },
+      "fistroneer_days": 0
     },
     {
       "plan": "business",
@@ -89,6 +93,7 @@
         "repair",
         "authoring",
         "transformation",
+        "health-audit",
         "brand-logo",
         "brand-colours",
         "brand-outputs"
@@ -102,7 +107,8 @@
         "monthly_per_committer": 45,
         "yearly_minimum": 20000,
         "model_pool_monthly_per_committer": 8
-      }
+      },
+      "fistroneer_days": 10
     },
     {
       "plan": "enterprise",
@@ -118,6 +124,7 @@
         "repair",
         "authoring",
         "transformation",
+        "health-audit",
         "self-hosted",
         "brand-logo",
         "brand-colours",
@@ -133,7 +140,8 @@
         "monthly_per_committer": 65,
         "yearly_minimum": 80000,
         "model_pool_monthly_per_committer": 12
-      }
+      },
+      "fistroneer_days": 40
     }
   ],
   "add_ons": [

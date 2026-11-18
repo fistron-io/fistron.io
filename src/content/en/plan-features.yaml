@@ -15,6 +15,8 @@
   title: "New tests for the test plan's gaps"
 - id: transformation
   title: "Agile Transformation: the measured signals and the plan"
+- id: health-audit
+  title: "The quality health audit in full: every area scored, the plan with a metric and a target for each action, and the audit again later (in development)"
 - id: compliance
   title: "Compliance: frameworks, readiness, remediation and the audit"
 - id: outcomes
