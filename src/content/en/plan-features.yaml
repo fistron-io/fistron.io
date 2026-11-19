@@ -24,7 +24,7 @@
 - id: assistant
   title: "Fištrónek's conversation"
 - id: self-hosted
-  title: "Your own control plane, on-premises or air-gapped"
+  title: "Your own control plane, on-premises or air-gapped (an add-on to Team and Business)"
 - id: brand-logo
   title: "Your logo beside Fistron's in the GUI"
 - id: brand-colours

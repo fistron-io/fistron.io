@@ -146,7 +146,8 @@
   ],
   "add_ons": [
     "certification",
-    "migration"
+    "migration",
+    "self-hosted"
   ],
   "trial_days": 30,
   "pilot_days": 60,
