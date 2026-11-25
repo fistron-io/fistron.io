@@ -55,7 +55,7 @@ Astro documentation: https://docs.astro.build
   and its schemas, what may be marked available, the CI platforms and
   their logos, the sections and languages, the brand on the site (the
   light and dark theme, the mascot), the services on other hosts, the
-  trial form and the plans on /pricing/.
+  pilot form and the plans on /pricing/.
 - [docs/hosting.md](docs/hosting.md): the hosting, get.fistron.io,
   dl.fistron.io and registry.fistron.io, and going public.
 - The brand itself (tokens, logo, mascot, status icons):

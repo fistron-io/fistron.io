@@ -1,7 +1,7 @@
 # Editing the site
 
 What each page holds, where its copy lives and how it is checked, the
-brand on the site, the services on other hosts, the trial form and the
+brand on the site, the services on other hosts, the pilot form and the
 plans. Moved from the README, which keeps what does not age fast.
 
 ## Pages
@@ -52,7 +52,7 @@ and ADRs 0047, 0048 and 0051–0053, after the earlier reconciliation with
 `go-to-market.md`, `business-model.md`, `use-cases/measurable-quality.md`
 and `docs/experiments.md` (2026-10-07). On 2026-10-15 the copy followed the
 offer of `docs/design/value-proposition.md` and ADR 0061 (delivered solutions
-with a stamp, compliance in the tool as V4.5, a time-limited trial instead
+with a stamp, compliance in the tool as V4.5, a time-limited pilot instead
 of a free licence, no open-source edition for now): the offer section, the
 compliance items in governance, four use-case questions, the security and
 compliance audience, V4.5 in the roadmap, and the open-source link removed
@@ -92,7 +92,7 @@ solution, and app.fistron.io and docs.fistron.io became live links. On 2026-10-2
 homepage gained the Fistroneer (the named quality engineer every
 subscription includes, 10 or 40 person-days a year) and Fistron Sovereign
 (the rules and Fistron's own planned models, ADR 0102), and /pricing/ shows
-the tiers (Trial, Subscription from EUR 100,000 a year, Subscription Plus
+the tiers (Pilot, Subscription from EUR 100,000 a year, Subscription Plus
 on request) with the programmes and services; `fistroneer.yaml`,
 `sovereign.yaml`, `pricing.yaml` and `pricing-extras.yaml` hold them. On 2026-10-31 the roadmap, the solutions, the questions,
 the hero and the platforms were synced with the Fistron head: the Fast
@@ -278,14 +278,15 @@ demo (demo.fistron.io) are separate projects. `site.services` in
 `src/config/site.ts` lists them with a `live` flag. While a service is not
 live, `NavLink` shows its name with a "Coming soon" tag (a short "Soon" in
 the header) instead of a link, so no page points at a host that doesn't
-answer; the trial's section shows "Try the demo" only once the demo is live.
+answer; the pilot's section shows "Try the demo" only once the demo is live.
 Set `live: true` once the host is up.
 
-## Trial form
+## Pilot form
 
-The "Start a free trial" form (`#trial`, Fistron ADR 0122) posts the name,
-the work e-mail and the company as JSON to the control plane's trials,
-`site.trialFormAction` (`https://app.fistron.io/api/v1/trials` once trials
+The "Start your pilot, free for 30 days" form (`#trial`, Fistron ADR 0122;
+the Trial renamed the Pilot by ADR 0192) posts the name,
+the work e-mail and the company as JSON to the control plane's pilots,
+`site.trialFormAction` (`https://app.fistron.io/api/v1/trials` once pilots
 are on there). A hidden field `website` stays empty for people; robots fill
 it and get the same answer. While `trialFormAction` is unset, submitting
 shows a note instead of sending data; set, it shows the success panel
@@ -302,7 +303,7 @@ Connecting it needs the privacy notice for the e-mail and the name.
 a price differs from the core's (Fistron ADR 0118): a tier's price and
 minimum, the lines included and their price (`pricing-extras.yaml`), and
 each worked example's yearly price (`pricing-examples.yaml`: `plan`,
-`committers`, `lines`, `yearly`) by the formula; the trial's days and
+`committers`, `lines`, `yearly`) by the formula; the pilot's days and
 Individual's yearly price (Fistron ADR 0139). A tier's `note` says what it
 does not include or what is coming. The model pool per active committer
 and Individual's variant with a model are checked against the core's
@@ -310,3 +311,15 @@ prices too (Fistron ADR 0140); `models.yaml` holds the model options of
 "Models: your choice", each with its state today. Every tier's button goes to the form
 at `#trial` (the site's contact), also "Get Individual" until the card
 payment exists.
+
+The page leads with two ways in (Fistron ADR 0192): the Pilot (the core's
+plan `trial`, the first tier of `pricing.yaml`) beside each programme on a
+plan in `pricing-programmes.yaml`, today the Startup Pilot of Fistron for
+Startups (`plan: team`, checked to be a core's plan; its button "Apply"
+goes to the contact form, its `more` link to `/startups/`). The plans
+follow, and the table of what each plan includes keeps the core's plans
+only: a programme is its plan's column. `/startups/` takes its words from
+`startups.yaml` (`part`: included, excluded, who) and `startupsPage` in
+`sections.yaml`; Expand and grow your business links it as its `part`.
+"Trial" is not said as a tier's name: the words "free trial" stay once,
+in the Pilot's `for`.

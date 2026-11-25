@@ -97,7 +97,7 @@ async function token(request, env, url) {
   if (given !== null) {
     const checked = await checkLicence(given, keysOf(env));
     if (!checked.ok) {
-      return errors(401, "UNAUTHORIZED", `Not signed in: ${checked.reason}. The password is your licence or trial.`, {
+      return errors(401, "UNAUTHORIZED", `Not signed in: ${checked.reason}. The password is your licence or pilot.`, {
         "WWW-Authenticate": `Basic realm="${HOST}"`,
       });
     }
@@ -193,7 +193,7 @@ export default {
     if (repos === null || !repos.includes(route.name)) {
       const message =
         repositories[route.name] === "licence"
-          ? `${route.name} needs your licence or trial: podman login ${HOST} -u licence --password-stdin < your licence file`
+          ? `${route.name} needs your licence or pilot: podman login ${HOST} -u licence --password-stdin < your licence file`
           : "A token from /token is needed.";
       return errors(401, "UNAUTHORIZED", message, challenge(`repository:${route.name}:pull`));
     }

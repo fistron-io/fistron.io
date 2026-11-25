@@ -159,6 +159,28 @@ const pricing = defineCollection({
     featured: z.boolean().default(false),
   }),
 });
+/** A programme on a plan, a way in beside the Pilot on /pricing/ (Fistron ADR 0192). */
+const pricingProgrammes = defineCollection({
+  loader: orderedList("pricing-programmes"),
+  schema: z.object({
+    order,
+    name: z.string(),
+    plan: z.string(), // the core's plan its licence is (check-plans.mjs)
+    price: z.string(),
+    priceNote: z.string().optional(),
+    for: z.string(),
+    features: z.array(z.string()).min(1),
+    note: z.string().optional(),
+    cta: z.string(),
+    more: z.object({ label: z.string(), href: z.string().startsWith("/") }),
+  }),
+});
+
+/** The page /startups/: Fistron for Startups (Fistron ADR 0192). */
+const startups = defineCollection({
+  loader: orderedList("startups"),
+  schema: simpleItem.extend({ part: z.enum(["included", "excluded", "who"]) }),
+});
 const steps = defineCollection({ loader: orderedList("steps"), schema: simpleItem });
 const trust = defineCollection({ loader: orderedList("trust"), schema: simpleItem });
 const governance = defineCollection({ loader: orderedList("governance"), schema: simpleItem });
@@ -323,6 +345,8 @@ export const collections = {
   fistroneer,
   sovereign,
   pricing,
+  pricingProgrammes,
+  startups,
   pricingExtras,
   pricingExamples,
   planFeatures,

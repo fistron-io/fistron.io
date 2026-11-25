@@ -1,0 +1,137 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHeader from "../components/PageHeader.astro";
+import Section from "../components/Section.astro";
+import CallToAction from "../components/CallToAction.astro";
+import Working from "../components/Working.astro";
+import { section, list } from "../lib/content";
+import { inDevelopment } from "../lib/pricing.mjs";
+
+// Fistron for Startups (Fistron ADR 0192): a programme on the Team tier, its
+// licence shown as the Startup Pilot. No startup or partner is named before it
+// agrees, and no result is claimed.
+const page = await section("startupsPage");
+const items = await list("startups");
+const [includedLabel, excludedLabel, whoLabel] = page.groups ?? [
+  "What it includes",
+  "What it does not include",
+  "Who can apply",
+];
+const parts = [
+  { id: "included", title: includedLabel, items: items.filter((i) => i.part === "included") },
+  { id: "excluded", title: excludedLabel, items: items.filter((i) => i.part === "excluded") },
+  { id: "who", title: whoLabel, items: items.filter((i) => i.part === "who") },
+];
+---
+
+<BaseLayout title={page.title} description={page.intro}>
+  <PageHeader
+    title={page.title}
+    intro={page.intro}
+    parent={{ label: "Pricing", href: "/pricing/" }}
+    art={{ pose: "grow", label: "Fištrónek watering a plant whose flower is a checkbox; it grows" }}
+  />
+
+  <Section labelledby="programme-title">
+    <h2 id="programme-title" class="visually-hidden">The programme</h2>
+    <div class="lead">
+      {page.paragraphs?.map((p) => <p>{p}</p>)}
+      <p class="actions">
+        <a href="/#trial" class="btn btn-primary">{page.primaryCta}</a>
+        <a href="/pricing/" class="btn btn-secondary">See it beside the Pilot</a>
+      </p>
+    </div>
+    {
+      parts.map((part) => (
+        <div class="part">
+          <h2 id={part.id}>{part.title}</h2>
+          <ul class:list={["cards", part.id]}>
+            {part.items.map((item) => (
+              <li>
+                <h3>
+                  {item.title}
+                  {inDevelopment(item.text) && <Working size={24} />}
+                </h3>
+                <p>{item.text}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))
+    }
+    {page.note && <p class="note">{page.note}</p>}
+  </Section>
+
+  <CallToAction
+    title="Grow your product with Fistron from the first engineer on"
+    primary={page.primaryCta}
+    secondary={{ label: "Expand and grow your business", href: "/solutions/expand-and-grow/" }}
+  />
+</BaseLayout>
+
+<style>
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+  .lead {
+    display: grid;
+    gap: 14px;
+    max-width: 72ch;
+    color: var(--color-ink-2);
+  }
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 16px;
+    margin-top: 10px;
+  }
+  .part {
+    margin-top: 56px;
+  }
+  .part h2 {
+    font-size: var(--text-h3, 1.5rem);
+    font-weight: 600;
+    color: var(--color-heading);
+  }
+  .cards {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+  }
+  .cards li {
+    background: var(--surface-card);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-card);
+    padding: 24px;
+  }
+  .cards.excluded li {
+    border-style: dashed;
+  }
+  .cards h3 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.1875rem;
+    font-weight: 500;
+    color: var(--color-heading);
+  }
+  .cards p {
+    margin-top: 8px;
+    font-size: 0.9375rem;
+    color: var(--color-muted);
+  }
+  .note {
+    margin-top: 40px;
+    font-size: 0.9375rem;
+    color: var(--color-muted);
+    max-width: 72ch;
+  }
+</style>

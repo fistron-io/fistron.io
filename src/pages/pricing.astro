@@ -14,6 +14,27 @@ import plans from "../content/en/plans.json";
 
 const page = await section("pricingPage");
 const tiers = await list("pricing");
+const programmes = await list("pricingProgrammes");
+const ways = await section("pricingWays");
+// Two ways in (Fistron ADR 0192): the Pilot (the core's plan trial) beside each
+// programme on a plan, then the plans; the table below has the core's plans only.
+type Card = {
+  name: string;
+  for: string;
+  price: string;
+  priceNote?: string;
+  minimum?: string;
+  features: string[];
+  note?: string;
+  cta: string;
+  featured?: boolean;
+  more?: { label: string; href: string };
+};
+const [pilot, ...paid] = tiers;
+const rows: { id: string; title: string; intro?: string; cards: Card[] }[] = [
+  { id: "ways", title: ways.title, intro: ways.intro, cards: [pilot, ...programmes] },
+  { id: "plans", title: ways.caption ?? "The plans", cards: paid },
+];
 const extras = await list("pricingExtras");
 const how = await section("pricingHow");
 const examples = await list("pricingExamples");
@@ -36,35 +57,47 @@ const has = (plan: string, feature: string) =>
     art={{ pose: "abacus", label: "Fištrónek counting active committers on an abacus" }}
   />
 
-  <Section labelledby="tiers-title">
-    <h2 id="tiers-title" class="visually-hidden">Tiers</h2>
-    <ul class="tiers">
-      {
-        tiers.map((t) => (
-          <li class:list={{ featured: t.featured }}>
-            <h3>{t.name}</h3>
-            <p class="for">{t.for}</p>
-            <p class="price">
-              <span class="amount">{t.price}</span>
-              {t.priceNote && <span class="per">{t.priceNote}</span>}
-            </p>
-            {t.minimum && <p class="minimum">{t.minimum}</p>}
-            <ul class="features">
-              {t.features.map((f) => (
-                <li>
-                  {f}
-                  {inDevelopment(f) && <Working size={24} />}
-                </li>
-              ))}
-            </ul>
-            {t.note && <p class="tier-note">{t.note}</p>}
-            <a href="/#trial" class:list={["btn", t.featured ? "btn-primary" : "btn-secondary"]}>
-              {t.cta}
-            </a>
-          </li>
-        ))
-      }
-    </ul>
+  <Section labelledby="ways-title">
+    {
+      rows.map((row) => (
+        <>
+          <h2 id={`${row.id}-title`} class:list={["row-title", row.id]}>
+            {row.title}
+          </h2>
+          {row.intro && <p class="row-intro">{row.intro}</p>}
+          <ul class:list={["tiers", row.id]}>
+            {row.cards.map((t) => (
+              <li class:list={{ featured: t.featured }}>
+                <h3>{t.name}</h3>
+                <p class="for">{t.for}</p>
+                <p class="price">
+                  <span class="amount">{t.price}</span>
+                  {t.priceNote && <span class="per">{t.priceNote}</span>}
+                </p>
+                {t.minimum && <p class="minimum">{t.minimum}</p>}
+                <ul class="features">
+                  {t.features.map((f) => (
+                    <li>
+                      {f}
+                      {inDevelopment(f) && <Working size={24} />}
+                    </li>
+                  ))}
+                </ul>
+                {t.note && <p class="tier-note">{t.note}</p>}
+                {t.more && (
+                  <p class="tier-more">
+                    <a href={t.more.href}>{t.more.label} →</a>
+                  </p>
+                )}
+                <a href="/#trial" class:list={["btn", t.featured ? "btn-primary" : "btn-secondary"]}>
+                  {t.cta}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </>
+      ))
+    }
 
     <h2 class="extras-title">{page.caption}</h2>
     <ul class="extras">
@@ -217,18 +250,10 @@ const has = (plan: string, feature: string) =>
 
   <Fistroneer link={false} />
   <Sovereign />
-  <CallToAction title="Try it on your own project" primary="Start a free trial" />
+  <CallToAction title="Try it on your own project" primary="Start your pilot, free for 30 days" />
 </BaseLayout>
 
 <style>
-  .visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    clip: rect(0 0 0 0);
-    white-space: nowrap;
-  }
   .compare-top {
     display: flex;
     flex-wrap: wrap;
@@ -304,26 +329,38 @@ const has = (plan: string, feature: string) =>
     color: var(--color-heading);
     padding-top: 20px;
   }
+  /* Two ways in (Fistron ADR 0192): the Pilot and the Startup Pilot side by
+     side, then the four plans, two by two and on a wide screen in one row. */
+  .row-title {
+    font-size: var(--text-h3, 1.5rem);
+    font-weight: 600;
+    color: var(--color-heading);
+  }
+  .row-title.plans {
+    margin-top: 56px;
+  }
+  .row-intro {
+    margin-top: 8px;
+    max-width: 72ch;
+    color: var(--color-ink-2);
+  }
   .tiers {
     list-style: none;
     padding: 0;
+    margin-top: 20px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: 1fr;
     gap: 20px;
     align-items: stretch;
   }
-  /* Five tiers (Fistron ADR 0139): on a wide screen the self-service ones,
-     Trial and Individual, on a row of two, the organisation's three on the
-     next, so no tier stands alone. */
-  @media (min-width: 960px) {
+  @media (min-width: 720px) {
     .tiers {
-      grid-template-columns: repeat(6, 1fr);
+      grid-template-columns: repeat(2, 1fr);
     }
-    .tiers > li {
-      grid-column: span 2;
-    }
-    .tiers > li:nth-child(-n + 2):nth-last-child(n + 4) {
-      grid-column: span 3;
+  }
+  @media (min-width: 1100px) {
+    .tiers.plans {
+      grid-template-columns: repeat(4, 1fr);
     }
   }
   .tiers > li {
@@ -395,6 +432,11 @@ const has = (plan: string, feature: string) =>
     margin: -12px 0 20px;
     font-size: 0.875rem;
     color: var(--color-muted);
+  }
+  .tier-more {
+    margin: -8px 0 20px;
+    font-size: 0.9375rem;
+    font-weight: 500;
   }
   .minimum {
     margin-top: 4px;

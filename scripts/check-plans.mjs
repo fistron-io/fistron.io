@@ -6,8 +6,8 @@
 // and every worked example's yearly price by the formula (at least the
 // plan's fewest active committers, Fistron ADR 0152); the trial's days
 // and Individual's yearly price (ADR 0139); the model pools and
-// Individual's variant with a model (ADR 0140). This check fails when they
-// differ.
+// Individual's variant with a model (ADR 0140); a programme's plan (ADR 0192).
+// This check fails when they differ.
 import { readFileSync } from "node:fs";
 import { parse } from "yaml";
 
@@ -27,6 +27,10 @@ for (const id of words) {
   if (!plans.plans.some((p) => p.features.includes(id)) && !plans.add_ons.includes(id)) {
     problems.push(`plan-features.yaml names ${id}, which no plan has`);
   }
+}
+// a programme on a plan (pricing-programmes.yaml, Fistron ADR 0192): one of the core's plans
+for (const programme of parse(read("pricing-programmes.yaml"))) {
+  if (!ids.includes(programme.plan)) problems.push(`pricing-programmes.yaml: ${programme.id} is on ${programme.plan}, not one of the core's plans`);
 }
 // how each plan is used (plan-interfaces.yaml): only the core's plans
 for (const way of parse(read("plan-interfaces.yaml"))) {

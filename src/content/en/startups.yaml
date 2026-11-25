@@ -1,0 +1,40 @@
+# The page /startups/: Fistron for Startups (Fistron ADR 0192, 2026-11-25).
+# included: what the Startup Pilot gives; excluded: what it does not;
+# who: who qualifies. No startup or partner is named before it agrees, and
+# no result is claimed.
+- id: team
+  part: included
+  title: "Everything in Team"
+  text: "Hosted in the EU: the GUI with your team's overviews and its shared history, root cause analysis, flaky tests, test plans and coverage gaps, the review of every pull or merge request by your own rules, the repair of weak tests and new tests for the gaps."
+- id: year
+  part: included
+  title: "Free for 12 months"
+  text: "Up to 10 active committers, from the day your application is approved. Above 10, those above at Team's price. No card in the first year."
+- id: second-year
+  part: included
+  title: "The second year 50 % off"
+  text: "In month 11 we tell you what the second year costs; you confirm it as a Team purchase with the discount. Then Team's standard price."
+- id: credit
+  part: included
+  title: "A starter model credit"
+  text: "EUR 100 once for Fistron Managed models (in development), so you see Fistron's analyses with a model from the first day. After it, your own model, Fistron Sovereign Rules, or Team's model pool."
+- id: fistroneer
+  part: excluded
+  title: "Fistroneer days"
+  text: "A Fistroneer sets Fistron up with you by the day, at the standard price. The guide, Fištrónek and Report a problem are there for everyone."
+- id: on-premises
+  part: excluded
+  title: "On-premises, Business and Enterprise"
+  text: "Fistron hosts your organisation in the EU; the control plane for many teams, compliance in the tool, attestations and an installation of your own come with Business and Enterprise."
+- id: company
+  part: who
+  title: "A young company"
+  text: "Up to 5 years old, with up to 10 active committers, however much funding it raised. Not a subsidiary or a spin-out controlled by a larger company."
+- id: no-company-yet
+  part: who
+  title: "A team before its company"
+  text: "A team building a product or a proof of concept that has not founded its company yet. The licence is the founder's who applies; the 12 months do not start again when the company is founded, and the licence moves to it on request."
+- id: places
+  part: who
+  title: "20 places this year"
+  text: "So that every startup gets the support it needs. A referral from your accelerator, incubator or investor is approved at once; we approve the others ourselves."

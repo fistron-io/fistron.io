@@ -8,7 +8,7 @@ hero:
   note: "CI failure analysis, change assessment, test plans, coverage gaps and the checks for code written with AI work today. Compliance in the tool, Fištrónek with measurable outcomes, the risk of each change, the repair of tests that work badly, new tests, the Fast Feedback Loop and Distributed Continuous Verification are implemented and being validated. People and guarantees are set per contract."
   promise: "AI that serves your people and never replaces them: faster work, engineers who grow, and every model's word labelled and held to the evidence, never trusted blindly."
   promiseLink: "/solutions/become-a-developer/"
-  primaryCta: "Start a free trial"
+  primaryCta: "Start your pilot, free for 30 days"
   secondaryCta: "Explore the solutions"
   caption: "Target workflow with example data. In development."
 
@@ -133,7 +133,7 @@ openCore:
   title: "Start with one project. Grow across teams."
   intro: "Start with a readiness assessment of one project or service: where you stand on quality and, if relevant, compliance, and what closing the gaps would take."
   paragraphs:
-    - "A time-limited trial licence lets a pilot try Fistron's commercial core (evidence selection, flaky quarantine, Suite Health and history) on a limited scope; for compliance it shows the gaps but does not close them. A paid licence opens it organisation-wide, with cross-team orchestration, PQI and governance."
+    - "The Pilot, free for 30 days, lets your team try Fistron's commercial core (evidence selection, flaky quarantine, Suite Health and history) on a limited scope; for compliance it shows the gaps but does not close them. A startup gets the Team tier for a year with the Startup Pilot. A paid licence opens it organisation-wide, with cross-team orchestration, PQI and governance."
     - "Packaging, licences, scope limits and pricing are not final, and these editions are not released yet. Fistron is not published as open source for now."
   linkLabel: "Request a readiness assessment"
 
@@ -144,14 +144,14 @@ about:
     - "Meet Fištrónek, our crow. Crows are among the cleverest animals: they use whatever tools are around them. He hands over the checkbox only once the evidence is in."
 
 demo:
-  title: "Start a free trial"
+  title: "Start your pilot, free for 30 days"
   intro: "30 days on one project, with every feature and without a card. Give us your work e-mail: Fistron makes your organisation and sends you an e-mail to verify it and choose your password."
-  primaryCta: "Start my free trial"
+  primaryCta: "Start my pilot"
   demoCta: "Try the demo"
-  note: "Trials open soon. This form doesn't send anything yet."
+  note: "Pilots open soon. This form doesn't send anything yet."
   faxLabel: "Fax number"
   faxJoke: "Just kidding :-)"
-  successLabel: "Trial requested"
+  successLabel: "Pilot requested"
   successTitle: "Evidence: 1. Confidence: high."
   successText: "Check your e-mail: verify your address and choose your password, then sign in. Fištrónek is already setting up your organisation."
   errorText: "That didn't go through. Please try again in a moment."
@@ -257,12 +257,28 @@ pricingPage:
   note: "Prices exclude VAT and are yearly, set in your contract. Features marked planned are not yet available."
   caption: "Add-ons and services"
 
+pricingWays:
+  title: "Two ways in"
+  intro: "Try Fistron on your own code for 30 days, or, as a startup, run your team on it for a year."
+  caption: "The plans"
+
+startupsPage:
+  title: "Fistron for Startups"
+  intro: "Faster and better development of your product, from the first engineer on and without a QE team: failures explained in minutes, every change reviewed by your team's own rules, a fast feedback loop and outcomes you can measure. The Team tier, free for your first 12 months."
+  paragraphs:
+    - "Fistron for Startups is a programme on the Team tier. Your licence is shown as the Startup Pilot: everything in Team, for up to 10 active committers, free for 12 months, then 50 % off for the second year."
+    - "It is not a longer Pilot. The Pilot is 30 days on one project for everyone; the Startup Pilot is your whole team on Fistron while you build your product."
+  caption: "What it includes"
+  groups: ["What it includes", "What it does not include", "Who can apply"]
+  primaryCta: "Apply for the Startup Pilot"
+  note: "Apply with the contact form until the application form is ready: your company with its founding date and country, or \"not founded yet\" with your name and a few sentences about your product; your website, how many engineers, your GitHub or GitLab organisation, and who referred you. After a few months we may ask for your logo and a short story; saying no changes nothing."
+
 pricingCompare:
   title: "What each plan includes"
   intro: "The licence names your plan, and Fistron does what it includes: the table is the product's own. In the product, your organisation's page shows the same and lets an admin ask for more."
   caption: "Feature"
   groups: ["How you use it", "What it does"]
-  note: "The Trial has every feature on one project for 30 days. Individual is one person's, without a control plane. Distributed Continuous Verification and Software Migration Assurance are add-ons to Team, Business and Enterprise."
+  note: "The Pilot has every feature on one project for 30 days. The Startup Pilot is Team's licence, in Team's column. Individual is one person's, without a control plane. Distributed Continuous Verification and Software Migration Assurance are add-ons to Team, Business and Enterprise."
 
 pricingHow:
   title: "How the price is calculated"

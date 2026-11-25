@@ -147,7 +147,7 @@ async function dl(request, env, url) {
     const challenge = { "WWW-Authenticate": 'Bearer realm="dl.fistron.io"', "Cache-Control": "no-store" };
     const what = file.plans ? "Fistron's source" : "Fistron's core";
     if (token === null) {
-      return say(401, `${what} needs your licence or trial: Authorization: Bearer <licence>`, challenge);
+      return say(401, `${what} needs your licence or pilot: Authorization: Bearer <licence>`, challenge);
     }
     const checked = await checkLicence(token, keysOf(env));
     if (!checked.ok) return say(403, `${what} is not downloaded: ${checked.reason}.`, challenge);

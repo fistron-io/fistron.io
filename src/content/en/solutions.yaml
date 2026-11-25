@@ -476,5 +476,15 @@
       does: "Measured outcomes: changes delivered, lead time and change failure rate against the baseline, with the goal Deliver more with the same team."
       links:
         - { label: "Measurable quality and velocity", href: "/solutions/measurable-quality/" }
+  part:
+    id: startups
+    title: "Fistron for Startups"
+    status: available
+    intro: "Starting up? Grow with Fistron from the first engineer on: the Team tier free for your first 12 months, shown as the Startup Pilot."
+    gets:
+      - "Everything in Team for up to 10 active committers, free for 12 months; the second year 50 % off."
+      - "For a company up to 5 years old, or a team that has not founded its company yet."
+      - "A starter model credit of EUR 100 for Fistron Managed models (in development)."
+    cta: { label: "About Fistron for Startups", href: "/startups/" }
   questions: [headcount, deadline, measurable-quality]
   related: [offer, outcomes]

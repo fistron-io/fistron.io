@@ -3,21 +3,24 @@
 # and Individual, 2026-11-03), ADR 0140 (the models and the model pool,
 # 2026-11-03), ADR 0152 (self-service, Team without a minimum, 2026-11-07)
 # and business-model.md, its price list; ADR 0160 (new versions and fixes by plan,
-# 2026-11-12).
+# 2026-11-12); ADR 0192 (the Trial renamed the Pilot, 2026-11-25: the id `trial`
+# stays, it is the core's plan).
+# The Pilot leads the two ways in (pricing.astro), beside the Startup Pilot of
+# pricing-programmes.yaml; the others are the plans.
 # Prices exclude VAT; each tier's minimum is a yearly price. Never invent a
 # price here; scripts/check-plans.mjs compares them with the core's.
 - id: trial
-  name: "Trial"
+  name: "Pilot"
   price: "Free"
   priceNote: "30 days"
-  for: "For your team or organisation, to see the gap on your own code"
+  for: "For your team or organisation: a free trial of Fistron on your own code, to see the gap"
   features:
     - "Every feature, on one project or service"
     - "Readiness for one compliance framework: controls, state and gaps"
     - "Started on this website, without a call and without a card"
     - "Fistron Sovereign Rules — Deterministic, or the model you bring"
-  note: "Coming: sign in with GitHub or GitLab, one trial per account and per repository. A pilot agreed with us lasts up to 60 days."
-  cta: "Start your trial"
+  note: "Coming: sign in with GitHub or GitLab, one pilot per account and per repository. A pilot agreed with us lasts up to 60 days."
+  cta: "Start your pilot, free for 30 days"
 - id: individual
   name: "Individual"
   price: "EUR 15"
@@ -38,7 +41,7 @@
     - "With a model: EUR 29 a month or EUR 279 a year, a model credit of EUR 12 a month (Fistron Managed, in development)"
     - "A personal history of your own runs and flaky tests, kept on your machine (in development)"
     - "Share an analysis or a review as a comment or a report, \"Analysed by Fistron\" beneath it unless you turn it off (in development)"
-    - "Invite your team: a Team trial that starts with your history (in development)"
+    - "Invite your team: a Team pilot that starts with your history (in development)"
     - "Every new version and fix while your licence is valid; a fix in the newest version, one command away"
   note: "No team GUI, team history, compliance or Fistroneer; help through the guide and e-mail. Not for an organisation to buy for its people: they get the organisation's licence with Team. Paying by card is coming: until then, leave your details and we set you up."
   cta: "Get Individual"
@@ -84,7 +87,7 @@
     - "Regulatory watch, audit-day support, RCA on call, training"
     - "From Fistron 1.0, security fixes in an older minor version for 12 months more"
     - "Build the agent's images yourself from Fistron's source, the signed core included (in development)"
-  cta: "Start with a free trial"
+  cta: "Start with a pilot"
   featured: true
 - id: enterprise
   name: "Enterprise"
@@ -103,4 +106,4 @@
     - "From Fistron 1.0, a long-term version each year with fixes for 24 months, and a fix backported on request"
     - "Build every image yourself from the source, the signed core included (in development)"
     - "Regulated edition, an add-on: the closed core's source under NDA or escrow, its build reproducible (in development)"
-  cta: "Start with a free trial"
+  cta: "Start with a pilot"

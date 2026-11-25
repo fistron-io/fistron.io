@@ -92,7 +92,7 @@ test("the core only with a valid licence or trial as the password", async () => 
   assert.equal(anonymous.status, 200);
   const refused = await pull("/v2/fistron-core/manifests/0.1.0", anonymous.body.token);
   assert.equal(refused.status, 401);
-  assert.match((await refused.json()).errors[0].message, /needs your licence or trial: podman login/);
+  assert.match((await refused.json()).errors[0].message, /needs your licence or pilot: podman login/);
 
   const paid = await tokenFor("repository:fistron-core:pull", await licence({ plan: "team", tier: "paid" }));
   assert.equal((await pull("/v2/fistron-core/manifests/0.1.0", paid.body.token)).status, 200);

@@ -42,7 +42,7 @@ channels of (`scripts/channel.sh`):
   `install.sh`, `SHA256SUMS`, its signature, the Sigstore bundles),
   `/channels/<staging|stable>.json` (open), and `/core/<version>/<file>`
   (the closed core) and `/bundle/<version>/<file>` (the air-gapped bundle,
-  whose images include the core), only with a valid licence or trial as
+  whose images include the core), only with a valid licence or pilot as
   the bearer token (`get/licence.mjs`: verified as the core
   verifies it, with the keys `LICENCE_KEYS` and `TRIAL_KEYS`; an expired
   licence, the free licence and another key's are refused, and the answer

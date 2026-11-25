@@ -1,0 +1,20 @@
+# A programme on a plan, shown on /pricing/ as a way in beside the Pilot
+# (Fistron ADR 0192, 2026-11-25): its licence is the plan's (`plan`, one of
+# the core's plans, checked by scripts/check-plans.mjs), at the programme's
+# price and term. It is no column of the plans' table: it includes its plan.
+- id: startup-pilot
+  name: "Startup Pilot"
+  plan: team
+  price: "Free"
+  priceNote: "12 months, up to 10 active committers"
+  for: "For startups, and teams that have not founded their company yet"
+  features:
+    - "Everything in Team, hosted in the EU"
+    - "Free for the first 12 months, up to 10 active committers"
+    - "The second year 50 % off Team, then Team's price"
+    - "A starter model credit of EUR 100 for Fistron Managed models (in development)"
+    - "For a company up to 5 years old, or a team building its product before it founds the company"
+    - "20 places in the first year"
+  note: "Not included: Fistroneer days (at the standard price), on-premises, Business and Enterprise. Apply with the contact form until the application form is ready."
+  cta: "Apply"
+  more: { label: "Fistron for Startups", href: "/startups/" }
