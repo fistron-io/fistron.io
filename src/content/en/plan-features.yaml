@@ -12,7 +12,7 @@
 - id: repair
   title: "The repair of tests that work badly"
 - id: authoring
-  title: "New tests for the test plan's gaps, and from a confirmed Happy Path Story (in development)"
+  title: "New tests for the test plan's gaps, and from a confirmed Happy Path Story"
 - id: transformation
   title: "Agile Transformation: the measured signals and the plan"
 - id: health-audit
