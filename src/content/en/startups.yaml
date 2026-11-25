@@ -33,7 +33,7 @@
 - id: no-company-yet
   part: who
   title: "A team before its company"
-  text: "A team building a product or a proof of concept that has not founded its company yet. The licence is the founder's who applies; the 12 months do not start again when the company is founded, and the licence moves to it on request."
+  text: "A team of at least two people building a product or a proof of concept that has not founded its company yet; one developer on their own starts with Individual. The licence is the founder's who applies; the 12 months do not start again when the company is founded, and the licence moves to it on request."
 - id: places
   part: who
   title: "20 places this year"
