@@ -98,6 +98,15 @@
       ]
     },
     {
+      "id": "happy-path-story",
+      "you_do": "Build your feature, then check and confirm the story Fistron drafts from it.",
+      "fistron_does": "Fistron writes from your change and its ticket what must at least work, and lists apart what the happy path does not cover, for QE.",
+      "you_get": "A confirmed story beside the code that QE gets with the pull or merge request, and apart from it what else to test.",
+      "guide": "use-happy-path-story",
+      "pictures": [],
+      "pending": "Shown once its pages in the GUI are built; their design waits for approval."
+    },
+    {
       "id": "fewer-tokens",
       "you_do": "Choose the models your policy allows, with their prices.",
       "fistron_does": "Fistron decides by rules where it can and sends a model only the evidence that matters, then counts what each run sent against the whole case.",

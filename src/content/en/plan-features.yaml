@@ -2,7 +2,7 @@
 # organisation page, ADR 0122), in the order the pricing page lists them.
 # Every feature of plans.json has one; scripts/check-plans.mjs checks it.
 - id: core
-  title: "Root cause analysis, flaky tests, test plans and Suite Health; pull and merge requests reviewed by your team's rules; Become a developer; Manual Quality Verification"
+  title: "Root cause analysis, flaky tests, test plans and Suite Health; pull and merge requests reviewed by your team's rules; Become a developer; Manual Quality Verification; the Happy Path Story drafted and confirmed"
 - id: predictive
   title: "A change's risk before it is merged"
 - id: organisation
@@ -12,7 +12,7 @@
 - id: repair
   title: "The repair of tests that work badly"
 - id: authoring
-  title: "New tests for the test plan's gaps"
+  title: "New tests for the test plan's gaps, and from a confirmed Happy Path Story (in development)"
 - id: transformation
   title: "Agile Transformation: the measured signals and the plan"
 - id: health-audit
