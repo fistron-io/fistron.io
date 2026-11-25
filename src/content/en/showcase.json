@@ -104,7 +104,7 @@
       "you_get": "A confirmed story beside the code that QE gets with the pull or merge request, and apart from it what else to test.",
       "guide": "use-happy-path-story",
       "pictures": [],
-      "pending": "Shown once its pages in the GUI are built; their design waits for approval."
+      "pending": "Shown once the demo has a story's documents to show its pages with."
     },
     {
       "id": "fewer-tokens",
