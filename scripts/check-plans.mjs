@@ -97,6 +97,32 @@ for (const example of parse(read("pricing-examples.yaml"))) {
     problems.push(`${example.id}: its text does not say ${eur(yearly)}`);
   }
 }
+// Individual and Team in USD and CZK (currencies.yaml, the founder 2026-11-26): each fixed
+// price stands for one of the core's, in every currency the page shows, within 10 % of the
+// core's EUR price at the rate
+const currencies = parse(read("currencies.yaml"));
+for (const [plan, fixed] of Object.entries(currencies.fixed)) {
+  const price = byId[plan]?.price;
+  if (!price) {
+    problems.push(`currencies.yaml: ${plan} is not one of the core's plans with a price`);
+    continue;
+  }
+  for (const [key, amounts] of Object.entries(fixed)) {
+    const base = key.split(".").reduce((at, part) => at?.[part], price);
+    if (typeof base !== "number") {
+      problems.push(`currencies.yaml: ${plan}'s ${key} is not one of the core's prices`);
+      continue;
+    }
+    for (const [currency, rate] of Object.entries(currencies.rate.per_eur)) {
+      const amount = amounts[currency];
+      if (!Number.isInteger(amount) || amount <= 0) {
+        problems.push(`currencies.yaml: ${plan}'s ${key} has no price in ${currency}`);
+      } else if (Math.abs(amount / (base * rate) - 1) > 0.1) {
+        problems.push(`currencies.yaml: ${plan}'s ${key} of ${currency} ${amount} is more than 10 % from ${eur(base)} at ${rate}`);
+      }
+    }
+  }
+}
 if (problems.length > 0) {
   for (const p of problems) console.error(`check-plans: ${p}`);
   process.exit(1);

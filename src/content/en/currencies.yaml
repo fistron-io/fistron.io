@@ -1,0 +1,26 @@
+# Prices in USD and CZK beside EUR (the founder, 2026-11-26): only what is bought by card
+# through Paddle, Individual and Team, at fixed round amounts that are Paddle's price
+# overrides (the United States: USD, Czechia: CZK); Business and Enterprise stay in EUR.
+# The model credit and the model pool stay in EUR, shown with about how much they are at
+# the rate below. scripts/check-plans.mjs checks each fixed price against the core's EUR
+# price at that rate (within 10 %).
+rate:
+  date: "2026-11-16"
+  source: "Czech National Bank"
+  per_eur:
+    USD: 1.1013
+    CZK: 24.43
+# the currency shown first, by the visitor's country; any other country: EUR
+countries:
+  US: USD
+  CZ: CZK
+# a plan's fixed prices, by the core's price they stand for (plans.json)
+fixed:
+  individual:
+    monthly_per_committer: { USD: 17, CZK: 370 }
+    yearly_per_committer: { USD: 159, CZK: 3500 }
+    with_model.monthly: { USD: 32, CZK: 710 }
+    with_model.yearly: { USD: 309, CZK: 6800 }
+  team:
+    monthly_per_committer: { USD: 28, CZK: 610 }
+note: "Individual and Team: at checkout you pay your country's price, in USD in the United States, in CZK in Czechia, elsewhere in EUR or your own currency. Business and Enterprise are priced in EUR. The model credit and the model pool are in EUR. Prices exclude VAT."

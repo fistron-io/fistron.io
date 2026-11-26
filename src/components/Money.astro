@@ -1,0 +1,26 @@
+---
+// A text with its EUR amounts shown in the currency the visitor chose on /pricing/
+// (currencies.yaml): each amount a span with its text in every currency, EUR first and
+// without the page's script. A plan sold only in EUR gives no fixed prices: its text as it is.
+import { moneyParts } from "../lib/pricing.mjs";
+
+interface Props {
+  text: string;
+  fixed?: Map<number, Record<string, number>>;
+  rates: Record<string, number>;
+}
+const { text, fixed, rates } = Astro.props;
+const parts = fixed ? moneyParts(text, fixed, rates) : [{ text }];
+---
+
+{
+  parts.map((p) =>
+    "text" in p ? (
+      p.text
+    ) : (
+      <span class="money" {...Object.fromEntries(Object.entries(p).map(([c, v]) => [`data-${c.toLowerCase()}`, v]))}>
+        {p.EUR}
+      </span>
+    ),
+  )
+}

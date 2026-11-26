@@ -8,17 +8,21 @@ import CallToAction from "../components/CallToAction.astro";
 import Fistronek from "../components/Fistronek.astro";
 import Coffee from "../components/Coffee.astro";
 import Working from "../components/Working.astro";
+import Money from "../components/Money.astro";
+import { parse } from "yaml";
 import { section, list, listWithIds } from "../lib/content";
-import { shortPriceNote, inDevelopment } from "../lib/pricing.mjs";
+import { shortPriceNote, inDevelopment, fixedPrices } from "../lib/pricing.mjs";
 import plans from "../content/en/plans.json";
+import currenciesText from "../content/en/currencies.yaml?raw";
 
 const page = await section("pricingPage");
-const tiers = await list("pricing");
+const tiers = await listWithIds("pricing");
 const programmes = await list("pricingProgrammes");
 const ways = await section("pricingWays");
 // Two ways in (Fistron ADR 0192): the Pilot (the core's plan trial) beside each
 // programme on a plan, then the plans; the table below has the core's plans only.
 type Card = {
+  id?: string;
   name: string;
   for: string;
   price: string;
@@ -48,6 +52,14 @@ const interfaces = await list("planInterfaces");
 const [usedLabel, doesLabel] = compare.groups ?? ["How you use it", "What it does"];
 const has = (plan: string, feature: string) =>
   plans.plans.find((p) => p.plan === plan)?.features.includes(feature) ?? false;
+// Individual and Team also in USD and CZK (currencies.yaml): the visitor chooses, their
+// country's first; the others in EUR
+const currencies = parse(currenciesText);
+const rates: Record<string, number> = currencies.rate.per_eur;
+const fixedOf = (id?: string) => {
+  const plan = plans.plans.find((p) => p.plan === id);
+  return plan && currencies.fixed[plan.plan] ? fixedPrices(plan, currencies.fixed[plan.plan]) : undefined;
+};
 ---
 
 <BaseLayout title="Pricing" description={page.intro}>
@@ -65,20 +77,40 @@ const has = (plan: string, feature: string) =>
             {row.title}
           </h2>
           {row.intro && <p class="row-intro">{row.intro}</p>}
+          {row.id === "plans" && (
+            <div class="currency-choice">
+              <fieldset class="currency" data-currency-switch data-countries={JSON.stringify(currencies.countries)} hidden>
+                <legend>Prices in</legend>
+                {["EUR", ...Object.keys(rates)].map((c) => (
+                  <label>
+                    <input type="radio" name="currency" value={c} checked={c === "EUR"} />
+                    {c}
+                  </label>
+                ))}
+              </fieldset>
+              <p class="currency-note">{currencies.note}</p>
+            </div>
+          )}
           <ul class:list={["tiers", row.id]}>
             {row.cards.map((t) => (
               <li class:list={{ featured: t.featured }}>
                 <h3>{t.name}</h3>
                 <p class="for">{t.for}</p>
                 <p class="price">
-                  <span class="amount">{t.price}</span>
-                  {t.priceNote && <span class="per">{t.priceNote}</span>}
+                  <span class="amount">
+                    <Money text={t.price} fixed={fixedOf(t.id)} rates={rates} />
+                  </span>
+                  {t.priceNote && (
+                    <span class="per">
+                      <Money text={t.priceNote} fixed={fixedOf(t.id)} rates={rates} />
+                    </span>
+                  )}
                 </p>
                 {t.minimum && <p class="minimum">{t.minimum}</p>}
                 <ul class="features">
                   {t.features.map((f) => (
                     <li>
-                      {f}
+                      <Money text={f} fixed={fixedOf(t.id)} rates={rates} />
                       {inDevelopment(f) && <Working size={24} />}
                     </li>
                   ))}
@@ -132,8 +164,14 @@ const has = (plan: string, feature: string) =>
               tiers.map((t) => (
                 <th scope="col">
                   {t.name}
-                  <span class="th-price">{t.price}</span>
-                  {t.priceNote && <span class="th-per">{shortPriceNote(t.priceNote)}</span>}
+                  <span class="th-price">
+                    <Money text={t.price} fixed={fixedOf(t.id)} rates={rates} />
+                  </span>
+                  {t.priceNote && (
+                    <span class="th-per">
+                      <Money text={shortPriceNote(t.priceNote)} fixed={fixedOf(t.id)} rates={rates} />
+                    </span>
+                  )}
                 </th>
               ))
             }
@@ -253,7 +291,100 @@ const has = (plan: string, feature: string) =>
   <CallToAction title="Try it on your own project" primary="Start your pilot, free for 30 days" />
 </BaseLayout>
 
+<script>
+  // The currency Individual's and Team's prices are shown in (currencies.yaml): the one the
+  // visitor chose before, else their country's; the page without this script shows EUR.
+  import { defaultCurrency } from "../lib/pricing.mjs";
+
+  const KEY = "fistron.currency";
+  const choice = document.querySelector<HTMLFieldSetElement>("[data-currency-switch]");
+
+  function chosen(): string | null {
+    try {
+      return localStorage.getItem(KEY);
+    } catch {
+      return null;
+    }
+  }
+
+  function show(currency: string) {
+    for (const amount of document.querySelectorAll<HTMLElement>(".money")) {
+      amount.textContent = amount.dataset[currency.toLowerCase()] ?? amount.dataset.eur ?? amount.textContent;
+    }
+    for (const input of choice?.querySelectorAll<HTMLInputElement>("input[name=currency]") ?? []) {
+      input.checked = input.value === currency;
+    }
+  }
+
+  if (choice) {
+    const offered = [...choice.querySelectorAll<HTMLInputElement>("input[name=currency]")].map((i) => i.value);
+    const countries = JSON.parse(choice.dataset.countries ?? "{}");
+    const visitor = { timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone, languages: navigator.languages };
+    const before = chosen();
+    show(before && offered.includes(before) ? before : defaultCurrency(visitor, countries));
+    choice.hidden = false;
+    choice.addEventListener("change", (event) => {
+      const currency = (event.target as HTMLInputElement).value;
+      show(currency);
+      try {
+        localStorage.setItem(KEY, currency);
+      } catch {
+        // kept for this page only
+      }
+    });
+  }
+</script>
+
 <style>
+  .currency-choice {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 20px;
+    margin-bottom: 20px;
+  }
+  .currency {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+  .currency[hidden] {
+    display: none;
+  }
+  .currency legend {
+    float: left;
+    margin-right: 8px;
+    color: var(--color-muted);
+  }
+  .currency label {
+    padding: 4px 12px;
+    border: 1px solid var(--color-line);
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .currency label:has(input:checked) {
+    border-color: var(--color-heading);
+    color: var(--color-heading);
+    font-weight: 600;
+  }
+  .currency label:has(input:focus-visible) {
+    outline: 2px solid var(--color-heading);
+    outline-offset: 2px;
+  }
+  .currency input {
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+  }
+  .currency-note {
+    flex: 1 1 320px;
+    font-size: 0.875rem;
+    color: var(--color-muted);
+  }
   .compare-top {
     display: flex;
     flex-wrap: wrap;
