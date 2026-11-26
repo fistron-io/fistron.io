@@ -142,7 +142,7 @@
   group: quality
   short: "Developers build it. Fistron turns it into a test story, then into a test. For every feature, Fistron writes from the code what must at least work, the developer confirms it, and QE gets it automated."
   status: in-development
-  stage: "In development (Fistron ADR 0191). Implemented: the story drafted from the change and its ticket, the developer's confirmation, what the happy path does not cover, the story in the review of a pull or merge request with the optional policy, and the test written from a confirmed story with the checklist of the steps no test can take, from the command line and your coding assistant. Next: the views in the GUI and the validation on a public test suite. It builds on what Fistron does today: the test plan for a change, the map of your test suite and proposed tests verified in your CI."
+  stage: "In development (Fistron ADR 0191). Implemented: the story drafted from the change and its ticket, the developer's confirmation, what the happy path does not cover, the story in the review of a pull or merge request with the optional policy, and the test written from a confirmed story with the checklist of the steps no test can take, from the command line and your coding assistant, and the views in the GUI: the story on the request's review, Happy Path Stories in the test plan. The audits offer it where your feature changes come without a test, in your own numbers. Next: the validation on a public test suite. It builds on what Fistron does today: the test plan for a change, the map of your test suite and proposed tests verified in your CI."
   problem: "The developer knows what the feature should do. The tester gets a diff and a ticket and has to guess. The first test of a new feature is written late, from scratch, and sometimes tests something else than what was built."
   gets:
     - "A happy path story written by Fistron from what the developer built and its ticket: what the feature does, what must be in place, the steps and what should happen. In plain words, no special syntax."
@@ -434,6 +434,25 @@
     - "Run by your project manager, or by a Fistroneer who manages the transformation with you."
   questions: [agile-transformation, measurable-quality]
   related: [outcomes]
+- id: release-validation-report
+  title: "Release Validation Report"
+  for: "For QE leads, release managers and the leadership they report to"
+  group: growth
+  short: "The report on a release's validation, written by Fistron from your epic, issues, pull requests and CI runs. On demand or on a schedule, every claim linked to its evidence."
+  status: in-development
+  stage: "Planned (Fistron ADR 0194). It builds on what Fistron does today: reading tickets and epics, the CI history, reporting and export. The quality health audit and the audit's plan already offer it where your evidence or your team's words ask for it."
+  problem: "When a validation cycle ends, someone spends hours collecting dates, resubmissions, bugs and test fixes from issues, pull requests and CI into a report. It arrives late, every report looks different, and nobody compares one cycle with the next."
+  gets:
+    - "A report from your release epic and its sources: scope, planned and actual dates with the delay, what caused it, bugs verified and found, test suite fixes, new platforms, links."
+    - "Every claim linked to its evidence. What the data cannot tell (why a decision was made) is asked, never invented."
+    - "A standard template (ISO/IEC/IEEE 29119-3 Test Completion Report) or your team's own, created from an example report you already have."
+    - "On demand, or on a schedule: a status during the cycle and the completion report at its end."
+    - "Trends across cycles: delays, resubmissions, bugs and fixes over time, as charts."
+    - "Restricted and embargoed bugs are never shown: a link and 'restricted', nothing more."
+    - "Exported to Markdown or PDF, signed and with your logo where your plan includes it; published only after a person confirms."
+  questions: [release-report]
+  related: []
+  see: [end-to-end, measurable-quality, happy-path-story]
 - id: expand-and-grow
   title: "Expand and grow your business"
   for: "For leaders who want to grow with the people they have"

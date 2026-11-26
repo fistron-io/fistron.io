@@ -295,6 +295,15 @@
           "caption": "The record of a synthetic team (the demo's document)."
         }
       ]
+    },
+    {
+      "id": "release-validation-report",
+      "you_do": "Point Fistron at the epic of a release's validation cycle.",
+      "fistron_does": "Fistron reads its issues, pull or merge requests and CI runs, and writes the report with every claim linked to its evidence.",
+      "you_get": "The cycle's report in your team's template, and what the data could not tell asked of you.",
+      "guide": "solution-release-validation-report",
+      "pictures": [],
+      "pending": "Shown once Fistron writes the report of a cycle."
     }
   ]
 }
