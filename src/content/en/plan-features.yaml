@@ -13,6 +13,8 @@
   title: "The repair of tests that work badly"
 - id: authoring
   title: "New tests for the test plan's gaps, and from a confirmed Happy Path Story"
+- id: triage-chain
+  title: "What follows a new failure's triage by your project's rules: its investigation and its fix, the request prepared for you to send"
 - id: transformation
   title: "Agile Transformation: the measured signals and the plan"
 - id: health-audit
