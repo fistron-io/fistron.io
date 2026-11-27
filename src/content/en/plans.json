@@ -18,7 +18,8 @@
         "health-audit",
         "certification",
         "migration",
-        "triage-chain"
+        "triage-chain",
+        "release-schedule"
       ],
       "limits": {
         "projects": 1,
@@ -66,7 +67,8 @@
         "repair",
         "authoring",
         "brand-logo",
-        "triage-chain"
+        "triage-chain",
+        "release-schedule"
       ],
       "limits": {
         "projects": null,
@@ -99,7 +101,8 @@
         "brand-logo",
         "brand-colours",
         "brand-outputs",
-        "triage-chain"
+        "triage-chain",
+        "release-schedule"
       ],
       "limits": {
         "projects": null,
@@ -133,7 +136,8 @@
         "brand-colours",
         "brand-outputs",
         "brand-everywhere",
-        "triage-chain"
+        "triage-chain",
+        "release-schedule"
       ],
       "limits": {
         "projects": null,

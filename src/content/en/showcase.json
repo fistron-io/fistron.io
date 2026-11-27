@@ -303,7 +303,7 @@
       "you_get": "The cycle's report in your team's template, and what the data could not tell asked of you.",
       "guide": "solution-release-validation-report",
       "pictures": [],
-      "pending": "Shown once Fistron writes the report of a cycle."
+      "pending": "Shown once the demo has a cycle's report."
     }
   ]
 }

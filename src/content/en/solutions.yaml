@@ -438,18 +438,18 @@
   title: "Release Validation Report"
   for: "For QE leads, release managers and the leadership they report to"
   group: growth
-  short: "The report on a release's validation, written by Fistron from your epic, issues, pull requests and CI runs. On demand or on a schedule, every claim linked to its evidence."
-  status: in-development
-  stage: "Planned (Fistron ADR 0194). It builds on what Fistron does today: reading tickets and epics, the CI history, reporting and export. The quality health audit and the audit's plan already offer it where your evidence or your team's words ask for it."
+  short: "The report on a release's validation, written by Fistron from your epic, issues, pull requests and CI runs. On demand or by itself once the epic closes, every claim linked to its evidence."
+  status: available
+  stage: "Implemented and being validated (Fistron ADR 0194): the report of a cycle from its epic, every claim linked to its evidence, in the standard template or your own; on demand on the epic, or by itself the first day the epic is closed (from Team), its comment on the epic proposed; printed or saved as a PDF and as Markdown, from Business with your logo and signed with your installation's key. The quality health audit and the audit's plan offer it where your evidence or your team's words ask for it. Next: the trends across cycles."
   problem: "When a validation cycle ends, someone spends hours collecting dates, resubmissions, bugs and test fixes from issues, pull requests and CI into a report. It arrives late, every report looks different, and nobody compares one cycle with the next."
   gets:
-    - "A report from your release epic and its sources: scope, planned and actual dates with the delay, what caused it, bugs verified and found, test suite fixes, new platforms, links."
+    - "A report from your release epic and its sources: scope, planned and actual dates with the delay, what caused it, resubmissions, bugs verified and found, test suite fixes, links."
     - "Every claim linked to its evidence. What the data cannot tell (why a decision was made) is asked, never invented."
     - "A standard template (ISO/IEC/IEEE 29119-3 Test Completion Report) or your team's own, created from an example report you already have."
-    - "On demand, or on a schedule: a status during the cycle and the completion report at its end."
-    - "Trends across cycles: delays, resubmissions, bugs and fixes over time, as charts."
+    - "On demand at any time, a status while the cycle runs; and the completion report by itself the first day the epic is closed (from Team)."
+    - "Trends across cycles (planned): delays, resubmissions, bugs and fixes over time, as charts."
     - "Restricted and embargoed bugs are never shown: a link and 'restricted', nothing more."
-    - "Exported to Markdown or PDF, signed and with your logo where your plan includes it; published only after a person confirms."
+    - "Printed or saved as a PDF and exported to Markdown; from Business with your logo, and signed with your installation's key so anyone can verify it offline. Its comment on the epic is posted only after a person confirms."
   questions: [release-report]
   related: []
   see: [end-to-end, measurable-quality, happy-path-story]

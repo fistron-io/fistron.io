@@ -15,6 +15,8 @@
   title: "New tests for the test plan's gaps, and from a confirmed Happy Path Story"
 - id: triage-chain
   title: "What follows a new failure's triage by your project's rules: its investigation and its fix, the request prepared for you to send"
+- id: release-schedule
+  title: "A release cycle's completion report made by itself once its epic closes"
 - id: transformation
   title: "Agile Transformation: the measured signals and the plan"
 - id: health-audit
@@ -32,7 +34,7 @@
 - id: brand-colours
   title: "Your colours in the GUI"
 - id: brand-outputs
-  title: "Your logo on printed documents and PDFs, your name on exported reports"
+  title: "Your logo on printed documents and PDFs, your name on exported reports, a release cycle's report signed with your installation's key"
 - id: brand-everywhere
   title: "Your brand on attestations' pages, e-mails, chat messages and the organisation's dashboard"
 - id: certification

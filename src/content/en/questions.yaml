@@ -97,8 +97,8 @@
   status: in-development
 - id: release-report
   question: "Can Fistron write our release validation report?"
-  answer: "Yes. Point it at the release epic: it reads the issues, pull requests and CI runs, fills a standard or your own template, links every claim to its evidence and asks you only what the data cannot tell. Run it on demand or on a schedule."
-  status: in-development
+  answer: "Yes. Point it at the release epic: it reads the issues, pull requests and CI runs, fills a standard or your own template, links every claim to its evidence and asks you only what the data cannot tell. Run it on demand, or let it make the completion report by itself once the epic closes."
+  status: available
 - id: compliance
   question: "Can we pass NIS2, EU DORA or ISO 27001 without months of manual evidence?"
   answer: "Monitor the controls from the tools you already run, close the gaps through them and prepare the audit; the certificate through an accredited partner."
